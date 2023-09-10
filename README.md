@@ -56,3 +56,4 @@ This project was created using `2021.3.0f1`. When you open this project in Unity
 5. delete left over files from plastic or collab like x.meta.private or y.meta.private.meta (some files may be hidden so enable see hidden files)
 6. Commit and push.
 7. If you are having issues with .meta files check and modify your gitignore or make sure there are no empty folders. 
+ 
