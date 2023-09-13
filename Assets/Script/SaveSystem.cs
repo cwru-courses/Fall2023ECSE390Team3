@@ -5,30 +5,29 @@ using System.IO;
 
 public class SaveSystem : MonoBehaviour
 {
-    private static string latestSavePath = "";
-
     public static void CreateSave()
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + "/" + DateTime.Now.ToString("hh-mm-ss") + ".sav";
-        FileStream stream = new FileStream(path, FileMode.Create);
+        //string savePath = Application.persistentDataPath + "/" + DateTime.Now.ToString("hh-mm-ss") + ".sav";
+        string savePath = Application.persistentDataPath + "/save_default.sav";
+        FileStream stream = new FileStream(savePath, FileMode.Create);
 
         formatter.Serialize(stream, new SaveUnit());
         stream.Close();
 
-        latestSavePath = path;
-
-        Debug.Log(path);
+        Debug.Log(savePath);
     }
 
     public static void LoadSave()
     {
-        if (File.Exists(latestSavePath))
+        string savePath = Application.persistentDataPath + "/save_default.sav";
+
+        if (File.Exists(savePath))
         {
             BinaryFormatter formatter = new BinaryFormatter();
 
-            FileStream stream = new FileStream(latestSavePath, FileMode.Open);
+            FileStream stream = new FileStream(savePath, FileMode.Open);
 
             SaveUnit data = formatter.Deserialize(stream) as SaveUnit;
             stream.Close();
