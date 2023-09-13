@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UnderGround
+    uniqueID: 2004153213
+    locked: 0
+  - name: Ground
+    uniqueID: 2515288931
+    locked: 0
+  - name: OverGround
+    uniqueID: 3181721169
+    locked: 0
+  - name: Walls
+    uniqueID: 3496523957
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
