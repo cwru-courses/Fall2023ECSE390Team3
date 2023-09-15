@@ -20,8 +20,16 @@ public class PhaseShift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If player pressed key Q
         if (Input.GetKeyDown(switchKey))
         {
+            // Move character into the alternate world
+            Vector3 currentLocation = player.transform.position;
+            Debug.Log(currentLocation);
+            player.transform.position = new Vector3(currentLocation.x, currentLocation.y * -1, currentLocation.z);
+            Debug.Log(player.transform.position);
+
+            // Go to alternate camera
             cameras[currentCameraIndex].enabled = false;
             currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
             cameras[currentCameraIndex].enabled = true;
