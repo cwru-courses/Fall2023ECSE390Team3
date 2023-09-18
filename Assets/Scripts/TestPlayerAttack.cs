@@ -6,34 +6,24 @@ public class TestPlayerAttack : MonoBehaviour
 {
 	private Ray ray;
 	private bool isAttacking;
-	[SerializeField] GameObject punchEffect;
+	[SerializeField] private GameObject punchEffect;
 
 
 	void Start()
 	{
-
 		ray = new Ray(transform.position, transform.forward);
-
-
 	}
 
 	void Update()
 	{
-		if (isAttacking || (Input.GetButtonDown("Fire1")))
-		{
-			
-			if (!isAttacking)
-			{
-				StartCoroutine(Punch());
-			}
-			
-			
-		}
+		if (Input.GetButtonDown("Fire1"))
+        {
+            StartCoroutine(Punch());
+        }
 	}
 
 	private IEnumerator Punch()
 	{
-
 		isAttacking = true;
 		Vector2 direction = new Vector2(0, 0);
 		RaycastHit2D[] nearColliders = Physics2D.CircleCastAll(transform.position, 2f, direction);
