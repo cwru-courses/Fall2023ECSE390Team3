@@ -7,6 +7,9 @@ public class PhaseShift : MonoBehaviour
     public Camera[] cameras;
     public KeyCode switchKey = KeyCode.Q;
     private GameObject player;
+    public static float phaseShiftCoolDown = 2;
+    public static float coolDownRemaining = 2;
+    public static bool isCooldown = false;
 
     private int currentCameraIndex = 0;
 
@@ -20,9 +23,14 @@ public class PhaseShift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // If player pressed key Q
-        if (Input.GetKeyDown(switchKey))
+        Debug.Log(isCooldown);
+        Debug.Log(coolDownRemaining);
+        // If player pressed key Q and phase shift is not in cooling down
+        if (Input.GetKeyDown(switchKey) && (isCooldown == false))
         {
+            // Start cooling down
+            isCooldown = true;
+            coolDownRemaining = phaseShiftCoolDown;
             // Move character into the alternate world
             Vector3 currentLocation = player.transform.position;
             Debug.Log(currentLocation);
@@ -33,6 +41,17 @@ public class PhaseShift : MonoBehaviour
             cameras[currentCameraIndex].enabled = false;
             currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
             cameras[currentCameraIndex].enabled = true;
+        }
+        else
+        {
+            if (coolDownRemaining > 0)
+            {
+                coolDownRemaining -= Time.deltaTime;
+            }
+            else if (coolDownRemaining <= 0)
+            {
+                isCooldown = false;
+            }
         }
     }
 }
