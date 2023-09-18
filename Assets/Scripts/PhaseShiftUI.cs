@@ -19,6 +19,10 @@ public class PhaseShiftUI : MonoBehaviour
         {
             CoolDownPhaseShift();
         }
+        else if (phaseShiftImage.fillAmount != 0)
+        {
+            phaseShiftImage.fillAmount = 0;
+        }
     }
 
     public void CoolDownPhaseShift()
