@@ -147,5 +147,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
+  weaponPrefab: {fileID: 467909919249729066, guid: 05697af03c8a1e84488846182af3c23e, type: 3}
+  basicAttackRange: 2.5
+  basicAttackCD: 1
+  basicAttackRangeAngle: 45
+  basicAttackSwingTime: 0.1
+  basicAttackSFX: {fileID: 0}
   patrolPoints:
   - {x: 4.5, y: -3, z: 0}

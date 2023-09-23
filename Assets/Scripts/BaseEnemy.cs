@@ -13,6 +13,9 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected GameObject weaponPrefab;
     [SerializeField] protected float basicAttackRange;
     [SerializeField] protected float basicAttackCD;
+    [Range(0f, 180f)]
+    [SerializeField] protected float basicAttackRangeAngle;
+    [SerializeField] protected float basicAttackSwingTime; //duration of swing animation(temporary until real animation exists)
     [SerializeField] protected AudioSource basicAttackSFX;
 
     void Start()
