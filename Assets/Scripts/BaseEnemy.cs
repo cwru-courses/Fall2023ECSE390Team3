@@ -8,9 +8,12 @@ public abstract class BaseEnemy : MonoBehaviour
 	protected int movementSpeed;
 	protected bool alive;
 	protected Rigidbody2D rb2d;
+	protected float basicAttackCDLeft;
 	[SerializeField] protected GameObject playerObject;
+    [SerializeField] protected float basicAttackRange;
+    [SerializeField] protected float basicAttackCD;
 
-	void Start()
+    void Start()
 	{
 		
 	}
