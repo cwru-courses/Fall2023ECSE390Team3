@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -18,9 +19,18 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //testing health bar - can delete later
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            TakeDamage(10); 
+        //to test if health bar works- can press space bar to trigger
+        // if(Input.GetKeyDown(KeyCode.Space)) {
+        //     TakeDamage(10); 
+        // }
+
+        /* TO ADD:
+            enemy attack -> causes player health to decrease
+        */
+
+        //once player health gets below 0, go back to home screen (or load screen with saved checkpoints)
+        if(currentHealth <= 0) {
+             SceneManager.LoadSceneAsync("home_screen_scene");
         }
         
     }
