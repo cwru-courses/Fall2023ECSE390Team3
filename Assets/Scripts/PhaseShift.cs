@@ -8,7 +8,6 @@ public class PhaseShift : MonoBehaviour
 {
     public static PhaseShift Instance;
 
-    [SerializeField] private KeyCode switchKey = KeyCode.Q;
     [SerializeField] private float shiftCD;
     [SerializeField] private float shiftPrecastTime;
     [SerializeField] private Slider shiftProgressBar;
@@ -60,6 +59,8 @@ public class PhaseShift : MonoBehaviour
         transform.position = currentLocation;
 
         shiftCDTimer = shiftCD;
+
+        AmbientSystem.Instance.OnPhaseShift();
     }
 
     IEnumerator PhaseShiftPrecast()
