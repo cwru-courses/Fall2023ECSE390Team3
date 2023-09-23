@@ -9,7 +9,11 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
+    public int maxYarn = 100; //start at 100%
+    public int currentYarnCount;
+
     public HealthBar healthBar;
+    public HealthBar yarnTracker; //use Healthbar as yarn tracker 
 
     void Start()
     {
@@ -30,13 +34,24 @@ public class Player : MonoBehaviour
         {
             TakeDamage(10);
         }
-
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
         healthBar.SetHealth(currentHealth);
     }
+
+    //decrease yarn count
+    public void UseYarn(int amount) {
+        currentYarnCount -= amount; 
+        yarnTracker.SetHealth(currentYarnCount);
+    }
+
+    //increase yarn count
+    public void GainYarn(int amount) {
+        currentYarnCount += amount; 
+        yarnTracker.SetHealth(currentYarnCount); 
+    }
+
 }
