@@ -10,8 +10,10 @@ public abstract class BaseEnemy : MonoBehaviour
 	protected Rigidbody2D rb2d;
 	protected float basicAttackCDLeft;
 	[SerializeField] protected GameObject playerObject;
+    [SerializeField] protected GameObject weaponPrefab;
     [SerializeField] protected float basicAttackRange;
     [SerializeField] protected float basicAttackCD;
+    [SerializeField] protected AudioSource basicAttackSFX;
 
     void Start()
 	{

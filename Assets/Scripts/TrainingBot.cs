@@ -31,6 +31,16 @@ public class TrainingBot :  BaseEnemy
         if (alive)
         {
             move();
+            // do attack if player is in attack range and cd is ready
+            if (playerInAttackRange() && isBasicAttackReady())
+            {
+                attack();
+            }
+            // update cd if it is not ready yet
+            else if (!isBasicAttackReady())
+            {
+                basicAttackCDLeft -= Time.deltaTime;
+            }
         }
         
     }
@@ -64,6 +74,25 @@ public class TrainingBot :  BaseEnemy
     }
     protected override void attack()
     {
-
+        playerObject.GetComponent<Player>().TakeDamage(10);
+        basicAttackCDLeft = basicAttackCD;
+    }
+    // Check if the player within the basic attack range of the enemy
+    protected bool playerInAttackRange()
+    {
+        float playerEnemyDistance = Vector3.Distance(this.transform.position, this.playerObject.transform.position);
+        if (playerEnemyDistance < basicAttackRange)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    // Check if the basic attack cooling down is ready
+    protected bool isBasicAttackReady()
+    {
+        return basicAttackCDLeft <= 0;
     }
 }
