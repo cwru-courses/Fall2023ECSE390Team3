@@ -1,42 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject pauseMenuCanvas;
 
-    public static bool Paused  = false;
-    public GameObject PauseMenuCanvas;
+    private DefaultInputAction playerInputAction;
+
+    private bool paused  = false;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        playerInputAction = new DefaultInputAction();
+        playerInputAction.Player.Pause.started += OnPause;
+
+        pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            if(Paused){
-                Play();
-            }
-            else{
-                Stop();
-            }
+        playerInputAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInputAction.Disable();
+    }
+
+    private void OnPause(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("Pause");
+        paused = !paused;
+        if (paused)
+        {
+            pauseMenuCanvas.SetActive(true);
+            Time.timeScale = 0f;
         }
-    }
-
-    void Stop(){
-        PauseMenuCanvas.SetActive(true);
-        Time.timeScale =  0f;
-        Paused = true;
-    }
-
-    public void Play(){
-        PauseMenuCanvas.SetActive(false);
-        Time.timeScale =  1f;
-        Paused = false;
+        else
+        {
+            pauseMenuCanvas.SetActive(false);
+            Time.timeScale = 1f;
+        }
     }
 
     public void MainMenuButton(){
