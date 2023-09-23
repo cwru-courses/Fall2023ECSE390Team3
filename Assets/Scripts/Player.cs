@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public static Player _instance;
+    public static Player Instance;
 
     public int maxHealth = 100;
     public int currentHealth;
@@ -13,9 +13,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        if (_instance == null)
+        if (Instance == null)
         {
-            _instance = this;
+            Instance = this;
         }
 
         currentHealth = maxHealth;
