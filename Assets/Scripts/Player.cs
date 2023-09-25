@@ -6,10 +6,10 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    public int maxHealth = 100;
+    [SerializeField] private int maxHealth = 100;
     public int currentHealth;
 
-    public int maxYarn = 100; //start at 100%
+    [SerializeField] private int maxYarn = 100; //start at 100%
     public int currentYarnCount;
 
     public HealthBar healthBar;
@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
         }
 
         currentHealth = maxHealth;
+        currentYarnCount = maxYarn; 
         //set player health to maxHealth to start
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -30,10 +31,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         //testing health bar - can delete later
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10);
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     TakeDamage(10);
+        // }
     }
 
     public void TakeDamage(int damage)
@@ -44,6 +45,9 @@ public class Player : MonoBehaviour
 
     //decrease yarn count
     public void UseYarn(int amount) {
+        if(currentYarnCount < 0) {
+            Debug.Log("player out of yarn"); 
+        }
         currentYarnCount -= amount; 
         yarnTracker.SetHealth(currentYarnCount);
     }

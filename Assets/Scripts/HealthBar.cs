@@ -18,9 +18,9 @@ public class HealthBar : MonoBehaviour
     }
 
     public void SetHealth(int health) {
-        if(slider.value <= 0) {
-            Debug.Log("Player health < 0"); 
-        }
+        // if(slider.value <= 0) {
+        //     Debug.Log("Player health < 0"); 
+        // }
         slider.value = health; 
 
         fill.color = gradient.Evaluate(slider.normalizedValue); 
