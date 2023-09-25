@@ -18,7 +18,7 @@ public class PostDeathEntity : MonoBehaviour
         //initial values
         SR = GetComponent<SpriteRenderer>();
         startTime = Time.time;
-        moveDir = new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f), 0f);
+        moveDir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
         moveDir = moveDir.normalized;
     }
 
