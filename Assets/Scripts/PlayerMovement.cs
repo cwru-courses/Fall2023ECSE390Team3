@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private bool onDash;
     private float dashTimer;
     private float lastDashTime;
+    private Vector2 lastMovementDir; //tracking last direction player moved for attack scripts
 
     // Start is called before the first frame update
     void Awake()
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         onDash = false;
         dashTimer = 0f;
         lastDashTime = -dashCD;
+        lastMovementDir = Vector2.right;
     }
 
     private void OnEnable()
@@ -46,6 +48,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 inputDir = playerInputAction.Player.Movement.ReadValue<Vector2>().normalized;
         inputDir.y *= verticalSpeedMultiplier;
+        
+        //update lastMovementDir only if moving
+        if (inputDir.magnitude != 0)
+        {
+            lastMovementDir = inputDir.normalized;
+        }
+
 
         if (onDash)
         {
@@ -68,5 +77,10 @@ public class PlayerMovement : MonoBehaviour
             dashTimer = 0f;
             lastDashTime = Time.time;
         }
+    }
+
+    public Vector2 getLastDirection()
+    {
+        return lastMovementDir;
     }
 }
