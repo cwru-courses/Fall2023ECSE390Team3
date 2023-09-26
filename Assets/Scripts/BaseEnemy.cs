@@ -7,50 +7,49 @@ using UnityEngine;
 public abstract class BaseEnemy : MonoBehaviour
 {
 
-	protected int health;
-	protected int movementSpeed;
-	protected bool alive;
-	protected Rigidbody2D rb2d;
-	protected float basicAttackCDLeft;
-	[SerializeField] protected GameObject playerObject;
-	[SerializeField] protected GameObject weaponPrefab;
-	[SerializeField] protected float basicAttackRange;
-	[SerializeField] protected float basicAttackCD;
-	[Range(0f, 180f)]
-	[SerializeField] protected float basicAttackRangeAngle;
-	[SerializeField] protected float basicAttackSwingTime; //duration of swing animation(temporary until real animation exists)
-	[SerializeField] protected AudioSource basicAttackSFX;
-	[SerializeField] private int maxHealth;
-	[SerializeField] protected GameObject smokeCloudPrefab;
-	[SerializeField] protected GameObject postDeathEntityPrefab;
-	[SerializeField] protected float deathAnimLength;
+	  protected int health;
+	  protected int movementSpeed;
+	  protected bool alive;
+	  protected Rigidbody2D rb2d;
+	  protected float basicAttackCDLeft;
+	  [SerializeField] protected GameObject playerObject;
+    [SerializeField] protected GameObject weaponPrefab;
+    [SerializeField] protected float basicAttackRange;
+    [SerializeField] protected float basicAttackCD;
+    [Range(0f, 180f)]
+    [SerializeField] protected float basicAttackRangeAngle;
+    [SerializeField] protected float basicAttackSwingTime; //duration of swing animation(temporary until real animation exists)
+    [SerializeField] protected AudioSource basicAttackSFX;
+    [SerializeField] private int maxHealth;
+    [SerializeField] protected GameObject smokeCloudPrefab;
+	  [SerializeField] protected GameObject postDeathEntityPrefab;
+	  [SerializeField] protected float deathAnimLength;
 
 
+    void Start()
+    {
+        health = maxHealth;
+        alive = true;
+        rb2d = GetComponent<Rigidbody2D>();
+    }
 
-	void Start()
-	{
-		health = maxHealth;
-		alive = true;
-		rb2d = GetComponent<Rigidbody2D>();
-	}
-
-	public bool isAlive() { return alive; }
+    public bool isAlive() { return alive; }
 
 
-	public virtual void ReactToHit(int damage)
-	{
-		health -= damage;
-		if (health <= 0)
-		{
-			alive = false;
-			StopAllCoroutines();
-			StartCoroutine(Die());
-		}
-	}
+    public virtual void ReactToHit(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            alive = false;
+            StopAllCoroutines();
+            StartCoroutine(Die());
+        }
+    }
 
-	protected IEnumerator Die()
-	{
-		float timeToDestroy = 2.5f; // default value for the time objects which appear after death will last for
+    protected IEnumerator Die()
+    {
+        float timeToDestroy = 2.5f; // default value for the time objects which appear after death will last for
 
 		//wait before initiating smoke etc
 		yield return new WaitForSeconds(deathAnimLength);
@@ -88,9 +87,9 @@ public abstract class BaseEnemy : MonoBehaviour
 		Destroy(postDeathEntityObject);
 		Destroy(smokeCloudObject);
 		Destroy(this.gameObject);
-	}
+    }
 
-	protected abstract void move();
-	protected abstract void attack();
+    protected abstract void move();
+    protected abstract void attack();
 }
 

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -8,11 +7,12 @@ public class PhaseShift : MonoBehaviour
 {
     public static PhaseShift Instance;
 
-    [SerializeField] private KeyCode switchKey = KeyCode.Q;
     [SerializeField] private float shiftCD;
     [SerializeField] private float shiftPrecastTime;
     [SerializeField] private Slider shiftProgressBar;
     [SerializeField] private float precastingTimer;
+
+    [SerializeField] private Image uiImg;
 
     private DefaultInputAction playerInputAction;
 
@@ -30,6 +30,8 @@ public class PhaseShift : MonoBehaviour
         playerInputAction.Player.PhaseShift.performed += StartPhaseShift;
 
         shiftProgressBar.gameObject.SetActive(false);
+
+        uiImg.fillAmount = 0;
     }
 
     private void OnEnable()
@@ -47,6 +49,11 @@ public class PhaseShift : MonoBehaviour
         shiftCDTimer = Mathf.Max(shiftCDTimer - Time.fixedDeltaTime, 0);
     }
 
+    void LateUpdate()
+    {
+        uiImg.fillAmount = shiftCDTimer / shiftCD;
+    }
+
     private void StartPhaseShift(InputAction.CallbackContext ctx)
     {
         if (shiftCDTimer <= 0) StartCoroutine("PhaseShiftPrecast");
@@ -60,6 +67,8 @@ public class PhaseShift : MonoBehaviour
         transform.position = currentLocation;
 
         shiftCDTimer = shiftCD;
+
+        AmbientSystem.Instance.OnPhaseShift();
     }
 
     IEnumerator PhaseShiftPrecast()
@@ -77,10 +86,5 @@ public class PhaseShift : MonoBehaviour
         shiftProgressBar.gameObject.SetActive(false);
 
         ToPhaseShift();
-    }
-
-    public float GetCDPercentage()
-    {
-        return shiftCDTimer / shiftCD;
     }
 }
