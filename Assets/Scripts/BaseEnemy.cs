@@ -19,10 +19,6 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected float basicAttackSwingTime; //duration of swing animation(temporary until real animation exists)
     [SerializeField] protected AudioSource basicAttackSFX;
 
-    void Start()
-	{
-		
-	}
 
 
     void Start()
