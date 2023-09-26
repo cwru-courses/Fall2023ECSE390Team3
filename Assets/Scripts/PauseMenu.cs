@@ -14,11 +14,27 @@ public class PauseMenu : MonoBehaviour
     void Awake()
     {
         playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.Pause.started += OnPause;
 
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
     }
+
+    // void LateUpdate(){
+    //     Debug.Log("Pause");
+    //     paused = !paused;
+    //     // if(Input.getKeyDown("Escape"))
+    //     if (paused)
+    //     {
+    //         pauseMenuCanvas.SetActive(true);
+    //         Time.timeScale = 0f;
+    //     }
+    //     else
+    //     {
+    //         pauseMenuCanvas.SetActive(false);
+    //         Time.timeScale = 1f;
+    //         Debug.Log("qwe");
+    //     }
+    // }
 
     private void OnEnable()
     {
@@ -43,6 +59,7 @@ public class PauseMenu : MonoBehaviour
         {
             pauseMenuCanvas.SetActive(false);
             Time.timeScale = 1f;
+            Debug.Log("qwe");
         }
     }
 
