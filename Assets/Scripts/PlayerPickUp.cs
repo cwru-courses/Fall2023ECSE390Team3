@@ -4,43 +4,45 @@ using UnityEngine;
 
 public class PlayerPickUp : MonoBehaviour
 {
-
-    private Transform playerTransform;
     private GameObject pickedUpObject;
-    private float pickUpDist  = 1000.0f;
-    private LayerMask layerMask; //layer of objects that can be picked up
+    private float pickUpRadius  = 3.0f;
+    [SerializeField] private LayerMask layerMask; //layer of objects that can be picked up
 
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = transform;
-        layerMask = LayerMask.GetMask("PickUpable");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if button is pressed, pick up object
+        //button is pressed
         if (Input.GetKeyDown(KeyCode.P))
         {
-            PickUp();
-        }  
+            if (pickedUpObject == null)
+            {
+                PickUp();
+
+            }
+            else
+            {
+                PutDown();
+            }  
+        }
     }
 
     //pick up an object
     void PickUp()
     {
-        //debug that allows to track the raycast
-        Debug.DrawRay(playerTransform.position, playerTransform.forward * pickUpDist, Color.red);
+        //array of objects that are in the PickUpable layer within the pickupable radius
+        Collider2D objInRadius= Physics2D.OverlapCircle(transform.position, pickUpRadius, layerMask);
 
-        //get the first object hit in the PickUpable layer within the pickupable distance
-        RaycastHit2D hit2D = Physics2D.Raycast(playerTransform.position, playerTransform.forward, pickUpDist, layerMask, 0);
-
-        //if the collider of object is not null
-        if (hit2D.collider != null)
+        //if the object exists
+        if (objInRadius != null)
         {
             //store a reference to the picked object
-            pickedUpObject = hit2D.collider.gameObject;
+            pickedUpObject = objInRadius.gameObject;
 
             //disable the collider of the picked object
             Collider2D objectCollider = pickedUpObject.GetComponent<Collider2D>();
@@ -50,10 +52,24 @@ public class PlayerPickUp : MonoBehaviour
             }
 
             //attach the object to player by making it a child
-            pickedUpObject.transform.parent = playerTransform;
+            pickedUpObject.transform.parent = transform;
 
             //move the object to the player location
-            pickedUpObject.transform.position = playerTransform.position;
+            pickedUpObject.transform.position = transform.position;
         }
+    }
+
+    //drop an object
+    void PutDown()
+    {
+        //enable the collider of the picked object
+        Collider2D objectCollider = pickedUpObject.GetComponent<Collider2D>();
+        if (objectCollider == null)
+        {
+            objectCollider.enabled = true;
+        }
+
+        //detach the object to player by making it a child
+        pickedUpObject.transform.parent = null;
     }
 }

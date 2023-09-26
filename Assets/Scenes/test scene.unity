@@ -178,6 +178,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Stone T5
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
+      propertyPath: m_TagString
+      value: PickUpable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505844789836, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
 --- !u!1 &174635453
@@ -892,6 +904,7 @@ GameObject:
   - component: {fileID: 521785256}
   - component: {fileID: 521785257}
   - component: {fileID: 521785258}
+  - component: {fileID: 521785259}
   m_Layer: 15
   m_Name: Player
   m_TagString: Player
@@ -1020,6 +1033,21 @@ MonoBehaviour:
   switchKey: 113
   phaseShiftSlider: {fileID: 1269321966}
   phaseShiftPrecasting: 1
+--- !u!114 &521785259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521785251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403c3d3ccb0af4377806cbdfcd12305e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 67108864
 --- !u!1001 &522618664
 PrefabInstance:
   m_ObjectHideFlags: 0
