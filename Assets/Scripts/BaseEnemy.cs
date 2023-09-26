@@ -18,6 +18,7 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected float basicAttackRangeAngle;
     [SerializeField] protected float basicAttackSwingTime; //duration of swing animation(temporary until real animation exists)
     [SerializeField] protected AudioSource basicAttackSFX;
+    [SerializeField] private int maxHealth;
 
 
 
