@@ -1,20 +1,31 @@
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
-	[SerializeField] protected LayerMask whatIsPlayer;
-	[SerializeField] protected int maxHealth;
-	[SerializeField] protected int movementSpeed;
+
+	protected int health;
+	protected int movementSpeed;
+	protected bool alive;
+	protected Rigidbody2D rb2d;
+	protected float basicAttackCDLeft;
 	[SerializeField] protected GameObject playerObject;
+	[SerializeField] protected GameObject weaponPrefab;
+	[SerializeField] protected float basicAttackRange;
+	[SerializeField] protected float basicAttackCD;
+	[Range(0f, 180f)]
+	[SerializeField] protected float basicAttackRangeAngle;
+	[SerializeField] protected float basicAttackSwingTime; //duration of swing animation(temporary until real animation exists)
+	[SerializeField] protected AudioSource basicAttackSFX;
+	[SerializeField] private int maxHealth;
 	[SerializeField] protected GameObject smokeCloudPrefab;
 	[SerializeField] protected GameObject postDeathEntityPrefab;
 	[SerializeField] protected float deathAnimLength;
 
-	protected int health;
-	protected bool alive;
-	protected Rigidbody2D rb2d;
+
 
 	void Start()
 	{
@@ -24,6 +35,7 @@ public abstract class BaseEnemy : MonoBehaviour
 	}
 
 	public bool isAlive() { return alive; }
+
 
 	public virtual void ReactToHit(int damage)
 	{
@@ -81,3 +93,4 @@ public abstract class BaseEnemy : MonoBehaviour
 	protected abstract void move();
 	protected abstract void attack();
 }
+
