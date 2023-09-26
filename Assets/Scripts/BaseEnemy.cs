@@ -4,37 +4,40 @@ using UnityEngine;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
-	protected int health;
-	protected int movementSpeed;
-	protected bool alive;
-	protected Rigidbody2D rb2d;
-	[SerializeField] protected GameObject playerObject;
+    [SerializeField] protected LayerMask whatIsPlayer;
+    [SerializeField] protected int maxHealth;
+    [SerializeField] protected int movementSpeed;
 
-	void Start()
-	{
-		
-	}
+    protected int health;
+    protected bool alive;
+    protected Rigidbody2D rb2d;
 
-	public bool isAlive()
-	{
-		return alive;
-	}
-	public virtual void ReactToHit(int damage)
-	{
-		health -= damage;
-		if (health <= 0)
-		{
-			alive = false;
-			StartCoroutine(Die());
-		}
-	}
+    void Start()
+    {
+        health = maxHealth;
+        alive = true;
+        rb2d = GetComponent<Rigidbody2D>();
+    }
 
-	protected IEnumerator Die()
-	{
-		yield return new WaitForSeconds(2.5f);
-		Destroy(this.gameObject);
-	}
+    public bool isAlive() { return alive; }
 
-	protected abstract void move();
-	protected abstract void attack();
+    public virtual void ReactToHit(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            alive = false;
+            StopAllCoroutines();
+            StartCoroutine(Die());
+        }
+    }
+
+    protected IEnumerator Die()
+    {
+        yield return new WaitForSeconds(2.5f);
+        Destroy(this.gameObject);
+    }
+
+    protected abstract void move();
+    protected abstract void attack();
 }
