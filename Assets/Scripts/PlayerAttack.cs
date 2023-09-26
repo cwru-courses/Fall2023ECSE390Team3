@@ -25,7 +25,6 @@ public class PlayerAttack : MonoBehaviour
     private bool isAttacking;
     private GameObject weaponObject;  // Used for temporary attack animation
 
-    // Start is called before the first frame update
     void Awake()
     {
         playerInputAction = new DefaultInputAction();

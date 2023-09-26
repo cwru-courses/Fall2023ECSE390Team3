@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
+
 	protected int health;
 	protected int movementSpeed;
 	protected bool alive;
@@ -23,26 +24,35 @@ public abstract class BaseEnemy : MonoBehaviour
 		
 	}
 
-	public bool isAlive()
-	{
-		return alive;
-	}
-	public virtual void ReactToHit(int damage)
-	{
-		health -= damage;
-		if (health <= 0)
-		{
-			alive = false;
-			StartCoroutine(Die());
-		}
-	}
 
-	protected IEnumerator Die()
-	{
-		yield return new WaitForSeconds(2.5f);
-		Destroy(this.gameObject);
-	}
+    void Start()
+    {
+        health = maxHealth;
+        alive = true;
+        rb2d = GetComponent<Rigidbody2D>();
+    }
 
-	protected abstract void move();
-	protected abstract void attack();
+    public bool isAlive() { return alive; }
+
+
+    public virtual void ReactToHit(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            alive = false;
+            StopAllCoroutines();
+            StartCoroutine(Die());
+        }
+    }
+
+    protected IEnumerator Die()
+    {
+        yield return new WaitForSeconds(2.5f);
+        Destroy(this.gameObject);
+    }
+
+    protected abstract void move();
+    protected abstract void attack();
 }
+
