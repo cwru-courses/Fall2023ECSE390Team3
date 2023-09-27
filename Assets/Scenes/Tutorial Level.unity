@@ -2008,7 +2008,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  yarncooldown: 0
   currentHealth: 0
+  maxYarn: 100
+  currentYarnCount: 0
+  yarnTracker: {fileID: 1688027732}
   healthBar: {fileID: 1500964937}
 --- !u!50 &777061482
 Rigidbody2D:
@@ -4270,6 +4274,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
   m_PrefabInstance: {fileID: 147826897}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1688027732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7270424617332292426, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+  m_PrefabInstance: {fileID: 147826897}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63bd8e393fd94eb6ad786c565888bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1801133855
 GameObject:
   m_ObjectHideFlags: 0

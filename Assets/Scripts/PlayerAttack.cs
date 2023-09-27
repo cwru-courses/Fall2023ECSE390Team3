@@ -24,9 +24,10 @@ public class PlayerAttack : MonoBehaviour
     private float lastAttackTime;
     private bool isAttacking;
     private GameObject weaponObject;  // Used for temporary attack animation
-
+    private Player player;
     void Awake()
     {
+        player=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerInputAction = new DefaultInputAction();
         playerInputAction.Player.Attack.started += Attack;
 
@@ -97,7 +98,8 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = true;
             lastAttackTime = Time.time; // update last Attack time
             StartCoroutine(AttackFX()); // attack visual effects
-        }
+            player.UseYarn(5);
+        }   
     }
 
     //temporary implementation until animations are made

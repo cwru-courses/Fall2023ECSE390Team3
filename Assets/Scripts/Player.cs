@@ -8,8 +8,11 @@ public class Player : MonoBehaviour
     public static Player Instance;
 
     public int maxHealth = 100;
+    public int yarncooldown = 0;
     public int currentHealth;
-
+    [SerializeField] private int maxYarn = 100; //start at 100%
+    public int currentYarnCount;
+    public HealthBar yarnTracker; //use Healthbar as yarn tracker 
     public HealthBar healthBar;
 
     void Start()
@@ -20,8 +23,10 @@ public class Player : MonoBehaviour
         }
 
         currentHealth = maxHealth;
+        currentYarnCount = maxYarn;
         //set player health to maxHealth to start
         healthBar.SetMaxHealth(maxHealth);
+        yarnTracker.SetMaxHealth(maxYarn);
     }
 
     void Update()
@@ -39,6 +44,12 @@ public class Player : MonoBehaviour
         if(currentHealth <= 0) {
              SceneManager.LoadSceneAsync("home_screen_scene");
         }
+        yarncooldown = yarncooldown+1;
+        if(yarncooldown>3600*15){
+            yarncooldown = 0;
+            this.GainYarn(20);
+        }
+
 
     }
 
@@ -47,5 +58,23 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+    }
+     //decrease yarn count
+    public void UseYarn(int amount) {
+        if(currentYarnCount < 0) {
+            Debug.Log("player out of yarn"); 
+        }else{
+        currentYarnCount -= amount; 
+        yarnTracker.SetHealth(currentYarnCount);
+        }
+    }
+
+    //increase yarn count
+    public void GainYarn(int amount) {
+        if(currentYarnCount+amount>maxYarn){
+            amount = maxYarn-currentYarnCount;
+        }
+        currentYarnCount += amount; 
+        yarnTracker.SetHealth(currentYarnCount); 
     }
 }
