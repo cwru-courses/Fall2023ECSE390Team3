@@ -147,8 +147,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
-  smokeCloudPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
-  postDeathEntityPrefab: {fileID: 7421353321530949981, guid: 97cabb4461e102848b609066a6ff623e, type: 3}
-  deathAnimLength: 1
+  weaponPrefab: {fileID: 467909919249729066, guid: 05697af03c8a1e84488846182af3c23e, type: 3}
+  basicAttackRange: 2.5
+  basicAttackCD: 1
+  basicAttackRangeAngle: 45
+  basicAttackSwingTime: 0.1
+  basicAttackSFX: {fileID: 0}
   patrolPoints:
   - {x: 4.5, y: -3, z: 0}

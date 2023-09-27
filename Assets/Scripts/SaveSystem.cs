@@ -7,6 +7,8 @@ public class SaveSystem : MonoBehaviour
 {
     public static void CreateSave()
     {
+        Time.timeScale = 0f;
+
         BinaryFormatter formatter = new BinaryFormatter();
 
         //string savePath = Application.persistentDataPath + "/" + DateTime.Now.ToString("hh-mm-ss") + ".sav";
@@ -17,10 +19,14 @@ public class SaveSystem : MonoBehaviour
         stream.Close();
 
         Debug.Log(savePath);
+
+        Time.timeScale = 1f;
     }
 
     public static void LoadSave()
     {
+        Time.timeScale = 0f;
+
         string savePath = Application.persistentDataPath + "/save_default.sav";
 
         if (File.Exists(savePath))
@@ -33,11 +39,14 @@ public class SaveSystem : MonoBehaviour
             stream.Close();
 
             Vector3 playerPos = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
-            Debug.Log(playerPos);
+            Player.Instance.transform.position = playerPos;
+            Player.Instance.currentHealth = data.playerHealth;
         }
         else
         {
             Debug.Log("Save Not Found");
         }
+
+        Time.timeScale = 1f;
     }
 }

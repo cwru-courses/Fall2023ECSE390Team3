@@ -9,32 +9,29 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackRangeAngle;
     [Min(0)]
     [SerializeField] private float attackRadius;
-    [SerializeField] private float attackRecoveryTime; //time between swings
-    [SerializeField] private float attackSwingTime; //duration of swing animation(temporary until real animation exists)
-    [SerializeField] private GameObject weaponPrefab;
+    [SerializeField] private float attackRecoveryTime;  // Time between swings
     [SerializeField] private LayerMask whatIsEnemy;
+
+    [SerializeField] private float attackSwingTime;  // Duration of swing animation(temporary until real animation exists)
+    [SerializeField] private GameObject weaponPrefab;
+
     [SerializeField] private AudioSource attackSFX;
 
     private DefaultInputAction playerInputAction;
 
-    private PlayerMovement playerController;
     private Vector2 lookAtDir;  // Note that this direction is NOT normalized. Vector length = distance from the target point
     private float attackAngleCosVal;
     private float lastAttackTime;
     private bool isAttacking;
-    private GameObject weaponObject; // used for temporary attack animation
-    
-
-
-
-    // Start is called before the first frame update
+    private GameObject weaponObject;  // Used for temporary attack animation
+    private Player player;
     void Awake()
     {
+        player=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerInputAction = new DefaultInputAction();
         playerInputAction.Player.Attack.started += Attack;
 
-        playerController = GetComponent<PlayerMovement>();
-        lookAtDir = Vector2.right; // default starting direction
+        lookAtDir = Vector2.right;  // Default starting direction
         attackAngleCosVal = Mathf.Cos(attackRangeAngle / 2f);
         lastAttackTime = 0f;
         isAttacking = false;
@@ -55,8 +52,8 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         if (Time.time - lastAttackTime > attackRecoveryTime) { isAttacking = false; }
-            //Temporary attack effects
-            if (isAttacking && weaponObject)
+        //Temporary attack effects
+        if (isAttacking && weaponObject)
         {
             // rotate weapon object
             float swingPercent = (Time.deltaTime) / attackSwingTime;
@@ -64,9 +61,9 @@ public class PlayerAttack : MonoBehaviour
             weaponObject.transform.position = transform.position;
         }
 
-        //Direction Based on last movement direction
+        // Direction Based on last movement direction
 
-        lookAtDir = playerController.getLastDirection();
+        lookAtDir = PlayerMovement.Instance.GetLastDirection();
 
         // Direction Based on cursor Position
 
@@ -80,16 +77,15 @@ public class PlayerAttack : MonoBehaviour
         if (Time.time - lastAttackTime > attackRecoveryTime)
         {
             RaycastHit2D[] inRangeColliderHits = Physics2D.CircleCastAll(
-            transform.position,
-            attackRadius,
-            Vector2.zero,
-            0f,
-            whatIsEnemy
-        );
+                transform.position,
+                attackRadius,
+                Vector2.zero,
+                0f,
+                whatIsEnemy
+            );
 
             foreach (RaycastHit2D hit in inRangeColliderHits)
             {
-                Debug.Log(hit.centroid);
                 if (Vector2.Dot((hit.point - hit.centroid).normalized, lookAtDir.normalized) > attackAngleCosVal)
                 {
                     BaseEnemy enemyController = hit.collider.GetComponent<BaseEnemy>();
@@ -102,8 +98,8 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = true;
             lastAttackTime = Time.time; // update last Attack time
             StartCoroutine(AttackFX()); // attack visual effects
-            
-        }
+            player.UseYarn(5);
+        }   
     }
 
     //temporary implementation until animations are made
@@ -121,14 +117,14 @@ public class PlayerAttack : MonoBehaviour
 
             //rotate weapon to be infront of player
             Vector3 rot = weaponObject.transform.rotation.eulerAngles;
-            Vector2 moveDir = playerController.getLastDirection();
+            Vector2 moveDir = PlayerMovement.Instance.GetLastDirection();
             float offset = attackRangeAngle / 2f;
             rot.z = Mathf.Acos(Vector2.Dot(Vector2.up, moveDir)) * Mathf.Rad2Deg;
             if (moveDir.x > 0) { rot.z *= -1f; }
             rot.z -= offset;
             weaponObject.transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
         }
-        
+
         //wait for attack duration
         yield return new WaitForSeconds(attackSwingTime);
 
@@ -138,10 +134,10 @@ public class PlayerAttack : MonoBehaviour
             Destroy(weaponObject);
             isAttacking = false;
         }
-       
+
     }
 
-   
+
 
     // For gizmos & handle only. Remove when release.
     public Vector3 GetLookAtDir()

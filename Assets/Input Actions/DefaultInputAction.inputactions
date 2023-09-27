@@ -6,6 +6,15 @@
             "id": "beb94b6f-669b-4208-95c1-7860d18da772",
             "actions": [
                 {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "cf8629a5-f95b-4046-a655-e1f09cd0f239",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "4303160e-3456-4cf5-93d2-17dac257a000",
@@ -101,7 +110,7 @@
                 {
                     "name": "",
                     "id": "1ed45bfe-85dc-453b-b023-5f1f8aa20417",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -128,6 +137,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Phase Shift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "73f0a9c3-9f22-44ea-927a-230cd4161cd0",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

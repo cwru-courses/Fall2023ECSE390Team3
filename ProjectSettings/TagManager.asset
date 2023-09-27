@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PickUpable
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - 
   - 
   - Environment
-  - 
+  - PickUpable
   - 
   - 
   - 
