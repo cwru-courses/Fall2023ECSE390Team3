@@ -58,14 +58,18 @@ public class TrainingBot :  BaseEnemy
 
     public override void ReactToHit(int damage)
     {
-        health -= damage;
-        float healthPercent = (float)health / (float)maxHP;
-        spRender.color = new Color(healthPercent, healthPercent, healthPercent, 1);
-        if (health <= 0)
+        if (alive)
         {
-            alive = false;
-            StartCoroutine(Die());
+            health -= damage;
+            float healthPercent = (float)health / (float)maxHP;
+            spRender.color = new Color(healthPercent, healthPercent, healthPercent, 1);
+            if (health <= 0)
+            {
+                alive = false;
+                StartCoroutine(Die());
+            }
         }
+        
     }
     protected override void move()
     {

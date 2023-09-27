@@ -38,17 +38,23 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public virtual void ReactToHit(int damage)
     {
-        health -= damage;
-        if (health <= 0)
+        if (alive)
         {
-            alive = false;
-            StopAllCoroutines();
-            StartCoroutine(Die());
-        }
+			health -= damage;
+			if (health <= 0)
+			{
+				print("alive: " + alive + " health: " + health);
+				alive = false;
+				StopAllCoroutines();
+				StartCoroutine(Die());
+			}
+		}
+        
     }
 
     protected IEnumerator Die()
     {
+		int numPostDeathEntities = 3;
         float timeToDestroy = 2.5f; // default value for the time objects which appear after death will last for
 
 		//wait before initiating smoke etc
@@ -56,7 +62,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
 		//Create smoke cloud and post death animal to appear at the position of the enemy
 		GameObject smokeCloudObject = null;
-		GameObject postDeathEntityObject = null;
+		GameObject[] postDeathEntityObjects = new GameObject[numPostDeathEntities];
 
 		//check if there is a prefab for the smoke cloud to instantiate
 		if (smokeCloudPrefab)
@@ -66,13 +72,15 @@ public abstract class BaseEnemy : MonoBehaviour
 		}
 
 		//check if there is a prefab for the post death entity
-		if (postDeathEntityPrefab)
+		if (postDeathEntityPrefab && numPostDeathEntities>0)
 		{
-			postDeathEntityObject = Instantiate(postDeathEntityPrefab) as GameObject;
-			postDeathEntityObject.transform.position = transform.position;
-
+			for(int i = 0; i < numPostDeathEntities; i++)
+            {
+				postDeathEntityObjects[i] = Instantiate(postDeathEntityPrefab) as GameObject;
+				postDeathEntityObjects[i].transform.position = transform.position;
+			}
 			//set time to destroy based on lifetime of post death object
-			PostDeathEntity postDeathEntityComponent = postDeathEntityObject.GetComponent<PostDeathEntity>();
+			PostDeathEntity postDeathEntityComponent = postDeathEntityObjects[0].GetComponent<PostDeathEntity>();
 			if (postDeathEntityComponent) { timeToDestroy = postDeathEntityComponent.getLifetime(); }
 		}
 
@@ -84,7 +92,10 @@ public abstract class BaseEnemy : MonoBehaviour
 		yield return new WaitForSeconds(timeToDestroy);
 
 		//destroy everything
-		Destroy(postDeathEntityObject);
+		for (int i = 0; i < numPostDeathEntities; i++)
+        {
+			Destroy(postDeathEntityObjects[i]);
+		}
 		Destroy(smokeCloudObject);
 		Destroy(this.gameObject);
     }
