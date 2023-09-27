@@ -3290,6 +3290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cooldown Bar
       objectReference: {fileID: 0}
+    - target: {fileID: 7270424617286453344, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3428,11 +3432,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7270424618208863164, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270424618208863164, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270424618208863165, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_Color.b
