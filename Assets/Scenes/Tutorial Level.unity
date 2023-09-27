@@ -2114,9 +2114,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 794792205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e9d3093111ab37e4789a34c7037036e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textComponent: {fileID: 1496822027}
+  lines:
+  - Hello, welcome to the tutorial. Press space to continue.
+  - Use WASD to move around and SHIFT to dash.
+  - Press 'Q' to phase shift and use the mouse's right click to attack.
+  textSpeed: 0.05
 --- !u!114 &794792208
 MonoBehaviour:
   m_ObjectHideFlags: 0
