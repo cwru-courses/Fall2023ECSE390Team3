@@ -13,20 +13,16 @@ public class PhaseShiftUI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        if (PhaseShift.isCooldown == true)
+        float cdPercentage = PhaseShift.Instance.GetCDPercentage();
+        if (cdPercentage > 0)
         {
-            CoolDownPhaseShift();
+            phaseShiftImage.fillAmount = 1 - cdPercentage;
         }
-        else if (phaseShiftImage.fillAmount != 0)
+        else
         {
             phaseShiftImage.fillAmount = 0;
         }
-    }
-
-    public void CoolDownPhaseShift()
-    {
-        phaseShiftImage.fillAmount = 1 - PhaseShift.coolDownRemaining / PhaseShift.phaseShiftCoolDown;
     }
 }

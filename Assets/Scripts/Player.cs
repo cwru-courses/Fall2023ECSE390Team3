@@ -5,14 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 100; 
-    public int currentHealth; 
+    public static Player Instance;
 
-    public HealthBar healthBar; 
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar healthBar;
 
     void Start()
     {
-        currentHealth = maxHealth; 
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
+        currentHealth = maxHealth;
         //set player health to maxHealth to start
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -32,12 +39,13 @@ public class Player : MonoBehaviour
         if(currentHealth <= 0) {
              SceneManager.LoadSceneAsync("home_screen_scene");
         }
-        
+
     }
 
-    void TakeDamage(int damage) {
-        currentHealth -= damage; 
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
 
-        healthBar.SetHealth(currentHealth); 
+        healthBar.SetHealth(currentHealth);
     }
 }
