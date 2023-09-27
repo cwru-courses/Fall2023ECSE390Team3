@@ -132,7 +132,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1ed45bfe-85dc-453b-b023-5f1f8aa20417"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
