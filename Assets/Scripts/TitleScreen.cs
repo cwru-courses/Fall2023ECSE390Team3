@@ -7,7 +7,7 @@ public class TitleScreen : MonoBehaviour
 {
     public void Play(){
         //load next scene
-        SceneManager.LoadSceneAsync("test scene");
+        SceneManager.LoadSceneAsync("Tutorial Level");
     }
 
     public void Quit(){

@@ -2176,7 +2176,7 @@ MonoBehaviour:
   lines:
   - Hello, welcome to the tutorial. Press space to continue.
   - Use WASD to move around and SHIFT to dash.
-  - Press 'Q' to phase shift and use the mouse's right click to attack.
+  - Press 'Q' to phase shift and use the mouse's left click to attack.
   textSpeed: 0.05
 --- !u!114 &794792208
 MonoBehaviour:
