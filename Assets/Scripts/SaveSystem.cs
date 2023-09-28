@@ -39,8 +39,8 @@ public class SaveSystem : MonoBehaviour
             stream.Close();
 
             Vector3 playerPos = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
-            Player.Instance.transform.position = playerPos;
-            Player.Instance.currentHealth = data.playerHealth;
+            PlayerStats._instance.transform.position = playerPos;
+            PlayerStats._instance.currentHealth = data.playerHealth;
         }
         else
         {

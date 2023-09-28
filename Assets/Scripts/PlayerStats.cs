@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
-    public static Player Instance;
+    public static PlayerStats _instance;
 
     public int maxHealth = 100;
     public int yarncooldown = 0;
@@ -15,11 +15,11 @@ public class Player : MonoBehaviour
     public HealthBar yarnTracker; //use Healthbar as yarn tracker 
     public HealthBar healthBar;
 
-    void Start()
+    void Awake()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
-            Instance = this;
+            _instance = this;
         }
 
         currentHealth = maxHealth;
