@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -177,6 +177,18 @@ PrefabInstance:
     - target: {fileID: 7947911505737750455, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
       propertyPath: m_Name
       value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
+      propertyPath: m_TagString
+      value: PickUpable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505844789836, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
+      propertyPath: m_Layer
+      value: 26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
@@ -963,6 +975,7 @@ GameObject:
   - component: {fileID: 521785253}
   - component: {fileID: 521785256}
   - component: {fileID: 521785258}
+  - component: {fileID: 521785259}
   m_Layer: 15
   m_Name: Player
   m_TagString: Player
@@ -1076,7 +1089,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  yarncooldown: 0
   currentHealth: 0
+  maxYarn: 100
+  currentYarnCount: 0
+  yarnTracker: {fileID: 0}
   healthBar: {fileID: 7270424616722684541}
 --- !u!114 &521785258
 MonoBehaviour:
@@ -1092,9 +1109,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shiftCD: 2
   shiftPrecastTime: 2
-  shiftProgressBar: {fileID: 1367638010}
   precastingTimer: 1
+  shiftProgressBar: {fileID: 1367638010}
   uiImg: {fileID: 1060448429}
+--- !u!114 &521785259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521785251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403c3d3ccb0af4377806cbdfcd12305e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 67108864
 --- !u!1 &526126233
 GameObject:
   m_ObjectHideFlags: 0
