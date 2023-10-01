@@ -24,6 +24,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected GameObject smokeCloudPrefab;
 	  [SerializeField] protected GameObject postDeathEntityPrefab;
 	  [SerializeField] protected float deathAnimLength;
+	[SerializeField] protected GameObject healthPotionPrefab;
+	[SerializeField] protected float yarnGainByPlayer;
 
 
     void Start()
@@ -63,6 +65,8 @@ public abstract class BaseEnemy : MonoBehaviour
 		//Create smoke cloud and post death animal to appear at the position of the enemy
 		GameObject smokeCloudObject = null;
 		GameObject[] postDeathEntityObjects = new GameObject[numPostDeathEntities];
+		//Create health potion object to appear at the position of the enemy -- Jing
+		GameObject healthPotion = null;
 
 		//check if there is a prefab for the smoke cloud to instantiate
 		if (smokeCloudPrefab)
@@ -83,6 +87,16 @@ public abstract class BaseEnemy : MonoBehaviour
 			PostDeathEntity postDeathEntityComponent = postDeathEntityObjects[0].GetComponent<PostDeathEntity>();
 			if (postDeathEntityComponent) { timeToDestroy = postDeathEntityComponent.getLifetime(); }
 		}
+
+		//check if there is a prefab for the health position -- Jing
+		if (healthPotionPrefab)
+        {
+			healthPotion = Instantiate(healthPotionPrefab) as GameObject;
+			healthPotion.transform.position = transform.position;
+        }
+
+		//give the player some yarn -- Jing
+		PlayerStats._instance.GainYarn(yarnGainByPlayer);
 
 		//make this enemy invisible
 		SpriteRenderer SR = GetComponent<SpriteRenderer>();
