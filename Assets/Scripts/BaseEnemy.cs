@@ -7,23 +7,23 @@ using UnityEngine;
 public abstract class BaseEnemy : MonoBehaviour
 {
 
-	  protected int health;
-	  protected int movementSpeed;
-	  protected bool alive;
-	  protected Rigidbody2D rb2d;
-	  protected float basicAttackCDLeft;
-	  [SerializeField] protected GameObject playerObject;
-    [SerializeField] protected GameObject weaponPrefab;
-    [SerializeField] protected float basicAttackRange;
-    [SerializeField] protected float basicAttackCD;
-    [Range(0f, 180f)]
-    [SerializeField] protected float basicAttackRangeAngle;
-    [SerializeField] protected float basicAttackSwingTime; //duration of swing animation(temporary until real animation exists)
-    [SerializeField] protected AudioSource basicAttackSFX;
-    [SerializeField] private int maxHealth;
-    [SerializeField] protected GameObject smokeCloudPrefab;
-	  [SerializeField] protected GameObject postDeathEntityPrefab;
-	  [SerializeField] protected float deathAnimLength;
+	protected int health;
+	protected int movementSpeed;
+	protected bool alive;
+	protected Rigidbody2D rb2d;
+	protected float basicAttackCDLeft;
+	[SerializeField] protected GameObject playerObject;
+	[SerializeField] protected GameObject weaponPrefab;
+	[SerializeField] protected float basicAttackRange;
+	[SerializeField] protected float basicAttackCD;
+	[Range(0f, 180f)]
+	[SerializeField] protected float basicAttackRangeAngle;
+	[SerializeField] protected float basicAttackSwingTime; //duration of swing animation(temporary until real animation exists)
+	[SerializeField] protected AudioSource basicAttackSFX;
+	[SerializeField] private int maxHealth;
+	[SerializeField] protected GameObject smokeCloudPrefab;
+	[SerializeField] protected GameObject postDeathEntityPrefab;
+	[SerializeField] protected float deathAnimLength;
 
 
     void Start()
