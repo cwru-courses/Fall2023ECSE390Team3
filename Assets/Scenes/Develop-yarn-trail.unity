@@ -183,6 +183,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
+      propertyPath: yarnGainByPlayer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
+      propertyPath: healthPotionPrefab
+      value: 
+      objectReference: {fileID: 8787952601930309292, guid: 3b52ee74a38da0f4f8b5f659fb9461c4, type: 3}
+    - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
       propertyPath: postDeathEntityPrefab
       value: 
       objectReference: {fileID: 7421353321530949981, guid: 97cabb4461e102848b609066a6ff623e, type: 3}
@@ -1202,6 +1210,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
+      propertyPath: yarnGainByPlayer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
+      propertyPath: healthPotionPrefab
+      value: 
+      objectReference: {fileID: 8787952601930309292, guid: 3b52ee74a38da0f4f8b5f659fb9461c4, type: 3}
+    - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
       propertyPath: postDeathEntityPrefab
       value: 
       objectReference: {fileID: 7421353321530949981, guid: 97cabb4461e102848b609066a6ff623e, type: 3}
@@ -2060,7 +2076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777061477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.87, y: 29.79, z: -1}
+  m_LocalPosition: {x: -16.7, y: 31.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4450,6 +4466,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
+      propertyPath: yarnGainByPlayer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
+      propertyPath: healthPotionPrefab
+      value: 
+      objectReference: {fileID: 8787952601930309292, guid: 3b52ee74a38da0f4f8b5f659fb9461c4, type: 3}
+    - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
       propertyPath: postDeathEntityPrefab
       value: 
       objectReference: {fileID: 7421353321530949981, guid: 97cabb4461e102848b609066a6ff623e, type: 3}
@@ -4526,6 +4550,14 @@ PrefabInstance:
       propertyPath: smokeCloudPrefab
       value: 
       objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
+    - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
+      propertyPath: yarnGainByPlayer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
+      propertyPath: healthPotionPrefab
+      value: 
+      objectReference: {fileID: 8787952601930309292, guid: 3b52ee74a38da0f4f8b5f659fb9461c4, type: 3}
     - target: {fileID: 986031642315237853, guid: 52066fd010e6f654593f2df515c8d201, type: 3}
       propertyPath: postDeathEntityPrefab
       value: 
