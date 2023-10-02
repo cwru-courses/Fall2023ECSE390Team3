@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOverScreen : MonoBehaviour
 {
     public void Restart(){
-        //load next scene
+        //loads home screen - will change to go to "load screen"
         SceneManager.LoadSceneAsync("Home_screen_scene");
     }
 
