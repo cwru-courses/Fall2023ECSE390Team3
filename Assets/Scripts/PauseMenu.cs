@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     void Awake()
     {
         playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.Pause.started += OnPause;
+        playerInputAction.UI.Pause.started += (InputAction.CallbackContext ctx) => { OnPause(); };
 
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
@@ -22,18 +22,22 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        playerInputAction.Enable();
+        playerInputAction.UI.Enable();
     }
 
     private void OnDisable()
     {
-        playerInputAction.Disable();
+        playerInputAction.UI.Disable();
     }
 
-    private void OnPause(InputAction.CallbackContext ctx)
+    public void OnPause()
     {
-        Debug.Log("Pause");
         paused = !paused;
+
+        PlayerMovement._instance.OnPause(paused);
+        PlayerAttack._instance.OnPause(paused);
+        PhaseShift._instance.OnPause(paused);
+
         if (paused)
         {
             pauseMenuCanvas.SetActive(true);
@@ -42,6 +46,7 @@ public class PauseMenu : MonoBehaviour
         else
         {
             pauseMenuCanvas.SetActive(false);
+            playerInputAction.Player.Enable();
             Time.timeScale = 1f;
         }
     }

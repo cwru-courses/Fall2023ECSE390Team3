@@ -89,7 +89,7 @@ public class TrainingBot :  BaseEnemy
     }
     protected override void attack()
     {
-        playerObject.GetComponent<Player>().TakeDamage(10);
+        playerObject.GetComponent<PlayerStats>().TakeDamage(10);
         basicAttackCDLeft = basicAttackCD;
         isAttacking = true;
         StartCoroutine(attackFX()); // attack visual effects

@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class PhaseShift : MonoBehaviour
 {
-    public static PhaseShift Instance;
+    public static PhaseShift _instance;
 
     [SerializeField] private float shiftCD;
     [SerializeField] private float shiftPrecastTime;
-    [SerializeField] private Slider shiftProgressBar;
     [SerializeField] private float precastingTimer;
+    [SerializeField] private Slider shiftProgressBar;
 
     [SerializeField] private Image uiImg;
 
@@ -21,9 +21,9 @@ public class PhaseShift : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
-            Instance = this;
+            _instance = this;
         }
 
         playerInputAction = new DefaultInputAction();
@@ -36,12 +36,12 @@ public class PhaseShift : MonoBehaviour
 
     private void OnEnable()
     {
-        playerInputAction.Enable();
+        playerInputAction.Player.PhaseShift.Enable();
     }
 
     private void OnDisable()
     {
-        playerInputAction.Disable();
+        playerInputAction.Player.PhaseShift.Disable();
     }
 
     void FixedUpdate()
@@ -86,5 +86,17 @@ public class PhaseShift : MonoBehaviour
         shiftProgressBar.gameObject.SetActive(false);
 
         ToPhaseShift();
+    }
+
+    public void OnPause(bool paused)
+    {
+        if (paused)
+        {
+            playerInputAction.Player.PhaseShift.Disable();
+        }
+        else
+        {
+            playerInputAction.Player.PhaseShift.Enable();
+        }
     }
 }

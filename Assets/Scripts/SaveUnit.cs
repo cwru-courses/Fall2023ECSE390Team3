@@ -11,10 +11,10 @@ public class SaveUnit
     {
         // Load data to be saved
         playerPosition = new float[3] {
-            Player.Instance.transform.position.x,
-            Player.Instance.transform.position.y,
-            Player.Instance.transform.position.z
+            PlayerStats._instance.transform.position.x,
+            PlayerStats._instance.transform.position.y,
+            PlayerStats._instance.transform.position.z
         };
-        playerHealth = Player.Instance.currentHealth;
+        playerHealth = PlayerStats._instance.currentHealth;
     }
 }
