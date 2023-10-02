@@ -902,8 +902,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270424617332292426, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: gradient.key1.g
+      value: 0.37875372
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270424617332292426, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: gradient.key1.r
-      value: 0.017601013
+      value: 0.1462264
       objectReference: {fileID: 0}
     - target: {fileID: 7270424617332292426, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: gradient.key2.b
@@ -2408,13 +2412,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 924272525}
     m_Modifications:
+    - target: {fileID: 3358116673434135606, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9546a535b2e104fdc971c3b7e571cd53, type: 3}
+    - target: {fileID: 4651226635059842640, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662772613852627430, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_text
+      value: Phase Shifting...
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662772613852627430, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_margin.z
+      value: -16.45288
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651632725753658480, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651632725753658480, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.53316
+      objectReference: {fileID: 0}
     - target: {fileID: 7270424617286453344, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_Name
       value: Cooldown Bar
       objectReference: {fileID: 0}
     - target: {fileID: 7270424617286453344, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_Pivot.x
@@ -2486,7 +2514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 155.25977
+      value: 114.1
       objectReference: {fileID: 0}
     - target: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2554,11 +2582,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7270424618208863164, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7270424618208863164, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7270424618208863165, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_Color.b
