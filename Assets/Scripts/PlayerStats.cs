@@ -42,7 +42,7 @@ public class PlayerStats : MonoBehaviour
 
         //once player health gets below 0, go back to home screen (or load screen with saved checkpoints)
         if(currentHealth <= 0) {
-             SceneManager.LoadSceneAsync("home_screen_scene");
+             SceneManager.LoadSceneAsync("Game Over Screen");
         }
         yarncooldown = yarncooldown+1;
         if(yarncooldown>3600*15){
