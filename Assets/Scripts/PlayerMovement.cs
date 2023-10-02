@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    public static PlayerMovement Instance;
+    public static PlayerMovement _instance;
 
     [Range(0f, 1f)]
     [SerializeField] private float verticalSpeedMultiplier;
@@ -22,12 +22,11 @@ public class PlayerMovement : MonoBehaviour
     private float lastDashTime;
     private Vector2 lastMovementDir;  // Tracking last direction player moved
 
-    // Start is called before the first frame update
     void Awake()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
-            Instance = this;
+            _instance = this;
         }
 
         playerInputAction = new DefaultInputAction();
@@ -42,12 +41,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        playerInputAction.Enable();
+        playerInputAction.Player.Movement.Enable();
+        playerInputAction.Player.Dash.Enable();
     }
 
     private void OnDisable()
     {
-        playerInputAction.Disable();
+        playerInputAction.Player.Movement.Disable();
+        playerInputAction.Player.Dash.Disable();
     }
 
     // Update is called once per frame
@@ -88,5 +89,19 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 GetLastDirection()
     {
         return lastMovementDir;
+    }
+
+    public void OnPause(bool paused)
+    {
+        if (paused)
+        {
+            playerInputAction.Player.Movement.Disable();
+            playerInputAction.Player.Dash.Disable();
+        }
+        else
+        {
+            playerInputAction.Player.Movement.Enable();
+            playerInputAction.Player.Dash.Enable();
+        }
     }
 }

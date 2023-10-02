@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerAttack : MonoBehaviour
 {
+    public static PlayerAttack _instance;
+
     [Range(0f, 180f)]
     [SerializeField] private float attackRangeAngle;
     [Min(0)]
@@ -24,12 +26,16 @@ public class PlayerAttack : MonoBehaviour
     private float lastAttackTime;
     private bool isAttacking;
     private GameObject weaponObject;  // Used for temporary attack animation
-
-    private Player player; 
-
+    private PlayerStats player;
+    
     void Awake()
     {
-        player=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>(); 
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+
+        player=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         playerInputAction = new DefaultInputAction();
         playerInputAction.Player.Attack.started += Attack;
 
@@ -42,12 +48,12 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnEnable()
     {
-        playerInputAction.Enable();
+        playerInputAction.Player.Attack.Enable();
     }
 
     private void OnDisable()
     {
-        playerInputAction.Disable();
+        playerInputAction.Player.Attack.Disable();
     }
 
     // Update is called once per frame
@@ -65,7 +71,7 @@ public class PlayerAttack : MonoBehaviour
 
         // Direction Based on last movement direction
 
-        lookAtDir = PlayerMovement.Instance.GetLastDirection();
+        lookAtDir = PlayerMovement._instance.GetLastDirection();
 
         // Direction Based on cursor Position
 
@@ -100,8 +106,8 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = true;
             lastAttackTime = Time.time; // update last Attack time
             StartCoroutine(AttackFX()); // attack visual effects
-            player.UseYarn(5); 
-        }
+            player.UseYarn(5);
+        }   
     }
 
     //temporary implementation until animations are made
@@ -119,7 +125,7 @@ public class PlayerAttack : MonoBehaviour
 
             //rotate weapon to be infront of player
             Vector3 rot = weaponObject.transform.rotation.eulerAngles;
-            Vector2 moveDir = PlayerMovement.Instance.GetLastDirection();
+            Vector2 moveDir = PlayerMovement._instance.GetLastDirection();
             float offset = attackRangeAngle / 2f;
             rot.z = Mathf.Acos(Vector2.Dot(Vector2.up, moveDir)) * Mathf.Rad2Deg;
             if (moveDir.x > 0) { rot.z *= -1f; }
@@ -139,8 +145,6 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-
-
     // For gizmos & handle only. Remove when release.
     public Vector3 GetLookAtDir()
     {
@@ -159,10 +163,15 @@ public class PlayerAttack : MonoBehaviour
         return attackRadius;
     }
 
-    //private void OnDrawGizmos()  // Remove when release.
-    //{
-    //    Gizmos.color = Color.red;
-
-    //    Gizmos.DrawLine(transform.position, lookAtPoint);
-    //}
+    public void OnPause(bool paused)
+    {
+        if (paused)
+        {
+            playerInputAction.Player.Attack.Disable();
+        }
+        else
+        {
+            playerInputAction.Player.Attack.Enable();
+        }
+    }
 }

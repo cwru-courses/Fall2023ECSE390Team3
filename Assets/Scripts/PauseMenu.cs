@@ -7,7 +7,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenuCanvas;
 
     private DefaultInputAction playerInputAction;
-    public PlayerInput playerInput;
 
     private bool paused  = false;
 
@@ -15,72 +14,41 @@ public class PauseMenu : MonoBehaviour
     void Awake()
     {
         playerInputAction = new DefaultInputAction();
+        playerInputAction.UI.Pause.started += (InputAction.CallbackContext ctx) => { OnPause(); };
 
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
-    }
-
-    void LateUpdate(){
-        Debug.Log("Pause");
-        paused = !paused;
-        if(Input.GetKeyDown(KeyCode.Escape))
-            if (paused)
-            {
-                pauseMenuCanvas.SetActive(true);
-                Time.timeScale = 0f;
-                playerInputAction.Disable();
-            }
-        else
-        {
-            pauseMenuCanvas.SetActive(false);
-            Time.timeScale = 1f;
-            Debug.Log("qwe");
-        }
     }
 
     private void OnEnable()
     {
-        playerInputAction.Enable();
+        playerInputAction.UI.Enable();
     }
 
     private void OnDisable()
     {
-        playerInputAction.Disable();
+        playerInputAction.UI.Disable();
     }
 
-    private void OnPause(InputAction.CallbackContext ctx)
+    public void OnPause()
     {
-        Debug.Log("Pause");
         paused = !paused;
+
+        PlayerMovement._instance.OnPause(paused);
+        PlayerAttack._instance.OnPause(paused);
+        PhaseShift._instance.OnPause(paused);
+
         if (paused)
         {
-            Time.timeScale = 0;
-            playerInput.SwitchCurrentActionMap("UI");
             pauseMenuCanvas.SetActive(true);
-            InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInDynamicUpdate;
-            Debug.Log("Game Paused");
             Time.timeScale = 0f;
-            playerInputAction.Disable();
         }
         else
         {
-            Time.timeScale = 1;
-            playerInput.SwitchCurrentActionMap("Player");
             pauseMenuCanvas.SetActive(false);
-            InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInFixedUpdate;
-            Debug.Log("Game Unpaused");
-            // pauseMenuCanvas.SetActive(false);
-            // Time.timeScale = 1f;
-            // Debug.Log("qwe");
-            // playerInputAction.Enable();
+            playerInputAction.Player.Enable();
+            Time.timeScale = 1f;
         }
-    }
-
-    public void ResumeGame(){
-        pauseMenuCanvas.SetActive(false);
-        Time.timeScale = 1f;
-        playerInputAction.Enable();
-        Debug.Log("qwe");
     }
 
     public void MainMenuButton(){
