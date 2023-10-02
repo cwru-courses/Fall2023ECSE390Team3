@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Patrick Mason - Enemy music trigger.unity
     guid: bdbb6eb2c26ce82429059812b76deb49
+  - enabled: 1
+    path: Assets/Scenes/Tutorial Level 1.unity
+    guid: 55f761d60afb02440bb03a67aa1aa652
   m_configObjects: {}
