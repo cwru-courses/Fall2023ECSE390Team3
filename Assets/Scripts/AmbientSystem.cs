@@ -7,6 +7,10 @@ public class AmbientSystem : MonoBehaviour
 {
     public static AmbientSystem Instance;
 
+    [Header("World Settings")]
+    [Range(0f, 1f)]
+    [SerializeField] private float verticalDistMultiplier;
+    [Header("Music Settings")]
     [SerializeField] private int startingPitch = 1;
     [SerializeField] private AudioClip mainClip;
     [SerializeField] private BoxCollider2D fight;
@@ -15,8 +19,7 @@ public class AmbientSystem : MonoBehaviour
     private int pitchshift = -1;
     [SerializeField] private AudioSource audSource;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {
@@ -32,7 +35,12 @@ public class AmbientSystem : MonoBehaviour
         Debug.Log("Restarting timer");
         audSource.pitch *= pitchshift;
     }
-    
+
+    public float GetVerticalDistMultiplier()
+    {
+        return verticalDistMultiplier;
+    }
+
     public void changeMusic(AudioClip next_track){
         if(next_track.name==audSource.clip.name)
         {
@@ -53,5 +61,4 @@ public class AmbientSystem : MonoBehaviour
         audSource.Play();
         
     }
-	
 }

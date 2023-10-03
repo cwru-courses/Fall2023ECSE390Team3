@@ -51,8 +51,6 @@ public class PlayerStats : MonoBehaviour
             yarncooldown = 0;
             this.GainYarn(20);
         }
-
-
     }
 
     public void TakeDamage(int damage)
