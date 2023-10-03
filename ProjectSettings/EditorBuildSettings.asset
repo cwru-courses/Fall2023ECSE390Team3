@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/test scene.unity
     guid: a654a7a68d098de4ba059ee207c4a35d
   - enabled: 1
-    path: Assets/Scenes/Tutorial Level.unity
+    path: Assets/Scenes/Develop-yarn-trail.unity
     guid: 40db5ac9061754873a645333e161f881
   - enabled: 1
     path: Assets/Scenes/Patrick Mason - Enemy music trigger.unity
@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Zoe - UI updates.unity
     guid: 55f761d60afb02440bb03a67aa1aa652
   - enabled: 1
-    path: Assets/Scenes/Game Over Screen.unity
+    path: Assets/Scenes/game over screen.unity
     guid: 1c685b2357ad94074aaf9729aec166eb
+  - enabled: 1
+    path: Assets/Scenes/Tutorial Level 1.unity
+    guid: 1b3faaf0719150644a80eae6972382f4
   m_configObjects: {}
