@@ -13,6 +13,7 @@ public class TrainingBot :  BaseEnemy
     private int maxHP;
     private bool isAttacking;
     private GameObject weaponObject; // used for temporary attack animation
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class TrainingBot :  BaseEnemy
         spRender = GetComponent<SpriteRenderer>();
         maxHP = health;
         isAttacking = false;
+        anim = GetComponent<Animator>();
         
     }
 
@@ -75,9 +77,22 @@ public class TrainingBot :  BaseEnemy
     {
         if (patrolPoints.Count > 1)
         {
+            if (anim)
+            {
+                anim.SetBool("isWalking", true);
+            }
+            
             Vector3 currPos = transform.position;
             Vector3 movementDir = patrolPoints[patrolIndex] - currPos;
             movementDir = movementDir / movementDir.magnitude;
+            if (movementDir.x < 0)
+            {
+                spRender.flipX = true;
+            }
+            else
+            {
+                spRender.flipX = false;
+            }
             Vector3 nextPos = currPos + (movementDir * movementSpeed * Time.deltaTime * movementSpeedModifier);
             transform.position = nextPos;
             if ((currPos - nextPos).magnitude > (currPos - patrolPoints[patrolIndex]).magnitude)
@@ -85,6 +100,14 @@ public class TrainingBot :  BaseEnemy
                 patrolIndex++;
                 if (patrolIndex == patrolPoints.Count) { patrolIndex = 0; }
             }
+        }
+        else
+        {
+            if (anim)
+            {
+                anim.SetBool("isWalking", false);
+            }
+            
         }
     }
     protected override void attack()

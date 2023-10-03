@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3441887468019225069}
   - component: {fileID: 986031642315237848}
   - component: {fileID: 986031642315237849}
-  - component: {fileID: 5726157066026697421}
+  - component: {fileID: 8485002255035290832}
   m_Layer: 20
   m_Name: BobblesCat
   m_TagString: Untagged
@@ -146,7 +146,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6875, y: 0.6875}
+    oldSize: {x: 0.6875, y: 0.78125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -155,7 +155,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.69, y: 0.69}
   m_EdgeRadius: 0
---- !u!114 &5726157066026697421
+--- !u!114 &8485002255035290832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,20 +164,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 986031642315237854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 912cf242a43a5cb4fbc4f53de2aed288, type: 3}
+  m_Script: {fileID: 11500000, guid: 4741180d8e93b6c4992b29ac87393630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
-  weaponPrefab: {fileID: 0}
-  basicAttackRange: 0
-  basicAttackCD: 0
-  basicAttackRangeAngle: 0
-  basicAttackSwingTime: 0
+  weaponPrefab: {fileID: 467909919249729066, guid: 05697af03c8a1e84488846182af3c23e, type: 3}
+  basicAttackRange: 2.5
+  basicAttackCD: 1
+  basicAttackRangeAngle: 45
+  basicAttackSwingTime: 0.1
   basicAttackSFX: {fileID: 0}
-  maxHealth: 0
-  smokeCloudPrefab: {fileID: 0}
-  postDeathEntityPrefab: {fileID: 0}
+  maxHealth: 2
+  smokeCloudPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
+  postDeathEntityPrefab: {fileID: 7421353321530949981, guid: 97cabb4461e102848b609066a6ff623e, type: 3}
   deathAnimLength: 0
-  healthPotionPrefab: {fileID: 0}
+  healthPotionPrefab: {fileID: 8787952601930309292, guid: 3b52ee74a38da0f4f8b5f659fb9461c4, type: 3}
   yarnGainByPlayer: 0
   patrolPoints: []
