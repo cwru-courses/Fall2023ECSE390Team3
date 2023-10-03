@@ -38,7 +38,7 @@ public class TrainingBot :  BaseEnemy
         {
             move();
             // do attack if player is in attack range and cd is ready
-            if (playerInAttackRange() && isBasicAttackReady())
+            if (playerInAttackRange() && isBasicAttackReady() && !isStunned)
             {
                 attack();
             }
@@ -54,6 +54,13 @@ public class TrainingBot :  BaseEnemy
                 weaponObject.transform.Rotate(0f, 0f, swingPercent * basicAttackRangeAngle);
                 weaponObject.transform.position = transform.position;
             }
+            if (isStunned) { spRender.color = Color.cyan; }
+            else if(spRender.color == Color.cyan)
+            {
+                float healthPercent = (float)health / (float)maxHP;
+                spRender.color = new Color(healthPercent, healthPercent, healthPercent, 1);
+            }
+
         }
         
     }
@@ -73,6 +80,7 @@ public class TrainingBot :  BaseEnemy
         }
         
     }
+
     protected override void move()
     {
         if (patrolPoints.Count > 1)
@@ -112,6 +120,7 @@ public class TrainingBot :  BaseEnemy
     }
     protected override void attack()
     {
+        
         playerObject.GetComponent<PlayerStats>().TakeDamage(10);
         basicAttackCDLeft = basicAttackCD;
         isAttacking = true;

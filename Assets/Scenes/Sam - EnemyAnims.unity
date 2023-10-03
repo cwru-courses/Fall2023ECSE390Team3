@@ -2154,7 +2154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777061477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.92, y: 25.1, z: 0}
+  m_LocalPosition: {x: 20.92, y: 25.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3692,38 +3692,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
   m_PrefabInstance: {fileID: 1330704338}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1341910241 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 986031642315237854, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
-  m_PrefabInstance: {fileID: 1550966262}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1341910248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341910241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4741180d8e93b6c4992b29ac87393630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObject: {fileID: 777061477}
-  weaponPrefab: {fileID: 467909919249729066, guid: 05697af03c8a1e84488846182af3c23e, type: 3}
-  basicAttackRange: 2.5
-  basicAttackCD: 1
-  basicAttackRangeAngle: 45
-  basicAttackSwingTime: 0.1
-  basicAttackSFX: {fileID: 0}
-  maxHealth: 3
-  smokeCloudPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
-  postDeathEntityPrefab: {fileID: 7421353321530949981, guid: 97cabb4461e102848b609066a6ff623e, type: 3}
-  deathAnimLength: 0
-  healthPotionPrefab: {fileID: 8787952601930309292, guid: 3b52ee74a38da0f4f8b5f659fb9461c4, type: 3}
-  yarnGainByPlayer: 0
-  patrolPoints:
-  - {x: 28, y: 22, z: 0}
 --- !u!1001 &1419513106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4136,8 +4104,20 @@ PrefabInstance:
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 777061477}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: patrolPoints.Array.data[0].x
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: patrolPoints.Array.data[0].y
+      value: 22
+      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 5726157066026697421, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
 --- !u!1 &1580157304
 GameObject:

@@ -20,11 +20,11 @@ public class StunField : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("trigger Entered");
+
         BaseEnemy enemy = collision.gameObject.GetComponent<BaseEnemy>();
         if (enemy)
         {
-            print("enemy in trigger");
+
             enemy.stun(duration, speedMultiplier);
         }
     }
