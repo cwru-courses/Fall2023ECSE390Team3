@@ -117,6 +117,8 @@ public abstract class BaseEnemy : MonoBehaviour
 		//make this enemy invisible
 		SpriteRenderer SR = GetComponent<SpriteRenderer>();
 		if (SR != null) { SR.color = Color.clear; }
+		transform.localScale = Vector3.zero;
+
 
 		//wait for smoke and post death entity to do their thing
 		yield return new WaitForSeconds(timeToDestroy);
