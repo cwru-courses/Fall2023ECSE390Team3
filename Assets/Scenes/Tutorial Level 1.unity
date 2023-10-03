@@ -2350,8 +2350,8 @@ MonoBehaviour:
   currentHealth: 0
   maxYarn: 100
   currentYarnCount: 0
-  yarnTracker: {fileID: 0}
-  healthBar: {fileID: 0}
+  yarnTracker: {fileID: 1469000091}
+  healthBar: {fileID: 1655151669}
   blocking: 0
 --- !u!50 &777061482
 Rigidbody2D:
@@ -2457,7 +2457,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 520802788}
 --- !u!1 &778277133
 GameObject:
   m_ObjectHideFlags: 0
@@ -4708,6 +4708,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
   m_PrefabInstance: {fileID: 1469000089}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1469000091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7270424617332292426, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+  m_PrefabInstance: {fileID: 1469000089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63bd8e393fd94eb6ad786c565888bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1488689225
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,6 +5096,7 @@ GameObject:
   - component: {fileID: 1580157308}
   - component: {fileID: 1580157306}
   - component: {fileID: 1580157305}
+  - component: {fileID: 1580157310}
   m_Layer: 0
   m_Name: Global Systems
   m_TagString: Untagged
@@ -5231,6 +5243,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1580157310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580157304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29274c80a0ec5492ea082f9dd406b430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuCanvas: {fileID: 735736924}
 --- !u!1 &1607791435
 GameObject:
   m_ObjectHideFlags: 0
@@ -5663,6 +5688,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
   m_PrefabInstance: {fileID: 1655151667}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1655151669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7270424617332292426, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+  m_PrefabInstance: {fileID: 1655151667}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63bd8e393fd94eb6ad786c565888bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746112894
 GameObject:
   m_ObjectHideFlags: 0
@@ -5751,6 +5787,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 197409284}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
