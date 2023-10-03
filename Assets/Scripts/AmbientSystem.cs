@@ -8,9 +8,12 @@ public class AmbientSystem : MonoBehaviour
     public static AmbientSystem Instance;
 
     [SerializeField] private int startingPitch = 1;
+    [SerializeField] private AudioClip mainClip;
+    [SerializeField] private BoxCollider2D fight;
+
 
     private int pitchshift = -1;
-    private AudioSource audSource;
+    [SerializeField] private AudioSource audSource;
 
     // Start is called before the first frame update
     void Start()
@@ -28,4 +31,26 @@ public class AmbientSystem : MonoBehaviour
     {
         audSource.pitch *= pitchshift;
     }
+    
+    public void changeMusic(AudioClip next_track){
+        if(next_track.name==audSource.clip.name)
+        {
+            return;
+        }
+        audSource.Stop();
+        audSource.clip = next_track;
+        audSource.Play();
+        
+    }
+    public void playOG(){
+        if(mainClip.name==audSource.clip.name)
+        {
+            return;
+        }
+        audSource.Stop();
+        audSource.clip = mainClip;
+        audSource.Play();
+        
+    }
+	
 }

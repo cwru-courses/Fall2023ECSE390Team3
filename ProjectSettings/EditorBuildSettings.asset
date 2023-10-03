@@ -13,5 +13,14 @@ EditorBuildSettings:
     guid: a654a7a68d098de4ba059ee207c4a35d
   - enabled: 1
     path: Assets/Scenes/Tutorial Level.unity
+    guid: 40db5ac9061754873a645333e161f881
+  - enabled: 1
+    path: Assets/Scenes/Patrick Mason - Enemy music trigger.unity
     guid: bdbb6eb2c26ce82429059812b76deb49
+  - enabled: 1
+    path: Assets/Scenes/Zoe - UI updates.unity
+    guid: 55f761d60afb02440bb03a67aa1aa652
+  - enabled: 1
+    path: Assets/Scenes/Game Over Screen.unity
+    guid: 1c685b2357ad94074aaf9729aec166eb
   m_configObjects: {}

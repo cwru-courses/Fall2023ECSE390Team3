@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     public int yarncooldown = 0;
     public int currentHealth;
     [SerializeField] private int maxYarn = 100; //start at 100%
-    public int currentYarnCount;
+    public float currentYarnCount;
     public HealthBar yarnTracker; //use Healthbar as yarn tracker 
     public HealthBar healthBar;
 
@@ -44,7 +44,7 @@ public class PlayerStats : MonoBehaviour
 
         //once player health gets below 0, go back to home screen (or load screen with saved checkpoints)
         if(currentHealth <= 0) {
-             SceneManager.LoadSceneAsync("home_screen_scene");
+             SceneManager.LoadSceneAsync("Game Over Screen");
         }
         yarncooldown = yarncooldown+1;
         if(yarncooldown>3600*15){
@@ -66,22 +66,28 @@ public class PlayerStats : MonoBehaviour
         }
     }
      //decrease yarn count
-    public void UseYarn(int amount) {
+    public void UseYarn(float amount) {
         if(currentYarnCount < 0) {
             Debug.Log("player out of yarn"); 
         }else{
-        currentYarnCount -= amount; 
-        yarnTracker.SetHealth(currentYarnCount);
+        currentYarnCount -= amount;
+
+        // Added this to round the actual yarn enable to display using yarnTracker which only accept int -- Jing
+        int yarnToDisplay = Mathf.RoundToInt(currentYarnCount);
+        yarnTracker.SetHealth(yarnToDisplay);
         }
     }
 
     //increase yarn count
-    public void GainYarn(int amount) {
+    public void GainYarn(float amount) {
         if(currentYarnCount+amount>maxYarn){
             amount = maxYarn-currentYarnCount;
         }
-        currentYarnCount += amount; 
-        yarnTracker.SetHealth(currentYarnCount); 
+        currentYarnCount += amount;
+
+        // Added this to round the actual yarn enable to display using yarnTracker which only accept int -- Jing
+        int yarnToDisplay = Mathf.RoundToInt(currentYarnCount);
+        yarnTracker.SetHealth(yarnToDisplay);
     }
 
 
