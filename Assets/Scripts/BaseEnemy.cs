@@ -9,8 +9,9 @@ public abstract class BaseEnemy : MonoBehaviour
 
 	protected int health;
 	protected float movementSpeed;
-	protected float movementSpeedModifier = 1;
+	protected float movementSpeedModifier = 1f;
 	protected bool alive;
+	protected bool isStunned = false;
 	protected Rigidbody2D rb2d;
 	protected float basicAttackCDLeft;
 	[SerializeField] protected GameObject playerObject;
@@ -61,12 +62,13 @@ public abstract class BaseEnemy : MonoBehaviour
 		StartCoroutine(stunEffect(duration, speedMultiplier));
     }
 
-	private IEnumerator stunEffect(float duration, float speedMultiplier)
+	protected IEnumerator stunEffect(float duration, float speedMultiplier)
     {
+		isStunned = true;
 		movementSpeedModifier *= speedMultiplier;
-		print(movementSpeedModifier);
 		yield return new WaitForSeconds(duration);
 		movementSpeedModifier /= speedMultiplier;
+		isStunned = false;
 	}
 	
 
@@ -117,6 +119,8 @@ public abstract class BaseEnemy : MonoBehaviour
 		//make this enemy invisible
 		SpriteRenderer SR = GetComponent<SpriteRenderer>();
 		if (SR != null) { SR.color = Color.clear; }
+		transform.localScale = Vector3.zero;
+
 
 		//wait for smoke and post death entity to do their thing
 		yield return new WaitForSeconds(timeToDestroy);

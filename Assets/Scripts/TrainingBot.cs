@@ -13,6 +13,7 @@ public class TrainingBot :  BaseEnemy
     private int maxHP;
     private bool isAttacking;
     private GameObject weaponObject; // used for temporary attack animation
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class TrainingBot :  BaseEnemy
         spRender = GetComponent<SpriteRenderer>();
         maxHP = health;
         isAttacking = false;
+        anim = GetComponent<Animator>();
         
     }
 
@@ -36,7 +38,7 @@ public class TrainingBot :  BaseEnemy
         {
             move();
             // do attack if player is in attack range and cd is ready
-            if (playerInAttackRange() && isBasicAttackReady())
+            if (playerInAttackRange() && isBasicAttackReady() && !isStunned)
             {
                 attack();
             }
@@ -52,6 +54,13 @@ public class TrainingBot :  BaseEnemy
                 weaponObject.transform.Rotate(0f, 0f, swingPercent * basicAttackRangeAngle);
                 weaponObject.transform.position = transform.position;
             }
+            if (isStunned) { spRender.color = Color.cyan; }
+            else if(spRender.color == Color.cyan)
+            {
+                float healthPercent = (float)health / (float)maxHP;
+                spRender.color = new Color(healthPercent, healthPercent, healthPercent, 1);
+            }
+
         }
         
     }
@@ -71,13 +80,27 @@ public class TrainingBot :  BaseEnemy
         }
         
     }
+
     protected override void move()
     {
         if (patrolPoints.Count > 1)
         {
+            if (anim)
+            {
+                anim.SetBool("isWalking", true);
+            }
+            
             Vector3 currPos = transform.position;
             Vector3 movementDir = patrolPoints[patrolIndex] - currPos;
             movementDir = movementDir / movementDir.magnitude;
+            if (movementDir.x < 0)
+            {
+                spRender.flipX = true;
+            }
+            else
+            {
+                spRender.flipX = false;
+            }
             Vector3 nextPos = currPos + (movementDir * movementSpeed * Time.deltaTime * movementSpeedModifier);
             transform.position = nextPos;
             if ((currPos - nextPos).magnitude > (currPos - patrolPoints[patrolIndex]).magnitude)
@@ -86,9 +109,18 @@ public class TrainingBot :  BaseEnemy
                 if (patrolIndex == patrolPoints.Count) { patrolIndex = 0; }
             }
         }
+        else
+        {
+            if (anim)
+            {
+                anim.SetBool("isWalking", false);
+            }
+            
+        }
     }
     protected override void attack()
     {
+        
         playerObject.GetComponent<PlayerStats>().TakeDamage(10);
         basicAttackCDLeft = basicAttackCD;
         isAttacking = true;

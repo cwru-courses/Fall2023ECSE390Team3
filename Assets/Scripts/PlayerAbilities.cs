@@ -21,7 +21,7 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] GameObject stunMeshPrefab;
     private const float stunCD = 5f;
     private const float stunDuration = 3f;
-    private const float stunMaxCastingDuration = 10f;
+    private const float stunMaxCastingDuration = 20f;
     private bool stunCasting = false;
     private List<Vector3> stunCulledPath;
     private List<Vector3> stunFullPath;
