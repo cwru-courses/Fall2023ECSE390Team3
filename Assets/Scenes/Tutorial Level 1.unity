@@ -2107,6 +2107,7 @@ MonoBehaviour:
   currentYarnCount: 0
   yarnTracker: {fileID: 0}
   healthBar: {fileID: 0}
+  blocking: 0
 --- !u!50 &777061482
 Rigidbody2D:
   serializedVersion: 4
@@ -2681,6 +2682,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bd1b45ce106449c9545814c5dca77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
+  musicSlider: {fileID: 0}
 --- !u!114 &918964865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3927,6 +3930,9 @@ MonoBehaviour:
   - Use WASD to move around and SHIFT to dash.
   - Press 'Q' to phase shift and use the mouse's left click to attack.
   textSpeed: 0.05
+  health_arrow: {fileID: 0}
+  yarn_arrow: {fileID: 0}
+  shift_arrow: {fileID: 0}
 --- !u!114 &1464337214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4025,7 +4031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29274c80a0ec5492ea082f9dd406b430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuCanvas: {fileID: 0}
+  pauseMenuCanvas: {fileID: 118813128}
 --- !u!82 &1580157308
 AudioSource:
   m_ObjectHideFlags: 0
