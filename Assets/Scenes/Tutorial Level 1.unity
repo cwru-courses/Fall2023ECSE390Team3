@@ -352,17 +352,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153392812}
   m_CullTransparentMesh: 1
---- !u!114 &168402983 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3358116673434135606, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
-  m_PrefabInstance: {fileID: 1469000089}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &197409282
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 78}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &280019440
@@ -1064,7 +1053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 528, y: 99}
+  m_AnchoredPosition: {x: 528, y: 9.585999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &386846785
@@ -1524,7 +1513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 431, y: 45.414}
+  m_AnchoredPosition: {x: 431, y: -44}
   m_SizeDelta: {x: 44.1652, y: 42.771}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &518126560
@@ -1791,6 +1780,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1226844508}
     m_Modifications:
+    - target: {fileID: 3358116673434135606, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9546a535b2e104fdc971c3b7e571cd53, type: 3}
+    - target: {fileID: 4662772613852627430, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_text
+      value: Phase Shifting..
+      objectReference: {fileID: 0}
     - target: {fileID: 7270424617286453344, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_Name
       value: Cooldown Bar
@@ -1869,7 +1866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 155.25977
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2378,8 +2375,8 @@ MonoBehaviour:
   shiftCD: 2
   shiftPrecastTime: 2
   precastingTimer: 1
-  shiftProgressBar: {fileID: 818047072}
-  uiImg: {fileID: 168402983}
+  shiftProgressBar: {fileID: 586172891}
+  uiImg: {fileID: 1815572008}
 --- !u!114 &777061479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4658,6 +4655,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1226844508}
     m_Modifications:
+    - target: {fileID: 3358116673434135606, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ddd4543207d4c429fb9c75a7d67c8e1f, type: 3}
+    - target: {fileID: 4662772613852627430, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_text
+      value: Yarn Tracker
+      objectReference: {fileID: 0}
     - target: {fileID: 7270424617286453344, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_Name
       value: Yarn Tracker
@@ -4745,6 +4750,14 @@ PrefabInstance:
     - target: {fileID: 7270424617332292424, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270424617332292426, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: gradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270424617332292426, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: gradient.key1.r
+      value: 0.017601013
       objectReference: {fileID: 0}
     - target: {fileID: 7270424617332292426, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: gradient.key2.b
@@ -4954,7 +4967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 335, y: -201}
+  m_AnchoredPosition: {x: 468, y: -241}
   m_SizeDelta: {x: 112.4861, y: 25.7652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510987668
