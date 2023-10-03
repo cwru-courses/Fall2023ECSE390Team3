@@ -78,7 +78,7 @@ public class TrainingBot :  BaseEnemy
             Vector3 currPos = transform.position;
             Vector3 movementDir = patrolPoints[patrolIndex] - currPos;
             movementDir = movementDir / movementDir.magnitude;
-            Vector3 nextPos = currPos + (movementDir * movementSpeed * Time.deltaTime);
+            Vector3 nextPos = currPos + (movementDir * movementSpeed * Time.deltaTime * movementSpeedModifier);
             transform.position = nextPos;
             if ((currPos - nextPos).magnitude > (currPos - patrolPoints[patrolIndex]).magnitude)
             {

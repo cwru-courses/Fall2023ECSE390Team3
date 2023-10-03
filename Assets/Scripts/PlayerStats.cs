@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour
     public HealthBar yarnTracker; //use Healthbar as yarn tracker 
     public HealthBar healthBar;
 
+    public bool blocking = false;// is block ability activated currently
+
     void Awake()
     {
         if (_instance == null)
@@ -55,9 +57,13 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        // check if player is blocking, only take damage if not blocking
+        if (!blocking)
+        {
+            currentHealth -= damage;
 
-        healthBar.SetHealth(currentHealth);
+            healthBar.SetHealth(currentHealth);
+        }
     }
      //decrease yarn count
     public void UseYarn(float amount) {
@@ -83,4 +89,6 @@ public class PlayerStats : MonoBehaviour
         int yarnToDisplay = Mathf.RoundToInt(currentYarnCount);
         yarnTracker.SetHealth(yarnToDisplay);
     }
+
+
 }
