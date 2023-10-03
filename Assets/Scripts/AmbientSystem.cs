@@ -7,13 +7,16 @@ public class AmbientSystem : MonoBehaviour
 {
     public static AmbientSystem Instance;
 
+    [Header("World Settings")]
+    [Range(0f, 1f)]
+    [SerializeField] private float verticalDistMultiplier;
+    [Header("Music Settings")]
     [SerializeField] private int startingPitch = 1;
 
     private int pitchshift = -1;
     private AudioSource audSource;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {
@@ -27,5 +30,10 @@ public class AmbientSystem : MonoBehaviour
     public void OnPhaseShift()
     {
         audSource.pitch *= pitchshift;
+    }
+
+    public float GetVerticalDistMultiplier()
+    {
+        return verticalDistMultiplier;
     }
 }

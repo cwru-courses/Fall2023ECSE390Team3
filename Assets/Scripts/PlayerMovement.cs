@@ -6,8 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement _instance;
 
-    [Range(0f, 1f)]
-    [SerializeField] private float verticalSpeedMultiplier;
     [SerializeField] private float runSpeed;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
@@ -17,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb2d;
 
+    private float verticalSpeedMultiplier;
     private bool onDash;
     private float dashTimer;
     private float lastDashTime;
@@ -37,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
         dashTimer = 0f;
         lastDashTime = -dashCD;
         lastMovementDir = Vector2.right;
+    }
+
+    private void Start()
+    {
+        verticalSpeedMultiplier = AmbientSystem.Instance.GetVerticalDistMultiplier();
     }
 
     private void OnEnable()
