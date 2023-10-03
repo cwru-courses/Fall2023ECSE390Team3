@@ -7,12 +7,13 @@ using UnityEngine;
 public abstract class BaseEnemy : MonoBehaviour
 {
 
-	  protected int health;
-	  protected int movementSpeed;
-	  protected bool alive;
-	  protected Rigidbody2D rb2d;
-	  protected float basicAttackCDLeft;
-	  [SerializeField] protected GameObject playerObject;
+	protected int health;
+	protected float movementSpeed;
+	protected float movementSpeedModifier = 1;
+	protected bool alive;
+	protected Rigidbody2D rb2d;
+	protected float basicAttackCDLeft;
+	[SerializeField] protected GameObject playerObject;
     [SerializeField] protected GameObject weaponPrefab;
     [SerializeField] protected float basicAttackRange;
     [SerializeField] protected float basicAttackCD;
@@ -22,8 +23,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected AudioSource basicAttackSFX;
     [SerializeField] private int maxHealth;
     [SerializeField] protected GameObject smokeCloudPrefab;
-	  [SerializeField] protected GameObject postDeathEntityPrefab;
-	  [SerializeField] protected float deathAnimLength;
+	[SerializeField] protected GameObject postDeathEntityPrefab;
+	[SerializeField] protected float deathAnimLength;
 
 
     void Start()
@@ -51,6 +52,20 @@ public abstract class BaseEnemy : MonoBehaviour
 		}
         
     }
+
+	public virtual void stun(float duration, float speedMultiplier)
+    {
+		StartCoroutine(stunEffect(duration, speedMultiplier));
+    }
+
+	private IEnumerator stunEffect(float duration, float speedMultiplier)
+    {
+		movementSpeedModifier *= speedMultiplier;
+		print(movementSpeedModifier);
+		yield return new WaitForSeconds(duration);
+		movementSpeedModifier /= speedMultiplier;
+	}
+	
 
     protected IEnumerator Die()
     {
@@ -102,5 +117,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected abstract void move();
     protected abstract void attack();
+
+	
 }
 
