@@ -29,6 +29,7 @@ public class AmbientSystem : MonoBehaviour
 
     public void OnPhaseShift()
     {
+        Debug.Log("Restarting timer");
         audSource.pitch *= pitchshift;
     }
     
