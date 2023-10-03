@@ -68,7 +68,10 @@ public class PhaseShift : MonoBehaviour
 
         shiftCDTimer = shiftCD;
 
+        // Added this line to toggle emission of yarn trail -- Jing
         AmbientSystem.Instance.OnPhaseShift();
+        YarnTrail._instance.toggleEmission();
+
     }
 
     IEnumerator PhaseShiftPrecast()

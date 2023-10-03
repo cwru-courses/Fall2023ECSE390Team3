@@ -10,6 +10,13 @@ public class Dialogue : MonoBehaviour
     public String[] lines;
     public float textSpeed;
     private int index;
+
+    [SerializeField] protected GameObject health_arrow;
+    [SerializeField] protected GameObject yarn_arrow;
+    [SerializeField] protected GameObject shift_arrow;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +49,20 @@ public class Dialogue : MonoBehaviour
     }
 
     IEnumerator TypeLine(){
+        if(index == 3){
+            health_arrow.SetActive(true);
+        }
+        if(index == 4){
+            health_arrow.SetActive(false);
+            yarn_arrow.SetActive(true);
+        }
+        else if(index == 5){
+            yarn_arrow.SetActive(false);
+            shift_arrow.SetActive(true);
+        }
+        else if(index > 5){
+            shift_arrow.SetActive(false);
+        }
         foreach(char c in lines[index].ToCharArray()){
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);

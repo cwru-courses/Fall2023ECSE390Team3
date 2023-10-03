@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimer;
     private float lastDashTime;
     private Vector2 lastMovementDir;  // Tracking last direction player moved
+    private float speedMultiplier; // used to adjust player speed during abilities etc
 
     void Awake()
     {
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         dashTimer = 0f;
         lastDashTime = -dashCD;
         lastMovementDir = Vector2.right;
+        speedMultiplier = 1f;
     }
 
     private void Start()
@@ -69,14 +72,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (onDash)
         {
-            rb2d.velocity = inputDir * dashSpeed;
+            rb2d.velocity = inputDir * dashSpeed * speedMultiplier;
             dashTimer += Time.fixedDeltaTime;
 
             if (dashTimer > dashDuration) { onDash = false; }
         }
         else
         {
-            rb2d.velocity = inputDir * runSpeed;
+            rb2d.velocity = inputDir * runSpeed * speedMultiplier;
         }
     }
 
@@ -107,5 +110,10 @@ public class PlayerMovement : MonoBehaviour
             playerInputAction.Player.Movement.Enable();
             playerInputAction.Player.Dash.Enable();
         }
+    }
+
+    public void MultiplySpeed(float multiplier)
+    {
+        speedMultiplier *= multiplier;
     }
 }

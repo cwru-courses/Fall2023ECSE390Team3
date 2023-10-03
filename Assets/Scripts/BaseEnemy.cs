@@ -13,6 +13,27 @@ public abstract class BaseEnemy : MonoBehaviour
     protected int health;
     protected bool alive;
     protected CharacterController controller;
+    protected int health;
+	protected float movementSpeed;
+	protected float movementSpeedModifier = 1f;
+	protected bool alive;
+	protected bool isStunned = false;
+	protected Rigidbody2D rb2d;
+	protected float basicAttackCDLeft;
+	[SerializeField] protected GameObject playerObject;
+    [SerializeField] protected GameObject weaponPrefab;
+    [SerializeField] protected float basicAttackRange;
+    [SerializeField] protected float basicAttackCD;
+    [Range(0f, 180f)]
+    [SerializeField] protected float basicAttackRangeAngle;
+    [SerializeField] protected float basicAttackSwingTime; //duration of swing animation(temporary until real animation exists)
+    [SerializeField] protected AudioSource basicAttackSFX;
+    [SerializeField] private int maxHealth;
+    [SerializeField] protected GameObject smokeCloudPrefab;
+	[SerializeField] protected GameObject postDeathEntityPrefab;
+	[SerializeField] protected float deathAnimLength;
+	[SerializeField] protected GameObject healthPotionPrefab;
+	[SerializeField] protected float yarnGainByPlayer;
 
     void Awake()
     {
@@ -37,6 +58,21 @@ public abstract class BaseEnemy : MonoBehaviour
             }
         }
     }
+
+	public virtual void stun(float duration, float speedMultiplier)
+    {
+		StartCoroutine(stunEffect(duration, speedMultiplier));
+    }
+
+	protected IEnumerator stunEffect(float duration, float speedMultiplier)
+    {
+		isStunned = true;
+		movementSpeedModifier *= speedMultiplier;
+		yield return new WaitForSeconds(duration);
+		movementSpeedModifier /= speedMultiplier;
+		isStunned = false;
+	}
+	
 
     protected IEnumerator Die()
     {

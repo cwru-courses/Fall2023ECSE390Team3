@@ -99,53 +99,6 @@ public class TrainingBotController : BaseEnemy
 
     }
 
-    //protected override void attack()
-    //{
-    //    playerObject.GetComponent<PlayerStats>().TakeDamage(10);
-    //    basicAttackCDLeft = basicAttackCD;
-    //    isAttacking = true;
-    //    StartCoroutine(attackFX()); // attack visual effects
-    //}
-    ////temporary implementation until animations are made
-    //private IEnumerator attackFX()
-    //{
-    //    //Plays SFX
-    //    if (basicAttackSFX) { basicAttackSFX.Play(); }
-
-    //    //check if there is a weapon prefab to instantiate
-    //    if (weaponPrefab)
-    //    {
-    //        //creates object to be rotated
-    //        weaponObject = Instantiate(weaponPrefab) as GameObject;
-    //        weaponObject.transform.position = transform.position;
-
-    //        //rotate weapon to be towards the player
-    //        Vector3 rot = weaponObject.transform.rotation.eulerAngles;
-
-    //        // division of basicAttackRange is to keep two numbers below 1 to avoid an error message saying Assertion failed on expression
-    //        float xDirection = (playerObject.transform.position.x - transform.position.x) / basicAttackRange;
-    //        float yDirection = (playerObject.transform.position.y - transform.position.y) / basicAttackRange;
-    //        //Debug.Log("xDirection: " + xDirection + "; yDirection: " + yDirection);
-    //        Vector2 moveDir = new Vector2(xDirection, yDirection);
-    //        float offset = basicAttackRangeAngle / 2f;
-    //        rot.z = Mathf.Acos(Vector2.Dot(Vector2.up, moveDir)) * Mathf.Rad2Deg;
-    //        if (moveDir.x > 0) { rot.z *= -1f; }
-    //        rot.z -= offset;
-    //        weaponObject.transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
-    //    }
-
-    //    //wait for attack duration
-    //    yield return new WaitForSeconds(basicAttackSwingTime);
-
-    //    if (weaponObject)
-    //    {
-    //        //after swing time delete the weapon object
-    //        Destroy(weaponObject);
-    //        isAttacking = false;
-    //    }
-
-    //}
-
     // For editor only
     public float GetDetectRadius() { return detectRadius; }
     public float GetAttackRadius() { return attackRadius; }
