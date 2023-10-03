@@ -62,7 +62,6 @@ public class YarnTrail : MonoBehaviour
     {
         float toDecrease = yarnConsumptionRate * Time.deltaTime;
         PlayerStats._instance.UseYarn(toDecrease);
-        Debug.Log("" + Time.deltaTime + "; " + toDecrease);
     }
 
 }

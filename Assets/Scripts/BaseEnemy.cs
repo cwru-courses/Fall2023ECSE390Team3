@@ -24,8 +24,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected AudioSource basicAttackSFX;
     [SerializeField] private int maxHealth;
     [SerializeField] protected GameObject smokeCloudPrefab;
-	  [SerializeField] protected GameObject postDeathEntityPrefab;
-	  [SerializeField] protected float deathAnimLength;
+	[SerializeField] protected GameObject postDeathEntityPrefab;
+	[SerializeField] protected float deathAnimLength;
 	[SerializeField] protected GameObject healthPotionPrefab;
 	[SerializeField] protected float yarnGainByPlayer;
 
