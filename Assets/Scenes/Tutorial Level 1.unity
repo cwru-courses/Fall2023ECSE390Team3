@@ -601,6 +601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 212344460}
+  - component: {fileID: 212344461}
   m_Layer: 15
   m_Name: Weapon Holder
   m_TagString: Untagged
@@ -624,6 +625,22 @@ Transform:
   m_Father: {fileID: 777061484}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &212344461
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212344459}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f7785844130a1d64593856e32f252f90, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f7785844130a1d64593856e32f252f90, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &220122697
 GameObject:
   m_ObjectHideFlags: 0

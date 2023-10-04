@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class musicSwitchTrigger : MonoBehaviour
+public class MusicSwitchTrigger : MonoBehaviour
 {
     [SerializeField] private AudioClip track;
     [SerializeField] private Collider2D trig;
