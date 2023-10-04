@@ -47,7 +47,7 @@ public class PlayerStats : MonoBehaviour
              SceneManager.LoadSceneAsync("Game Over Screen");
         }
         yarncooldown = yarncooldown+1;
-        if(yarncooldown>3600*15){
+        if(yarncooldown>3600*1){
             yarncooldown = 0;
             this.GainYarn(20);
         }
