@@ -80,11 +80,9 @@ public abstract class BaseEnemy : MonoBehaviour
         GameObject smokeCloudObject;
 
         //check if there is a prefab for the smoke cloud
-        if (smokeCloudPrefab)
-        {
-            smokeCloudObject = Instantiate<GameObject>(smokeCloudPrefab);
-            smokeCloudObject.transform.position = transform.position;
-        }
+        smokeCloudObject = Instantiate<GameObject>(smokeCloudPrefab);
+        smokeCloudObject.transform.position = transform.position;
+        
 
 		//check if there is a prefab for the post death entity
 		if (postDeathEntityPrefab && numPostDeathEntities>0)
@@ -111,6 +109,7 @@ public abstract class BaseEnemy : MonoBehaviour
         {
 			Destroy(postDeathEntityObjects[i]);
 		}
+        Destroy(smokeCloudObject);
 
         Destroy(gameObject);
     }
