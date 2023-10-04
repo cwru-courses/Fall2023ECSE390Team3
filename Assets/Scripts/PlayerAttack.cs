@@ -75,6 +75,7 @@ public class PlayerAttack : MonoBehaviour
 
             foreach (RaycastHit2D hit in inRangeColliderHits)
             {
+                Debug.Log("Attack");
                 if (Vector2.Dot((hit.point - hit.centroid).normalized, lookAtDir.normalized) > attackAngleCosVal)
                 {
                     BaseEnemy enemyController = hit.collider.GetComponent<BaseEnemy>();

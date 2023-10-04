@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class TrainingBotController : BaseEnemy
 {
     [Header("Attack Settings")]
@@ -24,7 +24,7 @@ public class TrainingBotController : BaseEnemy
     {
         health = maxHealth;
         alive = true;
-        controller = GetComponent<CharacterController>();
+        rb2d = GetComponent<Rigidbody2D>();
 
         lastAttackTime = 0;
         patrolTargetIndex = 0;
@@ -44,7 +44,7 @@ public class TrainingBotController : BaseEnemy
                 targetDist = targetTransform.position - transform.position;
                 if (targetDist.magnitude > attackRadius)
                 {
-                    controller.Move(targetDist.normalized * movementSpeed * Time.fixedDeltaTime);
+                    rb2d.velocity = targetDist.normalized * movementSpeed;
                 }
                 else
                 {
@@ -61,10 +61,10 @@ public class TrainingBotController : BaseEnemy
                 {
                     if (targetDist.magnitude > 0.1f)
                     {
-                        controller.Move(Vector3.ClampMagnitude(
+                        rb2d.velocity = Vector3.ClampMagnitude(
                                 targetDist.normalized * movementSpeed * Time.fixedDeltaTime,
                                 targetDist.magnitude
-                        ));
+                        );
                     }
                     else
                     {

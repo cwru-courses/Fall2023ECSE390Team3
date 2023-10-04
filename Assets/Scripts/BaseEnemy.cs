@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class BaseEnemy : MonoBehaviour
 {
     [Header("Basic Stats Settings")]
@@ -17,15 +16,18 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected int health;
     protected bool alive;
-    protected CharacterController controller;
+    protected Rigidbody2D rb2d;
 	protected float movementSpeedModifier = 1f;
 	protected bool isStunned = false;
+
+    [SerializeField] protected GameObject postDeathEntityPrefab;
+    [SerializeField] protected float deathAnimLength;
 
     void Awake()
     {
         health = maxHealth;
         alive = true;
-        controller = GetComponent<CharacterController>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     public bool isAlive() { return alive; }
@@ -65,6 +67,38 @@ public abstract class BaseEnemy : MonoBehaviour
 
         //wait for smoke and post death entity to do their thing
         yield return new WaitForSeconds(timeToDestroy);
+        
+		int numPostDeathEntities = 3;
+
+		//wait before initiating smoke etc
+		yield return new WaitForSeconds(deathAnimLength);
+
+		//Create smoke cloud and post death animal to appear at the position of the enemy
+		GameObject[] postDeathEntityObjects = new GameObject[numPostDeathEntities];
+        //wait for smoke and post death entity to do their thing
+        yield return new WaitForSeconds(timeToDestroy);
+
+		//check if there is a prefab for the post death entity
+		if (postDeathEntityPrefab && numPostDeathEntities>0)
+		{
+			for(int i = 0; i < numPostDeathEntities; i++)
+            {
+				postDeathEntityObjects[i] = Instantiate(postDeathEntityPrefab) as GameObject;
+				postDeathEntityObjects[i].transform.position = transform.position;
+			}
+			//set time to destroy based on lifetime of post death object
+			PostDeathEntity postDeathEntityComponent = postDeathEntityObjects[0].GetComponent<PostDeathEntity>();
+			if (postDeathEntityComponent) { timeToDestroy = postDeathEntityComponent.getLifetime(); }
+		}
+
+		//wait for smoke and post death entity to do their thing
+		yield return new WaitForSeconds(timeToDestroy);
+
+		//destroy everything
+		for (int i = 0; i < numPostDeathEntities; i++)
+        {
+			Destroy(postDeathEntityObjects[i]);
+		}
 
         Destroy(gameObject);
     }
