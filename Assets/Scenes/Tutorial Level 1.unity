@@ -835,6 +835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BobblesCat (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3313926657163361900, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -859,6 +863,10 @@ PrefabInstance:
       propertyPath: deathAnimLength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: smokeCloudPrefab
+      value: 
+      objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: yarnGainByPlayer
       value: 50
@@ -1729,6 +1737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BobblesCat (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3313926657163361900, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -1753,6 +1765,10 @@ PrefabInstance:
       propertyPath: deathAnimLength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: smokeCloudPrefab
+      value: 
+      objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: yarnGainByPlayer
       value: 50
@@ -5052,6 +5068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BobblesCat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3313926657163361900, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -5076,6 +5096,10 @@ PrefabInstance:
       propertyPath: deathAnimLength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: smokeCloudPrefab
+      value: 
+      objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: yarnGainByPlayer
       value: 50
@@ -5278,6 +5302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BobblesCat
       objectReference: {fileID: 0}
+    - target: {fileID: 3313926657163361900, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -5302,6 +5330,10 @@ PrefabInstance:
       propertyPath: deathAnimLength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: smokeCloudPrefab
+      value: 
+      objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: yarnGainByPlayer
       value: 50
