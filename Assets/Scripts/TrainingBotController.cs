@@ -44,7 +44,7 @@ public class TrainingBotController : BaseEnemy
                 targetDist = targetTransform.position - transform.position;
                 if (targetDist.magnitude > attackRadius)
                 {
-                    rb2d.velocity = targetDist.normalized * movementSpeed;
+                    rb2d.velocity = targetDist.normalized * movementSpeed * movementSpeedModifier;
                 }
                 else
                 {
@@ -62,7 +62,7 @@ public class TrainingBotController : BaseEnemy
                     if (targetDist.magnitude > 0.1f)
                     {
                         rb2d.velocity = Vector3.ClampMagnitude(
-                                targetDist.normalized * movementSpeed * Time.fixedDeltaTime,
+                                targetDist.normalized * movementSpeed * Time.fixedDeltaTime * movementSpeedModifier,
                                 targetDist.magnitude
                         );
                     }

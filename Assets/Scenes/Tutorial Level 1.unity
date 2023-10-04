@@ -835,6 +835,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BobblesCat (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: playerObject
       value: 
@@ -1704,6 +1712,14 @@ PrefabInstance:
     - target: {fileID: 986031642315237854, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_Name
       value: BobblesCat (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: playerObject
@@ -5004,6 +5020,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BobblesCat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: playerObject
       value: 
@@ -5205,6 +5229,14 @@ PrefabInstance:
     - target: {fileID: 986031642315237854, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_Name
       value: BobblesCat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: playerObject
