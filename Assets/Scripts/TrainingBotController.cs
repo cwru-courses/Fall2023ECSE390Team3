@@ -1,21 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(CharacterController))]
 public class TrainingBotController : BaseEnemy
 {
+    [Header("Attack Settings")]
     [SerializeField] private float attackRadius;
     [SerializeField] private float attackCD;
+    [Header("Patrol Path Settings")]
     [SerializeField] private List<Vector3> patrolPoints;
     [SerializeField] private float patrolCD;
+    [Header("Graphics Settings")]
+    [SerializeField] private SpriteRenderer spriteRender;
     [SerializeField] private Color colorOnDeath;
 
     private float lastAttackTime;
     private int patrolTargetIndex;
     private float patrolCDTimer;
     private Transform targetTransform;
-    private SpriteRenderer spriteRender;
 
     // Start is called before the first frame update
     void Awake()
@@ -29,7 +31,6 @@ public class TrainingBotController : BaseEnemy
         patrolPoints.Add(transform.position);
         patrolCDTimer = 0;
         targetTransform = null;
-        spriteRender = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -93,10 +94,10 @@ public class TrainingBotController : BaseEnemy
             if (health == 0)
             {
                 alive = false;
+                StopAllCoroutines();
                 StartCoroutine(Die());
             }
         }
-
     }
 
     // For editor only
