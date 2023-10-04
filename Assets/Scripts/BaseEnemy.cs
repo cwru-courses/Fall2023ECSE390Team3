@@ -21,6 +21,7 @@ public abstract class BaseEnemy : MonoBehaviour
 	protected bool isStunned = false;
 
     [SerializeField] protected GameObject postDeathEntityPrefab;
+    [SerializeField] protected GameObject smokeCloudPrefab;
     [SerializeField] protected float deathAnimLength;
 
     void Awake()
@@ -65,9 +66,10 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         float timeToDestroy = 2.5f; // default value for the time objects which appear after death will last for
 
-        //wait for smoke and post death entity to do their thing
-        yield return new WaitForSeconds(timeToDestroy);
+        //make enemy stay still and not collide with player
+        rb2d.bodyType = RigidbodyType2D.Static;
         
+
 		int numPostDeathEntities = 3;
 
 		//wait before initiating smoke etc
@@ -75,8 +77,12 @@ public abstract class BaseEnemy : MonoBehaviour
 
 		//Create smoke cloud and post death animal to appear at the position of the enemy
 		GameObject[] postDeathEntityObjects = new GameObject[numPostDeathEntities];
-        //wait for smoke and post death entity to do their thing
-        yield return new WaitForSeconds(timeToDestroy);
+        GameObject smokeCloudObject;
+
+        //check if there is a prefab for the smoke cloud
+        smokeCloudObject = Instantiate<GameObject>(smokeCloudPrefab);
+        smokeCloudObject.transform.position = transform.position;
+        
 
 		//check if there is a prefab for the post death entity
 		if (postDeathEntityPrefab && numPostDeathEntities>0)
@@ -91,14 +97,19 @@ public abstract class BaseEnemy : MonoBehaviour
 			if (postDeathEntityComponent) { timeToDestroy = postDeathEntityComponent.getLifetime(); }
 		}
 
-		//wait for smoke and post death entity to do their thing
-		yield return new WaitForSeconds(timeToDestroy);
+        //make enemy invisible:
+        transform.localScale = Vector3.zero;
+        GetComponent<CircleCollider2D>().enabled = false;
+
+        //wait for smoke and post death entity to do their thing
+        yield return new WaitForSeconds(timeToDestroy);
 
 		//destroy everything
 		for (int i = 0; i < numPostDeathEntities; i++)
         {
 			Destroy(postDeathEntityObjects[i]);
 		}
+        Destroy(smokeCloudObject);
 
         Destroy(gameObject);
     }

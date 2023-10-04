@@ -22,6 +22,8 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 lookAtDir;  // Note that this direction is NOT normalized. Vector length = distance from the target point
     private float attackAngleCosVal;
     private float lastAttackTime;
+
+    private Animation weaponHolderAnim;
     
     void Awake()
     {
@@ -36,6 +38,8 @@ public class PlayerAttack : MonoBehaviour
         lookAtDir = Vector2.left;  // Default starting direction
         attackAngleCosVal = Mathf.Cos(attackRangeAngle / 2f);
         lastAttackTime = -attackCD;
+
+        weaponHolderAnim = weaponHolder.GetComponent<Animation>();
     }
 
     private void OnEnable()
@@ -65,6 +69,8 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Time.time - lastAttackTime > attackCD)
         {
+            weaponHolderAnim.Play();
+
             RaycastHit2D[] inRangeColliderHits = Physics2D.CircleCastAll(
                 transform.position,
                 attackRadius,
@@ -75,7 +81,6 @@ public class PlayerAttack : MonoBehaviour
 
             foreach (RaycastHit2D hit in inRangeColliderHits)
             {
-                Debug.Log("Attack");
                 if (Vector2.Dot((hit.point - hit.centroid).normalized, lookAtDir.normalized) > attackAngleCosVal)
                 {
                     BaseEnemy enemyController = hit.collider.GetComponent<BaseEnemy>();

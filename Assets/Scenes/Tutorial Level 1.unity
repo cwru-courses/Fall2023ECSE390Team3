@@ -601,6 +601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 212344460}
+  - component: {fileID: 212344461}
   m_Layer: 15
   m_Name: Weapon Holder
   m_TagString: Untagged
@@ -624,6 +625,22 @@ Transform:
   m_Father: {fileID: 777061484}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &212344461
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212344459}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f7785844130a1d64593856e32f252f90, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f7785844130a1d64593856e32f252f90, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &220122697
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +852,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BobblesCat (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3313926657163361900, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -859,6 +880,10 @@ PrefabInstance:
       propertyPath: deathAnimLength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: smokeCloudPrefab
+      value: 
+      objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: yarnGainByPlayer
       value: 50
@@ -1729,6 +1754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BobblesCat (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3313926657163361900, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -1753,6 +1782,10 @@ PrefabInstance:
       propertyPath: deathAnimLength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: smokeCloudPrefab
+      value: 
+      objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: yarnGainByPlayer
       value: 50
@@ -5052,6 +5085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BobblesCat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3313926657163361900, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -5076,6 +5113,10 @@ PrefabInstance:
       propertyPath: deathAnimLength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: smokeCloudPrefab
+      value: 
+      objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: yarnGainByPlayer
       value: 50
@@ -5278,6 +5319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BobblesCat
       objectReference: {fileID: 0}
+    - target: {fileID: 3313926657163361900, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -5302,6 +5347,10 @@ PrefabInstance:
       propertyPath: deathAnimLength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: smokeCloudPrefab
+      value: 
+      objectReference: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
     - target: {fileID: 8485002255035290832, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: yarnGainByPlayer
       value: 50
