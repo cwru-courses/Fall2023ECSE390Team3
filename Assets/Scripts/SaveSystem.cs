@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
-using System;
 using System.IO;
 
 public class SaveSystem : MonoBehaviour

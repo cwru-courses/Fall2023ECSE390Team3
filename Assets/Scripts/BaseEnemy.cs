@@ -1,32 +1,31 @@
-
-
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class BaseEnemy : MonoBehaviour
 {
+    [Header("Basic Stats Settings")]
+    [SerializeField] protected int maxHealth;
+    [SerializeField] protected int movementSpeed;
+    [Header("Drop Rate Settings")]
+    [SerializeField] protected int healthPotionDroprate;
+    [SerializeField] protected int yarnDroprate;
+    [SerializeField] protected GameObject lootSpawnerPrefab;
+    [Header("Player Detection Settings")]
+    [SerializeField] protected float detectRadius;
+    [SerializeField] protected LayerMask whatIsTaget;
 
-	  protected int health;
-	  protected int movementSpeed;
-	  protected bool alive;
-	  protected Rigidbody2D rb2d;
-	  protected float basicAttackCDLeft;
-	  [SerializeField] protected GameObject playerObject;
-    [SerializeField] protected GameObject weaponPrefab;
-    [SerializeField] protected float basicAttackRange;
-    [SerializeField] protected float basicAttackCD;
-    [Range(0f, 180f)]
-    [SerializeField] protected float basicAttackRangeAngle;
-    [SerializeField] protected float basicAttackSwingTime; //duration of swing animation(temporary until real animation exists)
-    [SerializeField] protected AudioSource basicAttackSFX;
-    [SerializeField] private int maxHealth;
+    protected int health;
+    protected bool alive;
+    protected Rigidbody2D rb2d;
+	protected float movementSpeedModifier = 1f;
+	protected bool isStunned = false;
+
+    [SerializeField] protected GameObject postDeathEntityPrefab;
     [SerializeField] protected GameObject smokeCloudPrefab;
-	  [SerializeField] protected GameObject postDeathEntityPrefab;
-	  [SerializeField] protected float deathAnimLength;
+    [SerializeField] protected float deathAnimLength;
 
-
-    void Start()
+    void Awake()
     {
         health = maxHealth;
         alive = true;
@@ -35,41 +34,55 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public bool isAlive() { return alive; }
 
-
     public virtual void ReactToHit(int damage)
     {
         if (alive)
         {
-			health -= damage;
-			if (health <= 0)
-			{
-				print("alive: " + alive + " health: " + health);
-				alive = false;
-				StopAllCoroutines();
-				StartCoroutine(Die());
-			}
-		}
-        
+            health = Mathf.Max(health - damage, 0);
+
+            if (health == 0)
+            {
+                alive = false;
+                StopAllCoroutines();
+                StartCoroutine(Die());
+            }
+        }
     }
+
+	public virtual void stun(float duration, float speedMultiplier)
+    {
+		StartCoroutine(stunEffect(duration, speedMultiplier));
+    }
+
+	protected IEnumerator stunEffect(float duration, float speedMultiplier)
+    {
+		isStunned = true;
+		movementSpeedModifier *= speedMultiplier;
+		yield return new WaitForSeconds(duration);
+		movementSpeedModifier /= speedMultiplier;
+		isStunned = false;
+	}
 
     protected IEnumerator Die()
     {
-		int numPostDeathEntities = 3;
         float timeToDestroy = 2.5f; // default value for the time objects which appear after death will last for
+
+        //make enemy stay still and not collide with player
+        rb2d.bodyType = RigidbodyType2D.Static;
+
+		int numPostDeathEntities = 3;
 
 		//wait before initiating smoke etc
 		yield return new WaitForSeconds(deathAnimLength);
 
 		//Create smoke cloud and post death animal to appear at the position of the enemy
-		GameObject smokeCloudObject = null;
 		GameObject[] postDeathEntityObjects = new GameObject[numPostDeathEntities];
+        GameObject smokeCloudObject;
 
-		//check if there is a prefab for the smoke cloud to instantiate
-		if (smokeCloudPrefab)
-		{
-			smokeCloudObject = Instantiate(smokeCloudPrefab) as GameObject;
-			smokeCloudObject.transform.position = transform.position;
-		}
+        //check if there is a prefab for the smoke cloud
+        smokeCloudObject = Instantiate<GameObject>(smokeCloudPrefab);
+        smokeCloudObject.transform.position = transform.position;
+        
 
 		//check if there is a prefab for the post death entity
 		if (postDeathEntityPrefab && numPostDeathEntities>0)
@@ -84,23 +97,23 @@ public abstract class BaseEnemy : MonoBehaviour
 			if (postDeathEntityComponent) { timeToDestroy = postDeathEntityComponent.getLifetime(); }
 		}
 
-		//make this enemy invisible
-		SpriteRenderer SR = GetComponent<SpriteRenderer>();
-		if (SR != null) { SR.color = Color.clear; }
+        //make enemy invisible:
+        transform.localScale = Vector3.zero;
+        GetComponent<CircleCollider2D>().enabled = false;
+        Instantiate(lootSpawnerPrefab, transform.position, Quaternion.identity)
+            .GetComponent<LootSpawner>().SpawnLoot(healthPotionDroprate, yarnDroprate);
 
-		//wait for smoke and post death entity to do their thing
-		yield return new WaitForSeconds(timeToDestroy);
+        //wait for smoke and post death entity to do their thing
+        yield return new WaitForSeconds(timeToDestroy);
 
 		//destroy everything
 		for (int i = 0; i < numPostDeathEntities; i++)
         {
 			Destroy(postDeathEntityObjects[i]);
 		}
-		Destroy(smokeCloudObject);
-		Destroy(this.gameObject);
-    }
+        Destroy(smokeCloudObject);
 
-    protected abstract void move();
-    protected abstract void attack();
+        Destroy(gameObject);
+    }
 }
 
