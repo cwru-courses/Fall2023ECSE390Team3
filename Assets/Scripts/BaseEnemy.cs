@@ -8,8 +8,9 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected int maxHealth;
     [SerializeField] protected int movementSpeed;
     [Header("Drop Rate Settings")]
-    [SerializeField] protected GameObject healthPotionPrefab;
-    [SerializeField] protected float yarnDropRate;
+    [SerializeField] protected int healthPotionDroprate;
+    [SerializeField] protected int yarnDroprate;
+    [SerializeField] protected GameObject lootSpawnerPrefab;
     [Header("Player Detection Settings")]
     [SerializeField] protected float detectRadius;
     [SerializeField] protected LayerMask whatIsTaget;
@@ -68,7 +69,6 @@ public abstract class BaseEnemy : MonoBehaviour
 
         //make enemy stay still and not collide with player
         rb2d.bodyType = RigidbodyType2D.Static;
-        
 
 		int numPostDeathEntities = 3;
 
@@ -100,6 +100,8 @@ public abstract class BaseEnemy : MonoBehaviour
         //make enemy invisible:
         transform.localScale = Vector3.zero;
         GetComponent<CircleCollider2D>().enabled = false;
+        Instantiate(lootSpawnerPrefab, transform.position, Quaternion.identity)
+            .GetComponent<LootSpawner>().SpawnLoot(healthPotionDroprate, yarnDroprate);
 
         //wait for smoke and post death entity to do their thing
         yield return new WaitForSeconds(timeToDestroy);
