@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.InputSystem;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -14,8 +16,13 @@ public class PlayerStats : MonoBehaviour
     public float currentYarnCount;
     public HealthBar yarnTracker; //use Healthbar as yarn tracker 
     public HealthBar healthBar;
+    public int potions = 0;
+    public int healthFromPotion = 20;
+    public TextMeshProUGUI potionUI;
 
     public bool blocking = false;// is block ability activated currently
+
+    private DefaultInputAction playerInputAction;
 
     void Awake()
     {
@@ -29,6 +36,32 @@ public class PlayerStats : MonoBehaviour
         //set player health to maxHealth to start
         healthBar.SetMaxHealth(maxHealth);
         yarnTracker.SetMaxHealth(maxYarn);
+
+        playerInputAction = new DefaultInputAction();
+        playerInputAction.Player.UsePotion.started += UsePotion;
+
+    }
+
+    private void OnEnable()
+    {
+        playerInputAction.Player.UsePotion.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInputAction.Player.UsePotion.Disable();
+    }
+
+    public void OnPause(bool paused)
+    {
+        if (paused)
+        {
+            playerInputAction.Player.UsePotion.Disable();
+        }
+        else
+        {
+            playerInputAction.Player.UsePotion.Disable();
+        }
     }
 
     void Update()
@@ -88,5 +121,24 @@ public class PlayerStats : MonoBehaviour
         yarnTracker.SetHealth(yarnToDisplay);
     }
 
+    public void UsePotion(InputAction.CallbackContext ctx)
+    {
+        if (potions > 0)
+        {
+            potions -= 1;
+            currentHealth += healthFromPotion;
+            potionUI.text = potions.ToString();
+        }
+        else
+        {
+            Debug.Log("No Potion");
+        }
+    }
+
+    public void GainPotion()
+    {
+        potions += 1;
+        potionUI.text = potions.ToString();
+    }
 
 }

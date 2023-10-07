@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7399430980208028890}
   - component: {fileID: 7399430980208028891}
   - component: {fileID: 7399430980208028888}
+  - component: {fileID: -7861581290159565424}
   m_Layer: 26
   m_Name: Loot - Yarn
   m_TagString: Untagged
@@ -168,3 +169,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647f615270e0cfe48a8d8e4114956e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootMovement: {fileID: -7861581290159565424}
+--- !u!114 &-7861581290159565424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399430980208028889}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133307530680e4ff68bccb683c403349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootType: 2
+  yarnRewardIfYarn: 20
+  detectionDistance: 2
+  moveSpeed: 6
+  destroyDistance: 0.3
+  lootController: {fileID: 7399430980208028888}
