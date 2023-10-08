@@ -55,6 +55,15 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Launch Projectile"",
+                    ""type"": ""Button"",
+                    ""id"": ""e21d4237-bb8f-4da8-94c9-eae29e4959da"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Phase Shift"",
                     ""type"": ""Button"",
                     ""id"": ""c82b92be-c27d-4ade-8895-421a549c7b8a"",
@@ -172,6 +181,17 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""action"": ""Ability1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""130dbcaf-7cda-4b5b-bb36-2d4086b6b808"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Launch Projectile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -211,6 +231,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_LaunchProjectile = m_Player.FindAction("Launch Projectile", throwIfNotFound: true);
         m_Player_PhaseShift = m_Player.FindAction("Phase Shift", throwIfNotFound: true);
         m_Player_Ability1 = m_Player.FindAction("Ability1", throwIfNotFound: true);
         // UI
@@ -278,6 +299,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_LaunchProjectile;
     private readonly InputAction m_Player_PhaseShift;
     private readonly InputAction m_Player_Ability1;
     public struct PlayerActions
@@ -287,6 +309,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @LaunchProjectile => m_Wrapper.m_Player_LaunchProjectile;
         public InputAction @PhaseShift => m_Wrapper.m_Player_PhaseShift;
         public InputAction @Ability1 => m_Wrapper.m_Player_Ability1;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -307,6 +330,9 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @LaunchProjectile.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchProjectile;
+                @LaunchProjectile.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchProjectile;
+                @LaunchProjectile.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchProjectile;
                 @PhaseShift.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhaseShift;
                 @PhaseShift.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhaseShift;
                 @PhaseShift.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhaseShift;
@@ -326,6 +352,9 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @LaunchProjectile.started += instance.OnLaunchProjectile;
+                @LaunchProjectile.performed += instance.OnLaunchProjectile;
+                @LaunchProjectile.canceled += instance.OnLaunchProjectile;
                 @PhaseShift.started += instance.OnPhaseShift;
                 @PhaseShift.performed += instance.OnPhaseShift;
                 @PhaseShift.canceled += instance.OnPhaseShift;
@@ -374,6 +403,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnLaunchProjectile(InputAction.CallbackContext context);
         void OnPhaseShift(InputAction.CallbackContext context);
         void OnAbility1(InputAction.CallbackContext context);
     }
