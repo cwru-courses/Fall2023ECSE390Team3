@@ -24,11 +24,19 @@ public class PlayerStats : MonoBehaviour
             _instance = this;
         }
 
-        currentHealth = maxHealth;
-        currentYarnCount = maxYarn;
-        //set player health to maxHealth to start
-        healthBar.SetMaxHealth(maxHealth);
-        yarnTracker.SetMaxHealth(maxYarn);
+        if(SaveSystem.isVersionSaved) {
+            SaveSystem.LoadSave(); 
+            healthBar.SetHealth(currentHealth); 
+            yarnTracker.SetHealth( Mathf.RoundToInt(currentYarnCount)); 
+            Debug.Log("Saved version loaded"); 
+        } else {
+            Debug.Log("Saved version not found");
+            currentHealth = maxHealth;
+            currentYarnCount = maxYarn;
+            //set player health to maxHealth to start
+            healthBar.SetMaxHealth(maxHealth);
+            yarnTracker.SetMaxHealth(maxYarn);
+        }
     }
 
     void Update()

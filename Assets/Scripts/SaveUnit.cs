@@ -5,6 +5,7 @@ public class SaveUnit
 {
     public float[] playerPosition;
     public int playerHealth;
+    public float playerYarn; 
     //public float playerMana;
 
     public SaveUnit()
@@ -16,5 +17,6 @@ public class SaveUnit
             PlayerStats._instance.transform.position.z
         };
         playerHealth = PlayerStats._instance.currentHealth;
+        playerYarn = PlayerStats._instance.currentYarnCount; 
     }
 }
