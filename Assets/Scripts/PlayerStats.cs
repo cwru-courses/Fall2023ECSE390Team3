@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour
     public HealthBar healthBar;
     public int potions = 0;
     public int healthFromPotion = 20;
+    public int maxPotion = 8;
     public TextMeshProUGUI potionUI;
 
     public bool blocking = false;// is block ability activated currently
@@ -137,8 +138,11 @@ public class PlayerStats : MonoBehaviour
 
     public void GainPotion()
     {
-        potions += 1;
-        potionUI.text = potions.ToString();
+        if (potions < maxPotion)
+        {
+            potions += 1;
+            potionUI.text = potions.ToString();
+        }
     }
 
 }
