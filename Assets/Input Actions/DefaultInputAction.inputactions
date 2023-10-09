@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Launch Projectile",
+                    "type": "Button",
+                    "id": "e21d4237-bb8f-4da8-94c9-eae29e4959da",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Phase Shift",
                     "type": "Button",
                     "id": "c82b92be-c27d-4ade-8895-421a549c7b8a",
@@ -148,6 +157,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Ability1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "130dbcaf-7cda-4b5b-bb36-2d4086b6b808",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Launch Projectile",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
