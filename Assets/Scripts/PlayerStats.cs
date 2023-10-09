@@ -20,6 +20,7 @@ public class PlayerStats : MonoBehaviour
     public int healthFromPotion = 20;
     public int maxPotion = 8;
     public TextMeshProUGUI potionUI;
+    public bool inFlippedWorld;  //keep track of what world player is in
 
     public bool blocking = false;// is block ability activated currently
 
@@ -40,7 +41,7 @@ public class PlayerStats : MonoBehaviour
 
         playerInputAction = new DefaultInputAction();
         playerInputAction.Player.UsePotion.started += UsePotion;
-
+        inFlippedWorld = false;
     }
 
     private void OnEnable()
@@ -80,7 +81,11 @@ public class PlayerStats : MonoBehaviour
         if(currentHealth <= 0) {
              SceneManager.LoadSceneAsync("Game Over Screen");
         }
-        yarncooldown = yarncooldown+1;
+        // only count up yarncooldown by 1 in normal world -- Jing
+        if (!inFlippedWorld)
+        {
+            yarncooldown = yarncooldown + 1;
+        }
         if(yarncooldown>3600*1){
             yarncooldown = 0;
             this.GainYarn(20);

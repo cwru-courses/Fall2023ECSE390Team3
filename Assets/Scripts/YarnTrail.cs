@@ -6,7 +6,6 @@ public class YarnTrail : MonoBehaviour
 {
     public static YarnTrail _instance;
     private TrailRenderer trailRranderer;
-    private bool inFlipWorld;
     private Vector3 lastPosition;
     private Vector3 thisPosition;
     [SerializeField] private float yarnConsumptionRate;
@@ -23,7 +22,6 @@ public class YarnTrail : MonoBehaviour
     void Start()
     {
         trailRranderer = GetComponent<TrailRenderer>();
-        inFlipWorld = false;
         thisPosition = transform.position;
         lastPosition = thisPosition;
     }
@@ -32,7 +30,7 @@ public class YarnTrail : MonoBehaviour
     void Update()
     {
         // if player in flipped world
-        if (inFlipWorld)
+        if (PlayerStats._instance.inFlippedWorld)
         {
             thisPosition = transform.position;
             if (thisPosition != lastPosition)
@@ -48,13 +46,13 @@ public class YarnTrail : MonoBehaviour
         if (trailRranderer.enabled == false)
         {
             trailRranderer.enabled = true;
-            inFlipWorld = true;
+            PlayerStats._instance.inFlippedWorld = true;
         }
         else
         {
             trailRranderer.enabled = false;
             trailRranderer.Clear();
-            inFlipWorld = false;
+            PlayerStats._instance.inFlippedWorld = false;
         }
     }
 
