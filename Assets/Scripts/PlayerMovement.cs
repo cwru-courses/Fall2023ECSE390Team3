@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private float lastDashTime;
     private Vector2 lastMovementDir;  // Tracking last direction player moved
     private float speedMultiplier; // used to adjust player speed during abilities etc
+    private bool movementLocked;
 
     void Awake()
     {
@@ -39,6 +40,23 @@ public class PlayerMovement : MonoBehaviour
         lastDashTime = -dashCD;
         lastMovementDir = Vector2.right;
         speedMultiplier = 1f;
+        movementLocked = false;
+    }
+
+    private void Update()
+    {
+        // if player in flipped world and run out of yarn and movement not yet locked, lock(pause) the movement -- Jing
+        if (PlayerStats._instance.inFlippedWorld && PlayerStats._instance.currentYarnCount <= 0 && !movementLocked)
+        {
+            OnPause(true);
+            movementLocked = true;
+        }
+        // else if the movement is still locked, unlock the movement
+        else if (movementLocked)
+        {
+            OnPause(false);
+            movementLocked = false;
+        }
     }
 
     private void Start()
