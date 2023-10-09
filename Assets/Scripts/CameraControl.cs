@@ -1,3 +1,4 @@
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 public enum CamBehavior
@@ -17,7 +18,7 @@ public class CameraControl : MonoBehaviour
     [SerializeField] private Transform targetTransform;
     [SerializeField] private float objectFocusFOV;
     [Header("Boos Room Mode")]
-    [SerializeField] private Vector3 roomCenterPosition;
+    [SerializeField] public static Vector3 roomCenterPosition;
     [SerializeField] private float bossRoomFOV;
     [SerializeField] private Vector2 playerOffsetMultiplier;
 
@@ -80,5 +81,9 @@ public class CameraControl : MonoBehaviour
     {
         camMode = CamBehavior.BossRoom;
         roomCenterPosition = roomCenterPos;
+    }
+    public static void SwitchSide()
+    {
+        roomCenterPosition = new Vector3(roomCenterPosition.x,-1.0f*roomCenterPosition.y,roomCenterPosition.z);
     }
 }
