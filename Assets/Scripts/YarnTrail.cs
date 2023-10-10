@@ -9,6 +9,7 @@ public class YarnTrail : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 thisPosition;
     [SerializeField] private float yarnConsumptionRate;
+    private bool inFlipWorld;
 
     private void Awake()
     {

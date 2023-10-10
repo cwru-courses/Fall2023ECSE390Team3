@@ -2863,6 +2863,11 @@ MonoBehaviour:
   currentYarnCount: 0
   yarnTracker: {fileID: 1469000091}
   healthBar: {fileID: 1655151669}
+  potions: 0
+  healthFromPotion: 20
+  maxPotion: 8
+  potionUI: {fileID: 443517435}
+  inFlippedWorld: 0
   blocking: 0
 --- !u!50 &777061482
 Rigidbody2D:
