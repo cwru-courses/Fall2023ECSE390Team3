@@ -90,7 +90,7 @@ public class PlayerStats : MonoBehaviour
              SceneManager.LoadSceneAsync("Game Over Screen");
         }
         // only count up yarncooldown by 1 in normal world -- Jing
-        if (!inFlippedWorld)
+        if (GameObject.FindWithTag("Player").transform.position.y > 0)
         {
             yarncooldown = yarncooldown + 1;
         }
