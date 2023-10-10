@@ -52,6 +52,9 @@ TagManager:
   - name: Walls
     uniqueID: 3496523957
     locked: 0
+  - name: Removeable
+    uniqueID: 381540451
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
