@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,19 +6,21 @@ using UnityEngine;
 public class TrainingBotController : BaseEnemy
 {
     [Header("Attack Settings")]
-    [SerializeField] private float attackRadius;
+    [SerializeField] protected float attackRadius;
     [SerializeField] private float attackCD;
+    [SerializeField] protected float attackAnimDuration;
     [Header("Patrol Path Settings")]
     [SerializeField] private List<Vector3> patrolPoints;
     [SerializeField] private float patrolCD;
     [Header("Graphics Settings")]
     [SerializeField] private SpriteRenderer spriteRender;
+    [SerializeField] protected Animator anim;
     [SerializeField] private Color colorOnDeath;
 
     private float lastAttackTime;
     private int patrolTargetIndex;
     private float patrolCDTimer;
-    private Transform targetTransform;
+    protected Transform targetTransform;
 
     // Start is called before the first frame update
     void Awake()
@@ -36,6 +39,7 @@ public class TrainingBotController : BaseEnemy
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (alive)
         {
             Vector3 targetDist;
@@ -50,9 +54,16 @@ public class TrainingBotController : BaseEnemy
                 {
                     if (Time.time - lastAttackTime > attackCD)
                     {
-                        // atack
+                        StartCoroutine(Attack());
+                        lastAttackTime = Time.time;
                     }
                 }
+                //if too close run away
+                if (targetDist.magnitude < attackRadius*0.6f)
+                {
+                    rb2d.velocity = targetDist.normalized * movementSpeed * movementSpeedModifier * -1f;
+                }
+
             }
             else
             {
@@ -123,6 +134,20 @@ public class TrainingBotController : BaseEnemy
         for (int i = 0; i < patrolPoints.Count - 1; i++)
         {
             Gizmos.DrawLine(patrolPoints[i], patrolPoints[i + 1]);
+        }
+    }
+
+    protected virtual IEnumerator Attack()
+    {
+        if (anim)
+        {
+            anim.SetTrigger("Attack");
+            yield return new WaitForSeconds(attackAnimDuration);
+            anim.ResetTrigger("Attack");
+        }
+        else
+        {
+            yield return new WaitForSeconds(0f);
         }
     }
 }

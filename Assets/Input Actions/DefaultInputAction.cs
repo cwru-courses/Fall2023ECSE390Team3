@@ -227,6 +227,15 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""42f747d1-7664-41c0-8e86-09e9a58aa16c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -238,6 +247,17 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13759c7d-54e9-43f0-8b28-7874e713b824"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -258,6 +278,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        m_UI_Dialogue = m_UI.FindAction("Dialogue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -399,11 +420,13 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Pause;
+    private readonly InputAction m_UI_Dialogue;
     public struct UIActions
     {
         private @DefaultInputAction m_Wrapper;
         public UIActions(@DefaultInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
+        public InputAction @Dialogue => m_Wrapper.m_UI_Dialogue;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -416,6 +439,9 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Dialogue.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDialogue;
+                @Dialogue.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDialogue;
+                @Dialogue.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDialogue;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -423,6 +449,9 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Dialogue.started += instance.OnDialogue;
+                @Dialogue.performed += instance.OnDialogue;
+                @Dialogue.canceled += instance.OnDialogue;
             }
         }
     }
@@ -440,5 +469,6 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnPause(InputAction.CallbackContext context);
+        void OnDialogue(InputAction.CallbackContext context);
     }
 }

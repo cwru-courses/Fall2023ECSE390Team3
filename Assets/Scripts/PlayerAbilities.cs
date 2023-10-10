@@ -17,14 +17,16 @@ public class PlayerAbilities : MonoBehaviour
     private const float blockCD = 5f;
     private const float blockDuration = 3f;
     private const float blockMovementSpeedMultiplier = 0.4f;
+    private const float blockYarnUse = 40f;
 
     [SerializeField] GameObject stunMeshPrefab;
     private const float stunCD = 5f;
     private const float stunDuration = 3f;
     private const float stunMaxCastingDuration = 20f;
+    private const float stunYarnPerSecond = 5f;
+
     private bool stunCasting = false;
     private List<Vector3> stunCulledPath;
-    private List<Vector3> stunFullPath;
     private LineRenderer pathRender;
 
     private float lastAbilityTime;
@@ -51,8 +53,6 @@ public class PlayerAbilities : MonoBehaviour
 
         lastAbilityTime = -Mathf.Max(blockCD, stunCD);
 
-        stunFullPath = new List<Vector3>(); // used for line renderer during cast
-        pathRender.SetPositions(stunFullPath.ToArray());
         stunCulledPath = new List<Vector3>(); // used for mechanics/ functionality
 
     }
@@ -61,6 +61,7 @@ public class PlayerAbilities : MonoBehaviour
     {
         if (stunCasting)
         {
+            PlayerStats._instance.UseYarn(stunYarnPerSecond * Time.fixedDeltaTime);
             if (Time.time - lastAbilityTime < stunMaxCastingDuration)
             {
                 //add new point
@@ -69,8 +70,6 @@ public class PlayerAbilities : MonoBehaviour
                 {
                     if (stunCulledPath.Count >= 2)
                     {
-                        // add to full path
-                        stunFullPath.Add(newPoint);
 
                         //check if its inline with previous points for culled path
                         Vector3 oldDir = (stunCulledPath[stunCulledPath.Count - 1] - stunCulledPath[stunCulledPath.Count - 2]).normalized;
@@ -80,11 +79,15 @@ public class PlayerAbilities : MonoBehaviour
                             //print("adding new point");
                             stunCulledPath.Add(newPoint);
                         }
+                        else
+                        {
+                            //replace previous point with new point
+                            stunCulledPath[stunCulledPath.Count - 1] = newPoint;
+                        }
                     }
                     else
                     {
                         //print("adding new point");
-                        stunFullPath.Add(newPoint);
                         stunCulledPath.Add(newPoint);
                     }
                     
@@ -95,8 +98,8 @@ public class PlayerAbilities : MonoBehaviour
                 //finish stun cast
                 stun();
             }
-            pathRender.positionCount = stunFullPath.Count;
-            pathRender.SetPositions(stunFullPath.ToArray());
+            pathRender.positionCount = stunCulledPath.Count;
+            pathRender.SetPositions(stunCulledPath.ToArray());
         }
     }
 
@@ -139,6 +142,7 @@ public class PlayerAbilities : MonoBehaviour
 
     private IEnumerator block()
     {
+        PlayerStats._instance.UseYarn(blockYarnUse);
         PlayerMovement playerMovementInstance = PlayerMovement._instance;
         PlayerStats playerStatsInstance = PlayerStats._instance;
         playerMovementInstance.MultiplySpeed(blockMovementSpeedMultiplier);
@@ -163,9 +167,8 @@ public class PlayerAbilities : MonoBehaviour
             stunObject.GetComponent<MeshGenerator>().SetVertices(stunCulledPath.ToArray());
             stunObject.transform.position = Vector3.zero;
             stunCulledPath = new List<Vector3>();
-            stunFullPath = new List<Vector3>();
-            pathRender.positionCount = stunFullPath.Count;
-            pathRender.SetPositions(stunFullPath.ToArray());
+            pathRender.positionCount = stunCulledPath.Count;
+            pathRender.SetPositions(stunCulledPath.ToArray());
             
             yield return new WaitForSeconds(stunDuration);
             Destroy(stunObject);
@@ -174,7 +177,6 @@ public class PlayerAbilities : MonoBehaviour
         else
         {
             //print("stun cast started");
-            stunFullPath.Add(transform.position);
             stunCulledPath.Add(transform.position);
             lastAbilityTime = Time.time;
             stunCasting = true;
