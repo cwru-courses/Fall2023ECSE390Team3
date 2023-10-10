@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickUpable
   - Enemy
+  - Stone
   layers:
   - Default
   - TransparentFX
