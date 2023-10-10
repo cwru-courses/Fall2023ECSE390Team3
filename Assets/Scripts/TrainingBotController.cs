@@ -59,7 +59,7 @@ public class TrainingBotController : BaseEnemy
                     }
                 }
                 //if too close run away
-                if (targetDist.magnitude < attackRadius*0.7f)
+                if (targetDist.magnitude < attackRadius*0.6f)
                 {
                     rb2d.velocity = targetDist.normalized * movementSpeed * movementSpeedModifier * -1f;
                 }
