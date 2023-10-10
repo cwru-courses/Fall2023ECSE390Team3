@@ -4,12 +4,14 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class Dialogue : MonoBehaviour
+public class OpeningDialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public String[] lines;
     public float textSpeed;
     private int index;
+    private DefaultInputAction playerInputAction;
+
 
     [SerializeField] protected GameObject health_arrow;
     [SerializeField] protected GameObject yarn_arrow;
@@ -41,9 +43,7 @@ public class Dialogue : MonoBehaviour
     }
 
     void StartDialogue(){
-        
         index = 0;
-
         StartCoroutine(TypeLine());
     
     }
