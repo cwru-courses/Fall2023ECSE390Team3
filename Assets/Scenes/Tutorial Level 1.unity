@@ -7450,7 +7450,7 @@ MonoBehaviour:
   mainClip: {fileID: 8300000, guid: 0620d6eb455355c4490653610689c27d, type: 3}
   fight: {fileID: 687604723}
   cam: {fileID: 520802791}
-  boss: {fileID: 0}
+  boss: {fileID: 1223262371}
   audSource: {fileID: 1580157308}
 --- !u!114 &1580157306
 MonoBehaviour:
