@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Launch Projectile",
+                    "type": "Button",
+                    "id": "e21d4237-bb8f-4da8-94c9-eae29e4959da",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Phase Shift",
                     "type": "Button",
                     "id": "c82b92be-c27d-4ade-8895-421a549c7b8a",
@@ -45,6 +54,15 @@
                     "name": "Ability1",
                     "type": "Button",
                     "id": "b6987c5c-85e1-47e5-b78d-d309ef91788f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UsePotion",
+                    "type": "Button",
+                    "id": "61586cb4-26ab-49b4-8dea-d66bfa8b1de0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -148,6 +166,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Ability1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "130dbcaf-7cda-4b5b-bb36-2d4086b6b808",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Launch Projectile",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26ab7596-2ee5-4cfb-b320-13a7dfe7d0e0",
+                    "path": "<Keyboard>/f",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UsePotion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         PlayerMovement._instance.OnPause(paused);
         PlayerAttack._instance.OnPause(paused);
         PhaseShift._instance.OnPause(paused);
+        PlayerStats._instance.OnPause(paused);
 
         if (paused)
         {

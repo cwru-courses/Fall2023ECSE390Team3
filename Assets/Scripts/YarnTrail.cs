@@ -6,7 +6,6 @@ public class YarnTrail : MonoBehaviour
 {
     public static YarnTrail _instance;
     private TrailRenderer trailRranderer;
-    private bool inFlipWorld;
     private Vector3 lastPosition;
     private Vector3 thisPosition;
     [SerializeField] private float yarnConsumptionRate;
