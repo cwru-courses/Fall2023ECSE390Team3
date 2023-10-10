@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.InputSystem;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -14,8 +16,15 @@ public class PlayerStats : MonoBehaviour
     public float currentYarnCount;
     public HealthBar yarnTracker; //use Healthbar as yarn tracker 
     public HealthBar healthBar;
+    public int potions = 0;
+    public int healthFromPotion = 20;
+    public int maxPotion = 8;
+    public TextMeshProUGUI potionUI;
+    public bool inFlippedWorld;  //keep track of what world player is in
 
     public bool blocking = false;// is block ability activated currently
+
+    private DefaultInputAction playerInputAction;
 
     void Awake()
     {
@@ -29,6 +38,32 @@ public class PlayerStats : MonoBehaviour
         //set player health to maxHealth to start
         healthBar.SetMaxHealth(maxHealth);
         yarnTracker.SetMaxHealth(maxYarn);
+
+        playerInputAction = new DefaultInputAction();
+        playerInputAction.Player.UsePotion.started += UsePotion;
+        inFlippedWorld = false;
+    }
+
+    private void OnEnable()
+    {
+        playerInputAction.Player.UsePotion.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInputAction.Player.UsePotion.Disable();
+    }
+
+    public void OnPause(bool paused)
+    {
+        if (paused)
+        {
+            playerInputAction.Player.UsePotion.Disable();
+        }
+        else
+        {
+            playerInputAction.Player.UsePotion.Disable();
+        }
     }
 
     void Update()
@@ -46,7 +81,11 @@ public class PlayerStats : MonoBehaviour
         if(currentHealth <= 0) {
              SceneManager.LoadSceneAsync("Game Over Screen");
         }
-        yarncooldown = yarncooldown+1;
+        // only count up yarncooldown by 1 in normal world -- Jing
+        if (!inFlippedWorld)
+        {
+            yarncooldown = yarncooldown + 1;
+        }
         if(yarncooldown>3600*1){
             yarncooldown = 0;
             this.GainYarn(20);
@@ -88,5 +127,27 @@ public class PlayerStats : MonoBehaviour
         yarnTracker.SetHealth(yarnToDisplay);
     }
 
+    public void UsePotion(InputAction.CallbackContext ctx)
+    {
+        if (potions > 0)
+        {
+            potions -= 1;
+            currentHealth += healthFromPotion;
+            potionUI.text = potions.ToString();
+        }
+        else
+        {
+            Debug.Log("No Potion");
+        }
+    }
+
+    public void GainPotion()
+    {
+        if (potions < maxPotion)
+        {
+            potions += 1;
+            potionUI.text = potions.ToString();
+        }
+    }
 
 }
