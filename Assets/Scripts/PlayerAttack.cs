@@ -158,10 +158,12 @@ public class PlayerAttack : MonoBehaviour
         if (paused)
         {
             playerInputAction.Player.Attack.Disable();
+            playerInputAction.Player.LaunchProjectile.Disable();
         }
         else
         {
             playerInputAction.Player.Attack.Enable();
+            playerInputAction.Player.LaunchProjectile.Enable();
         }
     }
 }
