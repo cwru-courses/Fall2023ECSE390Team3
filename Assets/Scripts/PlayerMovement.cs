@@ -93,7 +93,10 @@ public class PlayerMovement : MonoBehaviour
             rb2d.velocity = inputDir * dashSpeed * speedMultiplier;
             dashTimer += Time.fixedDeltaTime;
 
-            if (dashTimer > dashDuration) { onDash = false; }
+            if (dashTimer > dashDuration) { 
+                onDash = false;
+                PlayerStats._instance.blocking = false; ;
+            }
         }
         else
         {
@@ -105,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Time.time - lastDashTime > dashCD)
         {
+            PlayerStats._instance.blocking = true;
             onDash = true;
             dashTimer = 0f;
             lastDashTime = Time.time;

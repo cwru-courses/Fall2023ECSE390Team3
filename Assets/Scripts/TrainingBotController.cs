@@ -150,4 +150,9 @@ public class TrainingBotController : BaseEnemy
             yield return new WaitForSeconds(0f);
         }
     }
+
+    public void setTargetTransform(Transform target)
+    {
+        targetTransform = target;
+    }
 }
