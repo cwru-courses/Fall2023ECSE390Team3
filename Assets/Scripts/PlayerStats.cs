@@ -100,7 +100,7 @@ public class PlayerStats : MonoBehaviour
         {
             yarncooldown = yarncooldown + 1;
         }
-        if (yarncooldown > 3600 * 1)
+        if (yarncooldown > 36 * 1)
         {
             yarncooldown = 0;
             this.GainYarn(20);
