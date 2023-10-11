@@ -102,17 +102,19 @@ public class BossController : BaseEnemy
                 {
                     
                     //closer player is the more likely to slam instead of pull
-                    if (Random.value > targetDist.magnitude / shockwaveRange)
+                    if (Random.value > targetDist.magnitude / slamAttackRadius)
                     {
+                        lastAttackTime = Time.time;
                         print("shockwave attack");
                         StartCoroutine(ShockwaveAttack());
-                        lastAttackTime = Time.time;
+                        
                     }
                     else
                     {
+                        lastAttackTime = Time.time;
                         print("pull attack");
                         StartCoroutine(PullAttack());
-                        lastAttackTime = Time.time;
+                        
                     }
                     
 
@@ -192,6 +194,10 @@ public class BossController : BaseEnemy
                 print("spawning enemies");
                 numPhases += 1;
                 SpawnEnemies();
+            }
+            if (health <1+( maxHealth * ((numPhases - currPhase - 1) / (float)numPhases)) && health !=1)
+            {
+                //switchRealities();
             }
         }
     }
