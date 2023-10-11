@@ -201,7 +201,7 @@ MonoBehaviour:
   rageRadius: 5
   rageDuration: 5
   minAttackCD: 5
-  numPhases: 4
+  numPhases: 3
   enemyPrefabs:
   - {fileID: 986031642315237854, guid: 5a00960f283e44040984961cae812dc4, type: 3}
   - {fileID: 986031642315237854, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
@@ -228,7 +228,7 @@ MonoBehaviour:
   anim: {fileID: 2538120770463943114}
   colorOnDeath: {r: 0, g: 0, b: 0, a: 0}
   bossHealthbar: {fileID: 1490532}
-  riftPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
+  riftPrefab: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
   riftDuration: 5
 --- !u!4 &2460894157062390127 stripped
 Transform:

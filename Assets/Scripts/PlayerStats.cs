@@ -23,6 +23,8 @@ public class PlayerStats : MonoBehaviour
     public bool inFlippedWorld;  //keep track of what world player is in
 
     public bool blocking = false;// is block ability activated currently
+    [SerializeField] private SpriteRenderer spRender;
+    [SerializeField] private AudioSource hitSFX;
 
     private DefaultInputAction playerInputAction;
 
@@ -113,6 +115,14 @@ public class PlayerStats : MonoBehaviour
             currentHealth -= damage;
 
             healthBar.SetHealth(currentHealth);
+            if (hitSFX)
+            {
+                hitSFX.Play();
+            }
+            if (spRender)
+            {
+                StartCoroutine(FlashColor(0.1f,new Color(1f,0.5f,0.5f)));
+            }
         }
     }
     //decrease yarn count
@@ -168,6 +178,14 @@ public class PlayerStats : MonoBehaviour
             potions += 1;
             potionUI.text = potions.ToString();
         }
+    }
+
+    private IEnumerator FlashColor(float duration, Color color)
+    {
+        Color prevColor = Color.white;
+        spRender.color = color;
+        yield return new WaitForSeconds(duration);
+        spRender.color = prevColor;
     }
 
 }

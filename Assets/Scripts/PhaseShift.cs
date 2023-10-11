@@ -11,6 +11,7 @@ public class PhaseShift : MonoBehaviour
     [SerializeField] private float shiftPrecastTime;
     [SerializeField] private float precastingTimer;
     [SerializeField] private Slider shiftProgressBar;
+    [SerializeField] private GameObject rift;
 
     [SerializeField] private Image uiImg;
 
@@ -84,13 +85,17 @@ public class PhaseShift : MonoBehaviour
         shiftProgressBar.gameObject.SetActive(true);
 
         precastingTimer = shiftPrecastTime;
+        //create precast rift
+        GameObject riftObject = Instantiate<GameObject>(rift);
+        riftObject.transform.parent = transform;
+        riftObject.transform.position = transform.position;
         while (precastingTimer > 0)
         {
             shiftProgressBar.value = precastingTimer / shiftPrecastTime;
             precastingTimer -= Time.deltaTime;
             yield return null;
         }
-
+        Destroy(riftObject);
         shiftProgressBar.gameObject.SetActive(false);
 
         ToPhaseShift();

@@ -208,25 +208,29 @@ public class BossController : BaseEnemy
             health = Mathf.Max(health - damage, 0);
             bossHealthbar.transform.localScale = new Vector3(healthbarInitScale * ((float)health / (float)maxHealth),1,1);
 
-            if (health == 0)
+            if (health <= 0)
             {
                 alive = false;
                 StopAllCoroutines();
                 StartCoroutine(Die());
             }
-            // if we need to start a new phase
-            print("health " + health);
-            print("target health "+ maxHealth * ((numPhases - currPhase - 1) / (float)numPhases));
-            if(health<maxHealth*((numPhases - currPhase - 1) / (float)numPhases))
+            else
             {
-                print("spawning enemies");
-                currPhase += 1;
-                SpawnEnemies();
+                // if we need to start a new phase
+                print("health " + health);
+                print("target health " + maxHealth * ((numPhases - currPhase - 1) / (float)numPhases));
+                if (health < maxHealth * ((numPhases - currPhase - 1) / (float)numPhases))
+                {
+                    print("spawning enemies");
+                    currPhase += 1;
+                    SpawnEnemies();
+                }
+                else if (health < 1 + (maxHealth * ((numPhases - currPhase - 1) / (float)numPhases)) && health >= 2)
+                {
+                    StartCoroutine(switchRealities());
+                }
             }
-            else if (health <1+( maxHealth * ((numPhases - currPhase - 1) / (float)numPhases)) && health !=1)
-            {
-                StartCoroutine(switchRealities());
-            }
+            
         }
     }
 
