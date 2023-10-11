@@ -153,6 +153,7 @@ public class PlayerStats : MonoBehaviour
             potions -= 1;
             currentHealth += healthFromPotion;
             potionUI.text = potions.ToString();
+            healthBar.SetHealth(currentHealth);
         }
         else
         {
