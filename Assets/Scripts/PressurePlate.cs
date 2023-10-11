@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour {
 
-    // [SerializeField] private GameObject chestToUnlock;
+    [SerializeField] private GameObject chestToUnlock;
 
     // Start is called before the first frame update
     void Start() {
-        
+        chestToUnlock = GameObject.Find("Chest");
     }
 
     // Update is called once per frame
@@ -27,10 +27,10 @@ public class PressurePlate : MonoBehaviour {
                 Debug.Log("Pressure Plate Triggered!");
 
                 // Open door/chest
-                /*
+                
                 if (chestToUnlock != null)
-                  chestToUnlock.setChestOpen(true);
-                */
+                  chestToUnlock.GetComponent<Chest>().setChestOpen(true);
+                
             }
         } 
     }

@@ -1210,8 +1210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chest: {fileID: 265792549}
-  openChest: {fileID: 21300000, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
-  closedChest: {fileID: 21300040, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+  openChest: {fileID: 21300040, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+  closedChest: {fileID: 21300000, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
 --- !u!1 &327118320
 GameObject:
   m_ObjectHideFlags: 0
@@ -4577,7 +4577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfa7011de6416644a5efb1ff36f2714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestToUnlock: {fileID: 265792550}
+  chestToUnlock: {fileID: 265792548}
 --- !u!1 &1800751433
 GameObject:
   m_ObjectHideFlags: 0
