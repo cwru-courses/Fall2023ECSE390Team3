@@ -74,6 +74,10 @@ public class MeleeEnemy : TrainingBotController
         }
 
     }
+    private void OnDestroy()
+    {
+        Destroy(weaponObject);
+    }
 
 
 
