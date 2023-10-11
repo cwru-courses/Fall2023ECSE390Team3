@@ -2727,8 +2727,9 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 1048576
-  attackSwingTime: 0.1
   weaponHolder: {fileID: 212344460}
+  projectileNum: 0
+  projectilePrefab: {fileID: 0}
 --- !u!114 &777061480
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d03dfd6d2331ae4dab0bc11b6ab5a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPotionPrefab: {fileID: 4741786116799865301, guid: d5cc7de6c78c0f54c93ee8b39d8430b5, type: 3}
+  healthPotionPrefab: {fileID: 446432256240885129, guid: 0097c2dd6131041cf8901b41def33572, type: 3}
   yarnDropPrefab: {fileID: 7399430980208028889, guid: 6e27f38ace612d14bafd1d89e9703bac, type: 3}
-  healthPotionDropAmount: 2
-  yarnDropAmount: 2
   horizontalPopForce: 3
   verticalPopForce: 4
+  healthPotionDropAmount: 2
+  yarnDropAmount: 2

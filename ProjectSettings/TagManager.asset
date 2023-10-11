@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PickUpable
+  - Enemy
+  - Stone
+  - PressurePlate
   layers:
   - Default
   - TransparentFX
@@ -36,7 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Mini Map GFX
   - 
   m_SortingLayers:
   - name: UnderGround
@@ -50,6 +53,9 @@ TagManager:
     locked: 0
   - name: Walls
     uniqueID: 3496523957
+    locked: 0
+  - name: Removeable
+    uniqueID: 381540451
     locked: 0
   - name: Default
     uniqueID: 0
