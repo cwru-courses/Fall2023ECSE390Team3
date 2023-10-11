@@ -50,6 +50,7 @@ public class PlayerAbilities : MonoBehaviour
 
         playerInputAction = new DefaultInputAction();
         playerInputAction.Player.Ability1.started += startAbility;
+        playerInputAction.Player.Ability2.started += startAbility2;
 
         lastAbilityTime = -Mathf.Max(blockCD, stunCD);
 
@@ -106,11 +107,13 @@ public class PlayerAbilities : MonoBehaviour
     private void OnEnable()
     {
         playerInputAction.Player.Ability1.Enable();
+        playerInputAction.Player.Ability2.Enable();
     }
 
     private void OnDisable()
     {
         playerInputAction.Player.Ability1.Disable();
+        playerInputAction.Player.Ability2.Disable();
     }
 
     public void OnPause(bool paused)
@@ -118,10 +121,12 @@ public class PlayerAbilities : MonoBehaviour
         if (paused)
         {
             playerInputAction.Player.Ability1.Disable();
+            playerInputAction.Player.Ability2.Disable();
         }
         else
         {
             playerInputAction.Player.Ability1.Enable();
+            playerInputAction.Player.Ability2.Enable();
         }
     }
 
@@ -134,6 +139,16 @@ public class PlayerAbilities : MonoBehaviour
             StartCoroutine(block());
         }
         else if(abilityType == 2 && (Time.time- lastAbilityTime> stunCD || stunCasting))
+        {
+            lastAbilityTime = Time.time;
+            StartCoroutine(stun());
+        }
+    }
+
+    private void startAbility2(InputAction.CallbackContext ctx)
+    {
+        print("startAbility2");
+        if ( (Time.time - lastAbilityTime > stunCD || stunCasting))
         {
             lastAbilityTime = Time.time;
             StartCoroutine(stun());

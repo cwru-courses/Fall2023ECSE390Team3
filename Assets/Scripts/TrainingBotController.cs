@@ -52,7 +52,7 @@ public class TrainingBotController : BaseEnemy
                 }
                 else
                 {
-                    if (Time.time - lastAttackTime > attackCD)
+                    if (Time.time - lastAttackTime > attackCD&& !isStunned)
                     {
                         StartCoroutine(Attack());
                         lastAttackTime = Time.time;

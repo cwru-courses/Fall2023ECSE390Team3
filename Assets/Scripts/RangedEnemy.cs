@@ -51,7 +51,7 @@ public class RangedEnemy : TrainingBotController
             Projectile projectile = weaponObject.GetComponent<Projectile>();
             projectile.direction = targetTransform.position - transform.position;
             projectile.damage = attackDamage;
-            projectile.attackLayer = whatIsTaget;
+            projectile.attackLayer = 15;
         }
 
         

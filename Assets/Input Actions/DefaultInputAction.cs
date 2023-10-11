@@ -89,6 +89,15 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability2"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d4ead17-e626-4665-bb37-631049bd960e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""action"": ""UsePotion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6fee794-57fe-4800-a307-ef86540dbcd6"",
+                    ""path"": ""<Keyboard>/#(R)"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -275,6 +295,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
         m_Player_PhaseShift = m_Player.FindAction("Phase Shift", throwIfNotFound: true);
         m_Player_Ability1 = m_Player.FindAction("Ability1", throwIfNotFound: true);
         m_Player_UsePotion = m_Player.FindAction("UsePotion", throwIfNotFound: true);
+        m_Player_Ability2 = m_Player.FindAction("Ability2", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -345,6 +366,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PhaseShift;
     private readonly InputAction m_Player_Ability1;
     private readonly InputAction m_Player_UsePotion;
+    private readonly InputAction m_Player_Ability2;
     public struct PlayerActions
     {
         private @DefaultInputAction m_Wrapper;
@@ -356,6 +378,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
         public InputAction @PhaseShift => m_Wrapper.m_Player_PhaseShift;
         public InputAction @Ability1 => m_Wrapper.m_Player_Ability1;
         public InputAction @UsePotion => m_Wrapper.m_Player_UsePotion;
+        public InputAction @Ability2 => m_Wrapper.m_Player_Ability2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -386,6 +409,9 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 @UsePotion.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePotion;
                 @UsePotion.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePotion;
                 @UsePotion.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePotion;
+                @Ability2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
+                @Ability2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
+                @Ability2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -411,6 +437,9 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 @UsePotion.started += instance.OnUsePotion;
                 @UsePotion.performed += instance.OnUsePotion;
                 @UsePotion.canceled += instance.OnUsePotion;
+                @Ability2.started += instance.OnAbility2;
+                @Ability2.performed += instance.OnAbility2;
+                @Ability2.canceled += instance.OnAbility2;
             }
         }
     }
@@ -465,6 +494,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
         void OnPhaseShift(InputAction.CallbackContext context);
         void OnAbility1(InputAction.CallbackContext context);
         void OnUsePotion(InputAction.CallbackContext context);
+        void OnAbility2(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

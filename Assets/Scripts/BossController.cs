@@ -44,7 +44,8 @@ public class BossController : BaseEnemy
     [SerializeField] protected Animator anim;
     [SerializeField] private Color colorOnDeath;
     [SerializeField] private GameObject bossHealthbar;
-
+    [SerializeField] private GameObject riftPrefab;
+    [SerializeField] private float riftDuration;
 
     private float lastAttackTime;
     private int patrolTargetIndex;
@@ -83,7 +84,8 @@ public class BossController : BaseEnemy
         pullLine.material = new Material(Shader.Find("Sprites/Default"));
         pullLine.startColor = Color.white;
         pullLine.endColor = Color.white;
-    }
+
+}
 
     // Update is called once per frame
     void FixedUpdate()
@@ -98,7 +100,7 @@ public class BossController : BaseEnemy
                 
 
                 //if cooldown done then attack, note: attackCD reduces with HP
-                if (Time.time - lastAttackTime > minAttackCD + (health/maxHealth)*minAttackCD)
+                if (Time.time - lastAttackTime > minAttackCD + (health/maxHealth)*minAttackCD && !isStunned)
                 {
                     
                     //closer player is the more likely to slam instead of pull
@@ -143,25 +145,51 @@ public class BossController : BaseEnemy
                 }
 
             }
-            
-            targetDist = patrolPoints[patrolTargetIndex] - transform.position;
-            if (patrolCDTimer == 0)
+            if (transform.position.y < 0)
             {
-                if (targetDist.magnitude > 0.1f)
+                targetDist = patrolPoints[patrolTargetIndex];
+                targetDist.y *= -1f;
+                targetDist -= transform.position;
+                if (patrolCDTimer == 0)
                 {
-                    rb2d.velocity = targetDist.normalized * movementSpeed * movementSpeedModifier;
+                    if (targetDist.magnitude > 0.1f)
+                    {
+                        rb2d.velocity = targetDist.normalized * movementSpeed * movementSpeedModifier;
 
+                    }
+                    else
+                    {
+                        patrolTargetIndex = (patrolTargetIndex + 1) % patrolPoints.Count;
+                        patrolCDTimer = patrolCD;
+                    }
                 }
                 else
                 {
-                    patrolTargetIndex = (patrolTargetIndex + 1) % patrolPoints.Count;
-                    patrolCDTimer = patrolCD;
+                    patrolCDTimer = Mathf.Max(patrolCDTimer - Time.fixedDeltaTime, 0);
                 }
             }
             else
             {
-                patrolCDTimer = Mathf.Max(patrolCDTimer - Time.fixedDeltaTime, 0);
+                targetDist = patrolPoints[patrolTargetIndex] - transform.position;
+                if (patrolCDTimer == 0)
+                {
+                    if (targetDist.magnitude > 0.1f)
+                    {
+                        rb2d.velocity = targetDist.normalized * movementSpeed * movementSpeedModifier;
+
+                    }
+                    else
+                    {
+                        patrolTargetIndex = (patrolTargetIndex + 1) % patrolPoints.Count;
+                        patrolCDTimer = patrolCD;
+                    }
+                }
+                else
+                {
+                    patrolCDTimer = Mathf.Max(patrolCDTimer - Time.fixedDeltaTime, 0);
+                }
             }
+            
 
             //check if player is in detect radius
             Collider2D targetCollider = Physics2D.OverlapCircle(transform.position, detectRadius, whatIsTaget);
@@ -192,12 +220,12 @@ public class BossController : BaseEnemy
             if(health<maxHealth*((numPhases - currPhase - 1) / (float)numPhases))
             {
                 print("spawning enemies");
-                numPhases += 1;
+                currPhase += 1;
                 SpawnEnemies();
             }
-            if (health <1+( maxHealth * ((numPhases - currPhase - 1) / (float)numPhases)) && health !=1)
+            else if (health <1+( maxHealth * ((numPhases - currPhase - 1) / (float)numPhases)) && health !=1)
             {
-                //switchRealities();
+                StartCoroutine(switchRealities());
             }
         }
     }
@@ -233,7 +261,7 @@ public class BossController : BaseEnemy
 
     private void SpawnEnemies()
     {
-        print("spawn enemies triggered");
+        //print("spawn enemies triggered");
         for(int i = 0; i < numSpawnEnemies; i++)
         {
             //spawn random enemy at random location
@@ -312,5 +340,17 @@ public class BossController : BaseEnemy
                 pullingPlayer = false;
             }
         }
+    }
+
+    IEnumerator switchRealities()
+    {
+        GameObject riftObject = Instantiate<GameObject>(riftPrefab);
+        Vector3 currPosition = transform.position;
+        currPosition.y *= -1;
+        riftObject.transform.position = transform.position;
+        transform.position = currPosition;
+        yield return new WaitForSeconds(riftDuration);
+        Destroy(riftObject);
+        
     }
 }

@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Ability2",
+                    "type": "Button",
+                    "id": "9d4ead17-e626-4665-bb37-631049bd960e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -188,6 +197,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UsePotion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6fee794-57fe-4800-a307-ef86540dbcd6",
+                    "path": "<Keyboard>/#(R)",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

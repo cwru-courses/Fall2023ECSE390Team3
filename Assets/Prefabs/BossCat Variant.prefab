@@ -91,6 +91,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 914507645937525119, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5376ed5ef322fea47b7c070a621c1d84, type: 2}
     - target: {fileID: 986031642315237850, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -137,8 +141,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 986031642315237854, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_Name
-      value: BossCat
+      value: BossCat Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3118972083770215739, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1124806181, guid: 9295a5bd2a9e62f4198e20e2163d67d0, type: 3}
     - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -208,7 +216,7 @@ MonoBehaviour:
   shockwaveRange: 20
   pullPrefab: {fileID: 5595849266403112404, guid: e524f34e49daed242867f5c1954f2610, type: 3}
   windUpTimePull: 0
-  pullTime: 3
+  pullTime: 1
   pullRange: 20
   pullMinDist: 5
   patrolPoints:
@@ -220,6 +228,8 @@ MonoBehaviour:
   anim: {fileID: 2538120770463943114}
   colorOnDeath: {r: 0, g: 0, b: 0, a: 0}
   bossHealthbar: {fileID: 1490532}
+  riftPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
+  riftDuration: 5
 --- !u!4 &2460894157062390127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 986031642315237850, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
