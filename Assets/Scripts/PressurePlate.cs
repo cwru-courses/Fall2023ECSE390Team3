@@ -23,11 +23,10 @@ public class PressurePlate : MonoBehaviour {
             Debug.Log("Distance: " + distance);
 
             // If distance < 0.5f, then pressure plate triggered
-            if (distance < 0.5f) {
+            if (distance < 1.0f) {
                 Debug.Log("Pressure Plate Triggered!");
 
                 // Open door/chest
-                
                 if (chestToUnlock != null)
                   chestToUnlock.GetComponent<Chest>().setChestOpen(true);
                 
