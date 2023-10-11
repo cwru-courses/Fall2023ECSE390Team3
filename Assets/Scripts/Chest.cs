@@ -8,6 +8,10 @@ public class Chest : MonoBehaviour {
     [SerializeField] private SpriteRenderer chest;
     [SerializeField] private Sprite openChest;
     [SerializeField] private Sprite closedChest;
+    [SerializeField] protected GameObject lootSpawnerPrefab;
+    [SerializeField] protected int healthPotionDroprate;
+    [SerializeField] protected int yarnDroprate;
+    protected bool lootDropped = false;
 
 
     // Start is called before the first frame update
@@ -24,6 +28,12 @@ public class Chest : MonoBehaviour {
     public void setChestOpen(bool boolean) { 
         if (boolean == true) {
             chest.sprite = openChest;
+            if (lootDropped == false)
+            {
+                Instantiate(lootSpawnerPrefab, transform.position, Quaternion.identity)
+                    .GetComponent<LootSpawner>().SpawnLoot(healthPotionDroprate, yarnDroprate);
+                lootDropped = true;
+            }
         }
         else {
             chest.sprite = closedChest;
