@@ -50,6 +50,10 @@ public class PlayerPickUp : MonoBehaviour
             if (objectCollider != null)
             {
                 objectCollider.enabled = false;
+
+                // TEST CHANGE, disable rigid body of picked up object
+                Destroy(pickedUpObject.GetComponent<Rigidbody2D>());
+
             }
 
             //attach the object to player by making it a child
@@ -77,11 +81,16 @@ public class PlayerPickUp : MonoBehaviour
                 // Re-enable the object's collider
                 objectCollider.enabled = true;
 
+                // TEST CHANGE, re-enable rigid body of picked up object
+                pickedUpObject.AddComponent<Rigidbody2D>();
+                pickedUpObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
                 // Then detach the object to player by making it a child
                 pickedUpObject.transform.parent = null;
 
                 // Clear reference to pickedUpObject
                 pickedUpObject = null;
+
             }
         } 
     }
