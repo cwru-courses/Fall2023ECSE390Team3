@@ -56,7 +56,10 @@ public class PhaseShift : MonoBehaviour
 
     private void StartPhaseShift(InputAction.CallbackContext ctx)
     {
-        if (shiftCDTimer <= 0) StartCoroutine("PhaseShiftPrecast");
+        if (shiftCDTimer <= 0) {
+            StartCoroutine("PhaseShiftPrecast");
+            OnDisable();    // Disable input to avoid more than one click
+        }
     }
 
     private void ToPhaseShift()
@@ -67,6 +70,8 @@ public class PhaseShift : MonoBehaviour
         transform.position = currentLocation;
 
         shiftCDTimer = shiftCD;
+
+        OnEnable();     // Enable input again
 
         // Added this line to toggle emission of yarn trail -- Jing
         AmbientSystem.Instance.OnPhaseShift();
