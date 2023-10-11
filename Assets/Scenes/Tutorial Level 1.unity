@@ -4954,6 +4954,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29adea124beda0c4f9186f61f843e841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  track: {fileID: 8300000, guid: 208b8aedac5852c4998ce856abc05edd, type: 3}
+  trig: {fileID: 777061483}
+  theAS: {fileID: 1580157305}
+  boss: 0
+  cam: {fileID: 0}
+  roomCenterPosition: {x: 0, y: 0, z: 0}
 --- !u!61 &687604723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7389,6 +7395,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29adea124beda0c4f9186f61f843e841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  track: {fileID: 8300000, guid: e0af279364bdb39429dc8cd49d010f54, type: 3}
+  trig: {fileID: 777061483}
+  theAS: {fileID: 1580157305}
+  boss: 1
+  cam: {fileID: 520802791}
+  roomCenterPosition: {x: -57, y: 23, z: 0}
 --- !u!61 &1223262372
 BoxCollider2D:
   m_ObjectHideFlags: 0

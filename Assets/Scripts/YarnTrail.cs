@@ -9,7 +9,6 @@ public class YarnTrail : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 thisPosition;
     [SerializeField] private float yarnConsumptionRate;
-    private bool inFlipWorld;
 
     private void Awake()
     {
@@ -78,11 +77,11 @@ public class YarnTrail : MonoBehaviour
     //add function to see if in flipped world based on player's position instead of onPhaseShift
     private bool isInFlippedWorld() {
         if(GameObject.FindWithTag("Player").transform.position.y < 0) {
-            inFlipWorld = true;
+            PlayerStats._instance.inFlippedWorld = true;
         } else {
-            inFlipWorld = false; 
+            PlayerStats._instance.inFlippedWorld = false; 
         }
-        return inFlipWorld; 
+        return PlayerStats._instance.inFlippedWorld; 
     }
 
 }
