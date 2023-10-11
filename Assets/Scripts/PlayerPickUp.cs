@@ -83,7 +83,10 @@ public class PlayerPickUp : MonoBehaviour
 
                 // TEST CHANGE, re-enable rigid body of picked up object
                 pickedUpObject.AddComponent<Rigidbody2D>();
-                pickedUpObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                pickedUpObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                pickedUpObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+                pickedUpObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
 
                 // Then detach the object to player by making it a child
                 pickedUpObject.transform.parent = null;

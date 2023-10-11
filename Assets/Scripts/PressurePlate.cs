@@ -28,4 +28,12 @@ public class PressurePlate : MonoBehaviour {
         } 
     }
 
+    // TEST
+    void OnCollisionStay2D(Collision2D collision) {
+        if (collision.gameObject.tag == "Stone") {
+            Debug.Log("Colliding with stone");
+        }
+    }
+
+
 }
