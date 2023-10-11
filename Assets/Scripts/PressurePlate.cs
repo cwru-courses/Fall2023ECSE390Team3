@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour {
 
+    // [SerializeField] private GameObject chestToUnlock;
+
     // Start is called before the first frame update
     void Start() {
         
@@ -23,8 +25,13 @@ public class PressurePlate : MonoBehaviour {
             // If distance < 0.5f, then pressure plate triggered
             if (distance < 0.5f) {
                 Debug.Log("Pressure Plate Triggered!");
+
                 // Open door/chest
-            }  
+                /*
+                if (chestToUnlock != null)
+                  chestToUnlock.setChestOpen(true);
+                */
+            }
         } 
     }
 

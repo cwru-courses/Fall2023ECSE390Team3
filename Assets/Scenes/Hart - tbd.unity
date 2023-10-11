@@ -412,6 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfa7011de6416644a5efb1ff36f2714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chestToUnlock: {fileID: 0}
 --- !u!50 &82827206
 Rigidbody2D:
   serializedVersion: 4
@@ -4576,6 +4577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfa7011de6416644a5efb1ff36f2714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chestToUnlock: {fileID: 265792550}
 --- !u!1 &1800751433
 GameObject:
   m_ObjectHideFlags: 0
