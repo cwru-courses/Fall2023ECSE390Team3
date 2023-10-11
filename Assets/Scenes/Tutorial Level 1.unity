@@ -3648,9 +3648,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29adea124beda0c4f9186f61f843e841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 0}
-  trig: {fileID: 0}
-  theAS: {fileID: 0}
+  track: {fileID: 8300000, guid: 208b8aedac5852c4998ce856abc05edd, type: 3}
+  trig: {fileID: 777061483}
+  theAS: {fileID: 1580157305}
   boss: 0
   cam: {fileID: 0}
   roomCenterPosition: {x: 0, y: 0, z: 0}
@@ -3678,7 +3678,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20, y: 70}
+  m_Size: {x: 19, y: 67}
   m_EdgeRadius: 3
 --- !u!4 &687604724
 Transform:
@@ -3688,7 +3688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687604721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.6, y: 0, z: 0}
+  m_LocalPosition: {x: -16.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8113,12 +8113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29adea124beda0c4f9186f61f843e841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 0}
-  trig: {fileID: 0}
-  theAS: {fileID: 0}
-  boss: 0
-  cam: {fileID: 0}
-  roomCenterPosition: {x: 0, y: 0, z: 0}
+  track: {fileID: 8300000, guid: e0af279364bdb39429dc8cd49d010f54, type: 3}
+  trig: {fileID: 777061483}
+  theAS: {fileID: 1580157305}
+  boss: 1
+  cam: {fileID: 520802791}
+  roomCenterPosition: {x: -57, y: 23, z: 0}
 --- !u!61 &1223262372
 BoxCollider2D:
   m_ObjectHideFlags: 0
