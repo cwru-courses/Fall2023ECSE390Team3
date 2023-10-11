@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PickUpable
   - Enemy
+  - Stone
+  - PressurePlate
   layers:
   - Default
   - TransparentFX
