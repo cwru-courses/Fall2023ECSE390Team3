@@ -33,25 +33,27 @@ public class PlayerPickUp : MonoBehaviour
         }
     }
 
+
     //pick up an object
-    void PickUp()
-    {
+    void PickUp() {
         //array of objects that are in the PickUpable layer within the pickupable radius
         Collider2D objInRadius= Physics2D.OverlapCircle(transform.position, pickUpRadius, layerMask);
 
         //if the object exists
-        if (objInRadius != null)
-        {
+        if (objInRadius != null) {
+            // Don't pick up a pressure plate
+            if (objInRadius.gameObject.tag == "PressurePlate")
+                return;
+
             //store a reference to the picked object
             pickedUpObject = objInRadius.gameObject;
 
             //disable the collider of the picked object
             Collider2D objectCollider = pickedUpObject.GetComponent<Collider2D>();
-            if (objectCollider != null)
-            {
+            if (objectCollider != null) {
                 objectCollider.enabled = false;
 
-                // TEST CHANGE, disable rigid body of picked up object
+                // Disable rigid body of picked up object
                 Destroy(pickedUpObject.GetComponent<Rigidbody2D>());
 
             }
@@ -81,7 +83,7 @@ public class PlayerPickUp : MonoBehaviour
                 // Re-enable the object's collider
                 objectCollider.enabled = true;
 
-                // TEST CHANGE, re-enable rigid body of picked up object
+                // Re-enable rigid body of picked up object
                 pickedUpObject.AddComponent<Rigidbody2D>();
                 pickedUpObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 pickedUpObject.GetComponent<Rigidbody2D>().gravityScale = 0;
