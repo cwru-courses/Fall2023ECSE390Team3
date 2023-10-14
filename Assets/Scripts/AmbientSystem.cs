@@ -14,6 +14,8 @@ public class AmbientSystem : MonoBehaviour
     [SerializeField] private int startingPitch = 1;
     [SerializeField] private AudioClip mainClip;
     [SerializeField] private BoxCollider2D fight;
+    [SerializeField] private CameraControl cam;
+    [SerializeField] private MusicSwitchTrigger boss;
 
 
     private int pitchshift = -1;
@@ -34,6 +36,8 @@ public class AmbientSystem : MonoBehaviour
     {
         Debug.Log("Restarting timer");
         audSource.pitch *= pitchshift;
+        boss.roomCenterPosition = new Vector3((float)boss.roomCenterPosition.x,(float)boss.roomCenterPosition.y* -1.0f ,(float)boss.roomCenterPosition.z);
+        CameraControl.SwitchSide();
     }
 
     public float GetVerticalDistMultiplier()

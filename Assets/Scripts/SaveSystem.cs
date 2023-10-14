@@ -4,6 +4,9 @@ using System.IO;
 
 public class SaveSystem : MonoBehaviour
 {
+    //if we want to create multiple save files, create a list of objects and set which one to save to/load from
+    public static bool isVersionSaved = false; 
+
     public static void CreateSave()
     {
         Time.timeScale = 0f;
@@ -20,6 +23,8 @@ public class SaveSystem : MonoBehaviour
         Debug.Log(savePath);
 
         Time.timeScale = 1f;
+
+        isVersionSaved = true; 
     }
 
     public static void LoadSave()
@@ -40,6 +45,8 @@ public class SaveSystem : MonoBehaviour
             Vector3 playerPos = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
             PlayerStats._instance.transform.position = playerPos;
             PlayerStats._instance.currentHealth = data.playerHealth;
+            PlayerStats._instance.currentYarnCount = data.playerYarn; 
+            Debug.Log(PlayerStats._instance.currentYarnCount); 
         }
         else
         {

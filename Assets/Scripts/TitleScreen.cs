@@ -10,6 +10,10 @@ public class TitleScreen : MonoBehaviour
         SceneManager.LoadSceneAsync("Tutorial Level 1");
     }
 
+    public void NavigateToLoadScreen() {
+        SceneManager.LoadSceneAsync("Load Screen");
+    }
+
     public void Quit(){
         Application.Quit();
         //make sure it works without having to quit.

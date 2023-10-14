@@ -14,8 +14,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackCD;  // Time between swings
     [SerializeField] private LayerMask whatIsEnemy;
 
-    [SerializeField] private float attackSwingTime;  // Duration of swing animation(temporary until real animation exists)
     [SerializeField] private Transform weaponHolder;
+
+    [Min(0)]
+    [SerializeField] private int projectileNum;
+    [SerializeField] private GameObject projectilePrefab;
 
     private DefaultInputAction playerInputAction;
 
@@ -24,7 +27,9 @@ public class PlayerAttack : MonoBehaviour
     private float lastAttackTime;
 
     private Animation weaponHolderAnim;
-    
+
+    private ProjectileController[] projectiles;
+
     void Awake()
     {
         if (_instance == null)
@@ -34,22 +39,33 @@ public class PlayerAttack : MonoBehaviour
 
         playerInputAction = new DefaultInputAction();
         playerInputAction.Player.Attack.started += Attack;
+        playerInputAction.Player.LaunchProjectile.started += LaunchProjectile;
 
         lookAtDir = Vector2.left;  // Default starting direction
         attackAngleCosVal = Mathf.Cos(attackRangeAngle / 2f);
         lastAttackTime = -attackCD;
 
         weaponHolderAnim = weaponHolder.GetComponent<Animation>();
+
+        projectiles = new ProjectileController[projectileNum];
+        for (int i = 0; i < projectileNum; i++)
+        {
+            GameObject projectile = Instantiate(projectilePrefab);
+            projectiles[i] = projectile.GetComponent<ProjectileController>();
+            projectile.SetActive(false);
+        }
     }
 
     private void OnEnable()
     {
         playerInputAction.Player.Attack.Enable();
+        playerInputAction.Player.LaunchProjectile.Enable();
     }
 
     private void OnDisable()
     {
         playerInputAction.Player.Attack.Disable();
+        playerInputAction.Player.LaunchProjectile.Disable();
     }
 
     // Update is called once per frame
@@ -87,19 +103,36 @@ public class PlayerAttack : MonoBehaviour
                     if (enemyController)
                     {
                         enemyController.ReactToHit(1);
+
+                        for (int i = 0; i < projectileNum; i++)
+                        {
+                            if (hit.transform == projectiles[i].GetTargetTransform()) { projectiles[i].Detach(); }
+                        }
                     }
                 }
             }
             lastAttackTime = Time.time; // update last Attack time
             StartCoroutine(AttackFX()); // attack visual effects
             PlayerStats._instance.UseYarn(5);
-        }   
+        }
     }
 
     //temporary implementation until animations are made
     private IEnumerator AttackFX()
     {
         yield return null;
+    }
+
+    private void LaunchProjectile(InputAction.CallbackContext ctx)
+    {
+        for (int i = 0; i < projectileNum; i++)
+        {
+            if (projectiles[i].IsAvailable())
+            {
+                projectiles[i].Launch(transform.position, lookAtDir);
+                break;
+            }
+        }
     }
 
     // For gizmos & handle only. Remove when release.
@@ -125,10 +158,12 @@ public class PlayerAttack : MonoBehaviour
         if (paused)
         {
             playerInputAction.Player.Attack.Disable();
+            playerInputAction.Player.LaunchProjectile.Disable();
         }
         else
         {
             playerInputAction.Player.Attack.Enable();
+            playerInputAction.Player.LaunchProjectile.Enable();
         }
     }
 }

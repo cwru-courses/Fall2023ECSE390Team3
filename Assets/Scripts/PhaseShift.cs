@@ -11,6 +11,7 @@ public class PhaseShift : MonoBehaviour
     [SerializeField] private float shiftPrecastTime;
     [SerializeField] private float precastingTimer;
     [SerializeField] private Slider shiftProgressBar;
+    [SerializeField] private GameObject rift;
 
     [SerializeField] private Image uiImg;
 
@@ -56,7 +57,10 @@ public class PhaseShift : MonoBehaviour
 
     private void StartPhaseShift(InputAction.CallbackContext ctx)
     {
-        if (shiftCDTimer <= 0) StartCoroutine("PhaseShiftPrecast");
+        if (shiftCDTimer <= 0) {
+            StartCoroutine("PhaseShiftPrecast");
+            OnDisable();    // Disable input to avoid more than one click
+        }
     }
 
     private void ToPhaseShift()
@@ -67,6 +71,8 @@ public class PhaseShift : MonoBehaviour
         transform.position = currentLocation;
 
         shiftCDTimer = shiftCD;
+
+        OnEnable();     // Enable input again
 
         // Added this line to toggle emission of yarn trail -- Jing
         AmbientSystem.Instance.OnPhaseShift();
@@ -79,13 +85,17 @@ public class PhaseShift : MonoBehaviour
         shiftProgressBar.gameObject.SetActive(true);
 
         precastingTimer = shiftPrecastTime;
+        //create precast rift
+        GameObject riftObject = Instantiate<GameObject>(rift);
+        riftObject.transform.parent = transform;
+        riftObject.transform.position = transform.position;
         while (precastingTimer > 0)
         {
             shiftProgressBar.value = precastingTimer / shiftPrecastTime;
             precastingTimer -= Time.deltaTime;
             yield return null;
         }
-
+        Destroy(riftObject);
         shiftProgressBar.gameObject.SetActive(false);
 
         ToPhaseShift();

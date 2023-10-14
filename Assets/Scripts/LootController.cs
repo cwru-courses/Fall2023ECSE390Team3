@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class LootController : MonoBehaviour
 {
+    [SerializeField] private LootMovement lootMovement;
     private float maxHorizontalPopForce = 0f;
     private float maxVerticalPopForce = 0f;
     private float verticalStartH = 0f;
@@ -26,6 +27,7 @@ public class LootController : MonoBehaviour
             if (maxVerticalPopForce < 0.1f)
             {
                 rb2d.velocity = Vector2.zero;
+                lootMovement.enabled = true;
             }
             else
             {
