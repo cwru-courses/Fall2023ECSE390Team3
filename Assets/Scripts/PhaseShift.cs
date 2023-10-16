@@ -67,8 +67,34 @@ public class PhaseShift : MonoBehaviour
     {
         // Move character into the alternate world
         Vector3 currentLocation = transform.position;
-        currentLocation.y *= -1;
-        transform.position = currentLocation;
+
+        // target position
+        Vector3 targetPosition = new Vector3(currentLocation.x, - currentLocation.y, 0);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(targetPosition, 0.5f);
+        bool willCollide = false;
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.tag.Equals("AvoidOverlap"))
+            {
+                willCollide = true;
+            }
+        }
+        if (willCollide == true)
+        {
+            Vector3 foundLocation = findNearestLocation(targetPosition);
+            if (foundLocation != Vector3.zero)
+            {
+                targetPosition = foundLocation;
+                Debug.Log("shifted");
+            }
+            else
+            {
+                Debug.Log("fail to found neareast location");
+            }
+        }
+        transform.position = targetPosition;
+
 
         shiftCDTimer = shiftCD;
 
@@ -78,6 +104,50 @@ public class PhaseShift : MonoBehaviour
         AmbientSystem.Instance.OnPhaseShift();
         YarnTrail._instance.toggleEmission();
 
+    }
+
+    Vector3 findNearestLocation(Vector3 originalLocation)
+    {
+        Vector3 nearestLocation = Vector3.zero;
+        bool foundNearest = false;
+        for (float i = 0.5f; i < 4f && foundNearest == false; i += 0.5f)
+        {
+            if (!isMapCollisionNearby(new(originalLocation.x + i, originalLocation.y, 0)))
+            {
+                nearestLocation = new(originalLocation.x + i, originalLocation.y, 0);
+                foundNearest = true;
+            }
+            else if(!isMapCollisionNearby(new(originalLocation.x - i, originalLocation.y, 0)))
+            {
+                nearestLocation = new(originalLocation.x - i, originalLocation.y, 0);
+                foundNearest = true;
+            }
+            else if (!isMapCollisionNearby(new(originalLocation.x, originalLocation.y - i, 0)))
+            {
+                nearestLocation = new(originalLocation.x, originalLocation.y - i, 0);
+                foundNearest = true;
+            }
+            else if (!isMapCollisionNearby(new(originalLocation.x, originalLocation.y + i, 0)))
+            {
+                nearestLocation = new(originalLocation.x, originalLocation.y + i, 0);
+                foundNearest = true;
+            }
+        }
+        return nearestLocation;
+    }
+
+    bool isMapCollisionNearby(Vector3 location)
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(location, 0.5f);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.tag.Equals("AvoidOverlap"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     IEnumerator PhaseShiftPrecast()
