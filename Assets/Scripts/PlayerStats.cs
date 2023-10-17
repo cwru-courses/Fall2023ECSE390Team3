@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -26,7 +25,13 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private SpriteRenderer spRender;
     [SerializeField] private AudioSource hitSFX;
 
+    [Min(0f)]
+    [SerializeField] private float iFrameTime;
+
     private DefaultInputAction playerInputAction;
+
+    private float iFrameTimer = 0f;
+    private bool invincible = false;
 
     void Awake()
     {
@@ -107,12 +112,27 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (invincible)
+        {
+            iFrameTimer += Time.fixedDeltaTime;
+            if (iFrameTimer > iFrameTime)
+            {
+                iFrameTimer = 0f;
+                invincible = false;
+            }
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         // check if player is blocking, only take damage if not blocking
-        if (!blocking)
+        if (!invincible && !blocking)
         {
             currentHealth -= damage;
+
+            invincible = true;
 
             healthBar.SetHealth(currentHealth);
             if (hitSFX)
@@ -121,7 +141,7 @@ public class PlayerStats : MonoBehaviour
             }
             if (spRender)
             {
-                StartCoroutine(FlashColor(0.1f,new Color(1f,0.5f,0.5f)));
+                StartCoroutine(FlashColor(new Color(1f,0.5f,0.5f)));
             }
         }
     }
@@ -180,12 +200,18 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private IEnumerator FlashColor(float duration, Color color)
+    private IEnumerator FlashColor(Color color)
     {
-        Color prevColor = Color.white;
-        spRender.color = color;
-        yield return new WaitForSeconds(duration);
-        spRender.color = prevColor;
+        bool originalColor = false;
+
+        while (invincible)
+        {
+            spRender.color = originalColor ? Color.white : color;
+            originalColor = !originalColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        spRender.color = Color.white;
     }
 
 }
