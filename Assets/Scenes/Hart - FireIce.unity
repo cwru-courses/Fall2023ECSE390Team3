@@ -1554,7 +1554,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
       propertyPath: m_Name
-      value: Rift
+      value: Rift (Regular)
       objectReference: {fileID: 0}
     - target: {fileID: 4843795186971049773, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
       propertyPath: m_Offset.x
@@ -46001,7 +46001,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
       propertyPath: m_Name
-      value: Rift 2
+      value: Rift (Big)
       objectReference: {fileID: 0}
     - target: {fileID: 4843795186971049773, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
       propertyPath: m_Offset.x
@@ -46061,6 +46061,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
+--- !u!1 &1767420970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 484165457260565300, guid: f4231cf245918cd4a81a42bc62469965, type: 3}
+  m_PrefabInstance: {fileID: 1184207385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1767420974
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767420970}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.48, y: 0.48}
+    newSize: {x: 0.48, y: 0.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.25}
+  m_EdgeRadius: 0
 --- !u!1 &1815572006
 GameObject:
   m_ObjectHideFlags: 0
