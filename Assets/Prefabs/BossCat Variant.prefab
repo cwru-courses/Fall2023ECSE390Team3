@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3026748aca431264d832a705d3d5c788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 45
   movementSpeed: 1
   healthPotionDroprate: 10
   yarnDroprate: 3
@@ -197,10 +197,10 @@ MonoBehaviour:
   smokeCloudPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
   deathAnimLength: 0
   pullAttackRadius: 20
-  slamAttackRadius: 15
+  slamAttackRadius: 20
   rageRadius: 5
   rageDuration: 5
-  minAttackCD: 3
+  minAttackCD: 2
   numPhases: 3
   enemyPrefabs:
   - {fileID: 986031642315237854, guid: 5a00960f283e44040984961cae812dc4, type: 3}
@@ -213,7 +213,7 @@ MonoBehaviour:
   windUpTimeWaves: 0
   shockwaveDamage: 20
   shockwaveSpeed: 30
-  shockwaveRange: 20
+  shockwaveRange: 25
   pullPrefab: {fileID: 5595849266403112404, guid: e524f34e49daed242867f5c1954f2610, type: 3}
   windUpTimePull: 0
   pullTime: 1
