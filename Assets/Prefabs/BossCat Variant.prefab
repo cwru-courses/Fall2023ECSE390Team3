@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3026748aca431264d832a705d3d5c788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 30
   movementSpeed: 1
   healthPotionDroprate: 10
   yarnDroprate: 3
