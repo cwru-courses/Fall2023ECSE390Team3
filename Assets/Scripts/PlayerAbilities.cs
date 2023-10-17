@@ -15,9 +15,8 @@ public class PlayerAbilities : MonoBehaviour
 
     [SerializeField] GameObject blockPrefab;
     private const float blockCD = 5f;
-    private const float blockDuration = 3f;
     private const float blockMovementSpeedMultiplier = 0.4f;
-    private const float blockYarnUse = 40f;
+    private const float blockYarnPerSecond = 20f;
 
     [SerializeField] GameObject stunMeshPrefab;
     private const float stunCD = 5f;
@@ -30,6 +29,9 @@ public class PlayerAbilities : MonoBehaviour
     private LineRenderer pathRender;
 
     private float lastAbilityTime;
+    private bool isBlocking;
+    private GameObject blockObject;
+
 
 
     void Awake()
@@ -50,7 +52,8 @@ public class PlayerAbilities : MonoBehaviour
 
         playerInputAction = new DefaultInputAction();
         playerInputAction.Player.Ability1.started += startAbility;
-        playerInputAction.Player.Ability2.started += startAbility2;
+        playerInputAction.Player.Ability1.canceled += startAbility;
+
 
         lastAbilityTime = -Mathf.Max(blockCD, stunCD);
 
@@ -60,10 +63,19 @@ public class PlayerAbilities : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isBlocking)
+        {
+            PlayerStats._instance.UseYarn(blockYarnPerSecond * Time.fixedDeltaTime);
+            if (PlayerStats._instance.currentYarnCount <= 0)
+            {
+                block();// cancel block
+            }
+        }
+
         if (stunCasting)
         {
             PlayerStats._instance.UseYarn(stunYarnPerSecond * Time.fixedDeltaTime);
-            if (Time.time - lastAbilityTime < stunMaxCastingDuration)
+            if (Time.time - lastAbilityTime < stunMaxCastingDuration && PlayerStats._instance.currentYarnCount>0)
             {
                 //add new point
                 Vector3 newPoint = transform.position;
@@ -107,13 +119,13 @@ public class PlayerAbilities : MonoBehaviour
     private void OnEnable()
     {
         playerInputAction.Player.Ability1.Enable();
-        playerInputAction.Player.Ability2.Enable();
+
     }
 
     private void OnDisable()
     {
         playerInputAction.Player.Ability1.Disable();
-        playerInputAction.Player.Ability2.Disable();
+
     }
 
     public void OnPause(bool paused)
@@ -121,12 +133,12 @@ public class PlayerAbilities : MonoBehaviour
         if (paused)
         {
             playerInputAction.Player.Ability1.Disable();
-            playerInputAction.Player.Ability2.Disable();
+
         }
         else
         {
             playerInputAction.Player.Ability1.Enable();
-            playerInputAction.Player.Ability2.Enable();
+
         }
     }
 
@@ -134,41 +146,37 @@ public class PlayerAbilities : MonoBehaviour
     {
         //print("ability triggered");
         if (abilityType == 1 && Time.time - lastAbilityTime > blockCD)
-        {
-            lastAbilityTime = Time.time;
-            StartCoroutine(block());
+        { 
+            block();
         }
-        else if(abilityType == 2 && (Time.time- lastAbilityTime> stunCD || stunCasting))
-        {
-            lastAbilityTime = Time.time;
-            StartCoroutine(stun());
-        }
-    }
-
-    private void startAbility2(InputAction.CallbackContext ctx)
-    {
-        print("startAbility2");
-        if ( (Time.time - lastAbilityTime > stunCD || stunCasting))
+        else if(abilityType == 2 && (Time.time- lastAbilityTime> stunCD || stunCasting) && ctx.started)
         {
             lastAbilityTime = Time.time;
             StartCoroutine(stun());
         }
     }
 
-    private IEnumerator block()
+
+
+    private void block()
     {
-        PlayerStats._instance.UseYarn(blockYarnUse);
-        PlayerMovement playerMovementInstance = PlayerMovement._instance;
-        PlayerStats playerStatsInstance = PlayerStats._instance;
-        playerMovementInstance.MultiplySpeed(blockMovementSpeedMultiplier);
-        playerStatsInstance.blocking = true;
-        GameObject blockObject = Instantiate(blockPrefab) as GameObject;
-        blockObject.transform.parent = this.transform;
-        blockObject.transform.position = this.transform.position;
-        yield return new WaitForSeconds(blockDuration);
-        Destroy(blockObject);
-        playerMovementInstance.MultiplySpeed(1f/blockMovementSpeedMultiplier);
-        playerStatsInstance.blocking = false;
+        if (!isBlocking){
+            isBlocking = true;
+            PlayerMovement._instance.MultiplySpeed(blockMovementSpeedMultiplier);
+            PlayerStats._instance.blocking = true;
+            blockObject = Instantiate(blockPrefab) as GameObject;
+            blockObject.transform.parent = this.transform;
+            blockObject.transform.position = this.transform.position;
+        }
+        else
+        {
+            isBlocking = false;
+            Destroy(blockObject);
+            PlayerMovement._instance.MultiplySpeed(1f / blockMovementSpeedMultiplier);
+            PlayerStats._instance.blocking = false;
+            lastAbilityTime = Time.time;
+        }
+
         
     }
 
