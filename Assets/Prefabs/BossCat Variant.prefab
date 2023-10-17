@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3026748aca431264d832a705d3d5c788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 40
   movementSpeed: 1
   healthPotionDroprate: 10
   yarnDroprate: 3
@@ -200,7 +200,7 @@ MonoBehaviour:
   slamAttackRadius: 15
   rageRadius: 5
   rageDuration: 5
-  minAttackCD: 5
+  minAttackCD: 3
   numPhases: 3
   enemyPrefabs:
   - {fileID: 986031642315237854, guid: 5a00960f283e44040984961cae812dc4, type: 3}
@@ -209,10 +209,10 @@ MonoBehaviour:
   spawnRadius: 10
   shockwavePrefab: {fileID: 100481934291520229, guid: dc4f90a6bd831a246b3d4ad01563084d, type: 3}
   numWaves: 2
-  timeBetweenWaves: 2
+  timeBetweenWaves: 1
   windUpTimeWaves: 0
   shockwaveDamage: 20
-  shockwaveSpeed: 20
+  shockwaveSpeed: 30
   shockwaveRange: 20
   pullPrefab: {fileID: 5595849266403112404, guid: e524f34e49daed242867f5c1954f2610, type: 3}
   windUpTimePull: 0
