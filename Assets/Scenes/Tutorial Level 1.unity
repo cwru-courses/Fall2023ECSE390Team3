@@ -1480,7 +1480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &356551479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9086,6 +9086,8 @@ MonoBehaviour:
   - This bar indicates how much yarn you have accumulated. This will help you attack
     and defend.
   - This icon shows you how much time you have to wait until your next phase shift.
+  - If you get confused about controls or want to save the game, use "Escape" to
+    open up the pause menu.
   - Good luck!
   isRunning: 0
   health_arrow: {fileID: 1531982105}
