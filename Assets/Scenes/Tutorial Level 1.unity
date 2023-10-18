@@ -3756,6 +3756,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 804985736}
     m_Modifications:
+    - target: {fileID: 237405687830574069, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
+      propertyPath: m_TagString
+      value: AvoidOverlap
+      objectReference: {fileID: 0}
     - target: {fileID: 2145686366591454347, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.size
       value: 4
@@ -5195,6 +5199,10 @@ PrefabInstance:
     - target: {fileID: 2479866698887772083, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
       propertyPath: m_Name
       value: Tutorial Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967437261836826706, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
+      propertyPath: m_TagString
+      value: AvoidOverlap
       objectReference: {fileID: 0}
     - target: {fileID: 8217090995385140531, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
       propertyPath: m_RootOrder
