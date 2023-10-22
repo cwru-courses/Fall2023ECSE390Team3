@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private int projectileNum;
     [SerializeField] private GameObject projectilePrefab;
 
-    private DefaultInputAction playerInputAction;
+    //private DefaultInputAction playerInputAction;
 
     private Vector2 lookAtDir;  // Note that this direction is NOT normalized. Vector length = distance from the target point
     private float attackAngleCosVal;
@@ -37,9 +37,9 @@ public class PlayerAttack : MonoBehaviour
             _instance = this;
         }
 
-        playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.Attack.started += Attack;
-        playerInputAction.Player.LaunchProjectile.started += LaunchProjectile;
+        //playerInputAction = new DefaultInputAction();
+        //playerInputAction.Player.Attack.started += Attack;
+        //playerInputAction.Player.LaunchProjectile.started += LaunchProjectile;
 
         lookAtDir = Vector2.left;  // Default starting direction
         attackAngleCosVal = Mathf.Cos(attackRangeAngle / 2f);
@@ -56,17 +56,17 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        playerInputAction.Player.Attack.Enable();
-        playerInputAction.Player.LaunchProjectile.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    playerInputAction.Player.Attack.Enable();
+    //    playerInputAction.Player.LaunchProjectile.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        playerInputAction.Player.Attack.Disable();
-        playerInputAction.Player.LaunchProjectile.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    playerInputAction.Player.Attack.Disable();
+    //    playerInputAction.Player.LaunchProjectile.Disable();
+    //}
 
     // Update is called once per frame
     void Update()
@@ -81,7 +81,7 @@ public class PlayerAttack : MonoBehaviour
         weaponHolder.rotation = Quaternion.Euler(0f, 0f, -lookAtDirAngle);
     }
 
-    private void Attack(InputAction.CallbackContext ctx)
+    public void Attack(InputAction.CallbackContext ctx)
     {
         if (Time.time - lastAttackTime > attackCD)
         {
@@ -123,7 +123,7 @@ public class PlayerAttack : MonoBehaviour
         yield return null;
     }
 
-    private void LaunchProjectile(InputAction.CallbackContext ctx)
+    public void LaunchProjectile(InputAction.CallbackContext ctx)
     {
         for (int i = 0; i < projectileNum; i++)
         {
@@ -153,17 +153,17 @@ public class PlayerAttack : MonoBehaviour
         return attackRadius;
     }
 
-    public void OnPause(bool paused)
-    {
-        if (paused)
-        {
-            playerInputAction.Player.Attack.Disable();
-            playerInputAction.Player.LaunchProjectile.Disable();
-        }
-        else
-        {
-            playerInputAction.Player.Attack.Enable();
-            playerInputAction.Player.LaunchProjectile.Enable();
-        }
-    }
+    //public void OnPause(bool paused)
+    //{
+    //    if (paused)
+    //    {
+    //        playerInputAction.Player.Attack.Disable();
+    //        playerInputAction.Player.LaunchProjectile.Disable();
+    //    }
+    //    else
+    //    {
+    //        playerInputAction.Player.Attack.Enable();
+    //        playerInputAction.Player.LaunchProjectile.Enable();
+    //    }
+    //}
 }

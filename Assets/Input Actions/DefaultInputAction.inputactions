@@ -60,18 +60,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UsePotion",
+                    "name": "Ability2",
                     "type": "Button",
-                    "id": "61586cb4-26ab-49b4-8dea-d66bfa8b1de0",
+                    "id": "9d4ead17-e626-4665-bb37-631049bd960e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability2",
+                    "name": "UsePotion",
                     "type": "Button",
-                    "id": "9d4ead17-e626-4665-bb37-631049bd960e",
+                    "id": "61586cb4-26ab-49b4-8dea-d66bfa8b1de0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",

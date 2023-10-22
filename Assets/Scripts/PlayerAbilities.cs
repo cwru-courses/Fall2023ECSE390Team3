@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerAbilities : MonoBehaviour
 {
     public static PlayerAbilities _instance;
-    private DefaultInputAction playerInputAction;
+    //private DefaultInputAction playerInputAction;
 
     //private PlayerStats playerStatsInstance;
     //private PlayerMovement playerMovementInstance;
@@ -48,9 +48,9 @@ public class PlayerAbilities : MonoBehaviour
         pathRender.endColor = Color.magenta;
         
 
-        playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.Ability1.started += startAbility;
-        playerInputAction.Player.Ability2.started += startAbility2;
+        //playerInputAction = new DefaultInputAction();
+        //playerInputAction.Player.Ability1.started += startAbility;
+        //playerInputAction.Player.Ability2.started += startAbility2;
 
         lastAbilityTime = -Mathf.Max(blockCD, stunCD);
 
@@ -104,33 +104,33 @@ public class PlayerAbilities : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        playerInputAction.Player.Ability1.Enable();
-        playerInputAction.Player.Ability2.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    playerInputAction.Player.Ability1.Enable();
+    //    playerInputAction.Player.Ability2.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        playerInputAction.Player.Ability1.Disable();
-        playerInputAction.Player.Ability2.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    playerInputAction.Player.Ability1.Disable();
+    //    playerInputAction.Player.Ability2.Disable();
+    //}
 
-    public void OnPause(bool paused)
-    {
-        if (paused)
-        {
-            playerInputAction.Player.Ability1.Disable();
-            playerInputAction.Player.Ability2.Disable();
-        }
-        else
-        {
-            playerInputAction.Player.Ability1.Enable();
-            playerInputAction.Player.Ability2.Enable();
-        }
-    }
+    //public void OnPause(bool paused)
+    //{
+    //    if (paused)
+    //    {
+    //        playerInputAction.Player.Ability1.Disable();
+    //        playerInputAction.Player.Ability2.Disable();
+    //    }
+    //    else
+    //    {
+    //        playerInputAction.Player.Ability1.Enable();
+    //        playerInputAction.Player.Ability2.Enable();
+    //    }
+    //}
 
-    private void startAbility(InputAction.CallbackContext ctx)
+    public void startAbility(InputAction.CallbackContext ctx)
     {
         //print("ability triggered");
         if (abilityType == 1 && Time.time - lastAbilityTime > blockCD)
@@ -145,7 +145,7 @@ public class PlayerAbilities : MonoBehaviour
         }
     }
 
-    private void startAbility2(InputAction.CallbackContext ctx)
+    public void startAbility2(InputAction.CallbackContext ctx)
     {
         print("startAbility2");
         if ( (Time.time - lastAbilityTime > stunCD || stunCasting))

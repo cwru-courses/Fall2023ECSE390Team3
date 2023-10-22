@@ -9,13 +9,14 @@ public class PhaseShift : MonoBehaviour
 
     [SerializeField] private float shiftCD;
     [SerializeField] private float shiftPrecastTime;
-    [SerializeField] private float precastingTimer;
     [SerializeField] private Slider shiftProgressBar;
     [SerializeField] private GameObject rift;
 
     [SerializeField] private Image uiImg;
 
-    private DefaultInputAction playerInputAction;
+    private float precastingTimer;
+
+    //private DefaultInputAction playerInputAction;
 
     private float shiftCDTimer;
 
@@ -27,23 +28,23 @@ public class PhaseShift : MonoBehaviour
             _instance = this;
         }
 
-        playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.PhaseShift.performed += StartPhaseShift;
+        //playerInputAction = new DefaultInputAction();
+        //playerInputAction.Player.PhaseShift.performed += StartPhaseShift;
 
         shiftProgressBar.gameObject.SetActive(false);
 
         uiImg.fillAmount = 0;
     }
 
-    private void OnEnable()
-    {
-        playerInputAction.Player.PhaseShift.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    playerInputAction.Player.PhaseShift.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        playerInputAction.Player.PhaseShift.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    playerInputAction.Player.PhaseShift.Disable();
+    //}
 
     void FixedUpdate()
     {
@@ -55,11 +56,11 @@ public class PhaseShift : MonoBehaviour
         uiImg.fillAmount = shiftCDTimer / shiftCD;
     }
 
-    private void StartPhaseShift(InputAction.CallbackContext ctx)
+    public void StartPhaseShift(InputAction.CallbackContext ctx)
     {
-        if (shiftCDTimer <= 0) {
+        if (shiftCDTimer <= 0 && precastingTimer <= 0) {
             StartCoroutine("PhaseShiftPrecast");
-            OnDisable();    // Disable input to avoid more than one click
+            //OnDisable();    // Disable input to avoid more than one click
         }
     }
 
@@ -72,7 +73,7 @@ public class PhaseShift : MonoBehaviour
 
         shiftCDTimer = shiftCD;
 
-        OnEnable();     // Enable input again
+        //OnEnable();     // Enable input again
 
         // Added this line to toggle emission of yarn trail -- Jing
         AmbientSystem.Instance.OnPhaseShift();
@@ -101,15 +102,15 @@ public class PhaseShift : MonoBehaviour
         ToPhaseShift();
     }
 
-    public void OnPause(bool paused)
-    {
-        if (paused)
-        {
-            playerInputAction.Player.PhaseShift.Disable();
-        }
-        else
-        {
-            playerInputAction.Player.PhaseShift.Enable();
-        }
-    }
+    //public void OnPause(bool paused)
+    //{
+    //    if (paused)
+    //    {
+    //        playerInputAction.Player.PhaseShift.Disable();
+    //    }
+    //    else
+    //    {
+    //        playerInputAction.Player.PhaseShift.Enable();
+    //    }
+    //}
 }

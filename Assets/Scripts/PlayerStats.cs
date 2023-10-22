@@ -8,6 +8,8 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats _instance;
 
+    public PlayerInput playerInput;
+
     public int maxHealth = 100;
     public int yarncooldown = 0;
     public int currentHealth;
@@ -28,7 +30,7 @@ public class PlayerStats : MonoBehaviour
     [Min(0f)]
     [SerializeField] private float iFrameTime;
 
-    private DefaultInputAction playerInputAction;
+    //private DefaultInputAction playerInputAction;
 
     private float iFrameTimer = 0f;
     private bool invincible = false;
@@ -39,6 +41,8 @@ public class PlayerStats : MonoBehaviour
         {
             _instance = this;
         }
+
+        playerInput = GetComponent<PlayerInput>();
 
         if (SaveSystem.isVersionSaved)
         {
@@ -57,32 +61,32 @@ public class PlayerStats : MonoBehaviour
             yarnTracker.SetMaxHealth(maxYarn);
         }
 
-        playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.UsePotion.started += UsePotion;
+        //playerInputAction = new DefaultInputAction();
+        //playerInputAction.Player.UsePotion.started += UsePotion;
         inFlippedWorld = false;
     }
 
-    private void OnEnable()
-    {
-        playerInputAction.Player.UsePotion.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    playerInputAction.Player.UsePotion.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        playerInputAction.Player.UsePotion.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    playerInputAction.Player.UsePotion.Disable();
+    //}
 
-    public void OnPause(bool paused)
-    {
-        if (paused)
-        {
-            playerInputAction.Player.UsePotion.Disable();
-        }
-        else
-        {
-            playerInputAction.Player.UsePotion.Enable();
-        }
-    }
+    //public void OnPause(bool paused)
+    //{
+    //    if (paused)
+    //    {
+    //        playerInputAction.Player.UsePotion.Disable();
+    //    }
+    //    else
+    //    {
+    //        playerInputAction.Player.UsePotion.Enable();
+    //    }
+    //}
 
     void Update()
     {
@@ -94,6 +98,8 @@ public class PlayerStats : MonoBehaviour
         /* TO ADD:
             enemy attack -> causes player health to decrease
         */
+
+        Debug.Log(playerInput.currentActionMap);
 
         //once player health gets below 0, go back to home screen (or load screen with saved checkpoints)
         if (currentHealth <= 0)
