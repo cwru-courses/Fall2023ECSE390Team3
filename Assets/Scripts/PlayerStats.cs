@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -8,6 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats _instance;
+
+    public PlayerInput playerInput;
 
     public int maxHealth = 100;
     public int yarncooldown = 0;
@@ -26,7 +27,13 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private SpriteRenderer spRender;
     [SerializeField] private AudioSource hitSFX;
 
-    private DefaultInputAction playerInputAction;
+    [Min(0f)]
+    [SerializeField] private float iFrameTime;
+
+    //private DefaultInputAction playerInputAction;
+
+    private float iFrameTimer = 0f;
+    private bool invincible = false;
 
     void Awake()
     {
@@ -35,6 +42,8 @@ public class PlayerStats : MonoBehaviour
             _instance = this;
         }
 
+        playerInput = GetComponent<PlayerInput>();
+        
         if (SaveSystem.listSavedFiles.Contains(SaveSystem.currentFileName))
         {
             SaveSystem.LoadSave();
@@ -52,35 +61,46 @@ public class PlayerStats : MonoBehaviour
             yarnTracker.SetMaxHealth(maxYarn);
         }
 
-        playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.UsePotion.started += UsePotion;
+        //playerInputAction = new DefaultInputAction();
+        //playerInputAction.Player.UsePotion.started += UsePotion;
         inFlippedWorld = false;
     }
 
-    private void OnEnable()
-    {
-        playerInputAction.Player.UsePotion.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    playerInputAction.Player.UsePotion.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        playerInputAction.Player.UsePotion.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    playerInputAction.Player.UsePotion.Disable();
+    //}
 
-    public void OnPause(bool paused)
-    {
-        if (paused)
-        {
-            playerInputAction.Player.UsePotion.Disable();
-        }
-        else
-        {
-            playerInputAction.Player.UsePotion.Enable();
-        }
-    }
+    //public void OnPause(bool paused)
+    //{
+    //    if (paused)
+    //    {
+    //        playerInputAction.Player.UsePotion.Disable();
+    //    }
+    //    else
+    //    {
+    //        playerInputAction.Player.UsePotion.Enable();
+    //    }
+    //}
 
     void Update()
     {
+        //to test if health bar works- can press space bar to trigger
+        // if(Input.GetKeyDown(KeyCode.Space)) {
+        //     TakeDamage(10); 
+        // }
+
+        /* TO ADD:
+            enemy attack -> causes player health to decrease
+        */
+
+        Debug.Log(playerInput.currentActionMap);
+
         //once player health gets below 0, go back to home screen (or load screen with saved checkpoints)
         if (currentHealth <= 0)
         {
@@ -98,12 +118,27 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (invincible)
+        {
+            iFrameTimer += Time.fixedDeltaTime;
+            if (iFrameTimer > iFrameTime)
+            {
+                iFrameTimer = 0f;
+                invincible = false;
+            }
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         // check if player is blocking, only take damage if not blocking
-        if (!blocking)
+        if (!invincible && !blocking)
         {
             currentHealth -= damage;
+
+            invincible = true;
 
             healthBar.SetHealth(currentHealth);
             if (hitSFX)
@@ -112,7 +147,7 @@ public class PlayerStats : MonoBehaviour
             }
             if (spRender)
             {
-                StartCoroutine(FlashColor(0.1f,new Color(1f,0.5f,0.5f)));
+                StartCoroutine(FlashColor(new Color(1f,0.5f,0.5f)));
             }
         }
     }
@@ -171,12 +206,18 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private IEnumerator FlashColor(float duration, Color color)
+    private IEnumerator FlashColor(Color color)
     {
-        Color prevColor = Color.white;
-        spRender.color = color;
-        yield return new WaitForSeconds(duration);
-        spRender.color = prevColor;
+        bool originalColor = false;
+
+        while (invincible)
+        {
+            spRender.color = originalColor ? Color.white : color;
+            originalColor = !originalColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        spRender.color = Color.white;
     }
 
 }

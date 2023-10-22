@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
@@ -46,10 +45,11 @@ public class CollisionDialogue : MonoBehaviour
     void StartDialogue(){
         
         index = 0;
+        PlayerStats._instance.playerInput.SwitchCurrentActionMap("UI");
         PlayerMovement._instance.OnPause(true);
-        PlayerAttack._instance.OnPause(true);
-        PhaseShift._instance.OnPause(true);
-        PlayerStats._instance.OnPause(true);
+        //PlayerAttack._instance.OnPause(true);
+        //PhaseShift._instance.OnPause(true);
+        //PlayerStats._instance.OnPause(true);
         StartCoroutine(TypeLine());
     
     }
@@ -64,10 +64,11 @@ public class CollisionDialogue : MonoBehaviour
     void endDialogue(){
         isRunning=false;
         dialogueBox.SetActive(false);
+        PlayerStats._instance.playerInput.SwitchCurrentActionMap("Player");
         PlayerMovement._instance.OnPause(false);
-        PlayerAttack._instance.OnPause(false);
-        PhaseShift._instance.OnPause(false);
-        PlayerStats._instance.OnPause(false);
+        //PlayerAttack._instance.OnPause(false);
+        //PhaseShift._instance.OnPause(false);
+        //PlayerStats._instance.OnPause(false);
     }
 
     void NextLine(){

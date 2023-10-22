@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.Dash.started += Dash;
+        //playerInputAction.Player.Dash.started += Dash;
 
         rb2d = GetComponent<Rigidbody2D>();
         onDash = false;
@@ -48,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
         // if player in flipped world and run out of yarn and movement not yet locked, lock(pause) the movement -- Jing
         if (PlayerStats._instance.inFlippedWorld && PlayerStats._instance.currentYarnCount <= 0 && !movementLocked)
         {
-            Debug.Log(1);
             OnPause(true);
             movementLocked = true;
         }
@@ -105,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Dash(InputAction.CallbackContext ctx)
+    public void Dash(InputAction.CallbackContext ctx)
     {
         if (Time.time - lastDashTime > dashCD)
         {
