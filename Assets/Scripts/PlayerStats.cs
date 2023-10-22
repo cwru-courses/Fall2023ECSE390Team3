@@ -43,8 +43,8 @@ public class PlayerStats : MonoBehaviour
         }
 
         playerInput = GetComponent<PlayerInput>();
-
-        if (SaveSystem.isVersionSaved)
+        
+        if (SaveSystem.listSavedFiles.Contains(SaveSystem.currentFileName))
         {
             SaveSystem.LoadSave();
             healthBar.SetHealth(currentHealth);
@@ -53,7 +53,7 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
-            Debug.Log("Saved version not found");
+            Debug.Log("New game started");
             currentHealth = maxHealth;
             currentYarnCount = maxYarn;
             //set player health to maxHealth to start
