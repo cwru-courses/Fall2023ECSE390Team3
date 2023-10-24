@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour
 {
     public void Play(){
-        //load next scene
-        SceneManager.LoadSceneAsync("Tutorial Level 1");
+        //if have saved 3 files, should go to load screen
+        int numSaved = SaveSystem.GetNumberSavedFiles();
+        if(numSaved >= 3) {
+            SceneManager.LoadSceneAsync("Load Screen");
+        } else {
+            //load next scene
+            SaveSystem.currentFileName = "save" + numSaved; 
+            SceneManager.LoadSceneAsync("Tutorial Level 1");
+        }
     }
 
     public void NavigateToLoadScreen() {

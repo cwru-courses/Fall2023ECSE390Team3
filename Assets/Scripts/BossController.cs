@@ -100,7 +100,7 @@ public class BossController : BaseEnemy
                 
 
                 //if cooldown done then attack, note: attackCD reduces with HP
-                if (Time.time - lastAttackTime > minAttackCD + (health/maxHealth)*minAttackCD && !isStunned)
+                if (Time.time - lastAttackTime > minAttackCD + ((float)health/(float)maxHealth)*minAttackCD && !isStunned)
                 {
                     
                     //closer player is the more likely to slam instead of pull
