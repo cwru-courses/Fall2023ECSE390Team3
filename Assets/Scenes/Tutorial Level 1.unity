@@ -5447,7 +5447,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shiftCD: 2
   shiftPrecastTime: 2
-  precastingTimer: 1
   shiftProgressBar: {fileID: 586172891}
   rift: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
   uiImg: {fileID: 1815572008}
@@ -5500,6 +5499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bb5fb95566149e29432bb95effca85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 0}
   maxHealth: 100
   yarncooldown: 0
   currentHealth: 0
@@ -5515,6 +5515,7 @@ MonoBehaviour:
   blocking: 0
   spRender: {fileID: 1613083873}
   hitSFX: {fileID: 1549921475}
+  iFrameTime: 0
 --- !u!50 &777061482
 Rigidbody2D:
   serializedVersion: 4
@@ -5587,7 +5588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 2f0b0a0651c86b745ada6aac78421fa9, type: 3}
-  m_NotificationBehavior: 3
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -5604,26 +5605,118 @@ MonoBehaviour:
     m_ActionId: 4303160e-3456-4cf5-93d2-17dac257a000
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 777061480}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 343daa5e-1c70-45a2-bde7-747038783c3a
     m_ActionName: Player/Dash[/Keyboard/leftShift]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 777061479}
+        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 540e6cb8-cf7f-4a90-8408-3d10bf583771
     m_ActionName: Player/Attack[/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 777061478}
+        m_TargetAssemblyTypeName: PhaseShift, Assembly-CSharp
+        m_MethodName: StartPhaseShift
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c82b92be-c27d-4ade-8895-421a549c7b8a
     m_ActionName: Player/Phase Shift[/Keyboard/q]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 890e8e5f-d491-4014-857c-f555d96cf603
     m_ActionName: UI/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 777061477}
+        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e21d4237-bb8f-4da8-94c9-eae29e4959da
+    m_ActionName: Player/Launch Projectile[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 777061486}
+        m_TargetAssemblyTypeName: PlayerAbilities, Assembly-CSharp
+        m_MethodName: startAbility
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b6987c5c-85e1-47e5-b78d-d309ef91788f
+    m_ActionName: Player/Ability1[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 777061481}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: UsePotion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 61586cb4-26ab-49b4-8dea-d66bfa8b1de0
+    m_ActionName: Player/UsePotion[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9d4ead17-e626-4665-bb37-631049bd960e
+    m_ActionName: Player/Ability2[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42f747d1-7664-41c0-8e86-09e9a58aa16c
+    m_ActionName: UI/Dialogue[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 520802788}
+  m_Camera: {fileID: 0}
 --- !u!114 &777061486
 MonoBehaviour:
   m_ObjectHideFlags: 0
