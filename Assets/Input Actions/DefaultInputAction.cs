@@ -245,7 +245,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""id"": ""890e8e5f-d491-4014-857c-f555d96cf603"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": false
                 },
                 {

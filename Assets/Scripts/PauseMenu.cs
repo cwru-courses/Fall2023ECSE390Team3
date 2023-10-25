@@ -6,33 +6,32 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuCanvas;
 
-    //private DefaultInputAction playerInputAction;
+    private DefaultInputAction playerInputAction;
 
     private bool paused  = false;
 
     // Start is called before the first frame update
     void Awake()
     {
-        //playerInputAction = new DefaultInputAction();
-        //playerInputAction.UI.Pause.started += (InputAction.CallbackContext ctx) => { OnPause(); };
+        playerInputAction = new DefaultInputAction();
+        playerInputAction.UI.Pause.started += (InputAction.CallbackContext ctx) => { OnPause(); };
 
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    //private void OnEnable()
-    //{
-    //    playerInputAction.UI.Enable();
-    //}
+    private void OnEnable()
+    {
+        playerInputAction.UI.Enable();
+    }
 
-    //private void OnDisable()
-    //{
-    //    playerInputAction.UI.Disable();
-    //}
+    private void OnDisable()
+    {
+        playerInputAction.UI.Disable();
+    }
 
     public void OnPause()
     {
-        Debug.Log(1);
         paused = !paused;
 
         PlayerStats._instance.playerInput.SwitchCurrentActionMap(paused ? "UI" : "Player");

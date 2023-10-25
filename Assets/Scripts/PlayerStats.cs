@@ -99,7 +99,7 @@ public class PlayerStats : MonoBehaviour
             enemy attack -> causes player health to decrease
         */
 
-        Debug.Log(playerInput.currentActionMap);
+        //Debug.Log(playerInput.currentActionMap);
 
         //once player health gets below 0, go back to home screen (or load screen with saved checkpoints)
         if (currentHealth <= 0)
