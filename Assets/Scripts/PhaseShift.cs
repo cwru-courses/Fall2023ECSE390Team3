@@ -64,7 +64,7 @@ public class PhaseShift : MonoBehaviour
         }
     }
 
-    private void ToPhaseShift()
+    public void ToPhaseShift()
     {
         // Move character into the alternate world
         Vector3 currentLocation = transform.position;

@@ -9,6 +9,8 @@ public class YarnTrail : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 thisPosition;
     [SerializeField] private float yarnConsumptionRate;
+    [SerializeField] private GameObject YarnPuzzleControllerObjectOne;
+    private YarnPuzzleController puzzleControllerOne;
 
     private void Awake()
     {
@@ -17,7 +19,7 @@ public class YarnTrail : MonoBehaviour
             _instance = this;
         }
 
-        
+        puzzleControllerOne = YarnPuzzleControllerObjectOne.GetComponent<YarnPuzzleController>();
     }
 
     // Start is called before the first frame update
@@ -52,7 +54,9 @@ public class YarnTrail : MonoBehaviour
         } 
         else {
             trailRranderer.enabled = false;
-            trailRranderer.Clear();
+            ClearYarnTrail();
+            // decreae onPoint field when shift back to normal world either intentionally or sent back by enemy cutting trail
+            puzzleControllerOne.decreaseOnPoint();
         }
 
         // if (trailRranderer.enabled == false)
@@ -66,6 +70,14 @@ public class YarnTrail : MonoBehaviour
         //     trailRranderer.Clear();
         //     inFlipWorld = false;
         // }
+    }
+
+    public void ClearYarnTrail()
+    {
+        // to clear yarn trail
+        trailRranderer.Clear();
+        // to destroy collider of yarn trail
+        YarnTrailCollider._instance.ClearColliderPoints();
     }
 
     private void decreaseYarn()
