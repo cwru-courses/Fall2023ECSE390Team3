@@ -19,7 +19,12 @@ public class YarnTrail : MonoBehaviour
             _instance = this;
         }
 
-        puzzleControllerOne = YarnPuzzleControllerObjectOne.GetComponent<YarnPuzzleController>();
+        // YarnPuzzleControllerObjectOne is null in tutorial dungeon because there is no yarn puzzle
+        if (YarnPuzzleControllerObjectOne != null)
+        {
+            puzzleControllerOne = YarnPuzzleControllerObjectOne.GetComponent<YarnPuzzleController>();
+        }
+        
     }
 
     // Start is called before the first frame update
@@ -56,7 +61,10 @@ public class YarnTrail : MonoBehaviour
             trailRranderer.enabled = false;
             ClearYarnTrail();
             // puzzle needs to update
-            puzzleControllerOne.TrailCutted();
+            if (puzzleControllerOne != null)
+            {
+                puzzleControllerOne.TrailCutted();
+            }
         }
 
         // if (trailRranderer.enabled == false)
