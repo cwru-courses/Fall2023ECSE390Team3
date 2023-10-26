@@ -34,13 +34,4 @@ public class YarnLineController : MonoBehaviour
         onPosition++;
     }
 
-    public void removeLastLine()
-    {
-        if (onPosition > 0)
-        {
-            lineRenderer.positionCount -= 1;
-            onPosition--;
-        }
-        Debug.Log("Line Controller on: " + onPosition);
-    } 
 }

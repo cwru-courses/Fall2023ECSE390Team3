@@ -55,8 +55,8 @@ public class YarnTrail : MonoBehaviour
         else {
             trailRranderer.enabled = false;
             ClearYarnTrail();
-            // decreae onPoint field when shift back to normal world either intentionally or sent back by enemy cutting trail
-            puzzleControllerOne.decreaseOnPoint();
+            // puzzle needs to update
+            puzzleControllerOne.TrailCutted();
         }
 
         // if (trailRranderer.enabled == false)

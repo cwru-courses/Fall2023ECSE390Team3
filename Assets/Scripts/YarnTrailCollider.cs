@@ -44,7 +44,7 @@ public class YarnTrailCollider : MonoBehaviour
         collider.SetPoints(points);
     }
 
-
+    // technically not really clear it, but just set the collider to somewhere player never reaches
     public void ClearColliderPoints()
     {
         // add two points that the player is never going to hit
