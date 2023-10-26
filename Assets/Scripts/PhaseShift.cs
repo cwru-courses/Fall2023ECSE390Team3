@@ -11,7 +11,7 @@ public class PhaseShift : MonoBehaviour
     [SerializeField] private float shiftPrecastTime;
     [SerializeField] private Slider shiftProgressBar;
     [SerializeField] private GameObject rift;
-
+    [SerializeField] private GameObject foot; // to detect nearby puzzle points
     [SerializeField] private Image uiImg;
 
     private float precastingTimer;
@@ -64,10 +64,13 @@ public class PhaseShift : MonoBehaviour
         }
     }
 
-    private void ToPhaseShift()
+    public void ToPhaseShift()
     {
+        // trigger nearby puzzle point
+        TriggerNearbyYarnPuzzlePoints();
+
         // Move character into the alternate world
-        Vector3 currentLocation = transform.position;
+        Vector3 currentLocation = transform.position - new Vector3(0.0f, 2.0f, 0.0f);   // added subtraction to make sure the shift is based on the foot's position
         
         // target position
         Vector3 targetPosition = new Vector3(currentLocation.x, -currentLocation.y, 0);
@@ -100,11 +103,42 @@ public class PhaseShift : MonoBehaviour
         shiftCDTimer = shiftCD;
 
         //OnEnable();     // Enable input again
-
+        
         // Added this line to toggle emission of yarn trail -- Jing
         AmbientSystem.Instance.OnPhaseShift();
         YarnTrail._instance.toggleEmission();
 
+    }
+
+    private void TriggerNearbyYarnPuzzlePoints()
+    {
+        // search all puzzle points
+        GameObject[] puzzlePoints = GameObject.FindGameObjectsWithTag("YarnPuzzlePoints");
+
+        // increase stage by 1 for nearby point
+        foreach (GameObject point in puzzlePoints)
+        {
+            Vector3 targetPosition = point.transform.position;
+            Vector3 myPosition = foot.transform.position;
+            // only calculate distance on x and y
+            float distanceX = Mathf.Abs(targetPosition.x - myPosition.x);
+            float distanceY = Mathf.Abs(targetPosition.y - myPosition.y);
+            float distance = Mathf.Sqrt(distanceX * distanceX + distanceY * distanceY);
+            //Debug.Log(distance);
+
+            // if the point nearby(either in flipped or normal world) is in stage 0, increase it to stage 1
+            if (distance < 0.2f)
+            {
+                if (point.GetComponent<YarnPuzzlePointNormal>() != null && point.GetComponent<YarnPuzzlePointNormal>().GetStage() == 0)
+                {
+                    point.GetComponent<YarnPuzzlePointNormal>().NextStage();
+                }
+                else if (point.GetComponent<YarnPuzzlePointFlipped>() != null && point.GetComponent<YarnPuzzlePointFlipped>().GetStage() == 0)
+                {
+                    point.GetComponent<YarnPuzzlePointFlipped>().NextStage();
+                }
+            }
+        }
     }
 
     Vector3 findNearestLocation(Vector3 originalLocation)
