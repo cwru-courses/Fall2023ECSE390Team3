@@ -9,6 +9,7 @@ TagManager:
   - Stone
   - PressurePlate
   - AvoidOverlap
+  - YarnPuzzlePoints
   layers:
   - Default
   - TransparentFX
