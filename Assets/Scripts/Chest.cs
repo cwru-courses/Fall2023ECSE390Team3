@@ -11,12 +11,14 @@ public class Chest : MonoBehaviour {
     [SerializeField] protected GameObject lootSpawnerPrefab;
     [SerializeField] protected int healthPotionDroprate;
     [SerializeField] protected int yarnDroprate;
+    [SerializeField] private AudioSource audSource;
     protected bool lootDropped = false;
 
 
     // Start is called before the first frame update
-    void Start() {
-        
+    void Wake() {
+        audSource = GetComponent<AudioSource>();
+        audSource.Pause();
     }
 
     // Update is called once per frame
@@ -27,7 +29,10 @@ public class Chest : MonoBehaviour {
     // Set the sprite to an open chest or a closed chest
     public void setChestOpen(bool boolean) { 
         if (boolean == true) {
+            audSource.mute = !audSource.mute;
+            audSource.Play();
             chest.sprite = openChest;
+            
             if (lootDropped == false)
             {
                 Instantiate(lootSpawnerPrefab, transform.position, Quaternion.identity)
