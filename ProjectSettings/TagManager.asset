@@ -52,6 +52,9 @@ TagManager:
   - name: OverGround
     uniqueID: 3181721169
     locked: 0
+  - name: Stitches
+    uniqueID: 1965235505
+    locked: 0
   - name: Walls
     uniqueID: 3496523957
     locked: 0
