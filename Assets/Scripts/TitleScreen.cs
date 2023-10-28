@@ -13,7 +13,7 @@ public class TitleScreen : MonoBehaviour
         } else {
             //load next scene
             SaveSystem.currentFileName = "save" + numSaved; 
-            SceneManager.LoadSceneAsync("Tutorial Level 1");
+            SceneManager.LoadSceneAsync("Tutorial Level");
         }
     }
 
