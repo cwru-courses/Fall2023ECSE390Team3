@@ -29,7 +29,7 @@ public class LoadMenu : MonoBehaviour
     }
 
     public void StartNewGame() {
-        SceneManager.LoadSceneAsync("Tutorial Level 1");
+        SceneManager.LoadSceneAsync("Tutorial Level");
     }
 
     public void ChangeButtonsAfterDelete(int index) {
@@ -39,8 +39,8 @@ public class LoadMenu : MonoBehaviour
         deleteButtons[index].gameObject.SetActive(false); 
     } 
 
-    //will other levels be in different scenes? - load specific scene
-    // public void LoadGame() {
-
-    // }
+    public void LoadSavedGame() {
+        string name = SaveSystem.LoadSavedSceneName(); 
+        SceneManager.LoadSceneAsync(name); 
+    }
 }
