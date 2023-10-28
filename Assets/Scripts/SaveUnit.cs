@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class SaveUnit
@@ -7,6 +8,7 @@ public class SaveUnit
     public int playerHealth;
     public float playerYarn; 
     public int potions; 
+    public string currentSceneName; 
     //public float playerMana;
 
     public SaveUnit()
@@ -20,5 +22,6 @@ public class SaveUnit
         playerHealth = PlayerStats._instance.currentHealth;
         playerYarn = PlayerStats._instance.currentYarnCount; 
         potions = PlayerStats._instance.potions; 
+        currentSceneName = SceneManager.GetActiveScene().name;
     }
 }

@@ -31,6 +31,24 @@ public class SaveSystem : MonoBehaviour
         listSavedFiles[int.Parse(currentFileName[4].ToString())] = currentFileName; 
     }
 
+    private static SaveUnit GetSavedData(string savePath) {
+        SaveUnit data = null; 
+        if (File.Exists(savePath))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            FileStream stream = new FileStream(savePath, FileMode.Open);
+
+            data = formatter.Deserialize(stream) as SaveUnit;
+            stream.Close();
+        }
+        else
+        {
+            Debug.Log("Save Not Found");
+        }
+        return data; 
+    }
+
     public static void LoadSave()
     {
         Time.timeScale = 0f;
@@ -39,12 +57,7 @@ public class SaveSystem : MonoBehaviour
 
         if (File.Exists(savePath))
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-
-            FileStream stream = new FileStream(savePath, FileMode.Open);
-
-            SaveUnit data = formatter.Deserialize(stream) as SaveUnit;
-            stream.Close();
+            SaveUnit data = GetSavedData(savePath); 
 
             Vector3 playerPos = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
             PlayerStats._instance.transform.position = playerPos;
@@ -60,7 +73,18 @@ public class SaveSystem : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void setFileIndex(int index) {
+    public static string LoadSavedSceneName() {
+        string savePath = Application.persistentDataPath + "/" + currentFileName + ".sav";
+        SaveUnit data = GetSavedData(savePath); 
+        //if data not null
+        if(data != null) {
+            return data.currentSceneName; 
+        } else {
+            return "Tutorial Level"; //starts over?
+        }
+    }
+
+    public void SetFileIndex(int index) {
         if(string.Equals(listSavedFiles[index], "")) {
             currentFileName = "save" + index; 
         } else {
