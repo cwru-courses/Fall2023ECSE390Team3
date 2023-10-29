@@ -173,6 +173,7 @@ MonoBehaviour:
   YarnPuzzleControllerObjectOne: {fileID: 2127777180}
   YarnPuzzleControllerObjectTwo: {fileID: 597979101}
   YarnPuzzleControllerObjectThree: {fileID: 228035190}
+  trailCollider: {fileID: 15948763}
 --- !u!96 &15948762
 TrailRenderer:
   serializedVersion: 2

@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 15948760}
   - component: {fileID: 15948762}
   - component: {fileID: 15948761}
+  - component: {fileID: 15948763}
   m_Layer: 15
   m_Name: foor-for-trail
   m_TagString: Untagged
@@ -312,6 +313,7 @@ MonoBehaviour:
   YarnPuzzleControllerObjectOne: {fileID: 0}
   YarnPuzzleControllerObjectTwo: {fileID: 0}
   YarnPuzzleControllerObjectThree: {fileID: 0}
+  trailCollider: {fileID: 15948763}
 --- !u!96 &15948762
 TrailRenderer:
   serializedVersion: 2
@@ -411,6 +413,18 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &15948763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15948759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b920dc150620a1244a4e0b79f11eaf48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &29346239
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,7 +3169,7 @@ MonoBehaviour:
   potions: 0
   healthFromPotion: 20
   maxPotion: 8
-  potionUI: {fileID: 0}
+  potionUI: {fileID: 1455938779}
   inFlippedWorld: 0
   blocking: 0
   spRender: {fileID: 1613083873}
@@ -4543,6 +4557,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 986031642315237850, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
   m_PrefabInstance: {fileID: 1169968110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1455938779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2026579417184056734, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+  m_PrefabInstance: {fileID: 107048328637089428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1466727485
 GameObject:
   m_ObjectHideFlags: 0
@@ -5241,7 +5266,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864705272}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1001 &1899654020
 PrefabInstance:
   m_ObjectHideFlags: 0

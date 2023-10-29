@@ -5,16 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(TrailRenderer))]
 public class YarnTrailCollider : MonoBehaviour
 {
-    public static YarnTrailCollider _instance;
     TrailRenderer yarnTrail;
     EdgeCollider2D yarnTrailCollider;
 
     private void Awake()
     {
-        if (_instance == null)
-        {
-            _instance = this;
-        }
         yarnTrail = this.GetComponent<TrailRenderer>();
         GameObject colliderGameObject = new GameObject("TrailCollider", typeof(EdgeCollider2D), typeof(YarnTrailEnemyDetection));
         yarnTrailCollider = colliderGameObject.GetComponent<EdgeCollider2D>();

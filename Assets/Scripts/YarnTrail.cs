@@ -12,6 +12,7 @@ public class YarnTrail : MonoBehaviour
     [SerializeField] private GameObject YarnPuzzleControllerObjectOne;
     [SerializeField] private GameObject YarnPuzzleControllerObjectTwo;
     [SerializeField] private GameObject YarnPuzzleControllerObjectThree;
+    [SerializeField] private YarnTrailCollider trailCollider;
     private YarnPuzzleController puzzleControllerOne;
     private YarnPuzzleController puzzleControllerTwo;
     private YarnPuzzleController puzzleControllerThree;
@@ -99,7 +100,10 @@ public class YarnTrail : MonoBehaviour
         // to clear yarn trail
         trailRranderer.Clear();
         // to destroy collider of yarn trail
-        YarnTrailCollider._instance.ClearColliderPoints();
+        if (trailCollider != null)
+        {
+            trailCollider.ClearColliderPoints();
+        }
     }
 
     private void decreaseYarn()
