@@ -26,6 +26,7 @@ public class PlayerStats : MonoBehaviour
     public bool blocking = false;// is block ability activated currently
     [SerializeField] private SpriteRenderer spRender;
     [SerializeField] private AudioSource hitSFX;
+    [SerializeField] private AudioSource potionSFX;
 
     [Min(0f)]
     [SerializeField] private float iFrameTime;
@@ -190,6 +191,10 @@ public class PlayerStats : MonoBehaviour
             currentHealth += healthFromPotion;
             potionUI.text = potions.ToString();
             healthBar.SetHealth(currentHealth);
+            if (potionSFX)
+            {
+                potionSFX.Play();
+            }
         }
         else
         {

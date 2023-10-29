@@ -73,7 +73,7 @@ public class PhaseShift : MonoBehaviour
         Vector3 currentLocation = transform.position - new Vector3(0.0f, 2.0f, 0.0f);   // added subtraction to make sure the shift is based on the foot's position
         
         // target position
-        Vector3 targetPosition = new Vector3(currentLocation.x, -currentLocation.y, 0);
+        Vector3 targetPosition = new Vector3(currentLocation.x, -currentLocation.y, currentLocation.z);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(targetPosition, 0.5f);
         bool willCollide = false;
 
@@ -127,7 +127,7 @@ public class PhaseShift : MonoBehaviour
             //Debug.Log(distance);
 
             // if the point nearby(either in flipped or normal world) is in stage 0, increase it to stage 1
-            if (distance < 0.2f)
+            if (distance < 0.3f)
             {
                 if (point.GetComponent<YarnPuzzlePointNormal>() != null && point.GetComponent<YarnPuzzlePointNormal>().GetStage() == 0)
                 {

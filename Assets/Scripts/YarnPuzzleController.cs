@@ -7,6 +7,10 @@ public class YarnPuzzleController : MonoBehaviour
     //public static YarnPuzzleController _instance;
     [SerializeField] private YarnPuzzlePointFlipped[] pointsArray;
     [SerializeField] private GameObject yarnLineControllerObject;
+    [SerializeField] private int totalPoints;
+    [SerializeField] private GameObject wallToRemove1;
+    [SerializeField] private GameObject wallToRemove2;
+    [SerializeField] private AudioSource wallUp;
     private bool puzzleActive = true;
     private int onPoint = -1;
 
@@ -25,10 +29,18 @@ public class YarnPuzzleController : MonoBehaviour
     public void IncreaseOnPoint()
     {
         onPoint++;
-        if (onPoint == pointsArray.Length - 1)
+        if (onPoint == totalPoints - 1)
         {
             puzzleActive = false;
+            Debug.Log("reached the end of the puzzle");
+            PuzzleReward();
         }
+    }
+
+    public bool PuzzleActive()
+    {
+        Debug.Log(puzzleActive);
+        return puzzleActive;
     }
 
     /*
@@ -44,6 +56,22 @@ public class YarnPuzzleController : MonoBehaviour
             {
                 pointsArray[onPoint].GetNextPoint().GetComponent<YarnPuzzlePointNormal>().DecreaseStage();
             }
+        }
+    }
+
+    private void PuzzleReward()
+    {
+        if (wallToRemove1 != null)
+        {
+            wallToRemove1.SetActive(false);
+        }
+        if (wallToRemove2 != null)
+        {
+            wallToRemove2.SetActive(false);
+        }
+        if (wallUp != null)
+        {
+            wallUp.Play();
         }
     }
 }

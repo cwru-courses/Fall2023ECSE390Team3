@@ -10,7 +10,11 @@ public class YarnTrail : MonoBehaviour
     private Vector3 thisPosition;
     [SerializeField] private float yarnConsumptionRate;
     [SerializeField] private GameObject YarnPuzzleControllerObjectOne;
+    [SerializeField] private GameObject YarnPuzzleControllerObjectTwo;
+    [SerializeField] private GameObject YarnPuzzleControllerObjectThree;
     private YarnPuzzleController puzzleControllerOne;
+    private YarnPuzzleController puzzleControllerTwo;
+    private YarnPuzzleController puzzleControllerThree;
 
     private void Awake()
     {
@@ -23,6 +27,8 @@ public class YarnTrail : MonoBehaviour
         if (YarnPuzzleControllerObjectOne != null)
         {
             puzzleControllerOne = YarnPuzzleControllerObjectOne.GetComponent<YarnPuzzleController>();
+            puzzleControllerTwo = YarnPuzzleControllerObjectTwo.GetComponent<YarnPuzzleController>();
+            puzzleControllerThree = YarnPuzzleControllerObjectThree.GetComponent<YarnPuzzleController>();
         }
         
     }
@@ -61,9 +67,17 @@ public class YarnTrail : MonoBehaviour
             trailRranderer.enabled = false;
             ClearYarnTrail();
             // puzzle needs to update
-            if (puzzleControllerOne != null)
+            if (puzzleControllerOne != null && puzzleControllerOne.PuzzleActive())
             {
                 puzzleControllerOne.TrailCutted();
+            }
+            else if (puzzleControllerOne != null && puzzleControllerTwo.PuzzleActive())
+            {
+                puzzleControllerTwo.TrailCutted();
+            }
+            else if (puzzleControllerOne != null && puzzleControllerThree.PuzzleActive())
+            {
+                puzzleControllerThree.TrailCutted();
             }
         }
 
