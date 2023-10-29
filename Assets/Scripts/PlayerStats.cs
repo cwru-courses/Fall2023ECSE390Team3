@@ -185,21 +185,25 @@ public class PlayerStats : MonoBehaviour
 
     public void UsePotion(InputAction.CallbackContext ctx)
     {
-        if (potions > 0)
+        if (ctx.phase == InputActionPhase.Started)
         {
-            potions -= 1;
-            currentHealth += healthFromPotion;
-            potionUI.text = potions.ToString();
-            healthBar.SetHealth(currentHealth);
-            if (potionSFX)
+            if (potions > 0)
             {
-                potionSFX.Play();
+                potions -= 1;
+                currentHealth += healthFromPotion;
+                potionUI.text = potions.ToString();
+                healthBar.SetHealth(currentHealth);
+                if (potionSFX)
+                {
+                    potionSFX.Play();
+                }
+            }
+            else
+            {
+                Debug.Log("No Potion");
             }
         }
-        else
-        {
-            Debug.Log("No Potion");
-        }
+            
     }
 
     public void GainPotion()
