@@ -144,7 +144,6 @@ public class PlayerStats : MonoBehaviour
             healthBar.SetHealth(currentHealth);
             if (hitSFX)
             {
-                print("playing player hit sfx");
                 hitSFX.Play();
             }
             if (spRender)

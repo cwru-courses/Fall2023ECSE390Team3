@@ -97,7 +97,10 @@ public class PlayerAttack : MonoBehaviour
 
             if(inRangeColliderHits.Length == 0)
             {
-                swingSFX.Play();
+                if (swingSFX)
+                {
+                    swingSFX.Play();
+                }
             }
 
             foreach (RaycastHit2D hit in inRangeColliderHits)
