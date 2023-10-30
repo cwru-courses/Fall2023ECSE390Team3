@@ -8,10 +8,9 @@ public class BossController : BaseEnemy
     [Header("Attack Settings")]
     [SerializeField] private float pullAttackRadius;
     [SerializeField] private float slamAttackRadius;
-    [SerializeField] private float rageRadius; // if player stays too close too long become enraged
-    [SerializeField] private float rageDuration; // if player stays too close too long become enraged
     [SerializeField] private float minAttackCD;
     [SerializeField] private int numPhases;
+    [SerializeField] protected AudioSource takeDamageSFX;
 
 
     [Header("Spawning Settings")]
@@ -28,6 +27,7 @@ public class BossController : BaseEnemy
     [SerializeField] private int shockwaveDamage;
     [SerializeField] private float shockwaveSpeed;
     [SerializeField] private float shockwaveRange;
+    [SerializeField] private AudioSource shockwaveSFX;
 
     [Header("Pull Settings")]
     [SerializeField] private GameObject pullPrefab;
@@ -207,7 +207,7 @@ public class BossController : BaseEnemy
         {
             health = Mathf.Max(health - damage, 0);
             bossHealthbar.transform.localScale = new Vector3(healthbarInitScale * ((float)health / (float)maxHealth),1,1);
-
+            takeDamageSFX.Play();
             if (health <= 0)
             {
                 alive = false;
@@ -287,6 +287,12 @@ public class BossController : BaseEnemy
 
         //loop for number of shockwaves
         for(int i = 0; i < numWaves; i++) {
+            // play sfx
+            if (shockwaveSFX)
+            {
+                shockwaveSFX.Play();
+            }
+
             //spawn a shockwave
             GameObject shockwaveObject = Instantiate<GameObject>(shockwavePrefab);
             shockwaveObject.transform.parent = transform;

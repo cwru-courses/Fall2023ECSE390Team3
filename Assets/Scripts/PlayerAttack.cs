@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     [Min(0)]
     [SerializeField] private int projectileNum;
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private AudioSource swingSFX;
 
     //private DefaultInputAction playerInputAction;
 
@@ -85,8 +86,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Time.time - lastAttackTime > attackCD)
         {
-            weaponHolderAnim.Play();
-
+            
             RaycastHit2D[] inRangeColliderHits = Physics2D.CircleCastAll(
                 transform.position,
                 attackRadius,
@@ -94,6 +94,11 @@ public class PlayerAttack : MonoBehaviour
                 0f,
                 whatIsEnemy
             );
+
+            if(inRangeColliderHits.Length == 0)
+            {
+                swingSFX.Play();
+            }
 
             foreach (RaycastHit2D hit in inRangeColliderHits)
             {
@@ -111,9 +116,11 @@ public class PlayerAttack : MonoBehaviour
                     }
                 }
             }
+            weaponHolderAnim.Play();
             lastAttackTime = Time.time; // update last Attack time
             StartCoroutine(AttackFX()); // attack visual effects
             PlayerStats._instance.UseYarn(5);
+            
         }
     }
 

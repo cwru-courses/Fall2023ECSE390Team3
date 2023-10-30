@@ -9,6 +9,7 @@ public class TrainingBotController : BaseEnemy
     [SerializeField] protected float attackRadius;
     [SerializeField] private float attackCD;
     [SerializeField] protected float attackAnimDuration;
+    [SerializeField] protected AudioSource takeDamageSFX;
     [Header("Patrol Path Settings")]
     [SerializeField] private List<Vector3> patrolPoints;
     [SerializeField] private float patrolCD;
@@ -100,6 +101,7 @@ public class TrainingBotController : BaseEnemy
         if (alive)
         {
             health = Mathf.Max(health - damage, 0);
+            takeDamageSFX.Play();
 
             spriteRender.color = Color.Lerp(Color.white, colorOnDeath, health / (float)maxHealth);
             if (health == 0)
