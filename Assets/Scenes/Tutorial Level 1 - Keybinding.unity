@@ -435,6 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 22741167}
   - component: {fileID: 22741170}
+  - component: {fileID: 22741171}
   - component: {fileID: 22741169}
   - component: {fileID: 22741168}
   m_Layer: 5
@@ -507,19 +508,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 22741169}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 986067965}
-        m_TargetAssemblyTypeName: KeybindingMenu, Assembly-CSharp
-        m_MethodName: OnStartBinding
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &22741169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,6 +606,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22741166}
   m_CullTransparentMesh: 1
+--- !u!114 &22741171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22741166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d851ef58129ec498e1d90796cc66a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allInputs: {fileID: -944628639613478452, guid: 2f0b0a0651c86b745ada6aac78421fa9, type: 3}
+  actionRef: {fileID: 2426442671820971783, guid: 2f0b0a0651c86b745ada6aac78421fa9, type: 3}
 --- !u!1 &28783171
 GameObject:
   m_ObjectHideFlags: 0
@@ -7550,7 +7553,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 986067964}
-  - component: {fileID: 986067965}
   m_Layer: 5
   m_Name: Key Bind
   m_TagString: Untagged
@@ -7580,20 +7582,6 @@ RectTransform:
   m_AnchoredPosition: {x: 650, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &986067965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986067963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d851ef58129ec498e1d90796cc66a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashActionRfs: {fileID: 2426442671820971783, guid: 2f0b0a0651c86b745ada6aac78421fa9, type: 3}
-  dashBindBtnText: {fileID: 22741169}
 --- !u!1 &1002460775
 GameObject:
   m_ObjectHideFlags: 0
