@@ -10,6 +10,9 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private Slider musicSlider;
 
+    private void Awake(){
+        SetVolume();
+    }
     private void Start(){
         SetVolume();
     }
