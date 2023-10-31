@@ -310,6 +310,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yarnConsumptionRate: 10
   YarnPuzzleControllerObjectOne: {fileID: 0}
+  YarnPuzzleControllerObjectTwo: {fileID: 0}
+  YarnPuzzleControllerObjectThree: {fileID: 0}
+  trailCollider: {fileID: 0}
 --- !u!96 &15948762
 TrailRenderer:
   serializedVersion: 2
@@ -1650,6 +1653,7 @@ MonoBehaviour:
   lootSpawnerPrefab: {fileID: 1184221582864936209, guid: 1f9a2d309853a3c49bab19753539a772, type: 3}
   healthPotionDroprate: 4
   yarnDroprate: 3
+  audSource: {fileID: 0}
 --- !u!1 &378937359
 GameObject:
   m_ObjectHideFlags: 0
@@ -5599,7 +5603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRangeAngle: 45
   attackRadius: 3
-  attackCD: 0
+  attackCD: 0.867
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 1048576
@@ -5607,6 +5611,7 @@ MonoBehaviour:
   projectileNum: 3
   projectilePrefab: {fileID: 6656067711847261057, guid: 275b58d8c62b57b4fa4439202e8b9796, type: 3}
   swingSFX: {fileID: 393511417}
+  anim: {fileID: 1613083874}
 --- !u!114 &777061480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5623,6 +5628,7 @@ MonoBehaviour:
   dashSpeed: 20
   dashDuration: 0.25
   dashCD: 1
+  anim: {fileID: 1613083874}
 --- !u!114 &777061481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5651,6 +5657,7 @@ MonoBehaviour:
   blocking: 0
   spRender: {fileID: 1613083873}
   hitSFX: {fileID: 1549921475}
+  potionSFX: {fileID: 0}
   iFrameTime: 0
 --- !u!50 &777061482
 Rigidbody2D:
@@ -5812,7 +5819,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 777061486}
         m_TargetAssemblyTypeName: PlayerAbilities, Assembly-CSharp
-        m_MethodName: startAbility
+        m_MethodName: startBlock
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5841,7 +5848,19 @@ MonoBehaviour:
     m_ActionId: 61586cb4-26ab-49b4-8dea-d66bfa8b1de0
     m_ActionName: Player/UsePotion[/Keyboard/f]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 777061486}
+        m_TargetAssemblyTypeName: PlayerAbilities, Assembly-CSharp
+        m_MethodName: startStun
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9d4ead17-e626-4665-bb37-631049bd960e
     m_ActionName: Player/Ability2[/Keyboard/r]
   - m_PersistentCalls:
@@ -10706,6 +10725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1613083872}
   - component: {fileID: 1613083873}
+  - component: {fileID: 1613083874}
   m_Layer: 15
   m_Name: GFX
   m_TagString: Untagged
@@ -10769,7 +10789,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: e92527f6d0fe45342ab542b47346d45f, type: 3}
+  m_Sprite: {fileID: -1503642305, guid: 64d483ece4956024180fe84204355d5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10780,6 +10800,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1613083874
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613083871}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19f799aa5d725f84b837a7f3acd15cc4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1632992186
 GameObject:
   m_ObjectHideFlags: 0

@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1922749882, guid: fb5baf99bff0e8f4eab8d62d2abc9e01, type: 3}
+  m_Sprite: {fileID: -1835199219, guid: dac7c54cb8efd50499332fb6417a3ebb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 285182168965658412}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2623bba9719aa754eadf84faed897377, type: 2}
+  m_Controller: {fileID: 9100000, guid: 593f2399d1daed24797597fb7d933b5f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -237,14 +237,14 @@ MonoBehaviour:
   deathAnimLength: 0
   attackRadius: 2
   attackCD: 1
-  attackAnimDuration: 0
+  attackAnimDuration: 0.733
   takeDamageSFX: {fileID: 1794389055281746021}
   patrolPoints: []
   patrolCD: 0
   spriteRender: {fileID: 3118972083770215739}
   anim: {fileID: 914507645937525119}
   colorOnDeath: {r: 0, g: 0, b: 0, a: 0}
-  weaponPrefab: {fileID: 467909919249729066, guid: 05697af03c8a1e84488846182af3c23e, type: 3}
+  weaponPrefab: {fileID: 0}
   attackRangeAngle: 45
   attackDuration: 0.1
   attackDamage: 5
