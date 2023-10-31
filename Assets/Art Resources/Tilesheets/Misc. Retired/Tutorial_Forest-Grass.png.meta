@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -799,7 +799,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tutorial_Forest-Grass_17: -1887253090
+      Tutorial_Forest-Grass_27: -1278652459
       Tutorial_Forest-Grass_19: -866140360
       Tutorial_Forest-Grass_7: -386340841
       Tutorial_Forest-Grass_25: -1583752493
@@ -830,7 +830,7 @@ TextureImporter:
       Tutorial_Forest-Grass_12: -1234610919
       Tutorial_Forest-Grass_31: -1975605747
       Tutorial_Forest-Grass_26: -1797725451
-      Tutorial_Forest-Grass_27: -1278652459
+      Tutorial_Forest-Grass_17: -1887253090
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
