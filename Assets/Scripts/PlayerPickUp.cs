@@ -1,44 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerPickUp : MonoBehaviour
 {
- 
+
     [SerializeField] private GameObject pickedUpObject;      // made pickedUpObject a serialized field for testing
     private float pickUpRadius  = 3.0f;
     [SerializeField] private LayerMask layerMask; //layer of objects that can be picked up
+    private KeyInputPopUp iconInstance;
+    private Collider2D objInRadius;
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        //button is pressed
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (pickedUpObject == null)
-            {
-                PickUp();
+        //array of objects that are in the PickUpable layer within the pickupable radius
+        objInRadius = Physics2D.OverlapCircle(transform.position, pickUpRadius, layerMask);
+        iconInstance = GetComponent<KeyInputPopUp>();
 
-            }
-            else
-            {
-                PutDown();
-            }  
+        if (objInRadius != null && pickedUpObject == null)
+        {
+            iconInstance.EnablePickupIcon(true);
+            iconInstance.EnablePutdownIcon(false);
+        }
+        else if (pickedUpObject != null)
+        {
+            iconInstance.EnablePickupIcon(false);
+            iconInstance.EnablePutdownIcon(true);
+        }
+        else
+        {
+            iconInstance.EnablePickupIcon(false);
+            iconInstance.EnablePutdownIcon(false);
         }
     }
 
+    public void PickupInputCallback(InputAction.CallbackContext ctx)
+    {
+        if (pickedUpObject == null)
+        {
+            PickUp();
 
-    //pick up an object
-    void PickUp() {
-        //array of objects that are in the PickUpable layer within the pickupable radius
-        Collider2D objInRadius= Physics2D.OverlapCircle(transform.position, pickUpRadius, layerMask);
+        }
+        else
+        {
+            PutDown();
+        }
+    }
 
+//pick up an object
+void PickUp() {
+       
         //if the object exists
         if (objInRadius != null) {
             // Don't pick up a pressure plate
