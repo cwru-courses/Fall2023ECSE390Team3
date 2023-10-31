@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
@@ -12,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCD;
     [SerializeField] private Animator anim;
+    [SerializeField] private AudioSource audSource;
+
 
     private DefaultInputAction playerInputAction;
 
@@ -42,6 +45,10 @@ public class PlayerMovement : MonoBehaviour
         lastMovementDir = Vector2.right;
         speedMultiplier = 1f;
         movementLocked = false;
+        audSource = GetComponent<AudioSource>();
+        audSource.mute = true;
+        audSource.Play();
+        audSource.loop = true;
     }
 
     private void Update()
@@ -69,17 +76,21 @@ public class PlayerMovement : MonoBehaviour
     {
         playerInputAction.Player.Movement.Enable();
         playerInputAction.Player.Dash.Enable();
+        
     }
 
     private void OnDisable()
     {
         playerInputAction.Player.Movement.Disable();
         playerInputAction.Player.Dash.Disable();
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+        audSource.Play();
         Vector2 inputDir = playerInputAction.Player.Movement.ReadValue<Vector2>().normalized;
         inputDir.y *= verticalSpeedMultiplier;
         if (anim)
@@ -92,6 +103,17 @@ public class PlayerMovement : MonoBehaviour
         if (inputDir.magnitude != 0)
         {
             lastMovementDir = inputDir.normalized;
+            if(audSource.mute == true){
+            audSource.mute = false;
+            UnityEngine.Debug.Log("playing");
+        }
+        }
+        else
+        {
+            if(audSource.mute == false){
+            audSource.mute = true;
+            UnityEngine.Debug.Log("footsteps paused");
+            }
         }
 
         if (onDash)

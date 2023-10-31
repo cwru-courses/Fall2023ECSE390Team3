@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class BossController : BaseEnemy
@@ -46,6 +48,8 @@ public class BossController : BaseEnemy
     [SerializeField] private GameObject bossHealthbar;
     [SerializeField] private GameObject riftPrefab;
     [SerializeField] private float riftDuration;
+    [Header("Scene Load Settings")]
+    [SerializeField] private string nextScene;
 
     private float lastAttackTime;
     private int patrolTargetIndex;
@@ -197,6 +201,9 @@ public class BossController : BaseEnemy
             
             
 
+        }
+        else{
+            SceneManager.LoadSceneAsync(nextScene);
         }
 
     }

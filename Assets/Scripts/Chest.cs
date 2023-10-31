@@ -19,6 +19,7 @@ public class Chest : MonoBehaviour {
     void Wake() {
         audSource = GetComponent<AudioSource>();
         audSource.Pause();
+        audSource.mute = false;
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class Chest : MonoBehaviour {
     // Set the sprite to an open chest or a closed chest
     public void setChestOpen(bool boolean) { 
         if (boolean == true) {
-            audSource.mute = !audSource.mute;
+            
             audSource.Play();
             chest.sprite = openChest;
             
@@ -38,12 +39,14 @@ public class Chest : MonoBehaviour {
                 Instantiate(lootSpawnerPrefab, transform.position, Quaternion.identity)
                     .GetComponent<LootSpawner>().SpawnLoot(healthPotionDroprate, yarnDroprate);
                 lootDropped = true;
+                
             }
         }
         else {
             chest.sprite = closedChest;
         }
 
+        // audSource.mute = true;
     }
 
 }
