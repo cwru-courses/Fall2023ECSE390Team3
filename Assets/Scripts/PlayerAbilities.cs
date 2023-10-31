@@ -11,7 +11,6 @@ public class PlayerAbilities : MonoBehaviour
     //private PlayerStats playerStatsInstance;
     //private PlayerMovement playerMovementInstance;
 
-    public int abilityType = 0; //0: none, 1:block, 2:stun
 
     [SerializeField] GameObject blockPrefab;
     private const float blockCD = 5f;
@@ -29,7 +28,8 @@ public class PlayerAbilities : MonoBehaviour
     private List<Vector3> stunCulledPath;
     private LineRenderer pathRender;
 
-    private float lastAbilityTime;
+    private float lastStunAbilityTime;
+    private float lastBlockAbilityTime;
     private bool isBlocking;
     private GameObject blockObject;
 
@@ -54,7 +54,8 @@ public class PlayerAbilities : MonoBehaviour
         //playerInputAction.Player.Ability1.started += startAbility;
         //playerInputAction.Player.Ability2.started += startAbility2;
 
-        lastAbilityTime = -Mathf.Max(blockCD, stunCD);
+        lastStunAbilityTime = -stunCD;
+        lastBlockAbilityTime = -blockCD;
 
         stunCulledPath = new List<Vector3>(); // used for mechanics/ functionality
 
@@ -74,7 +75,7 @@ public class PlayerAbilities : MonoBehaviour
         if (stunCasting)
         {
             PlayerStats._instance.UseYarn(stunYarnPerSecond * Time.fixedDeltaTime);
-            if (Time.time - lastAbilityTime < stunMaxCastingDuration && PlayerStats._instance.currentYarnCount>0)
+            if (Time.time - lastStunAbilityTime < stunMaxCastingDuration && PlayerStats._instance.currentYarnCount>0)
             {
                 //add new point
                 Vector3 newPoint = transform.position;
@@ -141,16 +142,21 @@ public class PlayerAbilities : MonoBehaviour
     //    }
     //}
 
-    public void startAbility(InputAction.CallbackContext ctx)
+    public void startBlock(InputAction.CallbackContext ctx)
     {
         //print("ability triggered");
-        if (abilityType == 1 && Time.time - lastAbilityTime > blockCD)
+        if (Time.time - lastBlockAbilityTime > blockCD)
         { 
             block();
         }
-        else if(abilityType == 2 && (Time.time- lastAbilityTime> stunCD || stunCasting) && ctx.started)
+
+    }
+    public void startStun(InputAction.CallbackContext ctx)
+    {
+ 
+        if ( (Time.time - lastStunAbilityTime > stunCD || stunCasting) && ctx.started)
         {
-            lastAbilityTime = Time.time;
+            lastStunAbilityTime = Time.time;
             StartCoroutine(stun());
         }
     }
@@ -171,7 +177,7 @@ public class PlayerAbilities : MonoBehaviour
             Destroy(blockObject);
             PlayerMovement._instance.MultiplySpeed(1f / blockMovementSpeedMultiplier);
             PlayerStats._instance.blocking = false;
-            lastAbilityTime = Time.time;
+            lastBlockAbilityTime = Time.time;
         }
 
         
@@ -206,7 +212,7 @@ public class PlayerAbilities : MonoBehaviour
             }
             //print("stun cast started");
             stunCulledPath.Add(transform.position);
-            lastAbilityTime = Time.time;
+            lastStunAbilityTime = Time.time;
             stunCasting = true;
         }
     }
