@@ -20,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private int projectileNum;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private AudioSource swingSFX;
+    [SerializeField] private Animator anim;
 
     //private DefaultInputAction playerInputAction;
 
@@ -130,7 +131,15 @@ public class PlayerAttack : MonoBehaviour
     //temporary implementation until animations are made
     private IEnumerator AttackFX()
     {
-        yield return null;
+        if (anim) {
+            print("set attack trigger");
+            anim.SetTrigger("Attack"); 
+        }
+        yield return new WaitForSeconds(attackCD);
+        if (anim) {
+            print("attack trigger reset");
+            anim.ResetTrigger("Attack"); 
+        }
     }
 
     public void LaunchProjectile(InputAction.CallbackContext ctx)

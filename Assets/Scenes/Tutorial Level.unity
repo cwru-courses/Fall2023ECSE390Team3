@@ -3377,7 +3377,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 520802788}
 --- !u!114 &777061486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4619,8 +4619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 778277135}
   lines:
-  - I haven't seen the menders anywhere... maybe we should look around and see what's
-    wrong.
+  - Hello, welcome to the tutorial. Press space to continue.
   - Use WASD to move around and SHIFT to dash.
   - There appears to be a rift in the center of the room.
   - Press 'Q' to open your own rift and stich to the otherside.
@@ -5607,53 +5606,21 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 107048328907806297, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 107048328907806297, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 107048328907806297, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -229
-      objectReference: {fileID: 0}
-    - target: {fileID: 107048328993574306, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 107048328993574307, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 420
-      objectReference: {fileID: 0}
-    - target: {fileID: 107048328993574307, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 87
-      objectReference: {fileID: 0}
-    - target: {fileID: 107048328993574307, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 217
-      objectReference: {fileID: 0}
-    - target: {fileID: 107048328993574307, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 107048329343735707, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1035993764826903854, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 1528108597620635783, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.9811321
       objectReference: {fileID: 0}
-    - target: {fileID: 7307838665756968716, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -198.21777
+    - target: {fileID: 1528108597620635783, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.81466365
       objectReference: {fileID: 0}
-    - target: {fileID: 7307838665756968716, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 14.217651
+    - target: {fileID: 1528108597620635783, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.47668213
       objectReference: {fileID: 0}
     - target: {fileID: 7321150160258972151, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5663,9 +5630,25 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7321150160340184319, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321150160340184319, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7321150160376091179, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321150160490956579, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321150160545674251, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 7321150161408309531, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchorMax.x

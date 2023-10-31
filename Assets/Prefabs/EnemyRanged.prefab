@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1922749882, guid: fb5baf99bff0e8f4eab8d62d2abc9e01, type: 3}
+  m_Sprite: {fileID: 467376714, guid: 16d31daa75c86fb4d8100e0e4a6c8d13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 285182168965658412}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2623bba9719aa754eadf84faed897377, type: 2}
+  m_Controller: {fileID: 9100000, guid: dbce330f7f6a34345b5a47b0e4a3db46, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -289,7 +289,7 @@ MonoBehaviour:
   deathAnimLength: 0
   attackRadius: 5
   attackCD: 2
-  attackAnimDuration: 0
+  attackAnimDuration: 0.733
   takeDamageSFX: {fileID: 4007340610022325068}
   patrolPoints: []
   patrolCD: 0

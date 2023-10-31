@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCD;
+    [SerializeField] private Animator anim;
 
     private DefaultInputAction playerInputAction;
 
@@ -81,7 +82,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 inputDir = playerInputAction.Player.Movement.ReadValue<Vector2>().normalized;
         inputDir.y *= verticalSpeedMultiplier;
-
+        if (anim)
+        {
+            anim.SetFloat("xVel", inputDir[0]);
+            anim.SetFloat("yVel", inputDir[1]);
+        }
+        
         //update lastMovementDir only if moving
         if (inputDir.magnitude != 0)
         {
