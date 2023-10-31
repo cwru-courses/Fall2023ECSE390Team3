@@ -19,6 +19,7 @@ public class PlayerAbilities : MonoBehaviour
 
     [SerializeField] GameObject stunMeshPrefab;
     [SerializeField] AudioSource stitchingSFX;
+    [SerializeField] Material lineMaterial;
     private const float stunCD = 5f;
     private const float stunDuration = 3f;
     private const float stunMaxCastingDuration = 20f;
@@ -46,7 +47,15 @@ public class PlayerAbilities : MonoBehaviour
         pathRender = pathRenderObj.GetComponent<LineRenderer>();
         pathRender.startWidth = 0.1f;
         pathRender.endWidth = 0.1f;
-        pathRender.material = new Material(Shader.Find("Sprites/Default"));
+        if (lineMaterial)
+        {
+            pathRender.material = lineMaterial;
+        }
+        else
+        {
+            pathRender.material = new Material(Shader.Find("Sprites/Default"));
+        }
+        
         pathRender.startColor = Color.magenta;
         pathRender.endColor = Color.magenta;
         
@@ -144,7 +153,8 @@ public class PlayerAbilities : MonoBehaviour
 
     public void startBlock(InputAction.CallbackContext ctx)
     {
-        //print("ability triggered");
+        print("block ability triggered");
+        print(ctx.phase);
         if (Time.time - lastBlockAbilityTime > blockCD)
         { 
             block();
