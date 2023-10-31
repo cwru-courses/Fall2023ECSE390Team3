@@ -2945,7 +2945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217090995385140531, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8217090995385140531, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4868,7 +4868,7 @@ AudioSource:
   m_GameObject: {fileID: 1549921473}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 45515d69300f041f1b9121334ddbcba7, type: 2}
   m_audioClip: {fileID: 8300000, guid: d2179af5042593445bbde8c5d60c3ca2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5722,6 +5722,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107048329343735707, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107048329362033345, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1528108597620635783, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
