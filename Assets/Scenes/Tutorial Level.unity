@@ -5648,6 +5648,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 107048329362033345, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1528108597620635783, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.9811321
