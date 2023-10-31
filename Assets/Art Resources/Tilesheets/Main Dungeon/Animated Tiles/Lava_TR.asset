@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: Lava_TR
   m_EditorClassIdentifier: 
-  m_AnimatedSprites: []
+  m_AnimatedSprites:
+  - {fileID: -1755050378, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: 419459159, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: 36491772, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: -1818596720, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: -630957658, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: -1282119396, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: -2098372684, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0

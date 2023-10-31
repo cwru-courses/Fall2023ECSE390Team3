@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: Lava_Left
   m_EditorClassIdentifier: 
-  m_AnimatedSprites: []
+  m_AnimatedSprites:
+  - {fileID: 314177403, guid: ef44722e954da294fb3c06fc9d0cfd21, type: 3}
+  - {fileID: -500193166, guid: ef44722e954da294fb3c06fc9d0cfd21, type: 3}
+  - {fileID: -900128933, guid: ef44722e954da294fb3c06fc9d0cfd21, type: 3}
+  - {fileID: 413697993, guid: ef44722e954da294fb3c06fc9d0cfd21, type: 3}
+  - {fileID: 1810414811, guid: ef44722e954da294fb3c06fc9d0cfd21, type: 3}
+  - {fileID: -1561955263, guid: ef44722e954da294fb3c06fc9d0cfd21, type: 3}
+  - {fileID: 244606877, guid: ef44722e954da294fb3c06fc9d0cfd21, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
