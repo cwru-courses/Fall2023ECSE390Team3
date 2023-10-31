@@ -193,7 +193,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""8e7c83b6-5c12-438c-86d7-2050ac12c846"",
                     ""path"": ""<Keyboard>/e"",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Ability1"",
@@ -225,7 +225,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d6fee794-57fe-4800-a307-ef86540dbcd6"",
-                    ""path"": ""<Keyboard>/#(R)"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",

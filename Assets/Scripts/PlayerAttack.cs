@@ -120,7 +120,7 @@ public class PlayerAttack : MonoBehaviour
                     }
                 }
             }
-            weaponHolderAnim.Play();
+            //weaponHolderAnim.Play();
             lastAttackTime = Time.time; // update last Attack time
             StartCoroutine(AttackFX()); // attack visual effects
             PlayerStats._instance.UseYarn(5);
@@ -133,12 +133,12 @@ public class PlayerAttack : MonoBehaviour
     {
         if (anim) {
             print("set attack trigger");
-            anim.SetTrigger("Attack"); 
+            anim.SetBool("isAttacking",true); 
         }
         yield return new WaitForSeconds(attackCD);
         if (anim) {
             print("attack trigger reset");
-            anim.ResetTrigger("Attack"); 
+            anim.SetBool("isAttacking",false); 
         }
     }
 
