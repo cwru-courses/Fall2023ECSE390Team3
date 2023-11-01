@@ -213,7 +213,7 @@ public class BossController : BaseEnemy
         if (alive)
         {
             health = Mathf.Max(health - damage, 0);
-            bossHealthbar.transform.localScale = new Vector3(healthbarInitScale * ((float)health / (float)maxHealth),1,1);
+            bossHealthbar.transform.localScale = new Vector3(healthbarInitScale * ((float)health / (float)maxHealth), (float)8.15,1);
             takeDamageSFX.Play();
             if (health <= 0)
             {
