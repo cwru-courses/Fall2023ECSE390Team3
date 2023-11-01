@@ -10,6 +10,9 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
     [SerializeField] private GameObject nextPoint;
     [SerializeField] private GameObject puzzleControllerObject;
     [SerializeField] private GameObject lineControllerObject;
+
+    [SerializeField] private GameObject dialogueCollider; //for enabling the collider on the other side
+    public bool isFirstPoint;
     private SpriteRenderer spriteRenderer;
     private Animator childAnimator;
     /*
@@ -55,6 +58,10 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
 
     private void RevealNextPoint()
     {
+        if(isFirstPoint){
+            dialogueCollider.SetActive(true);
+            isFirstPoint = false;
+        }
         nextPoint.SetActive(true);
         Debug.Log("Set active");
     }

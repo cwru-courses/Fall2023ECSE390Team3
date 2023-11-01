@@ -12,6 +12,7 @@ public class YarnPuzzlePointNormal : MonoBehaviour
     [SerializeField] GameObject dialogueBox;
     private SpriteRenderer spriteRenderer;
     private Animator childAnimator;
+    public bool isFirstPoint;
     /*
      * stage = 0: this point untriggered
      * stage = 1: this point triggered. 
@@ -72,9 +73,12 @@ public class YarnPuzzlePointNormal : MonoBehaviour
             RevealNextPoint();
             // increase stage of last point in flipped world from stage 1 to 2
             IncreaseStageOfLastPoint();
-            dialogueBox.SetActive(true);
-            collisionDialogue.StartRunning(dialogueBox);
-            stage++;
+            if(isFirstPoint){
+                dialogueBox.SetActive(true);
+                collisionDialogue.StartRunning(dialogueBox);
+                stage++;
+                isFirstPoint = false;
+            }
         }
     }
 
