@@ -33,15 +33,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Launch Projectile",
-                    "type": "Button",
-                    "id": "e21d4237-bb8f-4da8-94c9-eae29e4959da",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Phase Shift",
                     "type": "Button",
                     "id": "c82b92be-c27d-4ade-8895-421a549c7b8a",
@@ -72,6 +63,15 @@
                     "name": "UsePotion",
                     "type": "Button",
                     "id": "61586cb4-26ab-49b4-8dea-d66bfa8b1de0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pickup",
+                    "type": "Button",
+                    "id": "ebb0b587-ecb8-4819-a1e5-e84301d22419",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -180,17 +180,6 @@
                 },
                 {
                     "name": "",
-                    "id": "130dbcaf-7cda-4b5b-bb36-2d4086b6b808",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Launch Projectile",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "26ab7596-2ee5-4cfb-b320-13a7dfe7d0e0",
                     "path": "<Keyboard>/f",
                     "interactions": "Press",
@@ -208,6 +197,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Ability2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b4ed4bf3-9511-4fd1-b94f-74e1ec024a4b",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

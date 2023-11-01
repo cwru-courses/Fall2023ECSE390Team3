@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerPickUp : MonoBehaviour
 {
@@ -9,30 +10,18 @@ public class PlayerPickUp : MonoBehaviour
     private float pickUpRadius  = 3.0f;
     [SerializeField] private LayerMask layerMask; //layer of objects that can be picked up
 
-    // Start is called before the first frame update
-    void Start()
+    private void PickupInputCallback(InputAction.CallbackContext ctx)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //button is pressed
-        if (Input.GetKeyDown(KeyCode.P))
+        if (pickedUpObject == null)
         {
-            if (pickedUpObject == null)
-            {
-                PickUp();
+            PickUp();
 
-            }
-            else
-            {
-                PutDown();
-            }  
+        }
+        else
+        {
+            PutDown();
         }
     }
-
 
     //pick up an object
     void PickUp() {
