@@ -3669,6 +3669,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 42f747d1-7664-41c0-8e86-09e9a58aa16c
     m_ActionName: UI/Dialogue[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 777061487}
+        m_TargetAssemblyTypeName: PlayerPickUp, Assembly-CSharp
+        m_MethodName: PickupInputCallback
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ebb0b587-ecb8-4819-a1e5-e84301d22419
+    m_ActionName: Player/Pickup[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -3715,9 +3731,9 @@ AudioSource:
   m_GameObject: {fileID: 777061477}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 45515d69300f041f1b9121334ddbcba7, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c29a0a8feb3787843a5fb5001b6587c5, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -6325,7 +6341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107048329362033345, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1528108597620635783, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_Colors.m_PressedColor.b

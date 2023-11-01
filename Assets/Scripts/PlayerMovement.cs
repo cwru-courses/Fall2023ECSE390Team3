@@ -47,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
         movementLocked = false;
         audSource = GetComponent<AudioSource>();
         audSource.mute = true;
-        audSource.Play();
         audSource.loop = true;
     }
 
@@ -76,21 +75,19 @@ public class PlayerMovement : MonoBehaviour
     {
         playerInputAction.Player.Movement.Enable();
         playerInputAction.Player.Dash.Enable();
-        
+
     }
 
     private void OnDisable()
     {
         playerInputAction.Player.Movement.Disable();
         playerInputAction.Player.Dash.Disable();
-        
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        audSource.Play();
         Vector2 inputDir = playerInputAction.Player.Movement.ReadValue<Vector2>().normalized;
         inputDir.y *= verticalSpeedMultiplier;
         if (anim)
@@ -98,22 +95,21 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("xVel", inputDir[0]);
             anim.SetFloat("yVel", inputDir[1]);
         }
-        
+
         //update lastMovementDir only if moving
         if (inputDir.magnitude != 0)
         {
             lastMovementDir = inputDir.normalized;
-            if(audSource.mute == true){
-            audSource.mute = false;
-            UnityEngine.Debug.Log("playing");
-        }
+            if (audSource.mute == true)
+            {
+                audSource.mute = false;
+                audSource.Play();
+            }
         }
         else
         {
-            if(audSource.mute == false){
-            audSource.mute = true;
-            UnityEngine.Debug.Log("footsteps paused");
-            }
+            if (audSource.mute == false)
+                audSource.mute = true;
         }
 
         if (onDash)
@@ -121,7 +117,8 @@ public class PlayerMovement : MonoBehaviour
             rb2d.velocity = inputDir * dashSpeed * speedMultiplier;
             dashTimer += Time.fixedDeltaTime;
 
-            if (dashTimer > dashDuration) { 
+            if (dashTimer > dashDuration)
+            {
                 onDash = false;
                 PlayerStats._instance.blocking = false; ;
             }
