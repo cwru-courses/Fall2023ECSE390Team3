@@ -8993,6 +8993,30 @@ PrefabInstance:
       propertyPath: minAttackCD
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: patrolPoints.Array.data[0].x
+      value: -40.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: patrolPoints.Array.data[0].y
+      value: 54.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: patrolPoints.Array.data[1].x
+      value: -25.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: patrolPoints.Array.data[1].y
+      value: 54.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: patrolPoints.Array.data[2].x
+      value: -25.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: patrolPoints.Array.data[2].y
+      value: 43.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2460894157062390123, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: m_Name
       value: BossCat Variant
@@ -9003,11 +9027,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2460894157062390127, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2460894157062390127, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 49.3
+      value: 44.68
       objectReference: {fileID: 0}
     - target: {fileID: 2460894157062390127, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: m_LocalPosition.z
