@@ -8,6 +8,8 @@ public class YarnPuzzlePointNormal : MonoBehaviour
     [SerializeField] private Color colorWhenFixed = Color.red;
     [SerializeField] private GameObject lastPoint;
     [SerializeField] private GameObject nextPoint;
+    public CollisionDialogue collisionDialogue;
+    [SerializeField] GameObject dialogueBox;
     private SpriteRenderer spriteRenderer;
     private Animator childAnimator;
     /*
@@ -70,6 +72,8 @@ public class YarnPuzzlePointNormal : MonoBehaviour
             RevealNextPoint();
             // increase stage of last point in flipped world from stage 1 to 2
             IncreaseStageOfLastPoint();
+            dialogueBox.SetActive(true);
+            collisionDialogue.StartRunning(dialogueBox);
             stage++;
         }
     }

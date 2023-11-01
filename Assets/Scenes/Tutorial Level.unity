@@ -4903,6 +4903,8 @@ MonoBehaviour:
   lines:
   - Careful! Enemies wander the next room. Use your mouse's left click to attack.
   - When you attack, you are also using up yarn, so keep track of how much you spend.
+  - Be careful, enemies can slice through your yarn trail and send you to the other
+    reality.
   - Once defeated, enemies will drop skeins and potions which increase yarn and health.
   - If you're running low on health, press 'F' to drink a potion and recover.
   isRunning: 0
