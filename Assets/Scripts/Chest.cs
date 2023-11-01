@@ -14,12 +14,15 @@ public class Chest : MonoBehaviour {
     [SerializeField] private AudioSource audSource;
     protected bool lootDropped = false;
 
+    // [SerializeField] private Animation anim;
 
     // Start is called before the first frame update
     void Wake() {
         audSource = GetComponent<AudioSource>();
         audSource.Pause();
         audSource.mute = false;
+
+        // anim = gameObject.GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -32,7 +35,9 @@ public class Chest : MonoBehaviour {
         if (boolean == true) {
             
             audSource.Play();
+
             chest.sprite = openChest;
+            // anim.Play("Chest_open");
             
             if (lootDropped == false)
             {
