@@ -1360,7 +1360,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1864705273}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &674748311
 AudioSource:
@@ -3340,7 +3340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chestToUnlock: {fileID: 378182225}
-  tilemapToDisable: {fileID: 0}
+  tilemapToDisable: {fileID: 849762100}
 --- !u!50 &771034840
 Rigidbody2D:
   serializedVersion: 4
@@ -4183,6 +4183,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &849762100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2967437261836826706, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
+  m_PrefabInstance: {fileID: 769719593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &923203798
 GameObject:
   m_ObjectHideFlags: 0
@@ -5822,6 +5827,7 @@ Transform:
   - {fileID: 1549921474}
   - {fileID: 2079714028}
   - {fileID: 1236384633}
+  - {fileID: 674748310}
   m_Father: {fileID: 777061484}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
