@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 32360038}
   - component: {fileID: 32360040}
   - component: {fileID: 32360039}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 47685728}
   - component: {fileID: 47685730}
   - component: {fileID: 47685729}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,6 +653,10 @@ PrefabInstance:
       value: point3F
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -725,7 +729,7 @@ GameObject:
   - component: {fileID: 102605828}
   - component: {fileID: 102605830}
   - component: {fileID: 102605829}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +834,7 @@ GameObject:
   - component: {fileID: 103568989}
   - component: {fileID: 103568991}
   - component: {fileID: 103568990}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -933,7 +937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 140140726}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Puzzle 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,7 +973,7 @@ GameObject:
   - component: {fileID: 143931675}
   - component: {fileID: 143931677}
   - component: {fileID: 143931676}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1074,7 +1078,7 @@ GameObject:
   - component: {fileID: 163344577}
   - component: {fileID: 163344579}
   - component: {fileID: 163344578}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,6 +1257,10 @@ PrefabInstance:
       value: point2N
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1325,7 +1333,7 @@ GameObject:
   - component: {fileID: 191281077}
   - component: {fileID: 191281079}
   - component: {fileID: 191281078}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1429,6 +1437,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point3F
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -1708,7 +1720,7 @@ GameObject:
   - component: {fileID: 215603265}
   - component: {fileID: 215603267}
   - component: {fileID: 215603266}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1885,7 +1897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 228035191}
   - component: {fileID: 228035192}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Puzzle 3 - Flipped World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1950,13 +1962,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 804985736}
     m_Modifications:
+    - target: {fileID: 417755877825595618, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004245389865302227, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2820364097275190537, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2820364097275190537, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2845647834199746694, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937197325876745655, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213063281306678404, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471116780666944393, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475223131196832198, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247390559373346837, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5963018976183513325, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_Name
       value: Main Dungeon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963018976183513325, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5963018976183513325, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_TagString
@@ -2006,9 +2058,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6466604508797290648, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485698866344440674, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983562074605640804, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186488329162070187, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186488329162070187, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383010088575490683, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7383010088575490683, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956964477527139055, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077747097924585796, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9176033104591948841, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
@@ -3893,7 +3977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305552243}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Puzzle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3928,6 +4012,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point2F
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -4001,6 +4089,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point4N
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -4155,6 +4247,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point4F
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -4584,7 +4680,7 @@ GameObject:
   - component: {fileID: 501322257}
   - component: {fileID: 501322259}
   - component: {fileID: 501322258}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Line Renderer 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5055,7 +5151,7 @@ GameObject:
   - component: {fileID: 592932106}
   - component: {fileID: 592932108}
   - component: {fileID: 592932107}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5187,7 +5283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 597979102}
   - component: {fileID: 597979103}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Puzzle 2 - Flipped World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5395,6 +5491,10 @@ PrefabInstance:
       value: point3N
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -5467,7 +5567,7 @@ GameObject:
   - component: {fileID: 632060167}
   - component: {fileID: 632060169}
   - component: {fileID: 632060168}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5729,6 +5829,10 @@ PrefabInstance:
       value: point2N
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -5904,7 +6008,7 @@ GameObject:
   - component: {fileID: 690554685}
   - component: {fileID: 690554687}
   - component: {fileID: 690554686}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6187,7 +6291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 723993861}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Puzzle 1 - Normal World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6955,7 +7059,7 @@ GameObject:
   - component: {fileID: 811724053}
   - component: {fileID: 811724052}
   - component: {fileID: 811724051}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7234,6 +7338,10 @@ PrefabInstance:
       value: point1F
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7306,7 +7414,7 @@ GameObject:
   - component: {fileID: 879714587}
   - component: {fileID: 879714589}
   - component: {fileID: 879714588}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7624,6 +7732,10 @@ PrefabInstance:
       value: point2N
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -7696,7 +7808,7 @@ GameObject:
   - component: {fileID: 973977658}
   - component: {fileID: 973977660}
   - component: {fileID: 973977659}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7801,7 +7913,7 @@ GameObject:
   - component: {fileID: 975569459}
   - component: {fileID: 975569461}
   - component: {fileID: 975569460}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7905,6 +8017,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point2F
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -8046,7 +8162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1007743735}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Puzzle 3 - Normal World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8082,6 +8198,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point4N
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -8224,6 +8344,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point1F
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -8404,7 +8528,7 @@ GameObject:
   - component: {fileID: 1083079639}
   - component: {fileID: 1083079641}
   - component: {fileID: 1083079640}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8508,6 +8632,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point1F
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -8835,7 +8963,7 @@ GameObject:
   - component: {fileID: 1140253963}
   - component: {fileID: 1140253965}
   - component: {fileID: 1140253964}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8976,6 +9104,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point3F
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -9397,7 +9529,7 @@ GameObject:
   - component: {fileID: 1175986835}
   - component: {fileID: 1175986837}
   - component: {fileID: 1175986836}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9506,6 +9638,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point3N
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -9659,7 +9795,7 @@ MonoBehaviour:
   theAS: {fileID: 1580157305}
   boss: 1
   cam: {fileID: 520802791}
-  roomCenterPosition: {x: 21, y: 66, z: 0}
+  roomCenterPosition: {x: 0, y: 100, z: 0}
 --- !u!61 &1223262372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9723,7 +9859,7 @@ GameObject:
   - component: {fileID: 1226161262}
   - component: {fileID: 1226161264}
   - component: {fileID: 1226161263}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Line Renderer 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9941,7 +10077,7 @@ GameObject:
   - component: {fileID: 1234649047}
   - component: {fileID: 1234649046}
   - component: {fileID: 1234649045}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Line Renderer 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10411,7 +10547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1331108792}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Puzzle 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10739,6 +10875,10 @@ PrefabInstance:
       value: point4N
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -10811,7 +10951,7 @@ GameObject:
   - component: {fileID: 1367742602}
   - component: {fileID: 1367742604}
   - component: {fileID: 1367742603}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10916,7 +11056,7 @@ GameObject:
   - component: {fileID: 1377121504}
   - component: {fileID: 1377121506}
   - component: {fileID: 1377121505}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11024,7 +11164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1414519054}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Puzzle 2 - Normal World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11066,7 +11206,7 @@ GameObject:
   - component: {fileID: 1436454989}
   - component: {fileID: 1436454991}
   - component: {fileID: 1436454990}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11180,6 +11320,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point1N
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -11698,6 +11842,10 @@ PrefabInstance:
       value: point4F
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -11945,7 +12093,7 @@ GameObject:
   - component: {fileID: 1589588094}
   - component: {fileID: 1589588096}
   - component: {fileID: 1589588095}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12235,6 +12383,10 @@ PrefabInstance:
       value: point1N
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -12343,7 +12495,7 @@ GameObject:
   - component: {fileID: 1729054821}
   - component: {fileID: 1729054823}
   - component: {fileID: 1729054822}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Blue Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12447,6 +12599,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point2F
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -12574,6 +12730,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point3N
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -12761,6 +12921,10 @@ PrefabInstance:
       value: point1N
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -12940,7 +13104,7 @@ GameObject:
   - component: {fileID: 1963907641}
   - component: {fileID: 1963907643}
   - component: {fileID: 1963907642}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Red Beacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13205,6 +13369,10 @@ PrefabInstance:
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_Name
       value: point4F
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
@@ -13621,7 +13789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2127777181}
   - component: {fileID: 2127777182}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Yarn Puzzle 1 - Flipped World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
