@@ -9,6 +9,7 @@ public class YarnPuzzlePointNormal : MonoBehaviour
     [SerializeField] private GameObject lastPoint;
     [SerializeField] private GameObject nextPoint;
     private SpriteRenderer spriteRenderer;
+    private Animator childAnimator;
     /*
      * stage = 0: this point untriggered
      * stage = 1: this point triggered. 
@@ -23,11 +24,20 @@ public class YarnPuzzlePointNormal : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = colorWhenUntrigged;
 
+        // Get Animator of child object
+        childAnimator = GetComponentInChildren<Animator>();
+
+        if (childAnimator == null)
+        {
+            Debug.LogError("Child Animator not found.");
+        }
+
         // if there is no next point, then it's the last point of the puzzle
         if (nextPoint == null)
         {
             stage = 1;
             spriteRenderer.color = colorWhenFixed;
+            childAnimator.SetBool("Shining", false);
         }
     }
 
@@ -54,6 +64,8 @@ public class YarnPuzzlePointNormal : MonoBehaviour
         {
             // change color of the circle
             spriteRenderer.color = colorWhenFixed;
+            // disable shinning on the child object animator
+            childAnimator.SetBool("Shining", false);
             // reveal next point in flipped world
             RevealNextPoint();
             // increase stage of last point in flipped world from stage 1 to 2
@@ -68,6 +80,8 @@ public class YarnPuzzlePointNormal : MonoBehaviour
         {
             // change color of the circle
             spriteRenderer.color = colorWhenUntrigged;
+            // disable shinning on the child object animator
+            childAnimator.SetBool("Shining", true);
             // hide next point in flipped world
             HideNextPoint();
             stage--;

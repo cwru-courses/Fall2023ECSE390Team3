@@ -11,6 +11,7 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
     [SerializeField] private GameObject puzzleControllerObject;
     [SerializeField] private GameObject lineControllerObject;
     private SpriteRenderer spriteRenderer;
+    private Animator childAnimator;
     /*
      * stage = 0: this point untriggered
      * stage = 1: this point triggered, but next point(normal) is untriggered
@@ -29,6 +30,14 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
         spriteRenderer.color = colorWhenUntrigged;
         puzzleController = puzzleControllerObject.GetComponent<YarnPuzzleController>();
         lineController = lineControllerObject.GetComponent<YarnLineController>();
+
+        // Get Animator of child object
+        childAnimator = GetComponentInChildren<Animator>();
+
+        if (childAnimator == null)
+        {
+            Debug.LogError("Child Animator not found.");
+        }
     }
 
     // Update is called once per frame
@@ -61,6 +70,8 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
         {
             // change color of the circle
             spriteRenderer.color = colorWhenTrigged;
+            // disable shinning on the child object animator
+            childAnimator.SetBool("Shining", false);
             // update the onPoint attribute in YarnPuzzleController
             puzzleController.IncreaseOnPoint();
             // if there is a last point, connect to it
