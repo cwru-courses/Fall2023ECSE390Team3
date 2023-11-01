@@ -97,14 +97,6 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
         {
             stage++;
         }
-        else if (stage == 2)
-        {
-            stage++;
-        }
-        else if (stage == 3)
-        {
-            // do nothing
-        }
     }
 
     public GameObject GetNextPoint()

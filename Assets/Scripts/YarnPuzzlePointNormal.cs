@@ -73,10 +73,10 @@ public class YarnPuzzlePointNormal : MonoBehaviour
             RevealNextPoint();
             // increase stage of last point in flipped world from stage 1 to 2
             IncreaseStageOfLastPoint();
-            if(isFirstPoint){
+            stage++;
+            if (isFirstPoint){
                 dialogueBox.SetActive(true);
                 collisionDialogue.StartRunning(dialogueBox);
-                stage++;
                 isFirstPoint = false;
             }
         }
