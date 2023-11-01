@@ -9085,7 +9085,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864705272}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &1894192477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 107048328993574306, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
