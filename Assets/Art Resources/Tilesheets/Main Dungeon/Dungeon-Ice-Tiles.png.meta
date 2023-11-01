@@ -1,0 +1,380 @@
+fileFormatVersion: 2
+guid: 453d0f33d89210b4a9048c946d39d7d9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dungeon-Ice-Tiles_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89fc21d218c678b4394ec2364aaf74b6
+      internalID: 981426650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-Tiles_53
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4881bccda051974c951c720612754d2
+      internalID: 499963173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-Tiles_59
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2b71aa9cdaecf408039fce1ed08769
+      internalID: -1774380452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-Tiles_60
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb8f8c37f4a5b74fb2f8f971fed487f
+      internalID: 1841188862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-Tiles_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a533e6eeb9c859944bc7ee42ee73a726
+      internalID: 378486819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-Tiles_67
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 263c793b6f1f9bc4f96c11d70837074c
+      internalID: -1620998105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-Tiles_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab814df76dc7e774a8229bc000c26c28
+      internalID: 552641606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-Tiles_69
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f5d33d97a2b71498a8d0f7d714b9eb
+      internalID: 1686817360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Dungeon-Ice-Tiles_4: 1805029753
+      Dungeon-Ice-Tiles_32: 1228541638
+      Dungeon-Ice-Tiles_61: -1461983539
+      Dungeon-Ice-Tiles_76: -773834809
+      Dungeon-Ice-Tiles_58: 1156231376
+      Dungeon-Ice-Tiles_74: -1567334362
+      Dungeon-Ice-Tiles_8: 404559911
+      Dungeon-Ice-Tiles_39: 1425607066
+      Dungeon-Ice-Tiles_12: 436720586
+      Dungeon-Ice-Tiles_31: 848290779
+      Dungeon-Ice-Tiles_14: -1287370601
+      Dungeon-Ice-Tiles_46: -1837808332
+      Dungeon-Ice-Tiles_13: 1900175181
+      Dungeon-Ice-Tiles_50: 1339345500
+      Dungeon-Ice-Tiles_70: -777073044
+      Dungeon-Ice-Tiles_53: 499963173
+      Dungeon-Ice-Tiles_23: 1049518644
+      Dungeon-Ice-Tiles_27: 474719892
+      Dungeon-Ice-Tiles_18: 2014396647
+      Dungeon-Ice-Tiles_10: -879143719
+      Dungeon-Ice-Tiles_19: 1491402727
+      Dungeon-Ice-Tiles_57: 566006313
+      Dungeon-Ice-Tiles_21: -1520203131
+      Dungeon-Ice-Tiles_24: -2105884892
+      Dungeon-Ice-Tiles_26: 21014656
+      Dungeon-Ice-Tiles_75: 858447009
+      Dungeon-Ice-Tiles_56: -146089909
+      Dungeon-Ice-Tiles_41: -932555628
+      Dungeon-Ice-Tiles_15: -374871762
+      Dungeon-Ice-Tiles_69: 1686817360
+      Dungeon-Ice-Tiles_37: -471664418
+      Dungeon-Ice-Tiles_6: 219482494
+      Dungeon-Ice-Tiles_66: 378486819
+      Dungeon-Ice-Tiles_22: -399291773
+      Dungeon-Ice-Tiles_60: 1841188862
+      Dungeon-Ice-Tiles_48: -829713318
+      Dungeon-Ice-Tiles_51: 193669163
+      Dungeon-Ice-Tiles_28: 1986265008
+      Dungeon-Ice-Tiles_64: -1128512347
+      Dungeon-Ice-Tiles_73: 1153997709
+      Dungeon-Ice-Tiles_2: -691007127
+      Dungeon-Ice-Tiles_9: 1167429657
+      Dungeon-Ice-Tiles_29: 1984121585
+      Dungeon-Ice-Tiles_33: -1949822986
+      Dungeon-Ice-Tiles_11: -1539051173
+      Dungeon-Ice-Tiles_52: 981426650
+      Dungeon-Ice-Tiles_47: -678463444
+      Dungeon-Ice-Tiles_65: -2102492658
+      Dungeon-Ice-Tiles_42: -1391556423
+      Dungeon-Ice-Tiles_5: -141737696
+      Dungeon-Ice-Tiles_7: 384153358
+      Dungeon-Ice-Tiles_45: 1562615878
+      Dungeon-Ice-Tiles_59: -1774380452
+      Dungeon-Ice-Tiles_54: -1082382033
+      Dungeon-Ice-Tiles_72: 2063707701
+      Dungeon-Ice-Tiles_1: -5643788
+      Dungeon-Ice-Tiles_25: -1197102911
+      Dungeon-Ice-Tiles_71: 2098894884
+      Dungeon-Ice-Tiles_55: 689766653
+      Dungeon-Ice-Tiles_68: 552641606
+      Dungeon-Ice-Tiles_0: -1027038032
+      Dungeon-Ice-Tiles_43: 85552544
+      Dungeon-Ice-Tiles_35: 2080410282
+      Dungeon-Ice-Tiles_38: 660977850
+      Dungeon-Ice-Tiles_62: 207594097
+      Dungeon-Ice-Tiles_40: 766755757
+      Dungeon-Ice-Tiles_49: -1444602830
+      Dungeon-Ice-Tiles_63: -761741362
+      Dungeon-Ice-Tiles_16: 362590460
+      Dungeon-Ice-Tiles_30: -1865486185
+      Dungeon-Ice-Tiles_34: 133845542
+      Dungeon-Ice-Tiles_17: 691608519
+      Dungeon-Ice-Tiles_3: -785031845
+      Dungeon-Ice-Tiles_36: -1468335013
+      Dungeon-Ice-Tiles_67: -1620998105
+      Dungeon-Ice-Tiles_20: -497115105
+      Dungeon-Ice-Tiles_44: 1705447327
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

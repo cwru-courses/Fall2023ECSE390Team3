@@ -136,11 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.93
+      value: -20.56
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
       propertyPath: m_LocalPosition.z
@@ -199,6 +199,10 @@ PrefabInstance:
       value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750450, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d3bcff6e6196e044e99407089ab013d2, type: 3}
+    - target: {fileID: 7947911505737750450, guid: 139b2d65b3145ad45bc13b6d111199de, type: 3}
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
@@ -239,8 +243,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.35}
-  m_Size: {x: 0.8, y: 0.65}
+  m_Offset: {x: 0, y: -0.05}
+  m_Size: {x: 1, y: 0.8}
   m_Direction: 1
 --- !u!50 &2848643
 Rigidbody2D:
@@ -683,6 +687,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2055102311959635368, guid: 99597c7b4aa47494fb2b6061505735da, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1377645671, guid: 3652e8ccc016e6841aebb96521cbe1a5, type: 3}
     - target: {fileID: 2055102311959635369, guid: 99597c7b4aa47494fb2b6061505735da, type: 3}
       propertyPath: m_Name
       value: Chest
@@ -788,8 +796,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chest: {fileID: 378182226}
-  openChest: {fileID: 21300040, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
-  closedChest: {fileID: 21300000, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+  openChest: {fileID: -1599957475, guid: 3652e8ccc016e6841aebb96521cbe1a5, type: 3}
+  closedChest: {fileID: -1377645671, guid: 3652e8ccc016e6841aebb96521cbe1a5, type: 3}
   lootSpawnerPrefab: {fileID: 1184221582864936209, guid: 1f9a2d309853a3c49bab19753539a772, type: 3}
   healthPotionDroprate: 4
   yarnDroprate: 3
@@ -803,7 +811,7 @@ AudioSource:
   m_GameObject: {fileID: 378182225}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 45515d69300f041f1b9121334ddbcba7, type: 2}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6cb3970060177ff49830894eb2a33db3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1150,6 +1158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -1371,7 +1383,7 @@ AudioSource:
   m_GameObject: {fileID: 674748309}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4629c6f68e77dc9408955d255658bfef, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3201,6 +3213,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
+--- !u!1 &769719594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2967437261836826706, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
+  m_PrefabInstance: {fileID: 769719593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &771034837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3226,11 +3243,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Size.x
-      value: 2
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Offset.x
@@ -3238,11 +3255,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Offset.y
-      value: 1.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.28125
       objectReference: {fileID: 0}
     - target: {fileID: 6727598516461245769, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Layer
@@ -3254,11 +3283,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3266,7 +3295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.66
+      value: 28.35
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3300,6 +3329,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750450, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 199658805, guid: 852c34ad75e0089448940716407cb684, type: 3}
     - target: {fileID: 7947911505737750455, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Name
       value: Pressure Plate - Normal
@@ -3340,7 +3373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chestToUnlock: {fileID: 378182225}
-  tilemapToDisable: {fileID: 0}
+  tilemapToDisable: {fileID: 769719594}
 --- !u!50 &771034840
 Rigidbody2D:
   serializedVersion: 4
@@ -3731,7 +3764,7 @@ AudioSource:
   m_GameObject: {fileID: 777061477}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: c29a0a8feb3787843a5fb5001b6587c5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -4327,6 +4360,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -4445,6 +4482,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyRanged
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1001 &1175408287
@@ -4514,6 +4559,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyRanged
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1 &1223262369
@@ -4634,7 +4687,7 @@ AudioSource:
   m_GameObject: {fileID: 1236384632}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0eefb63dc1d04b147829cbe2e8e8ba33, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4850,6 +4903,8 @@ MonoBehaviour:
   lines:
   - Careful! Enemies wander the next room. Use your mouse's left click to attack.
   - When you attack, you are also using up yarn, so keep track of how much you spend.
+  - Be careful, enemies can slice through your yarn trail and send you to the other
+    reality.
   - Once defeated, enemies will drop skeins and potions which increase yarn and health.
   - If you're running low on health, press 'F' to drink a potion and recover.
   isRunning: 0
@@ -5155,11 +5210,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 778277135}
   lines:
-  - I haven't seen the weavers anywhere... Maybe we should look around and see what
+  - I haven't seen the menders anywhere... Maybe we should look around and see what
     we find.
   - Use WASD to move around and SHIFT to dash.
   - There appears to be a rift in the center of the room.
-  - Press 'Q' to open your own rift and stich to the otherside.
+  - Press 'Q' to open your own rift and stich to the other side.
   - If you get stuck, try stiching and seeing if the terrain changes.
   - Use the mouse's left click to attack.
   - This bar indicates your health.
@@ -5327,7 +5382,7 @@ AudioSource:
   m_GameObject: {fileID: 1549921473}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 45515d69300f041f1b9121334ddbcba7, type: 2}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 03a10ae9c7f4db240ab0787b7f479da0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5474,10 +5529,10 @@ AudioSource:
   m_GameObject: {fileID: 1580157304}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+  OutputAudioMixerGroup: {fileID: 7532590129587120707, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0620d6eb455355c4490653610689c27d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5788,6 +5843,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4202537295318344826, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 6549625757946496461, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
 --- !u!1 &1864705272
@@ -5859,11 +5922,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Size.x
-      value: 2
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Offset.x
@@ -5871,11 +5934,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Offset.y
-      value: 1.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997224648939805555, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.28125
       objectReference: {fileID: 0}
     - target: {fileID: 6727598516461245769, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Layer
@@ -5887,11 +5962,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5899,7 +5974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -27.28
+      value: -26.46
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5933,6 +6008,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750450, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1238486671, guid: 333a669d88f50ab40aadcb060754f2ba, type: 3}
     - target: {fileID: 7947911505737750455, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Name
       value: Pressure Plate - Alt
@@ -6077,7 +6156,7 @@ AudioSource:
   m_GameObject: {fileID: 2079714027}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0c746560812698d4abfbf4220f1e8431, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -6347,6 +6426,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 107048329659247203, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_MinValue
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 1528108597620635783, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.9811321
@@ -6437,36 +6520,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
---- !u!114 &107048328637089429 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 107048329421675048, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-  m_PrefabInstance: {fileID: 107048328637089428}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &107048328637089430 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 107048328766864534, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-  m_PrefabInstance: {fileID: 107048328637089428}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &107048328637089431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107048328637089430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31bd1b45ce106449c9545814c5dca77c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
-  musicSlider: {fileID: 107048328637089429}
 --- !u!1001 &6656067712239022321
 PrefabInstance:
   m_ObjectHideFlags: 0
