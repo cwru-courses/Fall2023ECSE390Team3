@@ -356,6 +356,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1 &29346239
@@ -1573,7 +1581,7 @@ AudioSource:
   m_GameObject: {fileID: 202314505}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0eefb63dc1d04b147829cbe2e8e8ba33, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1885,6 +1893,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1 &228035190
@@ -3827,6 +3843,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1 &282139943 stripped
@@ -4983,6 +5007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -5033,7 +5061,7 @@ AudioSource:
   m_GameObject: {fileID: 563765198}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 924f0aef45db057408dc029a73df49c8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5386,6 +5414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -5455,6 +5487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -6173,6 +6209,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1 &705056833 stripped
@@ -6268,6 +6312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -6388,6 +6436,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1 &777061477
@@ -6759,7 +6815,7 @@ AudioSource:
   m_GameObject: {fileID: 777061477}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 45515d69300f041f1b9121334ddbcba7, type: 2}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: c29a0a8feb3787843a5fb5001b6587c5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -7549,7 +7605,7 @@ AudioSource:
   m_GameObject: {fileID: 917987771}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4629c6f68e77dc9408955d255658bfef, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -8139,6 +8195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -8320,6 +8380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -8515,6 +8579,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1 &1083079638
@@ -8775,6 +8847,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1001 &1105477822
@@ -8832,6 +8912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -8927,6 +9011,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -9197,7 +9285,7 @@ AudioSource:
   m_GameObject: {fileID: 1155778219}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: ef60bf0e1fd4a46459e6abd845aafc66, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -9370,6 +9458,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1001 &1170509105
@@ -9443,6 +9539,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1001 &1175408287
@@ -9516,6 +9620,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1 &1175986834
@@ -10064,6 +10176,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!1 &1234649044
@@ -10336,6 +10456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -10405,6 +10529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -11705,7 +11833,7 @@ AudioSource:
   m_GameObject: {fileID: 1549921473}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 03a10ae9c7f4db240ab0787b7f479da0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -11967,7 +12095,7 @@ AudioSource:
   m_GameObject: {fileID: 1580157304}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+  OutputAudioMixerGroup: {fileID: 7532590129587120707, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 208b8aedac5852c4998ce856abc05edd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -13340,6 +13468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -13491,6 +13623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1794389055281746021, guid: 5a00960f283e44040984961cae812dc4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 6402403283406112893, guid: 5a00960f283e44040984961cae812dc4, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 1
@@ -13572,7 +13708,7 @@ AudioSource:
   m_GameObject: {fileID: 2091948631}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0c746560812698d4abfbf4220f1e8431, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -13766,6 +13902,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4007340610022325068, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 7455064011477155817, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
 --- !u!114 &2127211742 stripped

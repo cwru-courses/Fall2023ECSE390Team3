@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   musicSlider: {fileID: 107048329421675048}
+  sfxSlider: {fileID: 107048329659247203}
 --- !u!1 &107048327578429787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,6 +2075,7 @@ GameObject:
   - component: {fileID: 107048328766864529}
   - component: {fileID: 107048328766864528}
   - component: {fileID: 107048328766864535}
+  - component: {fileID: 463271175806359347}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -2192,6 +2194,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91e2bb86b53e6e4c8e434faec49841d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &463271175806359347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107048328766864534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31bd1b45ce106449c9545814c5dca77c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+  musicSlider: {fileID: 107048329421675048}
+  sfxSlider: {fileID: 107048329659247203}
 --- !u!1 &107048328785694776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,7 +3508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &107048329362033346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3673,9 +3690,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 107048327563530408}
+      - m_Target: {fileID: 463271175806359347}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: SetVolume
+        m_MethodName: SetMusicVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4406,7 +4423,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 463271175806359347}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &142691894825528328
 GameObject:
   m_ObjectHideFlags: 0
