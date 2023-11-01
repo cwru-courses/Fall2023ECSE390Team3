@@ -195,6 +195,8 @@ public class PhaseShift : MonoBehaviour
         GameObject riftObject = Instantiate<GameObject>(rift);
         riftObject.transform.parent = transform;
         riftObject.transform.position = transform.position;
+        riftObject.transform.position = new Vector3(riftObject.transform.position.x, riftObject.transform.position.y-1, riftObject.transform.position.z); 
+
         while (precastingTimer > 0)
         {
             shiftProgressBar.value = precastingTimer / shiftPrecastTime;
