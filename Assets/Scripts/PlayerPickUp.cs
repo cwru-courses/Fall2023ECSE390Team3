@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,36 @@ public class PlayerPickUp : MonoBehaviour
     [SerializeField] private GameObject pickedUpObject;  // made pickedUpObject a serialized field for testing
     private float pickUpRadius  = 3.0f;
     [SerializeField] private LayerMask layerMask;  //layer of objects that can be picked up
+    private Collider2D objInRadius;
+
+    [SerializeField] private TextMeshProUGUI PickUpIcon;
+
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //array of objects that are in the PickUpable layer within the pickupable radius
+        objInRadius = Physics2D.OverlapCircle(transform.position, pickUpRadius, layerMask);
+
+        if (pickedUpObject)
+        {
+            Debug.Log("Rock in hand");
+            PickUpIcon.text = "Press P to put down"; //change P to user input
+        }
+
+        else if (objInRadius)
+        {
+                PickUpIcon.text = "Press P to pick up"; //change P to user input
+        }
+
+        else
+        {
+            PickUpIcon.text = string.Empty;
+        }
+    }
 
     public void PickupInputCallback(InputAction.CallbackContext ctx)
     {
