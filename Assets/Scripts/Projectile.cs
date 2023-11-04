@@ -30,7 +30,6 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject hit = collision.gameObject;
-
         // check if hit intended layer
         if (hit.layer == attackLayer)
         {

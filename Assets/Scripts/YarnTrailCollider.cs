@@ -12,8 +12,10 @@ public class YarnTrailCollider : MonoBehaviour
     {
         yarnTrail = this.GetComponent<TrailRenderer>();
         GameObject colliderGameObject = new GameObject("TrailCollider", typeof(EdgeCollider2D), typeof(YarnTrailEnemyDetection));
+        colliderGameObject.layer = 15;
         yarnTrailCollider = colliderGameObject.GetComponent<EdgeCollider2D>();
         yarnTrailCollider.isTrigger = true;
+        //colliderGameObject.AddComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update

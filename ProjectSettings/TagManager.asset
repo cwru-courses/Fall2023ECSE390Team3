@@ -10,6 +10,7 @@ TagManager:
   - PressurePlate
   - AvoidOverlap
   - YarnPuzzlePoints
+  - Needle
   layers:
   - Default
   - TransparentFX
