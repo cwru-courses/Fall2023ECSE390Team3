@@ -33,6 +33,9 @@ public class PlayerStats : MonoBehaviour
 
     //private DefaultInputAction playerInputAction;
 
+    private float yarnGainPerSecond = 20f;
+    public bool canRegenYarn = true;
+
     private float iFrameTimer = 0f;
     private bool invincible = false;
 
@@ -112,10 +115,10 @@ public class PlayerStats : MonoBehaviour
         {
             yarncooldown = yarncooldown + 1;
         }
-        if (yarncooldown > 36 * 1)
+        if (canRegenYarn)
         {
             yarncooldown = 0;
-            this.GainYarn(20);
+            this.GainYarn(yarnGainPerSecond*Time.deltaTime);
         }
     }
 

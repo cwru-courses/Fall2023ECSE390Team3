@@ -13,21 +13,21 @@ public class PlayerAbilities : MonoBehaviour
 
 
     [SerializeField] GameObject blockPrefab;
-    private const float blockCD = 5f;
+    private const float blockCD = 0f;
     private const float blockMovementSpeedMultiplier = 0.4f;
-    private const float blockYarnPerSecond = 20f;
+    private const float blockYarnPerSecond = 30f;
 
     [SerializeField] GameObject stunMeshPrefab;
     [SerializeField] AudioSource stitchingSFX;
     [SerializeField] Material lineMaterial;
-    private const float stunCD = 5f;
+    private const float stunCD = 0f;
     private const float stunDuration = 3f;
     private const float stunMaxCastingDuration = 20f;
-    private const float stunYarnPerSecond = 5f;
+    private const float stunYarnPerSecond = 7.5f;
 
     private bool stunCasting = false;
     private List<Vector3> stunCulledPath;
-    private LineRenderer pathRender;
+    [SerializeField] private TrailRenderer pathRender;
 
     private float lastStunAbilityTime;
     private float lastBlockAbilityTime;
@@ -42,22 +42,27 @@ public class PlayerAbilities : MonoBehaviour
         {
             _instance = this;
         }
-        GameObject pathRenderObj = new GameObject("PathRenderer", typeof(LineRenderer));
-        pathRenderObj.transform.position = Vector3.zero;
-        pathRender = pathRenderObj.GetComponent<LineRenderer>();
-        pathRender.startWidth = 0.1f;
-        pathRender.endWidth = 0.1f;
-        if (lineMaterial)
+        if (!pathRender)
         {
-            pathRender.material = lineMaterial;
+            GameObject pathRenderObj = new GameObject("PathRenderer", typeof(TrailRenderer));
+            pathRenderObj.transform.parent = this.transform;
+            pathRenderObj.transform.position = this.transform.position - new Vector3(0, 0.96f, -0.1f);
+            pathRender = pathRenderObj.GetComponent<TrailRenderer>();
+            pathRender.startWidth = 0.1f;
+            pathRender.endWidth = 0.1f;
+            if (lineMaterial)
+            {
+                pathRender.material = lineMaterial;
+            }
+            else
+            {
+                pathRender.material = new Material(Shader.Find("Sprites/Default"));
+            }
+            pathRender.time = 200f;
+            pathRender.startColor = Color.magenta;
+            pathRender.endColor = Color.magenta;
+            pathRender.enabled = false;
         }
-        else
-        {
-            pathRender.material = new Material(Shader.Find("Sprites/Default"));
-        }
-        
-        pathRender.startColor = Color.magenta;
-        pathRender.endColor = Color.magenta;
         
         //playerInputAction = new DefaultInputAction();
         //playerInputAction.Player.Ability1.started += startAbility;
@@ -70,11 +75,11 @@ public class PlayerAbilities : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (isBlocking)
         {
-            PlayerStats._instance.UseYarn(blockYarnPerSecond * Time.fixedDeltaTime);
+            PlayerStats._instance.UseYarn(blockYarnPerSecond * Time.deltaTime);
             if (PlayerStats._instance.currentYarnCount <= 0)
             {
                 block();// cancel block
@@ -83,11 +88,13 @@ public class PlayerAbilities : MonoBehaviour
 
         if (stunCasting)
         {
-            PlayerStats._instance.UseYarn(stunYarnPerSecond * Time.fixedDeltaTime);
+
+            PlayerStats._instance.UseYarn(stunYarnPerSecond * Time.deltaTime);
             if (Time.time - lastStunAbilityTime < stunMaxCastingDuration && PlayerStats._instance.currentYarnCount>0)
             {
                 //add new point
                 Vector3 newPoint = transform.position;
+                newPoint.y -= 0.96f;
                 if (newPoint != stunCulledPath[stunCulledPath.Count - 1])
                 {
                     if (stunCulledPath.Count >= 2)
@@ -118,10 +125,9 @@ public class PlayerAbilities : MonoBehaviour
             else
             {
                 //finish stun cast
-                stun();
+                StartCoroutine(stun());
             }
-            pathRender.positionCount = stunCulledPath.Count;
-            pathRender.SetPositions(stunCulledPath.ToArray());
+
         }
     }
     
@@ -177,6 +183,7 @@ public class PlayerAbilities : MonoBehaviour
             isBlocking = true;
             PlayerMovement._instance.MultiplySpeed(blockMovementSpeedMultiplier);
             PlayerStats._instance.blocking = true;
+            PlayerStats._instance.canRegenYarn = false;
             blockObject = Instantiate(blockPrefab) as GameObject;
             blockObject.transform.parent = this.transform;
             blockObject.transform.position = this.transform.position;
@@ -187,6 +194,7 @@ public class PlayerAbilities : MonoBehaviour
             Destroy(blockObject);
             PlayerMovement._instance.MultiplySpeed(1f / blockMovementSpeedMultiplier);
             PlayerStats._instance.blocking = false;
+            PlayerStats._instance.canRegenYarn = true;
             lastBlockAbilityTime = Time.time;
         }
 
@@ -197,6 +205,7 @@ public class PlayerAbilities : MonoBehaviour
     {
         if (stunCasting)
         {
+            PlayerStats._instance.canRegenYarn = true;
             if (stitchingSFX)
             {
                 stitchingSFX.Stop();
@@ -205,10 +214,10 @@ public class PlayerAbilities : MonoBehaviour
             stunCasting = false;
             GameObject stunObject = Instantiate(stunMeshPrefab) as GameObject;
             stunObject.GetComponent<MeshGenerator>().SetVertices(stunCulledPath.ToArray());
-            stunObject.transform.position = Vector3.zero;
+            stunObject.transform.position = new Vector3(0,0,1);
             stunCulledPath = new List<Vector3>();
-            pathRender.positionCount = stunCulledPath.Count;
-            pathRender.SetPositions(stunCulledPath.ToArray());
+            pathRender.Clear();
+            pathRender.enabled = false;
             
             yield return new WaitForSeconds(stunDuration);
             Destroy(stunObject);
@@ -216,6 +225,9 @@ public class PlayerAbilities : MonoBehaviour
         }
         else
         {
+            pathRender.enabled = true;
+            pathRender.Clear();
+            PlayerStats._instance.canRegenYarn = false;
             if (stitchingSFX)
             {
                 stitchingSFX.Play();
