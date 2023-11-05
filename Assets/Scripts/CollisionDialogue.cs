@@ -19,7 +19,7 @@ public class CollisionDialogue : MonoBehaviour
     // Start is called before the first frame update
     public void StartRunning(GameObject inputDialogueBox)
     {
-        this.dialogueBox = inputDialogueBox;
+        dialogueBox = inputDialogueBox;
         isRunning = true;
         textComponent.text = string.Empty;
         StartDialogue();
@@ -28,12 +28,16 @@ public class CollisionDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isRunning){
-            if(Input.GetKeyDown(KeyCode.Space)){
-                if(textComponent.text == lines[index]){
+        if (isRunning)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (textComponent.text == lines[index])
+                {
                     NextLine();
                 }
-                else{
+                else
+                {
                     StopAllCoroutines();
                     textComponent.text = lines[index];
                 }
@@ -42,42 +46,40 @@ public class CollisionDialogue : MonoBehaviour
 
     }
 
-    void StartDialogue(){
-        
+    void StartDialogue()
+    {
+        TimeManager._instance.OnDialog(true);
         index = 0;
-        PlayerStats._instance.playerInput.SwitchCurrentActionMap("UI");
-        PlayerMovement._instance.OnPause(true);
-        //PlayerAttack._instance.OnPause(true);
-        //PhaseShift._instance.OnPause(true);
-        //PlayerStats._instance.OnPause(true);
         StartCoroutine(TypeLine());
-    
+
     }
 
-    public virtual IEnumerator TypeLine(){
-        foreach(char c in lines[index].ToCharArray()){
+    public virtual IEnumerator TypeLine()
+    {
+        foreach (char c in lines[index].ToCharArray())
+        {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
     }
 
-    void endDialogue(){
-        isRunning=false;
+    void endDialogue()
+    {
+        isRunning = false;
         dialogueBox.SetActive(false);
-        PlayerStats._instance.playerInput.SwitchCurrentActionMap("Player");
-        PlayerMovement._instance.OnPause(false);
-        //PlayerAttack._instance.OnPause(false);
-        //PhaseShift._instance.OnPause(false);
-        //PlayerStats._instance.OnPause(false);
+        TimeManager._instance.OnDialog(false);
     }
 
-    void NextLine(){
-        if(index < lines.Length - 1){
-            index ++;
+    void NextLine()
+    {
+        if (index < lines.Length - 1)
+        {
+            index++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
         }
-        else{
+        else
+        {
             endDialogue();
         }
     }

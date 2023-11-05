@@ -6881,6 +6881,7 @@ GameObject:
   - component: {fileID: 1580157306}
   - component: {fileID: 1580157305}
   - component: {fileID: 1580157310}
+  - component: {fileID: 1580157311}
   m_Layer: 0
   m_Name: Global Systems
   m_TagString: Untagged
@@ -7043,6 +7044,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuCanvas: {fileID: 735736924}
+--- !u!114 &1580157311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580157304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828650c98d55dea4d97d299859d668ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDialog: 0
+  onPauseMenu: 0
 --- !u!1001 &1608958391
 PrefabInstance:
   m_ObjectHideFlags: 0

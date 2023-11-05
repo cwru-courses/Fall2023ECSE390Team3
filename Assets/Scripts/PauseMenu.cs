@@ -34,21 +34,15 @@ public class PauseMenu : MonoBehaviour
     {
         paused = !paused;
 
-        PlayerStats._instance.playerInput.SwitchCurrentActionMap(paused ? "UI" : "Player");
-        PlayerMovement._instance.OnPause(paused);
-        //PlayerAttack._instance.OnPause(paused);
-        //PhaseShift._instance.OnPause(paused);
-        //PlayerStats._instance.OnPause(paused);
+        TimeManager._instance.OnPause(paused);
 
         if (paused)
         {
             pauseMenuCanvas.SetActive(true);
-            Time.timeScale = 0f;
         }
         else
         {
             pauseMenuCanvas.SetActive(false);
-            Time.timeScale = 1f;
         }
     }
 

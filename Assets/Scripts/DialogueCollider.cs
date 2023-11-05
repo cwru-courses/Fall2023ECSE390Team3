@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueCollider : MonoBehaviour
@@ -9,12 +7,15 @@ public class DialogueCollider : MonoBehaviour
 
     bool collided;
 
-    void Start(){
+    void Start()
+    {
         collided = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider){
-        if(collider.gameObject.CompareTag("Player") == true && !collided){
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Player") == true && !collided)
+        {
             dialogueBox.SetActive(true);
             collisionDialogue.StartRunning(dialogueBox);
             collided = true;
