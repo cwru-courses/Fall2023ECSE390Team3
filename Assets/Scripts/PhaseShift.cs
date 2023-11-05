@@ -127,7 +127,7 @@ public class PhaseShift : MonoBehaviour
             //Debug.Log(distance);
 
             // if the point nearby(either in flipped or normal world) is in stage 0, increase it to stage 1
-            if (distance < 0.3f)
+            if (distance < 0.4f)
             {
                 if (point.GetComponent<YarnPuzzlePointNormal>() != null && point.GetComponent<YarnPuzzlePointNormal>().GetStage() == 0)
                 {

@@ -28,10 +28,16 @@ public class YarnTrail : MonoBehaviour
         if (YarnPuzzleControllerObjectOne != null)
         {
             puzzleControllerOne = YarnPuzzleControllerObjectOne.GetComponent<YarnPuzzleController>();
+        }
+        if (YarnPuzzleControllerObjectTwo != null)
+        {
             puzzleControllerTwo = YarnPuzzleControllerObjectTwo.GetComponent<YarnPuzzleController>();
+        }
+        if (YarnPuzzleControllerObjectThree != null)
+        {
             puzzleControllerThree = YarnPuzzleControllerObjectThree.GetComponent<YarnPuzzleController>();
         }
-        
+
     }
 
     // Start is called before the first frame update

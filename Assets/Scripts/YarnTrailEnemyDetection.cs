@@ -18,7 +18,7 @@ public class YarnTrailEnemyDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(11111);
+        
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("needle cutted the trail");
