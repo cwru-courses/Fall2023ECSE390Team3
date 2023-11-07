@@ -15,7 +15,7 @@ public class Rift : MonoBehaviour {
 
     void Awake()
     {
-        playerInputAction = new DefaultInputAction;
+        playerInputAction = new DefaultInputAction();
     }
 
     // Start is called before the first frame update
@@ -38,28 +38,20 @@ public class Rift : MonoBehaviour {
     }
 
 
-    /*
     private IEnumerator UseRift() {
+        //if (playerInputAction.Player.Ability1.phase == phase.performed) {
+            // trigger shift/stitch
+
         yield return new WaitForSeconds(2.0f);
 
+        /*
+        if (playerCollider.IsTouching(riftCollider)) {
 
-        if (playerCollider.IsTouching(riftCollider)) {'
-                
-        if (playerInputAction.Player.Ability1.phase == phase.performed) {
-            // trigger shift/stitch
         }
         else
             yield return null;
+        */
     }
-    */
-
-
-    // If player presses E
-
-
-
-
-
 
 
 }
