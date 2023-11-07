@@ -7242,8 +7242,8 @@ MonoBehaviour:
   fight: {fileID: 687604723}
   cam: {fileID: 520802791}
   boss: {fileID: 1223262371}
-  forwardAudioSource: {fileID: 0}
-  reversedAudioSource: {fileID: 0}
+  forwardAudioSource: {fileID: 1580157308}
+  reversedAudioSource: {fileID: 1580157312}
 --- !u!114 &1580157306
 MonoBehaviour:
   m_ObjectHideFlags: 0
