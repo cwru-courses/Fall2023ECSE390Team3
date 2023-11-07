@@ -28,7 +28,7 @@ public class MusicSwitchTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Debug.Log("start fight");
-        if(other ==trig)
+        if(other == trig)
         {
             if(track!=null)
             {
