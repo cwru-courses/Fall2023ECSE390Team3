@@ -11,6 +11,12 @@ public class Rift : MonoBehaviour {
     // Collider of this rift game object
     private Collider2D riftCollider;
 
+    private DefaultInputAction playerInputAction;
+
+    void Awake()
+    {
+        playerInputAction = new DefaultInputAction;
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -23,6 +29,7 @@ public class Rift : MonoBehaviour {
 
     }
 
+
     // If player makes contact with rift for 2 seconds, trigger shift/stitch
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
@@ -30,14 +37,29 @@ public class Rift : MonoBehaviour {
         }
     }
 
+
+    /*
     private IEnumerator UseRift() {
         yield return new WaitForSeconds(2.0f);
 
-        if (playerCollider.IsTouching(riftCollider)) {
+
+        if (playerCollider.IsTouching(riftCollider)) {'
+                
+        if (playerInputAction.Player.Ability1.phase == phase.performed) {
             // trigger shift/stitch
         }
         else
             yield return null;
     }
+    */
+
+
+    // If player presses E
+
+
+
+
+
+
 
 }
