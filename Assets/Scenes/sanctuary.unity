@@ -3560,8 +3560,8 @@ MonoBehaviour:
   shiftPrecastTime: 2
   shiftProgressBar: {fileID: 1535102310}
   rift: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
-  foot: {fileID: 0}
-  uiImg: {fileID: 1840529560}
+  foot: {fileID: 15948759}
+  uiImg: {fileID: 1698798907}
 --- !u!114 &777061479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8407,6 +8407,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1354890754524284890, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4796861614757409618, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
@@ -8504,6 +8508,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1354890754524284890, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
   m_PrefabInstance: {fileID: 1698798903}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1698798907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 107048328298096828, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+  m_PrefabInstance: {fileID: 1698798903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1707636698
 GameObject:
   m_ObjectHideFlags: 0
@@ -9089,17 +9104,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1840529560 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3358116673434135606, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
-  m_PrefabInstance: {fileID: 508927814}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1861788111
 PrefabInstance:
   m_ObjectHideFlags: 0
