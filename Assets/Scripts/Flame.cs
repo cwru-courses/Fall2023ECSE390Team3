@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class Flame : MonoBehaviour {
 
-    // This flame game object
-    [SerializeField] private GameObject flame;
+    // Player and collider of player
+    private GameObject player;
+    private Collider2D playerCollider;
 
-    // Collider of flame game object
+    // Collider of this flame game object
     private Collider2D flameCollider;
 
 
     // Start is called before the first frame update
     void Start() {
         flameCollider = GetComponent<Collider2D>();
+        player = GameObject.Find("Player");
+        playerCollider = player.GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
-    void Update() {
-        
-    }
 
     // If player makes contact with flame collider, start coroutine to inflict increasing damage
     private void OnTriggerEnter2D(Collider2D other) { 
@@ -28,12 +27,17 @@ public class Flame : MonoBehaviour {
         }
     }
 
-
     // While player is in contact with flame collider, do increasing damage
     private IEnumerator Burn() {
+        int damage = 3;
 
-        // just something for now
-        yield return new WaitForSeconds(1.0f);
+        while (playerCollider.IsTouching(flameCollider)) {
+            player.GetComponent<PlayerStats>().TakeDamage(damage);   // player takes damage
+            yield return new WaitForSeconds(1.5f);                   // wait half a second
+            damage = damage + 2;                                     // increment damage
+        }
+        
+        yield return null;
     }
 
 
