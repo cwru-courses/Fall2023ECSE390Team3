@@ -26,7 +26,7 @@ public class AutoSaveCollide : MonoBehaviour
 
     private IEnumerator ShowAutoSave() {
         autoSaveText.SetActive(true);
-        yield return new WaitForSeconds(2.5f); 
+        yield return new WaitForSeconds(2f); 
         autoSaveText.SetActive(false);
     }
 }
