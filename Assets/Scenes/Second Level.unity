@@ -7866,6 +7866,7 @@ MonoBehaviour:
   hitSFX: {fileID: 1549921475}
   potionSFX: {fileID: 917987773}
   iFrameTime: 0
+  canRegenYarn: 1
 --- !u!50 &777061482
 Rigidbody2D:
   serializedVersion: 4
@@ -8095,6 +8096,7 @@ MonoBehaviour:
   stunMeshPrefab: {fileID: 3963732116267324356, guid: efd0d9714c076fd45bece886f8b43f53, type: 3}
   stitchingSFX: {fileID: 202314507}
   lineMaterial: {fileID: 0}
+  pathRender: {fileID: 0}
 --- !u!114 &777061487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8102,7 +8104,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777061477}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 403c3d3ccb0af4377806cbdfcd12305e, type: 3}
   m_Name: 
@@ -12771,6 +12773,7 @@ GameObject:
   - component: {fileID: 1580157306}
   - component: {fileID: 1580157305}
   - component: {fileID: 1580157310}
+  - component: {fileID: 1580157311}
   m_Layer: 0
   m_Name: Global Systems
   m_TagString: Untagged
@@ -12933,6 +12936,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuCanvas: {fileID: 354744808}
+--- !u!114 &1580157311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580157304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516efdaac808546bb99933872811ba53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDialog: 0
+  onPauseMenu: 0
 --- !u!1 &1589588093
 GameObject:
   m_ObjectHideFlags: 0
