@@ -5,6 +5,9 @@ using System;
 
 public class CollisionDialogue : MonoBehaviour
 {
+    // [SerializeField] private AudioClip dialogueTypingSoundClip;
+
+    // [SerializeField] private AudioSource audioSource;
     public TextMeshProUGUI textComponent;
     public String[] lines;
     protected float textSpeed;
@@ -59,6 +62,10 @@ public class CollisionDialogue : MonoBehaviour
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
+            // if(c != ' '){
+            //     audioSource.PlayOneShot(dialogueTypingSoundClip);
+            // }
+            
             yield return new WaitForSeconds(textSpeed);
         }
     }
