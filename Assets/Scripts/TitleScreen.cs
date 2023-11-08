@@ -21,6 +21,11 @@ public class TitleScreen : MonoBehaviour
         SceneManager.LoadSceneAsync("Load Screen");
     }
 
+    public void NavigateToCreditsScreen()
+    {
+        SceneManager.LoadSceneAsync("Credits Screen");
+    }
+
     public void Quit(){
         Application.Quit();
         //make sure it works without having to quit.
