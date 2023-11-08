@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
 
     public PlayerInput playerInput;
 
+    public Vector3 initialPosition;
     public int maxHealth = 100;
     public int yarncooldown = 0;
     public int currentHealth;
@@ -68,6 +69,15 @@ public class PlayerStats : MonoBehaviour
         //playerInputAction = new DefaultInputAction();
         //playerInputAction.Player.UsePotion.started += UsePotion;
         inFlippedWorld = false;
+    }
+
+    private void Start()
+    {
+        // try to prevent out of map spawn
+        if (initialPosition != null)
+        {
+            transform.position = initialPosition;
+        }
     }
 
     //private void OnEnable()

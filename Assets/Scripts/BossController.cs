@@ -203,7 +203,7 @@ public class BossController : BaseEnemy
 
         }
         else{
-            SceneManager.LoadSceneAsync(nextScene);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
     }

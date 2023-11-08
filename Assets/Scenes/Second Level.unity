@@ -8912,6 +8912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 777061485}
+  initialPosition: {x: 32.6, y: 27.3, z: -1}
   maxHealth: 100
   yarncooldown: 0
   currentHealth: 0
