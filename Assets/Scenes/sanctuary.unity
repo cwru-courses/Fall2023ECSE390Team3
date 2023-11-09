@@ -8075,10 +8075,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7532590129587120707, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: e746f385f7810424fbcdede1ab7b0d87, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9352,7 +9352,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: maxHealth
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: nextScene
