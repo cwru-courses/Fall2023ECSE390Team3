@@ -5983,7 +5983,7 @@ MonoBehaviour:
   textComponent: {fileID: 418447032}
   lines:
   - Oh look! It's like those red beacons we saw earlier!
-  - Remember to stitch on it in order too connect the stitches.
+  - Remember to stitch on it in order to connect the stitches.
   - But be careful! Remember that enemies can cut your yarn and transport you back.
   - If they cut your yarn, you'll probably also lose your progress... good luck!
   isRunning: 0

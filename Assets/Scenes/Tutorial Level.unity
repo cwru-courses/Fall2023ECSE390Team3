@@ -2021,9 +2021,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 778277135}
   lines:
-  - You successfully stiched!
+  - You successfully stitched!
   - In this reality, your movement is limited by the amount of yarn you have.
-  - If you run out of yarn, you must stich back to the other reality to recover more.
+  - If you run out of yarn, you must stitch back to the other reality to recover
+    more.
   isRunning: 0
 --- !u!114 &649834704
 MonoBehaviour:
@@ -6874,15 +6875,15 @@ MonoBehaviour:
     we find.
   - Use WASD to move around and SHIFT to dash.
   - There appears to be a rift in the center of the room.
-  - Press 'Q' to open your own rift and stich to the other side.
-  - If you get stuck, try stiching and seeing if the terrain changes.
+  - Press 'Q' to open your own rift and stitch to the other side.
+  - If you get stuck, try stitching and seeing if the terrain changes.
   - Use the mouse's left click to attack.
   - This bar indicates your health.
   - This bar indicates how much yarn you have accumulated. This will help you attack
     and defend.
-  - This icon shows you how much time you have to wait until your next stich.
+  - This icon shows you how much time you have to wait until your next stitch.
   - If you get confused about controls or want to save the game, use "Escape" to
-    open up the pause menu.
+    open up the Pause Menu.
   - Good luck!
   isRunning: 0
   health_arrow: {fileID: 1531982105}
