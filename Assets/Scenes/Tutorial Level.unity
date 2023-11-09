@@ -4446,6 +4446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
+  initialPosition: {x: 18.8, y: 23.1, z: -1}
   maxHealth: 100
   yarncooldown: 0
   currentHealth: 0
@@ -7940,6 +7941,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 29346240}
     m_Modifications:
+    - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: nextScene
       value: sanctuary
