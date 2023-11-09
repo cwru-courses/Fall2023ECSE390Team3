@@ -3859,7 +3859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   musicSlider: {fileID: 1211930149}
-  sfxSlider: {fileID: 0}
+  sfxSlider: {fileID: 1293440877}
 --- !u!114 &711629746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4265,7 +4265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   musicSlider: {fileID: 1211930149}
-  sfxSlider: {fileID: 0}
+  sfxSlider: {fileID: 1293440877}
 --- !u!1 &896441288
 GameObject:
   m_ObjectHideFlags: 0
@@ -6464,7 +6464,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 711629745}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: SetVolume
+        m_MethodName: SetMusicVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7063,7 +7063,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 711629745}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1312013700
 GameObject:
   m_ObjectHideFlags: 0
@@ -7629,7 +7641,7 @@ MonoBehaviour:
   fight: {fileID: 0}
   cam: {fileID: 0}
   boss: {fileID: 0}
-  forwardAudioSource: {fileID: 0}
+  forwardAudioSource: {fileID: 1510154059}
   reversedAudioSource: {fileID: 0}
 --- !u!82 &1510154059
 AudioSource:
@@ -7640,7 +7652,7 @@ AudioSource:
   m_GameObject: {fileID: 1510154055}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+  OutputAudioMixerGroup: {fileID: 7532590129587120707, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: dd928ebf0a863be49bb7b64d606e563c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
