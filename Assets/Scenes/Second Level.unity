@@ -5983,7 +5983,7 @@ MonoBehaviour:
   textComponent: {fileID: 418447032}
   lines:
   - Oh look! It's like those red beacons we saw earlier!
-  - Remember to stitch on it in order too connect the stitches.
+  - Remember to stitch on it in order to connect the stitches.
   - But be careful! Remember that enemies can cut your yarn and transport you back.
   - If they cut your yarn, you'll probably also lose your progress... good luck!
   isRunning: 0
@@ -6891,7 +6891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107048329421675048, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_Value
-      value: 0.0001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1354890754524284890, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_IsActive
