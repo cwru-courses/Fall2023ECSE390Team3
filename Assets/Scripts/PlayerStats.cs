@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour
     public HealthBar healthBar;
     public int potions = 0;
     public int healthFromPotion = 20;
-    public int maxPotion = 8;
+    //public int maxPotion = 8;
     public TextMeshProUGUI potionUI;
     public bool inFlippedWorld;  //keep track of what world player is in
 
@@ -221,11 +221,16 @@ public class PlayerStats : MonoBehaviour
 
     public void GainPotion()
     {
+        // no more upper limit now
+        potions += 1;
+        potionUI.text = potions.ToString();
+        /*
         if (potions < maxPotion)
         {
             potions += 1;
             potionUI.text = potions.ToString();
         }
+        */
     }
 
     private IEnumerator FlashColor(Color color)

@@ -11,13 +11,24 @@ public class YarnPuzzleController : MonoBehaviour
     [SerializeField] private GameObject wallToRemove1;
     [SerializeField] private GameObject wallToRemove2;
     [SerializeField] private AudioSource wallUp;
+    [SerializeField] private GameObject scratch1;
+    [SerializeField] private GameObject scratch2;
     private bool puzzleActive = true;
     private int onPoint = -1;
+    private Animator scratch1_ani;
+    private Animator scratch2_ani;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (scratch1 != null)
+        {
+            scratch1_ani = scratch1.GetComponent<Animator>();
+        }
+        if (scratch2 != null)
+        {
+            scratch2_ani = scratch2.GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame
@@ -72,6 +83,15 @@ public class YarnPuzzleController : MonoBehaviour
         if (wallUp != null)
         {
             wallUp.Play();
+        }
+
+        if (scratch1_ani != null)
+        {
+            scratch1_ani.SetBool("closed", true);
+        }
+        if (scratch2_ani != null)
+        {
+            scratch2_ani.SetBool("closed", true);
         }
     }
 }
