@@ -15,6 +15,7 @@ public class YarnPuzzleController : MonoBehaviour
     [SerializeField] private GameObject scratch2;
     [SerializeField] private CameraControl came;
     [SerializeField] private Vector3 wallPosition;
+    [SerializeField] private float timeForDoorOpen = 3f;
     private bool puzzleActive = true;
     private int onPoint = -1;
     private Animator scratch1_ani;
@@ -110,7 +111,7 @@ public class YarnPuzzleController : MonoBehaviour
             {
                 wallUp.Play();
             }
-            yield return new WaitForSeconds(3.5f);
+            yield return new WaitForSeconds(timeForDoorOpen + 0.5f);
 
             // get back to player
             came.SwitchToPlayerFocus();

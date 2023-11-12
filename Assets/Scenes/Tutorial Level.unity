@@ -2495,6 +2495,7 @@ MonoBehaviour:
   scratch2: {fileID: 1424404764}
   came: {fileID: 520802791}
   wallPosition: {x: -33, y: 18, z: 0}
+  timeForDoorOpen: 1
 --- !u!1 &735736924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 107048329303356104, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
@@ -4193,7 +4194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toOpenedPosition: {x: 0, y: 5, z: 0}
-  openDuration: 3
+  openDuration: 1
 --- !u!1001 &771034837
 PrefabInstance:
   m_ObjectHideFlags: 0
