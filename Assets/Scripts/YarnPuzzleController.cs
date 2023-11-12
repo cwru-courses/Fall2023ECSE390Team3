@@ -8,12 +8,13 @@ public class YarnPuzzleController : MonoBehaviour
     [SerializeField] private YarnPuzzlePointFlipped[] pointsArray;
     [SerializeField] private GameObject yarnLineControllerObject;
     [SerializeField] private int totalPoints;
-    [SerializeField] private GameObject wallToRemove1;
-    [SerializeField] private GameObject wallToRemove2;
+    [SerializeField] private wallOpenClose wallToRemove1;
+    [SerializeField] private wallOpenClose wallToRemove2;
     [SerializeField] private AudioSource wallUp;
     [SerializeField] private GameObject scratch1;
     [SerializeField] private GameObject scratch2;
     [SerializeField] private CameraControl came;
+    [SerializeField] private Vector3 wallPosition;
     private bool puzzleActive = true;
     private int onPoint = -1;
     private Animator scratch1_ani;
@@ -75,7 +76,7 @@ public class YarnPuzzleController : MonoBehaviour
 
     private IEnumerator PuzzleReward()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         if (came != null)
         {
             Transform scratchTrans = scratch1_ani.transform;
@@ -93,24 +94,23 @@ public class YarnPuzzleController : MonoBehaviour
             }
             yield return new WaitForSeconds(0.5f);
 
-            Transform wallTrans = wallToRemove1.transform;
-            Vector3 watchWall = new Vector3(wallTrans.position.x, wallTrans.position.y, 0);
-            Debug.Log(watchWall);
+            
+            Vector3 watchWall = new Vector3(wallPosition.x, wallPosition.y, 0);
             // watch door to open next
             came.SwitchToBossRoom(watchWall);
             if (wallToRemove1 != null)
             {
-                wallToRemove1.SetActive(false);
+                StartCoroutine(wallToRemove1.toOpen());
             }
             if (wallToRemove2 != null)
             {
-                wallToRemove2.SetActive(false);
+                StartCoroutine(wallToRemove2.toOpen());
             }
             if (wallUp != null)
             {
                 wallUp.Play();
             }
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3.5f);
 
             // get back to player
             came.SwitchToPlayerFocus();

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CloseMinibossRoom : MonoBehaviour
 {
-    [SerializeField] private GameObject wall1;
-    [SerializeField] private GameObject wall2;
+    [SerializeField] private wallOpenClose wall1;
+    [SerializeField] private wallOpenClose wall2;
     [SerializeField] private AudioSource wallOff;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -14,11 +14,12 @@ public class CloseMinibossRoom : MonoBehaviour
         {
             if (wall1 != null)
             {
-                wall1.SetActive(true);
+                Debug.Log("closing");
+                wall1.toClose();
             }
             if (wall2 != null)
             {
-                wall2.SetActive(true);
+                wall2.toClose();
             }
             if (wallOff != null)
             {

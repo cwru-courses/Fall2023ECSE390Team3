@@ -2488,12 +2488,13 @@ MonoBehaviour:
   - {fileID: 552280720}
   yarnLineControllerObject: {fileID: 1195566302}
   totalPoints: 2
-  wallToRemove1: {fileID: 769719595}
+  wallToRemove1: {fileID: 769719602}
   wallToRemove2: {fileID: 0}
   wallUp: {fileID: 144332537}
   scratch1: {fileID: 622824644}
   scratch2: {fileID: 1424404764}
   came: {fileID: 520802791}
+  wallPosition: {x: -33, y: 18, z: 0}
 --- !u!1 &735736924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 107048329303356104, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
@@ -4179,6 +4180,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7953144139340030095, guid: 2c50b9d30d8008a499fa8d8804092a70, type: 3}
   m_PrefabInstance: {fileID: 769719593}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &769719602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769719595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b7024c0b0774c9ba426400fcb4af41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toOpenedPosition: {x: 0, y: 5, z: 0}
+  openDuration: 3
 --- !u!1001 &771034837
 PrefabInstance:
   m_ObjectHideFlags: 0
