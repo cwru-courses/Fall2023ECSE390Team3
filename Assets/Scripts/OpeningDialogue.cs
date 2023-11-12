@@ -28,7 +28,10 @@ public class OpeningDialogue : CollisionDialogue
         }
         foreach(char c in base.lines[base.index].ToCharArray()){
             base.textComponent.text += c;
-            yield return new WaitForSeconds(base.textSpeed);
+            if(c != ' '){
+                base.audioSource.PlayOneShot(dialogueTypingSoundClip);
+            }
+            yield return new WaitForSecondsRealtime(0.05f);
         }
     }
 }
