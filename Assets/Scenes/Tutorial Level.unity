@@ -736,6 +736,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
+  audioSource: {fileID: 1439242920}
   textComponent: {fileID: 778277135}
   lines:
   - Interesting, that red beacon looks like it can be stitched into...
@@ -2124,6 +2126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
+  audioSource: {fileID: 1439242920}
   textComponent: {fileID: 778277135}
   lines:
   - You successfully stitched!
@@ -4974,6 +4978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
+  audioSource: {fileID: 1439242920}
   textComponent: {fileID: 778277135}
   lines:
   - Seems like there's something weird going on in this room.
@@ -6562,6 +6568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
+  audioSource: {fileID: 1439242920}
   textComponent: {fileID: 778277135}
   lines:
   - Careful! Enemies wander the next room. Use your mouse's left click to attack.
@@ -6710,6 +6718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
+  audioSource: {fileID: 1439242920}
   textComponent: {fileID: 778277135}
   lines:
   - Good job! But don't be so relieved yet.
@@ -6918,6 +6928,134 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1439242918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1439242919}
+  - component: {fileID: 1439242920}
+  m_Layer: 15
+  m_Name: dialogueSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1439242919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439242918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864705273}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1439242920
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439242918}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1455938779 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2026579417184056734, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
@@ -7081,6 +7219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d3093111ab37e4789a34c7037036e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
+  audioSource: {fileID: 1439242920}
   textComponent: {fileID: 778277135}
   lines:
   - I haven't seen the menders anywhere... Maybe we should look around and see what
@@ -8053,6 +8193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
+  audioSource: {fileID: 1439242920}
   textComponent: {fileID: 778277135}
   lines:
   - Nice! Now let's find other points and stitch them as well, maybe it'll unlock
@@ -8287,6 +8429,7 @@ Transform:
   - {fileID: 674748310}
   - {fileID: 616778799}
   - {fileID: 144332538}
+  - {fileID: 1439242919}
   m_Father: {fileID: 777061484}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8737,6 +8880,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
+  audioSource: {fileID: 1439242920}
   textComponent: {fileID: 778277135}
   lines:
   - Oh look! There's another beacon right here, let's try stitching again!
@@ -9235,6 +9380,10 @@ PrefabInstance:
     - target: {fileID: 107048329362033345, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107048329421675048, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107048329659247203, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_MinValue
