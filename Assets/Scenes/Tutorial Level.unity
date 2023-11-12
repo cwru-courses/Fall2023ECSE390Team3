@@ -4576,6 +4576,7 @@ MonoBehaviour:
   potionSFX: {fileID: 674748311}
   iFrameTime: 0
   canRegenYarn: 1
+  levelsReached: 000000
 --- !u!50 &777061482
 Rigidbody2D:
   serializedVersion: 4
@@ -8390,6 +8391,14 @@ PrefabInstance:
     - target: {fileID: 8436521152876793829, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8436521152876793829, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8436521152876793829, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
