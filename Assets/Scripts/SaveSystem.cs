@@ -1,7 +1,9 @@
+using System; 
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -60,11 +62,14 @@ public class SaveSystem : MonoBehaviour
             SaveUnit data = GetSavedData(savePath); 
 
             Vector3 playerPos = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
-            // PlayerStats._instance.transform.position = playerPos;
-            // PlayerStats._instance.initialPosition = playerPos;
+
+            //if reloading save to a reached level, set position at the player position
+            PlayerStats._instance.transform.position = playerPos;
+            
             PlayerStats._instance.currentHealth = data.playerHealth;
             PlayerStats._instance.currentYarnCount = data.playerYarn; 
             PlayerStats._instance.potions = data.potions; 
+            PlayerStats._instance.levelsReached = data.levelsReached; 
         }
         else
         {
@@ -81,7 +86,7 @@ public class SaveSystem : MonoBehaviour
         if(data != null) {
             return data.currentSceneName; 
         } else {
-            return "Tutorial Level"; //starts over?
+            return "Tutorial Level"; 
         }
     }
 

@@ -1,3 +1,4 @@
+using System; 
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -40,6 +41,8 @@ public class PlayerStats : MonoBehaviour
     private float iFrameTimer = 0f;
     private bool invincible = false;
 
+    public bool[] levelsReached = {false, false, false};
+
     void Awake()
     {
         if (_instance == null)
@@ -73,11 +76,28 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        // try to prevent out of map spawn
-        if (initialPosition != null)
-        {
-            transform.position = initialPosition;
+        int currentLevel = -1; 
+        
+        if(String.Compare(SceneManager.GetActiveScene().name, "Tutorial Level") == 0) {
+            initialPosition = new Vector3(18.8f, 23.1f, -1f); 
+            currentLevel = 0; 
         }
+        else if(String.Compare(SceneManager.GetActiveScene().name, "Sanctuary") == 0) {
+            initialPosition = new Vector3(-75.3f, 46.7f, 0f); 
+            currentLevel = 1; 
+        } else if(String.Compare(SceneManager.GetActiveScene().name, "Second Level") == 0) {
+            initialPosition = new Vector3(32.6f, 27.3f, -1f); 
+            currentLevel = 2; 
+        }
+
+        // try to prevent out of map spawn
+        //if current level has not been reached yet, set initial position to correct position
+        if (initialPosition != null && !levelsReached[currentLevel])
+        {
+            transform.position = initialPosition; 
+            levelsReached[currentLevel] = true; 
+        } 
+        //else if already reached, then the position is set by the SaveSystem
     }
 
     //private void OnEnable()
