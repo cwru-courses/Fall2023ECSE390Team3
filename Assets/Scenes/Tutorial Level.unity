@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf544c7c4484ca94b892cb2420cd31e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wall1: {fileID: 769719595}
+  wall1: {fileID: 769719602}
   wall2: {fileID: 0}
   wallOff: {fileID: 616778798}
 --- !u!61 &3957075
