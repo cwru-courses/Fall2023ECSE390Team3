@@ -18,8 +18,8 @@ public class AutoSaveCollide : MonoBehaviour
         if (collider.gameObject.CompareTag("Player") == true && !collided)
         {
             // autoSaveText.SetActive(true);
-            StartCoroutine(ShowAutoSave()); 
             SaveSystem.CreateSave(); 
+            StartCoroutine(ShowAutoSave()); 
             collided = true;
         }
     }

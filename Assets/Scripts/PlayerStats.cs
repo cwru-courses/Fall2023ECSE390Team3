@@ -104,17 +104,6 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        //to test if health bar works- can press space bar to trigger
-        // if(Input.GetKeyDown(KeyCode.Space)) {
-        //     TakeDamage(10); 
-        // }
-
-        /* TO ADD:
-            enemy attack -> causes player health to decrease
-        */
-
-        //Debug.Log(playerInput.currentActionMap);
-
         //once player health gets below 0, go back to home screen (or load screen with saved checkpoints)
         if (currentHealth <= 0)
         {
