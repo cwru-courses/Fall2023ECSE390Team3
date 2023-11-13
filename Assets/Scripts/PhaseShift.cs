@@ -67,7 +67,8 @@ public class PhaseShift : MonoBehaviour
     // this is for enemy trigger
     public void StartPhaseShiftByEnemy()
     {
-        if (shiftCDTimer <= 0 && precastingTimer <= 0)
+        // don't need to check cd, because enemy trigger it whatever cd is ready or not
+        if (precastingTimer <= 0)
         {
             StartCoroutine("PhaseShiftPrecast");
         }
