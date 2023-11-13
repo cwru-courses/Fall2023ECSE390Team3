@@ -11,7 +11,6 @@ public class Flame : MonoBehaviour {
     // Collider of this flame game object
     private Collider2D flameCollider;
 
-
     // Start is called before the first frame update
     void Start() {
         flameCollider = GetComponent<Collider2D>();
@@ -27,14 +26,14 @@ public class Flame : MonoBehaviour {
         }
     }
 
-    // While player is in contact with flame collider, do increasing damage
+    // While player is in contact with flame collider, do damage
     private IEnumerator Burn() {
         int damage = 3;
 
         while (playerCollider.IsTouching(flameCollider)) {
             player.GetComponent<PlayerStats>().TakeDamage(damage);   // player takes damage
             yield return new WaitForSeconds(1.5f);                   // wait half a second
-            damage = damage + 2;                                     // increment damage
+            // damage = damage + 2;                                     // increment damage
         }
         
         yield return null;
