@@ -71,10 +71,10 @@ public class CameraControl : MonoBehaviour
         camMode = CamBehavior.PlayerFocus;
     }
 
-    public void SwitchToObjectFocus(Transform targetObjTransform)
+    public void SwitchToObjectFocus(Vector3 targetObjPosition)
     {
         camMode = CamBehavior.ObjectFocus;
-        targetTransform = targetObjTransform;
+        targetTransform.position = targetObjPosition;
     }
 
     public void SwitchToBossRoom(Vector3 roomCenterPos)
@@ -82,6 +82,7 @@ public class CameraControl : MonoBehaviour
         camMode = CamBehavior.BossRoom;
         roomCenterPosition = roomCenterPos;
     }
+
     public static void SwitchSide()
     {
         roomCenterPosition = new Vector3(roomCenterPosition.x,-1.0f*roomCenterPosition.y,roomCenterPosition.z);

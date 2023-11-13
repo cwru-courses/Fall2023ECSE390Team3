@@ -8,11 +8,14 @@ public class YarnPuzzleController : MonoBehaviour
     [SerializeField] private YarnPuzzlePointFlipped[] pointsArray;
     [SerializeField] private GameObject yarnLineControllerObject;
     [SerializeField] private int totalPoints;
-    [SerializeField] private GameObject wallToRemove1;
-    [SerializeField] private GameObject wallToRemove2;
+    [SerializeField] private wallOpenClose wallToRemove1;
+    [SerializeField] private wallOpenClose wallToRemove2;
     [SerializeField] private AudioSource wallUp;
     [SerializeField] private GameObject scratch1;
     [SerializeField] private GameObject scratch2;
+    [SerializeField] private CameraControl came;
+    [SerializeField] private Vector3 wallPosition;
+    [SerializeField] private float timeForDoorOpen = 3f;
     private bool puzzleActive = true;
     private int onPoint = -1;
     private Animator scratch1_ani;
@@ -29,6 +32,8 @@ public class YarnPuzzleController : MonoBehaviour
         {
             scratch2_ani = scratch2.GetComponent<Animator>();
         }
+
+        Debug.Log(wallToRemove1.transform.position);
     }
 
     // Update is called once per frame
@@ -44,7 +49,7 @@ public class YarnPuzzleController : MonoBehaviour
         {
             puzzleActive = false;
             Debug.Log("reached the end of the puzzle");
-            PuzzleReward();
+            StartCoroutine(PuzzleReward());
         }
     }
 
@@ -70,28 +75,47 @@ public class YarnPuzzleController : MonoBehaviour
         }
     }
 
-    private void PuzzleReward()
+    private IEnumerator PuzzleReward()
     {
-        if (wallToRemove1 != null)
+        yield return new WaitForSeconds(0.5f);
+        if (came != null)
         {
-            wallToRemove1.SetActive(false);
-        }
-        if (wallToRemove2 != null)
-        {
-            wallToRemove2.SetActive(false);
-        }
-        if (wallUp != null)
-        {
-            wallUp.Play();
+            Transform scratchTrans = scratch1_ani.transform;
+            Vector3 watchScratch = new Vector3(scratchTrans.position.x, scratchTrans.position.y, 0);
+            
+            // watch scratch to close first
+            came.SwitchToBossRoom(watchScratch);
+            if (scratch1_ani != null)
+            {
+                scratch1_ani.SetBool("closed", true);
+            }
+            if (scratch2_ani != null)
+            {
+                scratch2_ani.SetBool("closed", true);
+            }
+            yield return new WaitForSeconds(0.5f);
+
+            
+            Vector3 watchWall = new Vector3(wallPosition.x, wallPosition.y, 0);
+            // watch door to open next
+            came.SwitchToBossRoom(watchWall);
+            if (wallToRemove1 != null)
+            {
+                StartCoroutine(wallToRemove1.toOpen());
+            }
+            if (wallToRemove2 != null)
+            {
+                StartCoroutine(wallToRemove2.toOpen());
+            }
+            if (wallUp != null)
+            {
+                wallUp.Play();
+            }
+            yield return new WaitForSeconds(timeForDoorOpen + 0.5f);
+
+            // get back to player
+            came.SwitchToPlayerFocus();
         }
 
-        if (scratch1_ani != null)
-        {
-            scratch1_ani.SetBool("closed", true);
-        }
-        if (scratch2_ani != null)
-        {
-            scratch2_ani.SetBool("closed", true);
-        }
     }
 }

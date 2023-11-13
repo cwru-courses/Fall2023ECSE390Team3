@@ -5,9 +5,11 @@ using UnityEngine;
 public class HideWallsWhenEnemiesEradicated : MonoBehaviour
 {
     [SerializeField] private GameObject[] objectsToWatch;
-    [SerializeField] private GameObject wall1;
-    [SerializeField] private GameObject wall2;
+    [SerializeField] private wallOpenClose wall1;
+    [SerializeField] private wallOpenClose wall2;
     [SerializeField] private AudioSource wallUp;
+    [SerializeField] private CameraControl came;
+    [SerializeField] private Vector3 wallPosition;
     bool allDestroyed;
 
     // Start is called before the first frame update
@@ -36,25 +38,53 @@ public class HideWallsWhenEnemiesEradicated : MonoBehaviour
             if (destroyed)
             {
                 allDestroyed = true;
-                WallDisappear();
+                StartCoroutine(WallDisappear());
             }
         }
         
     }
 
-    private void WallDisappear()
+    private IEnumerator WallDisappear()
     {
-        if (wall1 != null)
+        if (came != null)
         {
-            wall1.SetActive(false);
-        }
-        if (wall2 != null)
-        {
-            wall2.SetActive(false);
-        }
-        if (wallUp != null)
-        {
-            wallUp.Play();
+            Vector3 flippedWallPosition = new Vector3(wallPosition.x, -wallPosition.y, 0);
+            Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+            float distanceToFlippedWall = Vector3.Distance(playerPosition, flippedWallPosition);
+            float distanceToNormalWall = Vector3.Distance(playerPosition, wallPosition);
+
+            Vector3 watchWall;
+            if (distanceToFlippedWall < distanceToNormalWall)
+            {
+                // player is closer to wall in flipped world
+                watchWall = flippedWallPosition;
+            }
+            else
+            {
+                // player is closer to wall in normal world
+                watchWall = new Vector3(wallPosition.x, wallPosition.y, 0);
+            }
+
+            
+            // watch door to open
+            came.SwitchToBossRoom(watchWall);
+            if (wall1 != null)
+            {
+                StartCoroutine(wall1.toOpen());
+            }
+            if (wall2 != null)
+            {
+                StartCoroutine(wall2.toOpen());
+            }
+            if (wallUp != null)
+            {
+                wallUp.Play();
+            }
+
+            yield return new WaitForSeconds(3.5f);
+
+            // get back to player
+            came.SwitchToPlayerFocus();
         }
     }
 

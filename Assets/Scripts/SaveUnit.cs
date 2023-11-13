@@ -1,4 +1,6 @@
+using UnityEngine; 
 using System;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 [Serializable]
@@ -9,6 +11,7 @@ public class SaveUnit
     public float playerYarn; 
     public int potions; 
     public string currentSceneName; 
+    public bool[] levelsReached; 
     //public float playerMana;
 
     public SaveUnit()
@@ -23,5 +26,6 @@ public class SaveUnit
         playerYarn = PlayerStats._instance.currentYarnCount; 
         potions = PlayerStats._instance.potions; 
         currentSceneName = SceneManager.GetActiveScene().name;
+        levelsReached =  PlayerStats._instance.levelsReached; 
     }
 }

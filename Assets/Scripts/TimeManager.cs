@@ -20,7 +20,7 @@ public class TimeManager : MonoBehaviour
         onPauseMenu = paused;
         if (onPauseMenu || onDialog)
         {
-            // Time.timeScale = 0f;
+            Time.timeScale = 0f;
             PlayerStats._instance.playerInput.SwitchCurrentActionMap("UI");
         }
         else
