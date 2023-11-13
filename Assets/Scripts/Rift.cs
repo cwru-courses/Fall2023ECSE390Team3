@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* A script that would activate stitch/shift when a player makes contact with a rift.
+ * I don't think it is going to end up finished and being used, but I figure I shouldn't
+ * delete it. */
+
+
 public class Rift : MonoBehaviour {
 
     // Player and collider of player
