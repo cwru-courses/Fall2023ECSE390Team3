@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class MusicSwitchTrigger : MonoBehaviour
 {
-    [SerializeField] private AudioClip track;
+    [SerializeField] private AudioClip trackA;
+    [SerializeField] private AudioClip trackB;
     [SerializeField] private Collider2D trig;
     [SerializeField] private AmbientSystem theAS;
 
@@ -30,9 +31,9 @@ public class MusicSwitchTrigger : MonoBehaviour
         // Debug.Log("start fight");
         if(other ==trig)
         {
-            if(track!=null)
+            if(trackA!=null&&trackB!=null)
             {
-                theAS.changeMusic(track);
+                theAS.SwitchAudioClip(trackA,trackB);
                 if(boss)
                 {
                     cam.SwitchToBossRoom(roomCenterPosition);
@@ -46,7 +47,7 @@ public class MusicSwitchTrigger : MonoBehaviour
         // Debug.Log("end fight");
         if(other ==trig)
         {
-            if(track!=null)
+            if(trackA!=null&&trackB!=null)
             {
                 theAS.playOG();
                 if(boss)

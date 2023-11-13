@@ -7636,8 +7636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalDistMultiplier: 0
-  mainClip: {fileID: 0}
-  reversedClip: {fileID: 0}
+  mainClip: {fileID: 8300000, guid: dd928ebf0a863be49bb7b64d606e563c, type: 3}
+  reversedClip: {fileID: 8300000, guid: dd928ebf0a863be49bb7b64d606e563c, type: 3}
   fight: {fileID: 0}
   cam: {fileID: 0}
   boss: {fileID: 0}
