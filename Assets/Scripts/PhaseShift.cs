@@ -64,6 +64,15 @@ public class PhaseShift : MonoBehaviour
         }
     }
 
+    // this is for enemy trigger
+    public void StartPhaseShiftByEnemy()
+    {
+        if (shiftCDTimer <= 0 && precastingTimer <= 0)
+        {
+            StartCoroutine("PhaseShiftPrecast");
+        }
+    }
+
     public void ToPhaseShift()
     {
         // trigger nearby puzzle point

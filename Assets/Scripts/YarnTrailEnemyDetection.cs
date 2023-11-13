@@ -22,7 +22,7 @@ public class YarnTrailEnemyDetection : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("needle cutted the trail");
-            PhaseShift._instance.ToPhaseShift();
+            PhaseShift._instance.StartPhaseShiftByEnemy();
         }
     }
 }

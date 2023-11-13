@@ -78,11 +78,11 @@ public class YarnTrail : MonoBehaviour
             {
                 puzzleControllerOne.TrailCutted();
             }
-            else if (puzzleControllerOne != null && puzzleControllerTwo.PuzzleActive())
+            else if (puzzleControllerTwo != null && puzzleControllerTwo.PuzzleActive())
             {
                 puzzleControllerTwo.TrailCutted();
             }
-            else if (puzzleControllerOne != null && puzzleControllerThree.PuzzleActive())
+            else if (puzzleControllerThree != null && puzzleControllerThree.PuzzleActive())
             {
                 puzzleControllerThree.TrailCutted();
             }
