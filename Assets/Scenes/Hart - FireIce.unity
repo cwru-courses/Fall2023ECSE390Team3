@@ -283,7 +283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &29346240
 Transform:
   m_ObjectHideFlags: 0
@@ -6849,6 +6849,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6880222555565516658, guid: 5094d1557b7552c48a113895b688591a, type: 3}
+      propertyPath: m_TagString
+      value: Flame
+      objectReference: {fileID: 0}
     - target: {fileID: 6880222555565516659, guid: 5094d1557b7552c48a113895b688591a, type: 3}
       propertyPath: m_Controller
       value: 
@@ -9892,7 +9896,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1308459388
 MonoBehaviour:
@@ -10856,6 +10860,10 @@ PrefabInstance:
     - target: {fileID: 6880222555565516658, guid: 5094d1557b7552c48a113895b688591a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880222555565516658, guid: 5094d1557b7552c48a113895b688591a, type: 3}
+      propertyPath: m_TagString
+      value: Flame
       objectReference: {fileID: 0}
     - target: {fileID: 6880222555565516659, guid: 5094d1557b7552c48a113895b688591a, type: 3}
       propertyPath: m_Controller
@@ -46175,6 +46183,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8624563699442648295, guid: ab010414735b3ee46b8e12a1b5000164, type: 3}
+      propertyPath: m_TagString
+      value: Flame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab010414735b3ee46b8e12a1b5000164, type: 3}
 --- !u!1 &1673591284 stripped
@@ -46290,6 +46302,10 @@ PrefabInstance:
     - target: {fileID: 8624563699442648295, guid: ab010414735b3ee46b8e12a1b5000164, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624563699442648295, guid: ab010414735b3ee46b8e12a1b5000164, type: 3}
+      propertyPath: m_TagString
+      value: Flame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab010414735b3ee46b8e12a1b5000164, type: 3}
@@ -46680,6 +46696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossCat Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2460894157062390123, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2460894157062390127, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -46833,6 +46853,10 @@ PrefabInstance:
     - target: {fileID: 6880222555565516658, guid: 5094d1557b7552c48a113895b688591a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880222555565516658, guid: 5094d1557b7552c48a113895b688591a, type: 3}
+      propertyPath: m_TagString
+      value: Flame
       objectReference: {fileID: 0}
     - target: {fileID: 6880222555565516659, guid: 5094d1557b7552c48a113895b688591a, type: 3}
       propertyPath: m_Controller
@@ -47771,7 +47795,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6656067711847261056, guid: 275b58d8c62b57b4fa4439202e8b9796, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6656067711847261056, guid: 275b58d8c62b57b4fa4439202e8b9796, type: 3}
       propertyPath: m_LocalPosition.x

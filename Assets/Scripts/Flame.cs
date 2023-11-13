@@ -40,4 +40,20 @@ public class Flame : MonoBehaviour {
     }
 
 
+    public IEnumerator Extinguish() {
+        // Play flame going out animation
+        // yield new WaitForSeconds(#);
+
+        Debug.Log("Flame Extinguished");
+        Destroy(gameObject);
+
+        yield return null;
+    }
+
+
+    // Things to maybe do:
+    // Have an enemy be able to create a flame on the fire side (when it stands still or is attacking)
+    // Have a generated flame go through a life cycle and get smaller then go out
+    // Have a flame disappear if the player attacks it
+
 }

@@ -109,6 +109,18 @@ public class PlayerAttack : MonoBehaviour
                             if (hit.transform == projectiles[i].GetTargetTransform()) { projectiles[i].Detach(); }
                         }
                     }
+
+                    // Added functionality for player being able to get rid of flames
+                    /*
+                    else {
+                        GameObject objectHit = new GameObject();
+                        objectHit = hit.collider.gameObject;
+                        if (objectHit.tag == "Flame") {
+                            objectHit.GetComponent<Flame>().Extinguish();
+                        }
+                    }
+                    */
+
                 }
             }
             lastAttackTime = Time.time; // update last Attack time

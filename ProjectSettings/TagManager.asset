@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Stone
   - PressurePlate
+  - Flame
   layers:
   - Default
   - TransparentFX
