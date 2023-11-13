@@ -24,6 +24,8 @@ public class AmbientSystem : MonoBehaviour
     private float totalTime;
     private bool isPlayingForward = true;
     private float crossfadeDuration = 1.0f;
+    private AudioClip oldA;
+    private AudioClip oldB;
 
     void Awake()
     {
@@ -119,37 +121,59 @@ public class AmbientSystem : MonoBehaviour
     }
 
     // Function to switch between audio clips
-    private void SwitchAudioClip(AudioClip nextClip)
+    public void SwitchAudioClip(AudioClip nextClipA,AudioClip nextClipB)
     {
-        if (nextClip == null || nextClip == forwardAudioSource.clip)
+        // if (nextClip == null || nextClip == forwardAudioSource.clip)
+        // {
+        //     return;
+        // }
+        // oldA = forwardAudioSource.clip;
+        // oldB = reversedAudioSource.clip;
+        if (isPlayingForward)
         {
-            return;
+            forwardAudioSource.Stop();
+            reversedAudioSource.clip = nextClipB;
+            forwardAudioSource.clip = nextClipA;
+            forwardAudioSource.Play();
         }
-
-        forwardAudioSource.Stop();
-        forwardAudioSource.clip = nextClip;
-        forwardAudioSource.Play();
+        else
+        {
+            reversedAudioSource.Stop();
+            forwardAudioSource.clip = nextClipA;
+            reversedAudioSource.clip = nextClipB;
+            reversedAudioSource.Play();
+        }
+        // forwardAudioSource.Stop();
+        // forwardAudioSource.clip = nextClipA;
+        // forwardAudioSource.Play();
     }
 
-    public void changeMusic(AudioClip nextTrack)
-    {
-        if (nextTrack == null || nextTrack == forwardAudioSource.clip)
-        {
-            return;
-        }
-        forwardAudioSource.Stop();
-        forwardAudioSource.clip = nextTrack;
-        forwardAudioSource.Play();
-    }
+    // public void changeMusic(AudioClip nextTrack)
+    // {
+    //     if (nextTrack == null || nextTrack == forwardAudioSource.clip)
+    //     {
+    //         return;
+    //     }
+    //     forwardAudioSource.Stop();
+    //     forwardAudioSource.clip = nextTrack;
+    //     forwardAudioSource.Play();
+    // }
 
     public void playOG()
     {
-        if (mainClip == forwardAudioSource.clip)
+        if (isPlayingForward)
         {
-            return;
+            forwardAudioSource.Stop();
+            reversedAudioSource.clip = reversedClip;
+            forwardAudioSource.clip = mainClip;
+            forwardAudioSource.Play();
         }
-        forwardAudioSource.Stop();
-        forwardAudioSource.clip = mainClip;
-        forwardAudioSource.Play();
+        else
+        {
+            reversedAudioSource.Stop();
+            forwardAudioSource.clip = mainClip;
+            reversedAudioSource.clip = reversedClip;
+            reversedAudioSource.Play();
+        }
     }
 }

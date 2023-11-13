@@ -2185,6 +2185,7 @@ MonoBehaviour:
   scratch2: {fileID: 1922271108}
   came: {fileID: 520802791}
   wallPosition: {x: 0, y: 60, z: 0}
+  timeForDoorOpen: 3
 --- !u!1 &229234768 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 986031642315237854, guid: 5a00960f283e44040984961cae812dc4, type: 3}
@@ -8400,7 +8401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camMode: 0
   playerTransform: {fileID: 777061484}
-  playerFocusFOV: 5
+  playerFocusFOV: 10
   targetTransform: {fileID: 777061484}
   objectFocusFOV: 0
   bossRoomFOV: 15
@@ -8864,6 +8865,7 @@ MonoBehaviour:
   scratch2: {fileID: 1657557963}
   came: {fileID: 520802791}
   wallPosition: {x: -10, y: 18, z: 0}
+  timeForDoorOpen: 3
 --- !u!1001 &602145109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9495,7 +9497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29adea124beda0c4f9186f61f843e841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: 208b8aedac5852c4998ce856abc05edd, type: 3}
+  trackA: {fileID: 0}
+  trackB: {fileID: 0}
   trig: {fileID: 777061483}
   theAS: {fileID: 1580157305}
   boss: 0
@@ -13450,7 +13453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29adea124beda0c4f9186f61f843e841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: 5ccfb635fa09ede47a570e18f8058b80, type: 3}
+  trackA: {fileID: 8300000, guid: 92dff05c03e4a3b4bb3fa34f783731dc, type: 3}
+  trackB: {fileID: 8300000, guid: 02da4600f31cebb45990f40015dd4393, type: 3}
   trig: {fileID: 777061483}
   theAS: {fileID: 1580157305}
   boss: 1
@@ -15432,8 +15436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalDistMultiplier: 0.7
-  mainClip: {fileID: 8300000, guid: 208b8aedac5852c4998ce856abc05edd, type: 3}
-  reversedClip: {fileID: 8300000, guid: e746f385f7810424fbcdede1ab7b0d87, type: 3}
+  mainClip: {fileID: 8300000, guid: 735751272f2ead04c9ee8e98802f11b2, type: 3}
+  reversedClip: {fileID: 8300000, guid: 1459e852b15294b4bbc21d165011e85f, type: 3}
   fight: {fileID: 687604723}
   cam: {fileID: 520802791}
   boss: {fileID: 1223262371}
@@ -15461,7 +15465,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7532590129587120707, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 208b8aedac5852c4998ce856abc05edd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 735751272f2ead04c9ee8e98802f11b2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -15599,7 +15603,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7532590129587120707, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e746f385f7810424fbcdede1ab7b0d87, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1459e852b15294b4bbc21d165011e85f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -18284,6 +18288,7 @@ MonoBehaviour:
   scratch2: {fileID: 2422596}
   came: {fileID: 520802791}
   wallPosition: {x: 23, y: 35, z: 0}
+  timeForDoorOpen: 3
 --- !u!1001 &6656067712239022321
 PrefabInstance:
   m_ObjectHideFlags: 0
