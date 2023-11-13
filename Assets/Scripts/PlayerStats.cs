@@ -83,7 +83,7 @@ public class PlayerStats : MonoBehaviour
             currentLevel = 0; 
         }
         else if(String.Compare(SceneManager.GetActiveScene().name, "Sanctuary") == 0) {
-            initialPosition = new Vector3(-75.3f, 46.7f, 0f); 
+            initialPosition = new Vector3(-75.3f, 46.7f, -1f); 
             currentLevel = 1; 
         } else if(String.Compare(SceneManager.GetActiveScene().name, "Second Level") == 0) {
             initialPosition = new Vector3(32.6f, 27.3f, -1f); 
@@ -96,8 +96,11 @@ public class PlayerStats : MonoBehaviour
         {
             transform.position = initialPosition; 
             levelsReached[currentLevel] = true; 
-        } 
-        //else if already reached, then the position is set by the SaveSystem
+        } else {
+             //else if already reached, then the position is set by the SaveSystem
+            SaveSystem.SetPlayerPosition(); 
+        }
+       
     }
 
     //private void OnEnable()

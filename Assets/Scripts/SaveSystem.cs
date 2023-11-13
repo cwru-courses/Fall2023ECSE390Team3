@@ -61,10 +61,9 @@ public class SaveSystem : MonoBehaviour
         {
             SaveUnit data = GetSavedData(savePath); 
 
-            Vector3 playerPos = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
-
+            // Vector3 playerPos = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
             //if reloading save to a reached level, set position at the player position
-            PlayerStats._instance.transform.position = playerPos;
+            // PlayerStats._instance.transform.position = playerPos;
             
             PlayerStats._instance.currentHealth = data.playerHealth;
             PlayerStats._instance.currentYarnCount = data.playerYarn; 
@@ -79,6 +78,16 @@ public class SaveSystem : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public static void SetPlayerPosition() {
+        string savePath = Application.persistentDataPath + "/" + currentFileName + ".sav";
+        SaveUnit data = GetSavedData(savePath); 
+
+        if(data != null) {
+            PlayerStats._instance.transform.position = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
+        } 
+
+    }
+
     public static string LoadSavedSceneName() {
         string savePath = Application.persistentDataPath + "/" + currentFileName + ".sav";
         SaveUnit data = GetSavedData(savePath); 
@@ -87,6 +96,17 @@ public class SaveSystem : MonoBehaviour
             return data.currentSceneName; 
         } else {
             return "Tutorial Level"; 
+        }
+    }
+
+    public static void GetInitialPositions() {
+         if(String.Compare(SceneManager.GetActiveScene().name, "Tutorial Level") == 0) {
+            PlayerStats._instance.transform.position = new Vector3(18.8f, 23.1f, -1f); 
+        }
+        else if(String.Compare(SceneManager.GetActiveScene().name, "Sanctuary") == 0) {
+            PlayerStats._instance.transform.position = new Vector3(-75.3f, 46.7f, 0f); 
+        } else if(String.Compare(SceneManager.GetActiveScene().name, "Second Level") == 0) {
+            PlayerStats._instance.transform.position = new Vector3(32.6f, 27.3f, -1f); 
         }
     }
 
