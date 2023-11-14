@@ -2,14 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//
 public class TitleScreen : MonoBehaviour
 {
-
-    private void Start()
-    {
-    }
-
     public void Play(){
         //if have saved 3 files, should go to load screen
         int numSaved = SaveSystem.GetNumberSavedFiles();
@@ -24,6 +19,11 @@ public class TitleScreen : MonoBehaviour
 
     public void NavigateToLoadScreen() {
         SceneManager.LoadSceneAsync("Load Screen");
+    }
+
+    public void NavigateToCreditsScreen()
+    {
+        SceneManager.LoadSceneAsync("Credits Screen");
     }
 
     public void Quit(){
