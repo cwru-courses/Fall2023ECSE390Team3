@@ -8072,7 +8072,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471095982}
   m_LocalRotation: {x: -0, y: -0, z: -0.4610481, w: 0.8873752}
-  m_LocalPosition: {x: 2.4, y: 55, z: 0.03}
+  m_LocalPosition: {x: 2.4, y: 55, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10031,6 +10031,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6656067711847261057, guid: 275b58d8c62b57b4fa4439202e8b9796, type: 3}
   swingSFX: {fileID: 2091948633}
   anim: {fileID: 1613083874}
+  weaponHolderAnim: {fileID: 0}
 --- !u!114 &777061480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17179,7 +17180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922271108}
   m_LocalRotation: {x: -0, y: -0, z: -0.17428042, w: 0.9846961}
-  m_LocalPosition: {x: 2.4, y: -53, z: 0.03}
+  m_LocalPosition: {x: 2.4, y: -53, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
