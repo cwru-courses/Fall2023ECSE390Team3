@@ -3261,11 +3261,10 @@ MonoBehaviour:
   - Welcome to the Sanctuary. It's time to show off your skills!
   - 'You cannot stitch here, so "Q" has been disabled. '
   - 'Remember: use the mouse''s left click to attack, and ''Shift'' to dash.'
-  - '''E'' activates a special yarn ability lasso.'
-  - And holding right click activates the shield yarn ability.
+  - '''E'' activates a temporary shield.'
   - Shield slows you down, so be careful using it.
-  - To use lasso, you must press E, walk around the enemy, and press E again to stun
-    the enemy with your yarn.
+  - And holding right click activates a lasso that stuns your enemies.
+  - To use lasso, draw around the enemy and press.
   - If you're confused on any of the commands, use the Escape button to open the
     menu and check the controls.
   isRunning: 0
