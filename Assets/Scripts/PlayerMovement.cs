@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCD;
     [SerializeField] private Animator anim;
-    [SerializeField] private AudioSource audSource;
+    [SerializeField] public AudioSource audSource;
 
 
     private DefaultInputAction playerInputAction;
@@ -108,8 +108,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (audSource.mute == false)
+            if (audSource.mute == false){
                 audSource.mute = true;
+            }
         }
 
         if (onDash)

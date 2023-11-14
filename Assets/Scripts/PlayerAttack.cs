@@ -87,7 +87,6 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Time.time - lastAttackTime > attackCD)
         {
-            
             RaycastHit2D[] inRangeColliderHits = Physics2D.CircleCastAll(
                 transform.position,
                 attackRadius,
@@ -124,22 +123,23 @@ public class PlayerAttack : MonoBehaviour
             lastAttackTime = Time.time; // update last Attack time
             StartCoroutine(AttackFX()); // attack visual effects
             PlayerStats._instance.UseYarn(5);
-            
         }
     }
 
     //temporary implementation until animations are made
     private IEnumerator AttackFX()
     {
+        weaponHolder.gameObject.SetActive(false);
         if (anim) {
             print("set attack trigger");
-            anim.SetBool("isAttacking",true); 
+            anim.SetBool("isAttacking",true);
         }
         yield return new WaitForSeconds(attackCD);
         if (anim) {
             print("attack trigger reset");
-            anim.SetBool("isAttacking",false); 
+            anim.SetBool("isAttacking",false);
         }
+        weaponHolder.gameObject.SetActive(true);
     }
 
     public void LaunchProjectile(InputAction.CallbackContext ctx)
