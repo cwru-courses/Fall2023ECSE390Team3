@@ -47,8 +47,10 @@ public class Chest : MonoBehaviour {
         audSource.Play();
 
         // Camera focus on chest
-        mainCamera.GetComponent<CameraControl>().SwitchToObjectFocus(this.transform.position);
+        mainCamera.GetComponent<CameraControl>().SwitchToBossRoom(this.transform.position);
         Debug.Log("Should focus on chest");
+
+        yield return new WaitForSeconds(0.5f);
 
         chest.sprite = openChest;
         // anim.Play("Chest_open");

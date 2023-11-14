@@ -1489,11 +1489,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &378182230 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da, type: 3}
-  m_PrefabInstance: {fileID: 378182224}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &378937359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,7 +1690,7 @@ MonoBehaviour:
   camMode: 0
   playerTransform: {fileID: 777061484}
   playerFocusFOV: 5
-  targetTransform: {fileID: 378182230}
+  targetTransform: {fileID: 777061484}
   objectFocusFOV: 5
   bossRoomFOV: 15
   playerOffsetMultiplier: {x: 0.2, y: 0.2}
@@ -4357,6 +4352,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestToUnlock: {fileID: 378182225}
   tilemapToDisable: {fileID: 769719594}
+  tilemapPosition: {x: 0, y: 0, z: 0}
+  mainCamera: {fileID: 0}
 --- !u!50 &771034840
 Rigidbody2D:
   serializedVersion: 4
@@ -8662,8 +8659,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfa7011de6416644a5efb1ff36f2714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestToUnlock: {fileID: 378182225}
+  chestToUnlock: {fileID: 0}
   tilemapToDisable: {fileID: 111687498}
+  tilemapPosition: {x: -1.1, y: -30.25, z: 0}
+  mainCamera: {fileID: 0}
 --- !u!50 &1899654023
 Rigidbody2D:
   serializedVersion: 4

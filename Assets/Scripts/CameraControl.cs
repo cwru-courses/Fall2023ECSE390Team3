@@ -82,6 +82,7 @@ public class CameraControl : MonoBehaviour
         camMode = CamBehavior.PlayerFocus;
     }
 
+    // DOESN'T WORK, Use SwitchToBossRoom on Object Position
     public void SwitchToObjectFocus(Vector3 targetObjPosition) {
         targetTransform.position = targetObjPosition;
         camMode = CamBehavior.ObjectFocus;
