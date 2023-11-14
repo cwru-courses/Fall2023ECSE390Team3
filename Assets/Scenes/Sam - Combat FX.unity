@@ -3590,6 +3590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 0}
+  audioSource: {fileID: 0}
   textComponent: {fileID: 778277135}
   lines:
   - You successfully phase shifted!
@@ -3795,7 +3797,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29adea124beda0c4f9186f61f843e841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: 208b8aedac5852c4998ce856abc05edd, type: 3}
+  trackA: {fileID: 0}
+  trackB: {fileID: 0}
   trig: {fileID: 777061483}
   theAS: {fileID: 1580157305}
   boss: 0
@@ -5644,6 +5647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
   maxHealth: 100
   yarncooldown: 0
   currentHealth: 0
@@ -5653,7 +5657,6 @@ MonoBehaviour:
   healthBar: {fileID: 1655151669}
   potions: 0
   healthFromPotion: 20
-  maxPotion: 8
   potionUI: {fileID: 443517435}
   inFlippedWorld: 0
   blocking: 0
@@ -5661,6 +5664,8 @@ MonoBehaviour:
   hitSFX: {fileID: 1549921475}
   potionSFX: {fileID: 0}
   iFrameTime: 0
+  canRegenYarn: 1
+  levelsReached: 000000
 --- !u!50 &777061482
 Rigidbody2D:
   serializedVersion: 4
@@ -5706,7 +5711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777061477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.77, y: 21.1, z: 0}
+  m_LocalPosition: {x: -17.07, y: 21.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5803,22 +5808,6 @@ MonoBehaviour:
     m_ActionName: UI/Pause[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 777061477}
-        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: e21d4237-bb8f-4da8-94c9-eae29e4959da
-    m_ActionName: Player/Launch Projectile[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 777061486}
         m_TargetAssemblyTypeName: PlayerAbilities, Assembly-CSharp
         m_MethodName: startBlock
@@ -5869,6 +5858,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 42f747d1-7664-41c0-8e86-09e9a58aa16c
     m_ActionName: UI/Dialogue[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ebb0b587-ecb8-4819-a1e5-e84301d22419
+    m_ActionName: Player/Pickup[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -5890,6 +5883,7 @@ MonoBehaviour:
   stunMeshPrefab: {fileID: 3963732116267324356, guid: efd0d9714c076fd45bece886f8b43f53, type: 3}
   stitchingSFX: {fileID: 1018701338}
   lineMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  pathRender: {fileID: 0}
 --- !u!114 &777061487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5906,6 +5900,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 67108864
+  PickUpIcon: {fileID: 0}
 --- !u!82 &777061488
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6292,6 +6287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 0}
+  audioSource: {fileID: 0}
   textComponent: {fileID: 778277135}
   lines:
   - Seems like there's something weird going on in this room.
@@ -7979,6 +7976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   musicSlider: {fileID: 852286652}
+  sfxSlider: {fileID: 0}
 --- !u!114 &1074779709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8609,7 +8607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29adea124beda0c4f9186f61f843e841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: e0af279364bdb39429dc8cd49d010f54, type: 3}
+  trackA: {fileID: 0}
+  trackB: {fileID: 0}
   trig: {fileID: 777061483}
   theAS: {fileID: 1580157305}
   boss: 1
@@ -8924,6 +8923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 0}
+  audioSource: {fileID: 0}
   textComponent: {fileID: 778277135}
   lines:
   - Careful! Enemies wander the next room. Use your mouse's left click to attack.
@@ -9070,6 +9071,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 0}
+  audioSource: {fileID: 0}
   textComponent: {fileID: 778277135}
   lines:
   - Good job! But don't be so relieved yet.
@@ -9558,6 +9561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d3093111ab37e4789a34c7037036e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 0}
+  audioSource: {fileID: 0}
   textComponent: {fileID: 778277135}
   lines:
   - Hello, welcome to the tutorial. Press space to continue.
@@ -9831,6 +9836,10 @@ PrefabInstance:
     - target: {fileID: 7270424618208863165, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_Color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228491249766067849, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
@@ -10519,12 +10528,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalDistMultiplier: 0.7
-  startingPitch: 1
   mainClip: {fileID: 8300000, guid: 0620d6eb455355c4490653610689c27d, type: 3}
+  reversedClip: {fileID: 0}
   fight: {fileID: 687604723}
   cam: {fileID: 520802791}
   boss: {fileID: 1223262371}
-  audSource: {fileID: 1580157308}
+  forwardAudioSource: {fileID: 0}
+  reversedAudioSource: {fileID: 0}
 --- !u!114 &1580157306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11251,6 +11261,10 @@ PrefabInstance:
     - target: {fileID: 7270424618208863164, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228491249766067849, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8228491249766067849, guid: 2aae9ad057dd0432fb36178160a3b7ef, type: 3}
       propertyPath: m_AnchoredPosition.x
