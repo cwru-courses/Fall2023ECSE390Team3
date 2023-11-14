@@ -15,6 +15,7 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+
     public void OnPause(bool paused)
     {
         onPauseMenu = paused;
@@ -36,6 +37,7 @@ public class TimeManager : MonoBehaviour
         if (onPauseMenu || onDialog)
         {
             Time.timeScale = 0f;
+            PlayerMovement._instance.audSource.mute = true;
             PlayerStats._instance.playerInput.SwitchCurrentActionMap("UI");
         }
         else

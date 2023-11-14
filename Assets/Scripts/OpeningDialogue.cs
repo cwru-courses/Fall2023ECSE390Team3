@@ -12,18 +12,18 @@ public class OpeningDialogue : CollisionDialogue
     [SerializeField] protected GameObject shift_arrow;
 
     public override IEnumerator TypeLine(){
-        if(base.index == 6){
+        if(base.index == 4){
             health_arrow.SetActive(true);
         }
-        else if(base.index == 7){
+        else if(base.index == 5){
             health_arrow.SetActive(false);
             yarn_arrow.SetActive(true);
         }
-        else if(base.index == 8){
+        else if(base.index == 6){
             yarn_arrow.SetActive(false);
             shift_arrow.SetActive(true);
         }
-        else if(base.index > 8){
+        else if(base.index > 6){
             shift_arrow.SetActive(false);
         }
         foreach(char c in base.lines[base.index].ToCharArray()){
