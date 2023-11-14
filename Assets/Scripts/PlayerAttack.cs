@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     public static PlayerAttack _instance;
 
     [Range(0f, 180f)]
-    [SerializeField] private float attackRangeAngle;
+    [SerializeField] private float attackRangeAngle = 90;
     [Min(0)]
     [SerializeField] private float attackRadius;
     [SerializeField] private float attackCD;  // Time between swings
@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
     private float attackAngleCosVal;
     private float lastAttackTime;
 
-    private Animation weaponHolderAnim;
+    [SerializeField] private GameObject weaponHolderAnim;
 
     private ProjectileController[] projectiles;
 
@@ -47,7 +47,7 @@ public class PlayerAttack : MonoBehaviour
         attackAngleCosVal = Mathf.Cos(attackRangeAngle / 2f);
         lastAttackTime = -attackCD;
 
-        weaponHolderAnim = weaponHolder.GetComponent<Animation>();
+        //weaponHolderAnim = weaponHolder.GetComponent<Animation>();
 
         projectiles = new ProjectileController[projectileNum];
         for (int i = 0; i < projectileNum; i++)
@@ -106,7 +106,7 @@ public class PlayerAttack : MonoBehaviour
 
             foreach (RaycastHit2D hit in inRangeColliderHits)
             {
-                if (Vector2.Dot((hit.point - hit.centroid).normalized, lookAtDir.normalized) > attackAngleCosVal)
+                if (Vector2.Angle((hit.point - hit.centroid).normalized, lookAtDir.normalized) <attackRangeAngle)
                 {
                     BaseEnemy enemyController = hit.collider.GetComponent<BaseEnemy>();
                     if (enemyController)
@@ -131,14 +131,29 @@ public class PlayerAttack : MonoBehaviour
     //temporary implementation until animations are made
     private IEnumerator AttackFX()
     {
+        GameObject WeaponAnimation;
+        if (weaponHolderAnim) {
+            WeaponAnimation = Instantiate<GameObject>(weaponHolderAnim);
+            WeaponAnimation.transform.parent = this.transform;
+            WeaponAnimation.transform.position = this.transform.position;
+            WeaponAnimation.transform.rotation = weaponHolder.rotation;
+        }
+        else
+        {
+            WeaponAnimation = new GameObject("temp_attack_effect");
+            WeaponAnimation.transform.parent = this.transform;
+            WeaponAnimation.transform.position = this.transform.position;
+        }
         if (anim) {
             print("set attack trigger");
             anim.SetBool("isAttacking",true); 
         }
         yield return new WaitForSeconds(attackCD);
+        Destroy(WeaponAnimation); 
         if (anim) {
             print("attack trigger reset");
             anim.SetBool("isAttacking",false); 
+            
         }
     }
 

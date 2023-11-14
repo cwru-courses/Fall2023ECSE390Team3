@@ -691,7 +691,7 @@ Animation:
   m_GameObject: {fileID: 212344459}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: f7785844130a1d64593856e32f252f90, type: 2}
+  m_Animation: {fileID: 7400000, guid: 23100dcd27a4d3e43ad61b8283454abd, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: f7785844130a1d64593856e32f252f90, type: 2}
   m_WrapMode: 0
@@ -3630,9 +3630,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2265f9f1bcd3a46bab0f314a994514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRangeAngle: 45
+  attackRangeAngle: 90
   attackRadius: 3
-  attackCD: 0.867
+  attackCD: 0.417
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 1048576
@@ -3641,6 +3641,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6656067711847261057, guid: 275b58d8c62b57b4fa4439202e8b9796, type: 3}
   swingSFX: {fileID: 2079714029}
   anim: {fileID: 1613083874}
+  weaponHolderAnim: {fileID: 1834610520435982108, guid: 69ceba5940dfff7479f56cba74f3e7c7, type: 3}
 --- !u!114 &777061480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3672,6 +3673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
   maxHealth: 100
   yarncooldown: 0
   currentHealth: 0
@@ -3735,7 +3737,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777061477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.44, y: 21.1, z: -1}
+  m_LocalPosition: {x: -17.44, y: 45.02, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4250,7 +4252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812196051}
   m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: -0.005, y: 1.25, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4298,7 +4300,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4096c548dc74c4a48b76ca0c9665de48, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 364a44fa0c31dc84fb8dc4441f2f3d33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5137,7 +5139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1308459388
 MonoBehaviour:
@@ -5819,12 +5821,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalDistMultiplier: 0.7
-  startingPitch: 1
   mainClip: {fileID: 8300000, guid: 0620d6eb455355c4490653610689c27d, type: 3}
+  reversedClip: {fileID: 0}
   fight: {fileID: 687604723}
   cam: {fileID: 520802791}
   boss: {fileID: 1223262371}
-  audSource: {fileID: 1580157308}
+  forwardAudioSource: {fileID: 0}
+  reversedAudioSource: {fileID: 0}
 --- !u!114 &1580157306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7083,7 +7086,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6656067711847261056, guid: 275b58d8c62b57b4fa4439202e8b9796, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6656067711847261056, guid: 275b58d8c62b57b4fa4439202e8b9796, type: 3}
       propertyPath: m_LocalPosition.x
