@@ -198,6 +198,7 @@ public class PhaseShift : MonoBehaviour
 
     IEnumerator PhaseShiftPrecast()
     {
+        PlayerMovement._instance.OnPause(true);
         shiftProgressBar.gameObject.SetActive(true);
 
         precastingTimer = shiftPrecastTime;
@@ -216,7 +217,7 @@ public class PhaseShift : MonoBehaviour
         }
         Destroy(riftObject);
         shiftProgressBar.gameObject.SetActive(false);
-
+        PlayerMovement._instance.OnPause(false);
         ToPhaseShift();
     }
 
