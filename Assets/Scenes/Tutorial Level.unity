@@ -4534,9 +4534,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2265f9f1bcd3a46bab0f314a994514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRangeAngle: 45
-  attackRadius: 3
-  attackCD: 1
+  attackRangeAngle: 90
+  attackRadius: 2
+  attackCD: 0.417
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 1048576
@@ -4545,6 +4545,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6656067711847261057, guid: 275b58d8c62b57b4fa4439202e8b9796, type: 3}
   swingSFX: {fileID: 2079714029}
   anim: {fileID: 1613083874}
+  weaponHolderAnim: {fileID: 1834610520435982108, guid: 69ceba5940dfff7479f56cba74f3e7c7, type: 3}
 --- !u!114 &777061480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5159,7 +5160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812196051}
   m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5207,7 +5208,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4096c548dc74c4a48b76ca0c9665de48, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 364a44fa0c31dc84fb8dc4441f2f3d33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8035,7 +8036,7 @@ Animator:
   m_GameObject: {fileID: 1613083871}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 19f799aa5d725f84b837a7f3acd15cc4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 61d93d3a926a2d24d985fdab4b1dcc12, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
