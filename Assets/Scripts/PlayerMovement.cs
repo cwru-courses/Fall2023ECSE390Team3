@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastMovementDir;  // Tracking last direction player moved
     private float speedMultiplier; // used to adjust player speed during abilities etc
     private bool movementLocked; // keep track of whether player movement is locked
+    private bool isMoving = false;
 
     void Awake()
     {
@@ -90,11 +91,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 inputDir = playerInputAction.Player.Movement.ReadValue<Vector2>().normalized;
         inputDir.y *= verticalSpeedMultiplier;
-        if (anim)
-        {
-            anim.SetFloat("xVel", inputDir[0]);
-            anim.SetFloat("yVel", inputDir[1]);
-        }
 
         //update lastMovementDir only if moving
         if (inputDir.magnitude != 0)
@@ -105,12 +101,34 @@ public class PlayerMovement : MonoBehaviour
                 audSource.mute = false;
                 audSource.Play();
             }
+            if (anim)
+            {
+                anim.SetFloat("xVel", inputDir[0]);
+                anim.SetFloat("yVel", inputDir[1]);
+                anim.SetFloat("lastXVel", inputDir[0]);
+                anim.SetFloat("lastYVel", inputDir[1]);
+                if (!isMoving)
+                {
+                    anim.SetBool("isMoving", true);
+                }
+            }
+            isMoving = true;
         }
         else
         {
             if (audSource.mute == false){
                 audSource.mute = true;
             }
+            if (anim)
+            {
+                anim.SetFloat("xVel", inputDir[0]);
+                anim.SetFloat("yVel", inputDir[1]);
+                if (isMoving)
+                {
+                    anim.SetBool("isMoving", false);
+                }
+            }
+            isMoving = false;
         }
 
         if (onDash)
