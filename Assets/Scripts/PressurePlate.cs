@@ -8,6 +8,9 @@ public class PressurePlate : MonoBehaviour {
     [SerializeField] private GameObject tilemapToDisable;
     [SerializeField] private Vector3 tilemapPosition;   // Set in inspector
 
+    private bool chestUnlocked = false;
+    private bool tilemapDisabled = false;
+
     [SerializeField] private Camera mainCamera;
 
     // Start is called before the first frame update
@@ -21,29 +24,32 @@ public class PressurePlate : MonoBehaviour {
     }
 
     private void OnTriggerStay2D(Collider2D other) {
-        // Check for stone and distance from center of pressure plate
+        // If colliding with stone
         if (other.tag == "Stone") {
             float distance = Vector3.Distance(transform.position, other.transform.position);
-            Debug.Log("Distance: " + distance);
 
-            // If distance < 0.5f, then pressure plate triggered
+            // If distance is less than some value, pressure plate triggered
             if (distance < 1.5f) {
-                Debug.Log("Pressure Plate Triggered!");
 
-                // Open chest
-                if (chestToUnlock != null) {
+                // If there is a chest to unlock, do so
+                if ((chestToUnlock != null) & (chestUnlocked == false)) {
                     // This calls object focus within chest script
                     chestToUnlock.GetComponent<Chest>().setChestOpen(true);
+                    chestUnlocked = true;
                     // If there's also a tilemap to disable, disable it
-                    if (tilemapToDisable != null)
-                            tilemapToDisable.SetActive(false);
-                }
-                else if (tilemapToDisable != null) {
-                    // Call coroutine to object focus on tilemapToDisable and then disable it
-                    StartCoroutine(tilemapFocus());
+                    if (tilemapToDisable != null) {
+                        tilemapToDisable.SetActive(false);
+                        tilemapDisabled = true;
+                    }
                 }
                     
-                
+                // Else, if there is a tilemap to disable, do so
+                else if ((tilemapToDisable != null) & (tilemapDisabled == false)) {
+                    // Call coroutine to object focus on tilemapToDisable and then disable it
+                    StartCoroutine(tilemapFocus());
+                    tilemapDisabled = true;
+                }
+                        
             }
         } 
     }
