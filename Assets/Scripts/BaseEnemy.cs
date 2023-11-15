@@ -70,13 +70,13 @@ public abstract class BaseEnemy : MonoBehaviour
         //make enemy stay still and not collide with player
         rb2d.bodyType = RigidbodyType2D.Static;
 
-		int numPostDeathEntities = 3;
+		// int numPostDeathEntities = 3;
 
 		//wait before initiating smoke etc
 		yield return new WaitForSeconds(deathAnimLength);
 
 		//Create smoke cloud and post death animal to appear at the position of the enemy
-		GameObject[] postDeathEntityObjects = new GameObject[numPostDeathEntities];
+		// GameObject[] postDeathEntityObjects = new GameObject[numPostDeathEntities];
         GameObject smokeCloudObject;
 
         //check if there is a prefab for the smoke cloud
@@ -85,6 +85,7 @@ public abstract class BaseEnemy : MonoBehaviour
         
 
 		//check if there is a prefab for the post death entity
+        /*
 		if (postDeathEntityPrefab && numPostDeathEntities>0)
 		{
 			for(int i = 0; i < numPostDeathEntities; i++)
@@ -96,6 +97,7 @@ public abstract class BaseEnemy : MonoBehaviour
 			PostDeathEntity postDeathEntityComponent = postDeathEntityObjects[0].GetComponent<PostDeathEntity>();
 			if (postDeathEntityComponent) { timeToDestroy = postDeathEntityComponent.getLifetime(); }
 		}
+        */
 
         //make enemy invisible:
         transform.localScale = Vector3.zero;
@@ -107,10 +109,12 @@ public abstract class BaseEnemy : MonoBehaviour
         yield return new WaitForSeconds(timeToDestroy);
 
 		//destroy everything
+        /*
 		for (int i = 0; i < numPostDeathEntities; i++)
         {
 			Destroy(postDeathEntityObjects[i]);
 		}
+        */
         Destroy(smokeCloudObject);
 
         Destroy(gameObject);
