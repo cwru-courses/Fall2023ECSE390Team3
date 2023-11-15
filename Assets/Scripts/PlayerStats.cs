@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System; 
 using System.Collections;
 using UnityEngine;
@@ -57,11 +58,11 @@ public class PlayerStats : MonoBehaviour
             SaveSystem.LoadSave();
             healthBar.SetHealth(currentHealth);
             yarnTracker.SetHealth(Mathf.RoundToInt(currentYarnCount));
-            Debug.Log("Saved version loaded");
+            UnityEngine.Debug.Log("Saved version loaded");
         }
         else
         {
-            Debug.Log("New game started");
+            UnityEngine.Debug.Log("New game started");
             currentHealth = maxHealth;
             currentYarnCount = maxYarn;
             //set player health to maxHealth to start
@@ -174,7 +175,9 @@ public class PlayerStats : MonoBehaviour
             healthBar.SetHealth(currentHealth);
             if (hitSFX)
             {
-                hitSFX.Play();
+                UnityEngine.Debug.Log("hitsfx");
+                hitSFX.PlayOneShot();
+                
             }
             if (spRender)
             {
@@ -187,7 +190,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (currentYarnCount < 0)
         {
-            Debug.Log("player out of yarn");
+            UnityEngine.Debug.Log("player out of yarn");
         }
         else
         {
@@ -230,7 +233,7 @@ public class PlayerStats : MonoBehaviour
             }
             else
             {
-                Debug.Log("No Potion");
+                UnityEngine.Debug.Log("No Potion");
             }
         }
             
