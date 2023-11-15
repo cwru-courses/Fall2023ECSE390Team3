@@ -60,7 +60,7 @@ public class Chest : MonoBehaviour {
             lootDropped = true;
         }
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.5f);
         mainCamera.GetComponent<CameraControl>().SwitchToPlayerFocus();
     }
 

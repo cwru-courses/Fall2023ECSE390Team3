@@ -444,7 +444,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1779678365
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Time: 9999999
   m_Parameters:
@@ -1392,6 +1392,7 @@ MonoBehaviour:
   healthPotionDroprate: 4
   yarnDroprate: 3
   audSource: {fileID: 378182228}
+  mainCamera: {fileID: 520802788}
 --- !u!82 &378182228
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4352,6 +4353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestToUnlock: {fileID: 378182225}
   tilemapToDisable: {fileID: 769719594}
+  tilemapPosition: {x: 0, y: 0, z: 0}
+  mainCamera: {fileID: 0}
 --- !u!50 &771034840
 Rigidbody2D:
   serializedVersion: 4
@@ -4465,7 +4468,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1779678365
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 682508686, guid: 064938652afd60847829480c9527c59f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6018,7 +6021,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1779678365
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 682508686, guid: 064938652afd60847829480c9527c59f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6279,7 +6282,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1113246127
-  m_SortingLayer: -4
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -7512,7 +7515,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1779678365
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: -465170705, guid: ab8755eb56b625c489656a78c9db2457, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8482,7 +8485,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1779678365
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: -465170705, guid: ab8755eb56b625c489656a78c9db2457, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8994,6 +8997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestToUnlock: {fileID: 0}
   tilemapToDisable: {fileID: 111687498}
+  tilemapPosition: {x: -1.1, y: -30.25, z: 0}
+  mainCamera: {fileID: 0}
 --- !u!50 &1899654023
 Rigidbody2D:
   serializedVersion: 4

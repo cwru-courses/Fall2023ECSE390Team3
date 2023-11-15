@@ -61,7 +61,7 @@ public class PressurePlate : MonoBehaviour {
 
         tilemapToDisable.SetActive(false);
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.5f);
         mainCamera.GetComponent<CameraControl>().SwitchToPlayerFocus();
     }
 
