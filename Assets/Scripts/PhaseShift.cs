@@ -9,10 +9,12 @@ public class PhaseShift : MonoBehaviour
 
     [SerializeField] private float shiftCD;
     [SerializeField] private float shiftPrecastTime;
+    [SerializeField] private float shiftInAnimDuration;
     [SerializeField] private Slider shiftProgressBar;
     [SerializeField] private GameObject rift;
     [SerializeField] private GameObject foot; // to detect nearby puzzle points
     [SerializeField] private Image uiImg;
+    [SerializeField] private Animator anim;
 
     private float precastingTimer;
 
@@ -80,11 +82,10 @@ public class PhaseShift : MonoBehaviour
         TriggerNearbyYarnPuzzlePoints();
 
         // Move character into the alternate world
-        Vector3 currentLocation = transform.position - new Vector3(0.0f, 2.0f, 0.0f);   // added subtraction to make sure the shift is based on the foot's position
-        
-        // target position
-        Vector3 targetPosition = new Vector3(currentLocation.x, -currentLocation.y, currentLocation.z);
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(targetPosition, 0.5f);
+        // Added subtraction to make sure the shift is based on the foot's position
+        Vector3 currentLocation = transform.position;
+        currentLocation.y = -currentLocation.y + 2f;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(currentLocation, 0.5f);
         bool willCollide = false;
 
         foreach (Collider2D collider in colliders)
@@ -96,10 +97,10 @@ public class PhaseShift : MonoBehaviour
         }
         if (willCollide == true)
         {
-            Vector3 foundLocation = findNearestLocation(targetPosition);
+            Vector3 foundLocation = findNearestLocation(currentLocation);
             if (foundLocation != Vector3.zero)
             {
-                targetPosition = foundLocation;
+                currentLocation = foundLocation;
                 Debug.Log("shifted");
             }
             else
@@ -107,17 +108,13 @@ public class PhaseShift : MonoBehaviour
                 Debug.Log("fail to found neareast location");
             }
         }
-        transform.position = targetPosition;
-
-
-        shiftCDTimer = shiftCD;
+        transform.position = currentLocation;
 
         //OnEnable();     // Enable input again
         
         // Added this line to toggle emission of yarn trail -- Jing
         AmbientSystem.Instance.OnPhaseShift();
         YarnTrail._instance.toggleEmission();
-
     }
 
     private void TriggerNearbyYarnPuzzlePoints()
@@ -198,6 +195,7 @@ public class PhaseShift : MonoBehaviour
 
     IEnumerator PhaseShiftPrecast()
     {
+        anim.Play("Stitch_In_Player");
         PlayerMovement._instance.OnPause(true);
         shiftProgressBar.gameObject.SetActive(true);
 
@@ -207,10 +205,17 @@ public class PhaseShift : MonoBehaviour
         riftObject.transform.parent = transform;
         riftObject.transform.position = transform.position;
         riftObject.transform.rotation = Quaternion.Euler(0, 0, 90f); 
-        riftObject.transform.position = new Vector3(riftObject.transform.position.x, riftObject.transform.position.y-1, riftObject.transform.position.z); 
+        riftObject.transform.position = new Vector3(riftObject.transform.position.x, riftObject.transform.position.y-1, riftObject.transform.position.z);
 
+        bool shifted = false;
         while (precastingTimer > 0)
         {
+            if (!shifted && shiftPrecastTime - precastingTimer >= shiftInAnimDuration)
+            {
+                shifted = true;
+                ToPhaseShift();
+                anim.Play("Stitch_Out_Player");
+            }
             shiftProgressBar.value = precastingTimer / shiftPrecastTime;
             precastingTimer -= Time.deltaTime;
             yield return null;
@@ -218,7 +223,9 @@ public class PhaseShift : MonoBehaviour
         Destroy(riftObject);
         shiftProgressBar.gameObject.SetActive(false);
         PlayerMovement._instance.OnPause(false);
-        ToPhaseShift();
+
+        anim.Play("IdleTree");
+        shiftCDTimer = shiftCD;
     }
 
     //public void OnPause(bool paused)

@@ -4518,10 +4518,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shiftCD: 2
   shiftPrecastTime: 2
+  shiftInAnimDuration: 1
   shiftProgressBar: {fileID: 586172891}
   rift: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
   foot: {fileID: 15948759}
   uiImg: {fileID: 1815572008}
+  anim: {fileID: 1613083874}
 --- !u!114 &777061479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4536,7 +4538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRangeAngle: 90
   attackRadius: 2
-  attackCD: 0.417
+  attackCD: 0.415
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 1048576
@@ -5166,7 +5168,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 212344460}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
 --- !u!212 &812196053
 SpriteRenderer:
   m_ObjectHideFlags: 0
