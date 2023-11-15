@@ -57,11 +57,11 @@ public class PressurePlate : MonoBehaviour {
 
     private IEnumerator tilemapFocus() {
         mainCamera.GetComponent<CameraControl>().SwitchToBossRoom(tilemapPosition);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
 
         tilemapToDisable.SetActive(false);
 
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
         mainCamera.GetComponent<CameraControl>().SwitchToPlayerFocus();
     }
 

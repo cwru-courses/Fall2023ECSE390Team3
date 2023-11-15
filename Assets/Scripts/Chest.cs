@@ -20,8 +20,8 @@ public class Chest : MonoBehaviour {
         audSource = GetComponent<AudioSource>();
         audSource.Pause();
         audSource.mute = false;
-
         // anim = gameObject.GetComponent<Animation>();
+
         mainCamera = Camera.main;
     }
 
@@ -44,16 +44,15 @@ public class Chest : MonoBehaviour {
 
     // Coroutine to do stuff when open a chest
     private IEnumerator OpenChest() {
-        audSource.Play();
-
         // Camera focus on chest
         mainCamera.GetComponent<CameraControl>().SwitchToBossRoom(this.transform.position);
         Debug.Log("Should focus on chest");
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
 
         chest.sprite = openChest;
         // anim.Play("Chest_open");
+        audSource.Play();   // Play chest open sound effect
 
         if (lootDropped == false) {
             Instantiate(lootSpawnerPrefab, transform.position, Quaternion.identity)
@@ -61,7 +60,7 @@ public class Chest : MonoBehaviour {
             lootDropped = true;
         }
 
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
         mainCamera.GetComponent<CameraControl>().SwitchToPlayerFocus();
     }
 
