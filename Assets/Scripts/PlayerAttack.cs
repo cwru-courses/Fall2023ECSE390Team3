@@ -27,6 +27,7 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 lookAtDir;  // Note that this direction is NOT normalized. Vector length = distance from the target point
     private float attackAngleCosVal;
     private float lastAttackTime;
+    private bool attackEnabled = true;
 
     [SerializeField] private GameObject weaponHolderAnim;
 
@@ -83,9 +84,14 @@ public class PlayerAttack : MonoBehaviour
         weaponHolder.rotation = Quaternion.Euler(0f, 0f, -lookAtDirAngle);
     }
 
+    public void EnableAttack(bool enabled)
+    {
+        attackEnabled = enabled;
+    }
+
     public void Attack(InputAction.CallbackContext ctx)
     {
-        if (Time.time - lastAttackTime > attackCD)
+        if (attackEnabled && Time.time - lastAttackTime > attackCD)
         {
             RaycastHit2D[] inRangeColliderHits = Physics2D.CircleCastAll(
                 transform.position,

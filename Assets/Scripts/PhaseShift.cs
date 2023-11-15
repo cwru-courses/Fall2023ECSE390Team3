@@ -197,6 +197,7 @@ public class PhaseShift : MonoBehaviour
     {
         anim.Play("Stitch_In_Player");
         PlayerMovement._instance.OnPause(true);
+        PlayerAttack._instance.EnableAttack(false);
         shiftProgressBar.gameObject.SetActive(true);
 
         precastingTimer = shiftPrecastTime;
@@ -223,6 +224,7 @@ public class PhaseShift : MonoBehaviour
         Destroy(riftObject);
         shiftProgressBar.gameObject.SetActive(false);
         PlayerMovement._instance.OnPause(false);
+        PlayerAttack._instance.EnableAttack(true);
 
         anim.Play("IdleTree");
         shiftCDTimer = shiftCD;
