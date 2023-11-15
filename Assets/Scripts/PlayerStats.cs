@@ -175,8 +175,8 @@ public class PlayerStats : MonoBehaviour
             healthBar.SetHealth(currentHealth);
             if (hitSFX)
             {
-                UnityEngine.Debug.Log("hitsfx");
-                hitSFX.PlayOneShot();
+                //UnityEngine.Debug.Log("hitsfx");
+                hitSFX.Play();
                 
             }
             if (spRender)
