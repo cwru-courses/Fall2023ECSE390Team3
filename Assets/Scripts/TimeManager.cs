@@ -1,3 +1,4 @@
+using UnityEditor.Il2Cpp;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
@@ -15,6 +16,17 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    public void PausePlayerInput(bool paused)
+    {
+        if (paused)
+        {
+            PlayerStats._instance.playerInput.SwitchCurrentActionMap("UI");
+        }
+        else
+        {
+            PlayerStats._instance.playerInput.SwitchCurrentActionMap("Player");
+        }
+    }
 
     public void OnPause(bool paused)
     {
