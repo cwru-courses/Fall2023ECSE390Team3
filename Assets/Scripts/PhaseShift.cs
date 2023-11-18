@@ -79,7 +79,7 @@ public class PhaseShift : MonoBehaviour
     public void ToPhaseShift()
     {
         // trigger nearby puzzle point
-        TriggerNearbyYarnPuzzlePoints();
+        bool cutted = TriggerNearbyYarnPuzzlePoints();
 
         // Move character into the alternate world
         // Added subtraction to make sure the shift is based on the foot's position
@@ -114,11 +114,14 @@ public class PhaseShift : MonoBehaviour
         
         // Added this line to toggle emission of yarn trail -- Jing
         AmbientSystem.Instance.OnPhaseShift();
-        YarnTrail._instance.toggleEmission();
+        YarnTrail._instance.toggleEmission(cutted);
+        Debug.Log("Cutted is: " + cutted);
     }
 
-    private void TriggerNearbyYarnPuzzlePoints()
+    private bool TriggerNearbyYarnPuzzlePoints()
     {
+        bool toReturn = true;
+
         // search all puzzle points
         GameObject[] puzzlePoints = GameObject.FindGameObjectsWithTag("YarnPuzzlePoints");
 
@@ -139,13 +142,17 @@ public class PhaseShift : MonoBehaviour
                 if (point.GetComponent<YarnPuzzlePointNormal>() != null && point.GetComponent<YarnPuzzlePointNormal>().GetStage() == 0)
                 {
                     point.GetComponent<YarnPuzzlePointNormal>().NextStage();
+                    toReturn = false;
                 }
                 else if (point.GetComponent<YarnPuzzlePointFlipped>() != null && point.GetComponent<YarnPuzzlePointFlipped>().GetStage() == 0)
                 {
                     point.GetComponent<YarnPuzzlePointFlipped>().NextStage();
+                    toReturn = false;
                 }
             }
         }
+
+        return toReturn;
     }
 
     Vector3 findNearestLocation(Vector3 originalLocation)

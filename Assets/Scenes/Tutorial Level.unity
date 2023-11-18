@@ -404,6 +404,7 @@ MonoBehaviour:
   YarnPuzzleControllerObjectTwo: {fileID: 0}
   YarnPuzzleControllerObjectThree: {fileID: 0}
   trailCollider: {fileID: 15948763}
+  exceptionForPointTwo: 0
 --- !u!96 &15948762
 TrailRenderer:
   serializedVersion: 2
@@ -977,7 +978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_TagString
@@ -1789,12 +1790,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5794c0223bd94cacb3ae953eee560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorWhenUntrigged: {r: 1, g: 1, b: 1, a: 1}
-  colorWhenTrigged: {r: 0, g: 0, b: 1, a: 1}
   lastPoint: {fileID: 1308892874}
   nextPoint: {fileID: 858418496}
+  nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 720117113}
   lineControllerObject: {fileID: 1195566302}
+  needToStartYarnTrailInNormalWorld: 0
   dialogueCollider: {fileID: 0}
   isFirstPoint: 0
 --- !u!1 &565303464
@@ -2485,9 +2486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsArray:
-  - {fileID: 1308892875}
-  - {fileID: 552280720}
-  yarnLineControllerObject: {fileID: 1195566302}
+  - {fileID: 931314390}
+  - {fileID: 552280718}
   totalPoints: 2
   wallToRemove1: {fileID: 769719602}
   wallToRemove2: {fileID: 0}
@@ -5333,7 +5333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_TagString
-      value: YarnPuzzlePoints
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746775, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_SortingLayer
@@ -5406,10 +5406,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef7495f3319b15408b595a6dbea6778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorWhenUntrigged: {r: 1, g: 1, b: 1, a: 1}
-  colorWhenFixed: {r: 1, g: 0, b: 0, a: 1}
   lastPoint: {fileID: 552280718}
   nextPoint: {fileID: 0}
+  nextNextPoint: {fileID: 0}
+  puzzleControllerObject: {fileID: 0}
+  lineControllerObject: {fileID: 0}
+  needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
@@ -5654,10 +5656,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef7495f3319b15408b595a6dbea6778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorWhenUntrigged: {r: 1, g: 1, b: 1, a: 1}
-  colorWhenFixed: {r: 1, g: 0, b: 0, a: 1}
-  lastPoint: {fileID: 1308892874}
-  nextPoint: {fileID: 552280718}
+  lastPoint: {fileID: 0}
+  nextPoint: {fileID: 1308892874}
+  nextNextPoint: {fileID: 552280718}
+  puzzleControllerObject: {fileID: 720117113}
+  lineControllerObject: {fileID: 0}
+  needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 1693841233}
   dialogueBox: {fileID: 356551478}
   isFirstPoint: 1
@@ -6674,12 +6678,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5794c0223bd94cacb3ae953eee560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorWhenUntrigged: {r: 1, g: 1, b: 1, a: 1}
-  colorWhenTrigged: {r: 0, g: 0, b: 1, a: 1}
   lastPoint: {fileID: 0}
-  nextPoint: {fileID: 931314390}
+  nextPoint: {fileID: 0}
+  nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 720117113}
   lineControllerObject: {fileID: 1195566302}
+  needToStartYarnTrailInNormalWorld: 0
   dialogueCollider: {fileID: 2003094619}
   isFirstPoint: 1
 --- !u!4 &1308892877 stripped
@@ -8215,11 +8219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_TagString
-      value: YarnPuzzlePoints
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2292118118136746775, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
       propertyPath: m_SortingLayer

@@ -5,8 +5,7 @@ using UnityEngine;
 public class YarnPuzzleController : MonoBehaviour
 {
     //public static YarnPuzzleController _instance;
-    [SerializeField] private YarnPuzzlePointFlipped[] pointsArray;
-    [SerializeField] private GameObject yarnLineControllerObject;
+    [SerializeField] private GameObject[] pointsArray;
     [SerializeField] private int totalPoints;
     [SerializeField] private wallOpenClose wallToRemove1;
     [SerializeField] private wallOpenClose wallToRemove2;
@@ -33,7 +32,6 @@ public class YarnPuzzleController : MonoBehaviour
             scratch2_ani = scratch2.GetComponent<Animator>();
         }
 
-        Debug.Log(wallToRemove1.transform.position);
     }
 
     // Update is called once per frame
@@ -67,10 +65,16 @@ public class YarnPuzzleController : MonoBehaviour
     {
         if (onPoint >= 0 && puzzleActive)
         {
-            // if trail is cutted or shifted back spontaneously, next point(normal) of current point(flipped) needs to decrease from stage 1 to 0
-            if (pointsArray[onPoint].GetStage() == 2)
+            Debug.Log(111111111);
+            if (pointsArray[onPoint].GetComponent<YarnPuzzlePointNormal>() != null)
             {
-                pointsArray[onPoint].GetNextPoint().GetComponent<YarnPuzzlePointNormal>().DecreaseStage();
+                Debug.Log("Normal Decreased");
+                pointsArray[onPoint].GetComponent<YarnPuzzlePointNormal>().DecreaseStage();
+            }
+            else if (pointsArray[onPoint].GetComponent<YarnPuzzlePointFlipped>() != null)
+            {
+                Debug.Log("Flipped Decreased");
+                pointsArray[onPoint].GetComponent<YarnPuzzlePointFlipped>().DecreaseStage();
             }
         }
     }

@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class YarnPuzzlePointNormal : MonoBehaviour
 {
-    [SerializeField] private Color colorWhenUntrigged = Color.white;
-    [SerializeField] private Color colorWhenFixed = Color.red;
     [SerializeField] private GameObject lastPoint;
     [SerializeField] private GameObject nextPoint;
+    [SerializeField] private GameObject nextNextPoint;
+    [SerializeField] private GameObject puzzleControllerObject;
+    [SerializeField] private GameObject lineControllerObject;
+    [SerializeField] private bool needToEndYarnTrailInNormalWorld = false;
     public CollisionDialogue collisionDialogue;
     [SerializeField] GameObject dialogueBox;
     private SpriteRenderer spriteRenderer;
     private Animator childAnimator;
+    private YarnPuzzleController puzzleController;
+    private YarnLineController lineController;
     public bool isFirstPoint;
+    private bool firstTimeTrigger = true;
+
     /*
      * stage = 0: this point untriggered
      * stage = 1: this point triggered. 
-     * If puzzle controller is on Flipped point whose next point is this point, and if trail is cutted, stage of this point will go back to one
      */
     private int stage = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        // get SpriteRenderer component
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = colorWhenUntrigged;
-
         // Get Animator of child object
         childAnimator = GetComponentInChildren<Animator>();
 
@@ -35,29 +35,60 @@ public class YarnPuzzlePointNormal : MonoBehaviour
             Debug.LogError("Child Animator not found.");
         }
 
-        // if there is no next point, then it's the last point of the puzzle
+        // if there is no next point, activate itself
         if (nextPoint == null)
         {
             stage = 1;
-            spriteRenderer.color = colorWhenFixed;
             childAnimator.SetBool("Shining", false);
         }
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        // get SpriteRenderer component
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (puzzleControllerObject != null)
+        {
+            puzzleController = puzzleControllerObject.GetComponent<YarnPuzzleController>();
+        }
+        if (lineControllerObject != null)
+        {
+            lineController = lineControllerObject.GetComponent<YarnLineController>();
+        }
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (stage == 0 && childAnimator.GetBool("Shining") != true)
+        {
+            childAnimator.SetBool("Shining", true);
+        }
+        else if (stage == 1 && childAnimator.GetBool("Shining") != false)
+        {
+            childAnimator.SetBool("Shining", false);
+        }
+    }
+
+    private void ConnectToLastPoint()
+    {
+        if (lineController != null)
+        {
+            lineController.ConnectPoints(lastPoint.transform.position, transform.position);
+        }
         
     }
 
-    private void RevealNextPoint()
+    private void RevealPoint(GameObject point)
     {
-        nextPoint.SetActive(true);
+        point.SetActive(true);
     }
 
-    public void HideNextPoint()
+    public void HidePoint(GameObject point)
     {
-        nextPoint.SetActive(false);
+        point.SetActive(false);
     }
 
     // increase stage by 1 (from 0 to 1 only)
@@ -65,19 +96,40 @@ public class YarnPuzzlePointNormal : MonoBehaviour
     {
         if (stage == 0)
         {
-            // change color of the circle
-            spriteRenderer.color = colorWhenFixed;
             // disable shinning on the child object animator
             childAnimator.SetBool("Shining", false);
-            // reveal next point in flipped world
-            RevealNextPoint();
-            // increase stage of last point in flipped world from stage 1 to 2
-            IncreaseStageOfLastPoint();
+            // update the onPoint attribute in YarnPuzzleController if first time triggered
+            if (puzzleController != null && firstTimeTrigger)
+            {
+                puzzleController.IncreaseOnPoint();
+                firstTimeTrigger = false;
+            }
+            
+            // if there is a last point, connect to it
+            if (lastPoint != null)
+            {
+                ConnectToLastPoint();
+            }
+            // if there is a next point, reveal(activate) it
+            if (nextPoint != null)
+            {
+                RevealPoint(nextPoint);
+            }
+            // if there is a next Next point, reveal(activate) it
+            if (nextNextPoint != null)
+            {
+                RevealPoint(nextNextPoint);
+            }
             stage++;
             if (isFirstPoint){
                 dialogueBox.SetActive(true);
                 collisionDialogue.StartRunning(dialogueBox);
                 isFirstPoint = false;
+            }
+
+            if (needToEndYarnTrailInNormalWorld)
+            {
+                YarnTrail._instance.exceptionForPointTwo = false;
             }
         }
     }
@@ -86,12 +138,12 @@ public class YarnPuzzlePointNormal : MonoBehaviour
     {
         if (stage == 1)
         {
-            // change color of the circle
-            spriteRenderer.color = colorWhenUntrigged;
-            // disable shinning on the child object animator
+            // enable shinning on the child object animator
             childAnimator.SetBool("Shining", true);
             // hide next point in flipped world
-            HideNextPoint();
+            HidePoint(nextPoint);
+            // hide next point in flipped world
+            HidePoint(nextNextPoint);
             stage--;
         }
     }

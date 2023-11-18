@@ -1,4 +1,4 @@
-using UnityEditor.Il2Cpp;
+//using UnityEditor.Il2Cpp;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour

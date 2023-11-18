@@ -16,6 +16,7 @@ public class YarnTrail : MonoBehaviour
     private YarnPuzzleController puzzleControllerOne;
     private YarnPuzzleController puzzleControllerTwo;
     private YarnPuzzleController puzzleControllerThree;
+    public bool exceptionForPointTwo = false;
 
     private void Awake()
     {
@@ -47,7 +48,7 @@ public class YarnTrail : MonoBehaviour
         thisPosition = transform.position;
         lastPosition = thisPosition;
         //add toggleEmission here to enable yarn trail when player loads into flipped side
-        toggleEmission(); 
+        toggleEmission(false); 
     }
 
     // Update is called once per frame
@@ -65,24 +66,53 @@ public class YarnTrail : MonoBehaviour
         }
     }
 
-    public void toggleEmission()
+    public void toggleEmission(bool cutted)
     {
-        if(isInFlippedWorld()) {
+        ClearYarnTrail();
+        if (isInFlippedWorld()) {
             trailRranderer.enabled = true;
+
+            if (exceptionForPointTwo)
+            {
+                ClearYarnTrail();
+                Debug.Log("Cutted: " + cutted);
+                // puzzle needs to update
+                if (puzzleControllerOne != null && puzzleControllerOne.PuzzleActive() && cutted == true)
+                {
+                    puzzleControllerOne.TrailCutted();
+                }
+                else if (puzzleControllerTwo != null && puzzleControllerTwo.PuzzleActive() && cutted == true)
+                {
+                    puzzleControllerTwo.TrailCutted();
+                }
+                else if (puzzleControllerThree != null && puzzleControllerThree.PuzzleActive() && cutted == true)
+                {
+                    puzzleControllerThree.TrailCutted();
+                }
+            }
         } 
         else {
-            trailRranderer.enabled = false;
+            if (exceptionForPointTwo)
+            {
+                trailRranderer.enabled = true;
+            }
+            else
+            {
+                trailRranderer.enabled = false;
+            }
+            
             ClearYarnTrail();
+            Debug.Log("Cutted: " + cutted);
             // puzzle needs to update
-            if (puzzleControllerOne != null && puzzleControllerOne.PuzzleActive())
+            if (puzzleControllerOne != null && puzzleControllerOne.PuzzleActive() && cutted == true)
             {
                 puzzleControllerOne.TrailCutted();
             }
-            else if (puzzleControllerTwo != null && puzzleControllerTwo.PuzzleActive())
+            else if (puzzleControllerTwo != null && puzzleControllerTwo.PuzzleActive() && cutted == true)
             {
                 puzzleControllerTwo.TrailCutted();
             }
-            else if (puzzleControllerThree != null && puzzleControllerThree.PuzzleActive())
+            else if (puzzleControllerThree != null && puzzleControllerThree.PuzzleActive() && cutted == true)
             {
                 puzzleControllerThree.TrailCutted();
             }
@@ -126,6 +156,12 @@ public class YarnTrail : MonoBehaviour
             PlayerStats._instance.inFlippedWorld = false; 
         }
         return PlayerStats._instance.inFlippedWorld; 
+    }
+
+    private IEnumerator delayTrailRendering()
+    {
+        yield return new WaitForSeconds(0.1f);
+        trailRranderer.enabled = true;
     }
 
 }
