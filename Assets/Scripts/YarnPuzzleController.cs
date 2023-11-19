@@ -97,7 +97,7 @@ public class YarnPuzzleController : MonoBehaviour
             {
                 scratch2_ani.SetBool("closed", true);
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
 
             
             Vector3 watchWall = new Vector3(wallPosition.x, wallPosition.y, 0);
