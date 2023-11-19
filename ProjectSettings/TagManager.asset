@@ -11,6 +11,7 @@ TagManager:
   - AvoidOverlap
   - YarnPuzzlePoints
   - Needle
+  - YarnTrail
   layers:
   - Default
   - TransparentFX

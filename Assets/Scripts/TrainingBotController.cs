@@ -23,6 +23,8 @@ public class TrainingBotController : BaseEnemy
     private float patrolCDTimer;
     protected Transform targetTransform;
 
+    private bool cuttingYarn; // added by Jing
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,13 +37,15 @@ public class TrainingBotController : BaseEnemy
         patrolPoints.Add(transform.position);
         patrolCDTimer = 0;
         targetTransform = null;
+
+        cuttingYarn = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        if (alive)
+        if (alive && !cuttingYarn)
         {
             Vector3 targetDist;
             if (targetTransform)
@@ -92,6 +96,11 @@ public class TrainingBotController : BaseEnemy
                 Collider2D targetCollider = Physics2D.OverlapCircle(transform.position, detectRadius, whatIsTaget);
                 if (targetCollider) targetTransform = targetCollider.transform;
             }
+        }
+
+        if (cuttingYarn)
+        {
+            rb2d.velocity = new Vector2(0f, 0f);
         }
 
     }
@@ -156,5 +165,25 @@ public class TrainingBotController : BaseEnemy
     public void setTargetTransform(Transform target)
     {
         targetTransform = target;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("YarnTrail") && !cuttingYarn)
+        {
+            cuttingYarn = true;
+            StartCoroutine(CutTrail());
+        }
+    }
+
+    private IEnumerator CutTrail()
+    {
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(Attack());
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("enemy cutted yarn trail");
+        YarnTrail._instance.ClearYarnTrail();
+        PhaseShift._instance.StartPhaseShiftByEnemy();
+        cuttingYarn = false;
     }
 }

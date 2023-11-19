@@ -18,11 +18,12 @@ public class YarnTrailEnemyDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        /*
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("needle cutted the trail");
             PhaseShift._instance.StartPhaseShiftByEnemy();
         }
+        */
     }
 }

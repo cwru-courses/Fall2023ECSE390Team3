@@ -11,7 +11,9 @@ public class YarnTrailCollider : MonoBehaviour
     private void Awake()
     {
         yarnTrail = this.GetComponent<TrailRenderer>();
-        GameObject colliderGameObject = new GameObject("TrailCollider", typeof(EdgeCollider2D), typeof(YarnTrailEnemyDetection));
+        GameObject colliderGameObject = new GameObject("TrailCollider", typeof(EdgeCollider2D));
+        // give it a tag for enemy detection
+        colliderGameObject.tag = "YarnTrail";
         colliderGameObject.layer = 15;
         yarnTrailCollider = colliderGameObject.GetComponent<EdgeCollider2D>();
         yarnTrailCollider.isTrigger = true;
@@ -28,6 +30,7 @@ public class YarnTrailCollider : MonoBehaviour
     void Update()
     {
         SetColliderPointsFromTrail(yarnTrail, yarnTrailCollider);
+        //Debug.Log(yarnTrail.gameObject.tag);
     }
 
     void SetColliderPointsFromTrail(TrailRenderer trail, EdgeCollider2D collider)
