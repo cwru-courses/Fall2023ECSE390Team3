@@ -9805,18 +9805,6 @@ PrefabInstance:
       propertyPath: actionRef
       value: 
       objectReference: {fileID: 7673151102348468147, guid: 2f0b0a0651c86b745ada6aac78421fa9, type: 3}
-    - target: {fileID: 6158430616824521066, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.a
-      value: 0.1764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 6158430616824521066, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0.47058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 6158430616824521066, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0.47058824
-      objectReference: {fileID: 0}
     - target: {fileID: 6257639676387944486, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -266

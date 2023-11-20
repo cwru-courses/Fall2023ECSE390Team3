@@ -173,6 +173,7 @@ MonoBehaviour:
   YarnPuzzleControllerObjectTwo: {fileID: 0}
   YarnPuzzleControllerObjectThree: {fileID: 0}
   trailCollider: {fileID: 0}
+  exceptionForPointTwo: 0
 --- !u!96 &15948762
 TrailRenderer:
   serializedVersion: 2
@@ -9076,6 +9077,10 @@ PrefabInstance:
     - target: {fileID: 107048328993574307, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 156
+      objectReference: {fileID: 0}
+    - target: {fileID: 107048329303356104, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 107048329362033345, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_IsActive
