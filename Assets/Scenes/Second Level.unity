@@ -19603,6 +19603,10 @@ PrefabInstance:
       value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: nextScene
+      value: Winscreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: numPhases
       value: 5
       objectReference: {fileID: 0}
