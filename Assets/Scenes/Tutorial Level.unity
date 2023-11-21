@@ -4785,6 +4785,7 @@ MonoBehaviour:
   FirstRift: {fileID: 683789718}
   firstPhaseShift: {fileID: 683789723}
   PickUpIcon: {fileID: 889620932}
+  firstRift: {fileID: 683789718}
 --- !u!114 &777061479
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PhaseShift : MonoBehaviour
 {
@@ -43,6 +44,12 @@ public class PhaseShift : MonoBehaviour
         shiftProgressBar.gameObject.SetActive(false);
 
         uiImg.fillAmount = 0;
+    }
+
+    void Start() {
+        if(string.Compare(SceneManager.GetActiveScene().name, "Tutorial Level") != 0) {
+            firstRiftDone = true; 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -91,13 +98,10 @@ public class PhaseShift : MonoBehaviour
             if (shiftCDTimer <= 0 && precastingTimer <= 0) {
                 StartCoroutine("PhaseShiftPrecast");
                 firstRiftDone = true;
-                Debug.Log("infirstrift");
-                //OnDisable();    // Disable input to avoid more than one click
             }
         }
         else if(firstRiftDone){
              if (shiftCDTimer <= 0 && precastingTimer <= 0) {
-                Debug.Log("firstriftdone");
                 StartCoroutine("PhaseShiftPrecast");
                 //OnDisable();    // Disable input to avoid more than one click
             }
