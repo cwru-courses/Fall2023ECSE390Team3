@@ -7589,9 +7589,6 @@ MonoBehaviour:
   - There appears to be a rift in the center of the room, connecting us to a parallel
     world.
   - Press 'Q' to open your own rift and stitch to the other side.
-  - This bar indicates your health.
-  - This bar indicates how much yarn you have accumulated. This will help you attack
-    and defend.
   - This icon shows you how much time you have to wait until your next stitch.
   - If you get confused or want to save the game, use "Escape" to open up the Pause
     Menu.
@@ -9570,7 +9567,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107048328907806297, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -411
+      value: -435
+      objectReference: {fileID: 0}
+    - target: {fileID: 107048328955975380, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 107048328993574306, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_IsActive
@@ -9591,6 +9592,10 @@ PrefabInstance:
     - target: {fileID: 107048328993574307, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 107048329083845963, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 107048329303356104, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_IsActive
@@ -9798,7 +9803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321150161439233093, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -231
+      value: -255
       objectReference: {fileID: 0}
     - target: {fileID: 7321150161439233094, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_Value
@@ -9826,7 +9831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321150161622245871, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -111
+      value: -135
       objectReference: {fileID: 0}
     - target: {fileID: 7321150161628007601, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9851,6 +9856,10 @@ PrefabInstance:
     - target: {fileID: 7321150161628007601, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.8531008
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002082097981346081, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8614050378003494305, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_IsActive
