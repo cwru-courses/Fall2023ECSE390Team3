@@ -11948,6 +11948,7 @@ MonoBehaviour:
   potionSFX: {fileID: 917987773}
   iFrameTime: 0
   canRegenYarn: 1
+  usingAbilities: 0
   levelsReached: 000000
 --- !u!50 &777061482
 Rigidbody2D:
@@ -12179,6 +12180,7 @@ MonoBehaviour:
   stitchingSFX: {fileID: 202314507}
   lineMaterial: {fileID: 0}
   pathRender: {fileID: 0}
+  abilitiesUnlocked: 1
 --- !u!114 &777061487
 MonoBehaviour:
   m_ObjectHideFlags: 0
