@@ -333,11 +333,12 @@ public class BossController : BaseEnemy
             // check if can see player
             Vector3 direction = collider.transform.position - transform.position;
             direction = direction.normalized;
-            
+            Physics2D.queriesHitTriggers = false;
             RaycastHit2D hit = Physics2D.Raycast(transform.position + (direction*5f), direction);
+            Physics2D.queriesHitTriggers = true;
             print(hit.collider.gameObject.layer);
             // fix hit detection later
-            if(true)
+            if(hit.collider.gameObject.layer==15)
             {
                 print("can see target");
                 pullingPlayer = true;
