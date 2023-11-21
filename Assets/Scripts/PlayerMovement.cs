@@ -148,6 +148,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void pauseAnimation(){
+        if(anim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Stitch_Out_Player"){
+                anim.SetBool("isMoving", false);
+        }
+    }
+
     public void Dash(InputAction.CallbackContext ctx)
     {
         if (Time.time - lastDashTime > dashCD)

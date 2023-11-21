@@ -51,6 +51,7 @@ public class CollisionDialogue : MonoBehaviour
 
     void StartDialogue()
     {
+        PlayerMovement._instance.pauseAnimation();
         TimeManager._instance.OnDialog(true);
         index = 0;
         StartCoroutine(TypeLine());
