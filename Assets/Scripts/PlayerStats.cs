@@ -59,6 +59,7 @@ public class PlayerStats : MonoBehaviour
             healthBar.SetHealth(currentHealth);
             yarnTracker.SetHealth(Mathf.RoundToInt(currentYarnCount));
             UnityEngine.Debug.Log("Saved version loaded");
+            potionUI.SetText(potions.ToString()); 
         }
         else
         {
