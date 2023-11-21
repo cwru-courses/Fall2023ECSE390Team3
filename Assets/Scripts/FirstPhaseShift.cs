@@ -10,7 +10,7 @@ public class FirstPhaseShift : MonoBehaviour
    //  [SerializeField] private GameObject rift;  // made pickedUpObject a serialized field for testing
 
     private Collider2D objInRadius;
-    private float pickUpRadius  = 3.0f;
+    private float pickUpRadius  = 0.5f;
     [SerializeField] private LayerMask layerMask;  
 
     [SerializeField] private TextMeshProUGUI shiftText;
@@ -24,17 +24,36 @@ public class FirstPhaseShift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        objInRadius = Physics2D.OverlapCircle(transform.position, pickUpRadius, layerMask);
+      //   objInRadius = Physics2D.OverlapCircle(transform.position, pickUpRadius, layerMask);
 
-      if (objInRadius)
-        {
-                shiftText.text = "Press Q to Interact"; //change P to user input
-        }
+      // if (objInRadius)
+      //   {
+      //           
+      //   }
 
-        else
-        {
-            shiftText.text = string.Empty;
-        }
+      //   else
+      //   {
+      //       shiftText.text = string.Empty;
+      //   }
+
+      //   Vector2 playerPosition = transform.position;
+
+      //   // Perform a physics overlap check in a circular area
+      //   Collider2D[] colliders = Physics2D.OverlapCircleAll(playerPosition, pickUpRadius);
+
+      //   // Check each collider for the specified tag
+      //   foreach (Collider2D collider in colliders)
+      //   {
+      //       if (collider.CompareTag("FirstRift"))
+      //       {
+      //           // The player is near an object with the specified tag
+      //          //  Debug.Log("worked");
+      //           shiftText.text = "Press Q to Interact"; 
+      //           // Do something with the detected object
+      //       } else {
+      //          // shiftText.text = string.Eampty; 
+      //       }
+      //   }
     }
 
 
