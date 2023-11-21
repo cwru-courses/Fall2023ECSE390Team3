@@ -21,6 +21,7 @@ public class PhaseShift : MonoBehaviour
     [SerializeField] private TextMeshProUGUI PickUpIcon;
 
     private bool firstRiftDone = false; 
+    private bool inFirstRift = false; 
 
     private float precastingTimer;
 
@@ -48,6 +49,7 @@ public class PhaseShift : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("FirstRift") == true && !firstRiftDone)
         {
+            inFirstRift = true; 
         //  Debug.Log("In rift"); 
         //  if (shiftCDTimer <= 0 && precastingTimer <= 0) {
         //     StartCoroutine("PhaseShiftPrecast");
@@ -57,6 +59,10 @@ public class PhaseShift : MonoBehaviour
         // } else {
         //     PickUpIcon.text = string.Empty;
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        inFirstRift = false; 
     }
 
     //private void OnEnable()
@@ -81,9 +87,20 @@ public class PhaseShift : MonoBehaviour
 
     public void StartPhaseShift(InputAction.CallbackContext ctx)
     {
-        if (shiftCDTimer <= 0 && precastingTimer <= 0) {
-            StartCoroutine("PhaseShiftPrecast");
-            //OnDisable();    // Disable input to avoid more than one click
+        if(inFirstRift){
+            if (shiftCDTimer <= 0 && precastingTimer <= 0) {
+                StartCoroutine("PhaseShiftPrecast");
+                firstRiftDone = true;
+                Debug.Log("infirstrift");
+                //OnDisable();    // Disable input to avoid more than one click
+            }
+        }
+        else if(firstRiftDone){
+             if (shiftCDTimer <= 0 && precastingTimer <= 0) {
+                Debug.Log("firstriftdone");
+                StartCoroutine("PhaseShiftPrecast");
+                //OnDisable();    // Disable input to avoid more than one click
+            }
         }
     }
 
@@ -245,7 +262,7 @@ public class PhaseShift : MonoBehaviour
             {
                 shifted = true;
                 ToPhaseShift();
-                if(!firstRiftDone) {
+                if(!firstRiftDone || inFirstRift) {
                     riftObject = Instantiate<GameObject>(rift);
                     riftObject.transform.parent = transform;
                     riftObject.transform.position = transform.position;
