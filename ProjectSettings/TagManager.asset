@@ -12,6 +12,8 @@ TagManager:
   - YarnPuzzlePoints
   - Needle
   - YarnTrail
+  - WallsToSave
+  - FirstRift
   layers:
   - Default
   - TransparentFX
@@ -40,7 +42,7 @@ TagManager:
   - 
   - Environment
   - PickUpable
-  - 
+  - FirstRift
   - 
   - 
   - Mini Map GFX
