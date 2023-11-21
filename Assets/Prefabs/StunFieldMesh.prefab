@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3963732116267324355}
   - component: {fileID: 3963732116267324352}
-  - component: {fileID: 3963732116267324353}
+  - component: {fileID: 2551011263336652776}
   - component: {fileID: 3963732116267324354}
   - component: {fileID: 3963732116267324359}
   - component: {fileID: 439903721845944627}
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963732116267324356}
   m_Mesh: {fileID: 0}
---- !u!23 &3963732116267324353
+--- !u!23 &2551011263336652776
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 477d0544f473d4a49aaba8506a3cce8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -141,3 +141,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   speedMultiplier: 0.1
+  damageCD: 1.5

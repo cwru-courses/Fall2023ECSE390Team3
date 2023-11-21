@@ -38,6 +38,7 @@ public class PlayerStats : MonoBehaviour
 
     private float yarnGainPerSecond = 20f;
     public bool canRegenYarn = true;
+    public bool usingAbilities = false;
 
     private float iFrameTimer = 0f;
     private bool invincible = false;
@@ -144,7 +145,7 @@ public class PlayerStats : MonoBehaviour
             inFlippedWorld = true; 
             canRegenYarn = false; 
         }
-        if (canRegenYarn)
+        if (canRegenYarn&&!usingAbilities)
         {
             yarncooldown = 0;
             this.GainYarn(yarnGainPerSecond*Time.deltaTime);
