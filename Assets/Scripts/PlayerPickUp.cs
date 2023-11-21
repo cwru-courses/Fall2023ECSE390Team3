@@ -26,7 +26,6 @@ public class PlayerPickUp : MonoBehaviour
 
         if (pickedUpObject)
         {
-            Debug.Log("Rock in hand");
             PickUpIcon.text = "Press P to put down"; //change P to user input
         }
 

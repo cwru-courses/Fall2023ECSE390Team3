@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PhaseShift : MonoBehaviour
 {
@@ -15,6 +17,12 @@ public class PhaseShift : MonoBehaviour
     [SerializeField] private GameObject foot; // to detect nearby puzzle points
     [SerializeField] private Image uiImg;
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject FirstRift; 
+    [SerializeField] private FirstPhaseShift firstPhaseShift;
+    [SerializeField] private TextMeshProUGUI PickUpIcon;
+
+    private bool firstRiftDone = false; 
+    private bool inFirstRift = false; 
 
     private float precastingTimer;
 
@@ -36,6 +44,32 @@ public class PhaseShift : MonoBehaviour
         shiftProgressBar.gameObject.SetActive(false);
 
         uiImg.fillAmount = 0;
+    }
+
+    void Start() {
+        if(string.Compare(SceneManager.GetActiveScene().name, "Tutorial Level") != 0) {
+            firstRiftDone = true; 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("FirstRift") == true && !firstRiftDone)
+        {
+            inFirstRift = true; 
+        //  Debug.Log("In rift"); 
+        //  if (shiftCDTimer <= 0 && precastingTimer <= 0) {
+        //     StartCoroutine("PhaseShiftPrecast");
+        //     firstRiftDone = true; 
+        //  } 
+      
+        // } else {
+        //     PickUpIcon.text = string.Empty;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        inFirstRift = false; 
     }
 
     //private void OnEnable()
@@ -60,9 +94,17 @@ public class PhaseShift : MonoBehaviour
 
     public void StartPhaseShift(InputAction.CallbackContext ctx)
     {
-        if (shiftCDTimer <= 0 && precastingTimer <= 0) {
-            StartCoroutine("PhaseShiftPrecast");
-            //OnDisable();    // Disable input to avoid more than one click
+        if(inFirstRift){
+            if (shiftCDTimer <= 0 && precastingTimer <= 0) {
+                StartCoroutine("PhaseShiftPrecast");
+                firstRiftDone = true;
+            }
+        }
+        else if(firstRiftDone){
+             if (shiftCDTimer <= 0 && precastingTimer <= 0) {
+                StartCoroutine("PhaseShiftPrecast");
+                //OnDisable();    // Disable input to avoid more than one click
+            }
         }
     }
 
@@ -208,13 +250,15 @@ public class PhaseShift : MonoBehaviour
         shiftProgressBar.gameObject.SetActive(true);
 
         precastingTimer = shiftPrecastTime;
+        GameObject riftObject = null;
         //create precast rift
-        GameObject riftObject = Instantiate<GameObject>(rift);
-        riftObject.transform.parent = transform;
-        riftObject.transform.position = transform.position;
-        riftObject.transform.rotation = Quaternion.Euler(0, 0, 90f); 
-        riftObject.transform.position = new Vector3(riftObject.transform.position.x, riftObject.transform.position.y-1, riftObject.transform.position.z);
-
+        if(firstRiftDone) {
+            riftObject = Instantiate<GameObject>(rift);
+            riftObject.transform.parent = transform;
+            riftObject.transform.position = transform.position;
+            riftObject.transform.rotation = Quaternion.Euler(0, 0, 90f); 
+            riftObject.transform.position = new Vector3(riftObject.transform.position.x, riftObject.transform.position.y-1, riftObject.transform.position.z);
+        }
         bool shifted = false;
         while (precastingTimer > 0)
         {
@@ -222,6 +266,13 @@ public class PhaseShift : MonoBehaviour
             {
                 shifted = true;
                 ToPhaseShift();
+                if(!firstRiftDone || inFirstRift) {
+                    riftObject = Instantiate<GameObject>(rift);
+                    riftObject.transform.parent = transform;
+                    riftObject.transform.position = transform.position;
+                    riftObject.transform.rotation = Quaternion.Euler(0, 0, 90f); 
+                    riftObject.transform.position = new Vector3(riftObject.transform.position.x, riftObject.transform.position.y-1, riftObject.transform.position.z);
+                }
                 anim.Play("Stitch_Out_Player");
             }
             shiftProgressBar.value = precastingTimer / shiftPrecastTime;
