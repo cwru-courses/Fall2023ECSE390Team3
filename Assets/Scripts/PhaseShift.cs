@@ -44,6 +44,10 @@ public class PhaseShift : MonoBehaviour
         shiftProgressBar.gameObject.SetActive(false);
 
         uiImg.fillAmount = 0;
+
+        if(FirstRift != null) {
+            FirstRift.SetActive(true); 
+        }
     }
 
     void Start() {
@@ -57,30 +61,12 @@ public class PhaseShift : MonoBehaviour
         if (collider.gameObject.CompareTag("FirstRift") == true && !firstRiftDone)
         {
             inFirstRift = true; 
-        //  Debug.Log("In rift"); 
-        //  if (shiftCDTimer <= 0 && precastingTimer <= 0) {
-        //     StartCoroutine("PhaseShiftPrecast");
-        //     firstRiftDone = true; 
-        //  } 
-      
-        // } else {
-        //     PickUpIcon.text = string.Empty;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         inFirstRift = false; 
     }
-
-    //private void OnEnable()
-    //{
-    //    playerInputAction.Player.PhaseShift.Enable();
-    //}
-
-    //private void OnDisable()
-    //{
-    //    playerInputAction.Player.PhaseShift.Disable();
-    //}
 
     void FixedUpdate()
     {
@@ -286,6 +272,9 @@ public class PhaseShift : MonoBehaviour
 
         anim.Play("IdleTree");
         shiftCDTimer = shiftCD;
+        if(FirstRift != null) {
+            FirstRift.SetActive(false); 
+        }
     }
 
     //public void OnPause(bool paused)

@@ -4778,14 +4778,13 @@ MonoBehaviour:
   shiftPrecastTime: 2
   shiftInAnimDuration: 1
   shiftProgressBar: {fileID: 586172891}
-  rift: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
+  rift: {fileID: 7783975354481967705, guid: 65efbc7c648d34f1299b2ca13602c613, type: 3}
   foot: {fileID: 15948759}
   uiImg: {fileID: 1815572008}
   anim: {fileID: 1613083874}
   FirstRift: {fileID: 683789718}
   firstPhaseShift: {fileID: 683789723}
   PickUpIcon: {fileID: 889620932}
-  firstRift: {fileID: 683789718}
 --- !u!114 &777061479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10413,6 +10412,10 @@ PrefabInstance:
     - target: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
       propertyPath: m_Layer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
       propertyPath: m_TagString
