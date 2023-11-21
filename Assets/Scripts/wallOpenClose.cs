@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class wallOpenClose : MonoBehaviour
@@ -31,8 +30,8 @@ public class wallOpenClose : MonoBehaviour
         while (elapsedTime < openDuration)
         {
             transform.position = Vector3.Lerp(startingPosition, openedPosition, elapsedTime / openDuration);
-            elapsedTime += Time.deltaTime;
             yield return null; // wait for one frame
+            elapsedTime += Time.deltaTime;
         }
 
         transform.position = openedPosition; // make sure the position at the end is the openedPosition

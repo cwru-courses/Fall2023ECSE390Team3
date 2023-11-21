@@ -1,4 +1,4 @@
-using System; 
+using System;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
+    [SerializeField] private wallOpenClose[] walls;
     //if we want to create multiple save files, create a list of objects and set which one to save to/load from
     public static string currentFileName = "save0"; //initial file name
 
