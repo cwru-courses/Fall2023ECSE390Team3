@@ -2328,6 +2328,7 @@ GameObject:
   - component: {fileID: 649834705}
   - component: {fileID: 649834704}
   - component: {fileID: 649834703}
+  - component: {fileID: 649834707}
   m_Layer: 25
   m_Name: FirstRoom_AltReality
   m_TagString: Untagged
@@ -2462,6 +2463,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &649834707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649834701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d3093111ab37e4789a34c7037036e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
+  audioSource: {fileID: 1439242920}
+  textComponent: {fileID: 778277135}
+  lines:
+  - You successfully stitched!
+  - This icon shows you how much time you have to wait until your next stitch.
+  - Be careful, if you run out of yarn in this world, you won't be able to move.
+  - But don't worry! You can always stitch back to our world and recover!
+  isRunning: 0
+  health_arrow: {fileID: 0}
+  yarn_arrow: {fileID: 0}
+  shift_arrow: {fileID: 656643936}
 --- !u!1 &656643936 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 107048329222099444, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
@@ -4785,7 +4810,6 @@ MonoBehaviour:
   FirstRift: {fileID: 683789718}
   firstPhaseShift: {fileID: 683789723}
   PickUpIcon: {fileID: 889620932}
-  firstRift: {fileID: 683789718}
 --- !u!114 &777061479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7895,8 +7919,6 @@ MonoBehaviour:
   - Dashing makes you temporarily invincible.
   - There appears to be a rift in the center of the room, connecting us to a parallel
     world.
-  - Press 'Q' to open your own rift and stitch to the other side.
-  - This icon shows you how much time you have to wait until your next stitch.
   - If you get confused or want to save the game, use "Escape" to open up the Pause
     Menu.
   - Good luck!

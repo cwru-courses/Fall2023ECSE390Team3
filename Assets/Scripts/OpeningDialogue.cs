@@ -18,14 +18,15 @@ public class OpeningDialogue : CollisionDialogue
         // else if(base.index == 5){
         //     // health_arrow.SetActive(false);
         //     // yarn_arrow.SetActive(true);
+        // } 
+        // if(base.index == 5){
+        //     // yarn_arrow.SetActive(false);
+        //     // This icon shows you how much time you have to wait until your next stitch.
+        //     shift_arrow.SetActive(true);
         // }
-        if(base.index == 5){
-            // yarn_arrow.SetActive(false);
-            shift_arrow.SetActive(true);
-        }
-        else if(base.index > 5){
-            shift_arrow.SetActive(false);
-        }
+        // else if(base.index > 5){
+        //     shift_arrow.SetActive(false);
+        // }
         foreach(char c in base.lines[base.index].ToCharArray()){
             base.textComponent.text += c;
             if(c != ' '){
