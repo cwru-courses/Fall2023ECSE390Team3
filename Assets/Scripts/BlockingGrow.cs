@@ -7,7 +7,7 @@ public class BlockingGrow : MonoBehaviour
 
     private float startTime;
     public float growDuration = 0.5f;
-    private float maxScale = 0.17f;
+    private float maxScale = 2f;
     
     // Start is called before the first frame update
     void Awake()
