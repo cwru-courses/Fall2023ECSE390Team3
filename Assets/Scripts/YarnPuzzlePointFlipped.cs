@@ -11,7 +11,8 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
     [SerializeField] private GameObject lineControllerObject;
     [SerializeField] private bool needToStartYarnTrailInNormalWorld = false;
 
-    [SerializeField] private GameObject dialogueCollider; //for enabling the collider on the other side
+    public CollisionDialogue collisionDialogue;
+    [SerializeField] GameObject dialogueBox;
     public bool isFirstPoint;
     private SpriteRenderer spriteRenderer;
     private Animator childAnimator;
@@ -76,10 +77,6 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
 
     private void RevealPoint(GameObject point)
     {
-        if(isFirstPoint){
-            dialogueCollider.SetActive(true);
-            isFirstPoint = false;
-        }
         point.SetActive(true);
         Debug.Log("Set active");
     }
@@ -122,6 +119,11 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
                 RevealPoint(nextNextPoint);
             }
             stage++;
+            if (isFirstPoint){
+                dialogueBox.SetActive(true);
+                collisionDialogue.StartRunning(dialogueBox);
+                isFirstPoint = false;
+            }
 
             if (needToStartYarnTrailInNormalWorld)
             {
