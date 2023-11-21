@@ -10,7 +10,7 @@ public class FirstPhaseShift : MonoBehaviour
    //  [SerializeField] private GameObject rift;  // made pickedUpObject a serialized field for testing
 
     private Collider2D objInRadius;
-    private float pickUpRadius  = 0.5f;
+    private float pickUpRadius  = 3.0f;
     [SerializeField] private LayerMask layerMask;  
 
     [SerializeField] private TextMeshProUGUI shiftText;
@@ -22,41 +22,31 @@ public class FirstPhaseShift : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-      //   objInRadius = Physics2D.OverlapCircle(transform.position, pickUpRadius, layerMask);
+    void Update() 
+     {
+    //   objInRadius = Physics2D.OverlapCircle(transform.position, pickUpRadius);
 
-      // if (objInRadius)
-      //   {
-      //           
-      //   }
+    //   if (objInRadius)
+    //     {
+    //             shiftText.text = "Press Q to Interact"; //change P to user input
+    //     }
 
-      //   else
-      //   {
-      //       shiftText.text = string.Empty;
-      //   }
-
-      //   Vector2 playerPosition = transform.position;
-
-      //   // Perform a physics overlap check in a circular area
-      //   Collider2D[] colliders = Physics2D.OverlapCircleAll(playerPosition, pickUpRadius);
-
-      //   // Check each collider for the specified tag
-      //   foreach (Collider2D collider in colliders)
-      //   {
-      //       if (collider.CompareTag("FirstRift"))
-      //       {
-      //           // The player is near an object with the specified tag
-      //          //  Debug.Log("worked");
-      //           shiftText.text = "Press Q to Interact"; 
-      //           // Do something with the detected object
-      //       } else {
-      //          // shiftText.text = string.Eampty; 
-      //       }
-      //   }
+    //     else
+    //     {
+    //         shiftText.text = string.Empty;
+    //     }
     }
 
+  public void OnTriggerEnter2D(Collider2D other){
+    if ((layerMask.value & (1 << other.transform.gameObject.layer)) > 0) {
+        Debug.Log("Hit with Layermask");
+        shiftText.text = "Press Q to Interact"; //change P to user input
+    }
+  }
 
+  public void OnTriggerExit2D(Collider2D other){
+     shiftText.text = ""; //change P to user input
+  }
    //  private void OnTriggerEnter2D(Collider2D collider)
    //  {
    //      if (collider.gameObject.CompareTag("Player") == true && !collided)

@@ -813,7 +813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &186914069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2607,14 +2607,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683789718}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4aed8688e51894787b09819a7e671e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 134217728
+    m_Bits: 32768
   shiftText: {fileID: 1023314899}
 --- !u!1 &687604721
 GameObject:
@@ -4783,6 +4783,7 @@ MonoBehaviour:
   uiImg: {fileID: 1815572008}
   anim: {fileID: 1613083874}
   FirstRift: {fileID: 683789718}
+  firstPhaseShift: {fileID: 683789723}
   PickUpIcon: {fileID: 889620932}
 --- !u!114 &777061479
 MonoBehaviour:
@@ -5215,7 +5216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 33554432
+    m_Bits: 134217728
   shiftText: {fileID: 1023314899}
 --- !u!114 &778277135 stripped
 MonoBehaviour:
@@ -6181,7 +6182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1023314898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6222,7 +6223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: shift
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0e0341436fe24e5392e2c7257933efe, type: 2}
   m_sharedMaterial: {fileID: 67123483092376166, guid: d0e0341436fe24e5392e2c7257933efe, type: 2}
@@ -10398,7 +10399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
       propertyPath: m_Layer
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
       propertyPath: m_TagString

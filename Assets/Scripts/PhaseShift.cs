@@ -17,6 +17,7 @@ public class PhaseShift : MonoBehaviour
     [SerializeField] private Image uiImg;
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject FirstRift; 
+    [SerializeField] private FirstPhaseShift firstPhaseShift;
     [SerializeField] private TextMeshProUGUI PickUpIcon;
 
     private bool firstRiftDone = false; 
@@ -48,11 +49,10 @@ public class PhaseShift : MonoBehaviour
         if (collider.gameObject.CompareTag("FirstRift") == true && !firstRiftDone)
         {
         //  Debug.Log("In rift"); 
-        //  PickUpIcon.text = "Press Q to Interact";
-         if (shiftCDTimer <= 0 && precastingTimer <= 0) {
-            StartCoroutine("PhaseShiftPrecast");
-            firstRiftDone = true; 
-         } 
+        //  if (shiftCDTimer <= 0 && precastingTimer <= 0) {
+        //     StartCoroutine("PhaseShiftPrecast");
+        //     firstRiftDone = true; 
+        //  } 
       
         // } else {
         //     PickUpIcon.text = string.Empty;
