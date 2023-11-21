@@ -3933,6 +3933,9 @@ MonoBehaviour:
   foot: {fileID: 15948759}
   uiImg: {fileID: 1698798907}
   anim: {fileID: 0}
+  FirstRift: {fileID: 0}
+  firstPhaseShift: {fileID: 0}
+  PickUpIcon: {fileID: 0}
 --- !u!114 &777061479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4006,6 +4009,7 @@ MonoBehaviour:
   potionSFX: {fileID: 0}
   iFrameTime: 0
   canRegenYarn: 1
+  usingAbilities: 0
   levelsReached: 000000
 --- !u!50 &777061482
 Rigidbody2D:
@@ -4225,6 +4229,7 @@ MonoBehaviour:
   stitchingSFX: {fileID: 314075408}
   lineMaterial: {fileID: 0}
   pathRender: {fileID: 0}
+  abilitiesUnlocked: 1
 --- !u!114 &777061487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9068,7 +9073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107048328907806297, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -177
+      value: -204
       objectReference: {fileID: 0}
     - target: {fileID: 107048328993574306, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_IsActive
@@ -9132,7 +9137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321150161439233093, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -16
+      value: -43
       objectReference: {fileID: 0}
     - target: {fileID: 7321150161622245868, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_Value
@@ -9152,7 +9157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321150161622245871, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 99
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 7321150161628007601, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
       propertyPath: m_AnchorMax.x
