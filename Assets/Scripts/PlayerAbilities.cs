@@ -23,7 +23,7 @@ public class PlayerAbilities : MonoBehaviour
     private const float stunCD = 0f;
     private const float stunDuration = 3f;
     private const float stunMaxCastingDuration = 20f;
-    private const float stunYarnPerSecond = 7.5f;
+    private const float stunYarnPerSecond = 10f;
 
     private bool stunCasting = false;
     private List<Vector3> stunCulledPath;
@@ -33,6 +33,8 @@ public class PlayerAbilities : MonoBehaviour
     private float lastBlockAbilityTime;
     private bool isBlocking;
     private GameObject blockObject;
+
+    public bool abilitiesUnlocked = true;
 
 
 
@@ -161,7 +163,7 @@ public class PlayerAbilities : MonoBehaviour
     {
         print("block ability triggered");
         print(ctx.phase);
-        if (Time.time - lastBlockAbilityTime > blockCD)
+        if ((Time.time - lastBlockAbilityTime > blockCD)&& abilitiesUnlocked)
         { 
             block();
         }
@@ -170,7 +172,7 @@ public class PlayerAbilities : MonoBehaviour
     public void startStun(InputAction.CallbackContext ctx)
     {
  
-        if ( (Time.time - lastStunAbilityTime > stunCD || stunCasting) && ctx.started)
+        if ( (Time.time - lastStunAbilityTime > stunCD || stunCasting) && ctx.started && abilitiesUnlocked)
         {
             lastStunAbilityTime = Time.time;
             StartCoroutine(stun());
@@ -183,7 +185,7 @@ public class PlayerAbilities : MonoBehaviour
             isBlocking = true;
             PlayerMovement._instance.MultiplySpeed(blockMovementSpeedMultiplier);
             PlayerStats._instance.blocking = true;
-            PlayerStats._instance.canRegenYarn = false;
+            PlayerStats._instance.usingAbilities = true;
             blockObject = Instantiate(blockPrefab) as GameObject;
             blockObject.transform.parent = this.transform;
             blockObject.transform.position = this.transform.position;
@@ -194,7 +196,7 @@ public class PlayerAbilities : MonoBehaviour
             Destroy(blockObject);
             PlayerMovement._instance.MultiplySpeed(1f / blockMovementSpeedMultiplier);
             PlayerStats._instance.blocking = false;
-            PlayerStats._instance.canRegenYarn = true;
+            PlayerStats._instance.usingAbilities = false;
             lastBlockAbilityTime = Time.time;
         }
 
@@ -205,7 +207,8 @@ public class PlayerAbilities : MonoBehaviour
     {
         if (stunCasting)
         {
-            PlayerStats._instance.canRegenYarn = true;
+            PlayerMovement._instance.MultiplySpeed(1f/1.5f);
+            PlayerStats._instance.usingAbilities = false;
             if (stitchingSFX)
             {
                 stitchingSFX.Stop();
@@ -214,7 +217,7 @@ public class PlayerAbilities : MonoBehaviour
             stunCasting = false;
             GameObject stunObject = Instantiate(stunMeshPrefab) as GameObject;
             stunObject.GetComponent<MeshGenerator>().SetVertices(stunCulledPath.ToArray());
-            stunObject.transform.position = new Vector3(0,0,1);
+            stunObject.transform.position = new Vector3(0,0,0);
             stunCulledPath = new List<Vector3>();
             pathRender.Clear();
             pathRender.enabled = false;
@@ -225,9 +228,10 @@ public class PlayerAbilities : MonoBehaviour
         }
         else
         {
+            PlayerMovement._instance.MultiplySpeed(1.5f);
             pathRender.enabled = true;
             pathRender.Clear();
-            PlayerStats._instance.canRegenYarn = false;
+            PlayerStats._instance.usingAbilities = true;
             if (stitchingSFX)
             {
                 stitchingSFX.Play();

@@ -215,6 +215,10 @@ public class BossController : BaseEnemy
             health = Mathf.Max(health - damage, 0);
             bossHealthbar.transform.localScale = new Vector3(healthbarInitScale * ((float)health / (float)maxHealth), (float)8.15,1);
             takeDamageSFX.Play();
+            if (spriteRender)
+            {
+                StartCoroutine(FlashColor(new Color(1f, 0.5f, 0.5f)));
+            }
             if (health <= 0)
             {
                 alive = false;
@@ -369,5 +373,12 @@ public class BossController : BaseEnemy
         yield return new WaitForSeconds(riftDuration);
         Destroy(riftObject);
         
+    }
+
+    private IEnumerator FlashColor(Color color)
+    {
+        spriteRender.color = color;
+        yield return new WaitForSeconds(0.3f);
+        spriteRender.color = Color.white;
     }
 }
