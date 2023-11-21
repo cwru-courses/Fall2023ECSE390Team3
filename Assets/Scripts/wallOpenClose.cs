@@ -9,6 +9,8 @@ public class wallOpenClose : MonoBehaviour
     Vector3 openedPosition;
     float closeDuration = 0.5f;
 
+    [SerializeField] private bool opened = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,8 @@ public class wallOpenClose : MonoBehaviour
         }
 
         transform.position = openedPosition; // make sure the position at the end is the openedPosition
+
+        opened = true;
     }
 
     public void toClose()
@@ -55,5 +59,12 @@ public class wallOpenClose : MonoBehaviour
 
         transform.position = lockedPosition; // make sure the position at the end is the openedPosition
         */
+
+        opened = false;
+    }
+
+    public bool isOpened()
+    {
+        return opened;
     }
 }

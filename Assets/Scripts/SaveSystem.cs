@@ -7,12 +7,18 @@ using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
-    [SerializeField] private wallOpenClose[] walls;
+    public static SaveSystem _instance;
+    [SerializeField] public wallOpenClose[] walls;
     //if we want to create multiple save files, create a list of objects and set which one to save to/load from
     public static string currentFileName = "save0"; //initial file name
 
     private static string[] initialFileNames = {"", "", ""}; 
-    public static List<string> listSavedFiles = new List<string>(initialFileNames); 
+    public static List<string> listSavedFiles = new List<string>(initialFileNames);
+
+    private void Awake()
+    {
+        _instance = this;
+    }
 
     public static void CreateSave()
     {
@@ -27,7 +33,7 @@ public class SaveSystem : MonoBehaviour
         formatter.Serialize(stream, new SaveUnit());
         stream.Close();
 
-        Debug.Log(savePath);   
+        Debug.Log(savePath);
 
         Time.timeScale = 1f;
 
@@ -49,7 +55,7 @@ public class SaveSystem : MonoBehaviour
         {
             Debug.Log("Save Not Found");
         }
-        return data; 
+        return data;
     }
 
     public static void LoadSave()
@@ -69,7 +75,21 @@ public class SaveSystem : MonoBehaviour
             PlayerStats._instance.currentHealth = data.playerHealth;
             PlayerStats._instance.currentYarnCount = data.playerYarn; 
             PlayerStats._instance.potions = data.potions; 
-            PlayerStats._instance.levelsReached = data.levelsReached; 
+            PlayerStats._instance.levelsReached = data.levelsReached;
+
+            for (int i = 0; i < data.doorOpened.Length; i++)
+            {
+                if (data.doorOpened[i])
+                {
+                    Debug.Log("Door Opened On Loading Save");
+                    _instance.walls[i].toOpen();
+                }
+                else
+                {
+                    Debug.Log("Door Closed On Loading Save");
+                    _instance.walls[i].toClose();
+                }
+            }
         }
         else
         {

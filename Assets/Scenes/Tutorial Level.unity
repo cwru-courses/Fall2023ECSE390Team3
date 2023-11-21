@@ -4302,6 +4302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toOpenedPosition: {x: 0, y: 5, z: 0}
   openDuration: 1
+  opened: 0
 --- !u!1001 &771034837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7968,6 +7969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91e2bb86b53e6e4c8e434faec49841d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walls:
+  - {fileID: 769719602}
 --- !u!82 &1580157308
 AudioSource:
   m_ObjectHideFlags: 0

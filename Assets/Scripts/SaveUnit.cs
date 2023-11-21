@@ -1,4 +1,4 @@
-using UnityEngine; 
+using UnityEngine;
 using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -8,11 +8,11 @@ public class SaveUnit
 {
     public float[] playerPosition;
     public int playerHealth;
-    public float playerYarn; 
-    public int potions; 
-    public string currentSceneName; 
-    public bool[] levelsReached; 
-    //public float playerMana;
+    public float playerYarn;
+    public int potions;
+    public string currentSceneName;
+    public bool[] levelsReached;
+    public bool[] doorOpened;
 
     public SaveUnit()
     {
@@ -23,9 +23,16 @@ public class SaveUnit
             PlayerStats._instance.transform.position.z
         };
         playerHealth = PlayerStats._instance.currentHealth;
-        playerYarn = PlayerStats._instance.currentYarnCount; 
-        potions = PlayerStats._instance.potions; 
+        playerYarn = PlayerStats._instance.currentYarnCount;
+        potions = PlayerStats._instance.potions;
         currentSceneName = SceneManager.GetActiveScene().name;
-        levelsReached =  PlayerStats._instance.levelsReached; 
+        levelsReached = PlayerStats._instance.levelsReached;
+        wallOpenClose[]  doors = SaveSystem._instance.walls;
+        doorOpened = new bool[doors.Length];
+        for (int i = 0; i < doors.Length; i++)
+        {
+            doorOpened[i] = doors[i].isOpened();
+            Debug.Log(doors[i].isOpened());
+        }
     }
 }
