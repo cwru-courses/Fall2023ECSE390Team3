@@ -504,7 +504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29346239}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.2, y: -21.5, z: -0.5}
+  m_LocalPosition: {x: -8.2, y: -21.5, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14164,6 +14164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toOpenedPosition: {x: -12, y: 0, z: 0}
   openDuration: 3
+  opened: 0
 --- !u!1001 &1060731558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14454,6 +14455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toOpenedPosition: {x: -12, y: 0, z: 0}
   openDuration: 3
+  opened: 0
 --- !u!1001 &1098199878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15613,6 +15615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toOpenedPosition: {x: 14, y: 0, z: 0}
   openDuration: 3
+  opened: 0
 --- !u!1001 &1187101817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16986,6 +16989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toOpenedPosition: {x: 0, y: -8, z: 0}
   openDuration: 3
+  opened: 0
 --- !u!1 &1414519053
 GameObject:
   m_ObjectHideFlags: 0
@@ -17358,6 +17362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toOpenedPosition: {x: 14, y: 0, z: 0}
   openDuration: 3
+  opened: 0
 --- !u!4 &1483333079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 986031642315237850, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
@@ -17912,6 +17917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91e2bb86b53e6e4c8e434faec49841d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorControllers: []
 --- !u!82 &1580157308
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19668,7 +19674,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: maxHealth
-      value: 75
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: nextScene
@@ -19677,6 +19683,14 @@ PrefabInstance:
     - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: numPhases
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: minAttackCD
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: slamAnimLength
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 798609730, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: patrolPoints.Array.data[0].x
@@ -19702,6 +19716,10 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[2].y
       value: 105
       objectReference: {fileID: 0}
+    - target: {fileID: 342586016349857166, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 164678280, guid: a917fe83adc356b4c9a75be9277e8ff0, type: 3}
     - target: {fileID: 2460894157062390123, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: m_Name
       value: BossCat Variant
@@ -19720,7 +19738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2460894157062390127, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2460894157062390127, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19750,6 +19768,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2538120770463943114, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9bc8919a64c2366498242b42694485e9, type: 2}
     - target: {fileID: 8436521152876793829, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.18
@@ -20158,6 +20180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toOpenedPosition: {x: 0, y: 8, z: 0}
   openDuration: 3
+  opened: 0
 --- !u!1001 &2068015143
 PrefabInstance:
   m_ObjectHideFlags: 0

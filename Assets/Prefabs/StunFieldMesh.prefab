@@ -141,4 +141,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   speedMultiplier: 0.1
-  damageCD: 1.5
+  damageCD: 1

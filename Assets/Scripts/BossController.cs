@@ -25,7 +25,7 @@ public class BossController : BaseEnemy
     [SerializeField] private GameObject shockwavePrefab;
     [SerializeField] private int numWaves;
     [SerializeField] private float timeBetweenWaves;
-    [SerializeField] private float windUpTimeWaves;
+    [SerializeField] private float slamAnimLength;
     [SerializeField] private int shockwaveDamage;
     [SerializeField] private float shockwaveSpeed;
     [SerializeField] private float shockwaveRange;
@@ -292,9 +292,9 @@ public class BossController : BaseEnemy
 
     private IEnumerator ShockwaveAttack()
     {
-        //add attack wind up animation here 
+        
 
-        yield return new WaitForSeconds(windUpTimeWaves);
+        
 
         //loop for number of shockwaves
         for(int i = 0; i < numWaves; i++) {
@@ -303,7 +303,15 @@ public class BossController : BaseEnemy
             {
                 shockwaveSFX.Play();
             }
-
+            if (anim)
+            {
+                anim.SetBool("isAttacking", true);
+            }
+            yield return new WaitForSeconds(slamAnimLength);
+            if (anim)
+            {
+                anim.SetBool("isAttacking", false);
+            }
             //spawn a shockwave
             GameObject shockwaveObject = Instantiate<GameObject>(shockwavePrefab);
             shockwaveObject.transform.parent = transform;
@@ -314,7 +322,7 @@ public class BossController : BaseEnemy
             sw.targetLayer = whatIsTaget;
             sw.speed = shockwaveSpeed;
             sw.hitRadius = 0.5f;
-            yield return new WaitForSeconds(timeBetweenWaves);
+            yield return new WaitForSeconds(timeBetweenWaves-slamAnimLength);
         }
 
     }
