@@ -21,7 +21,7 @@ public class wallOpenClose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public IEnumerator toOpen()
@@ -66,5 +66,19 @@ public class wallOpenClose : MonoBehaviour
     public bool isOpened()
     {
         return opened;
+    }
+
+    public void SetDoorsOnLoad(bool toOpen)
+    {
+        if (toOpen)
+        {
+            Debug.Log("Door Opened On Loading Save");
+            StartCoroutine("toOpen");
+        }
+        else
+        {
+            Debug.Log("Door Close On Loading Save");
+            toClose();
+        }
     }
 }

@@ -8,16 +8,24 @@ using UnityEngine.SceneManagement;
 public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem _instance;
-    [SerializeField] public wallOpenClose[] walls;
+    static private string[] doorNames;
+    [HideInInspector] public wallOpenClose[] doorControllers;
     //if we want to create multiple save files, create a list of objects and set which one to save to/load from
     public static string currentFileName = "save0"; //initial file name
 
-    private static string[] initialFileNames = {"", "", ""}; 
+    private static string[] initialFileNames = { "", "", "" };
     public static List<string> listSavedFiles = new List<string>(initialFileNames);
 
     private void Awake()
     {
         _instance = this;
+
+        doorNames = new string[] { "Tilemap Final Boss Walls" };
+        doorControllers = new wallOpenClose[doorNames.Length];
+        for (int i = 0; i < doorNames.Length; i++)
+        {
+            doorControllers[i] = GameObject.Find(doorNames[i]).GetComponent<wallOpenClose>();
+        }
     }
 
     public static void CreateSave()
@@ -37,11 +45,12 @@ public class SaveSystem : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        listSavedFiles[int.Parse(currentFileName[4].ToString())] = currentFileName; 
+        listSavedFiles[int.Parse(currentFileName[4].ToString())] = currentFileName;
     }
 
-    private static SaveUnit GetSavedData(string savePath) {
-        SaveUnit data = null; 
+    private static SaveUnit GetSavedData(string savePath)
+    {
+        SaveUnit data = null;
         if (File.Exists(savePath))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -66,29 +75,26 @@ public class SaveSystem : MonoBehaviour
 
         if (File.Exists(savePath))
         {
-            SaveUnit data = GetSavedData(savePath); 
+            SaveUnit data = GetSavedData(savePath);
 
-            // Vector3 playerPos = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
-            //if reloading save to a reached level, set position at the player position
-            // PlayerStats._instance.transform.position = playerPos;
-            
+            Vector3 playerPos = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
+            // if reloading save to a reached level, set position at the player position
+            PlayerStats._instance.transform.position = playerPos;
+
             PlayerStats._instance.currentHealth = data.playerHealth;
-            PlayerStats._instance.currentYarnCount = data.playerYarn; 
-            PlayerStats._instance.potions = data.potions; 
+            PlayerStats._instance.currentYarnCount = data.playerYarn;
+            PlayerStats._instance.potions = data.potions;
             PlayerStats._instance.levelsReached = data.levelsReached;
 
+            Debug.Log(data.doorOpened.Length + " Door Data Retrieved");
+            _instance.doorControllers = new wallOpenClose[doorNames.Length];
+            for (int i = 0; i < doorNames.Length; i++)
+            {
+                _instance.doorControllers[i] = GameObject.Find(doorNames[i]).GetComponent<wallOpenClose>();
+            }
             for (int i = 0; i < data.doorOpened.Length; i++)
             {
-                if (data.doorOpened[i])
-                {
-                    Debug.Log("Door Opened On Loading Save");
-                    _instance.walls[i].toOpen();
-                }
-                else
-                {
-                    Debug.Log("Door Closed On Loading Save");
-                    _instance.walls[i].toClose();
-                }
+                _instance.doorControllers[i].SetDoorsOnLoad(data.doorOpened[i]);
             }
         }
         else
@@ -99,53 +105,71 @@ public class SaveSystem : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public static void SetPlayerPosition() {
+    public static void SetPlayerPosition()
+    {
         string savePath = Application.persistentDataPath + "/" + currentFileName + ".sav";
-        SaveUnit data = GetSavedData(savePath); 
+        SaveUnit data = GetSavedData(savePath);
 
-        if(data != null) {
+        if (data != null)
+        {
             PlayerStats._instance.transform.position = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
-        } 
+        }
 
     }
 
-    public static string LoadSavedSceneName() {
+    public static string LoadSavedSceneName()
+    {
         string savePath = Application.persistentDataPath + "/" + currentFileName + ".sav";
-        SaveUnit data = GetSavedData(savePath); 
+        SaveUnit data = GetSavedData(savePath);
         //if data not null
-        if(data != null) {
-            return data.currentSceneName; 
-        } else {
-            return "Tutorial Level"; 
+        if (data != null)
+        {
+            return data.currentSceneName;
+        }
+        else
+        {
+            return "Tutorial Level";
         }
     }
 
-    public static void GetInitialPositions() {
-         if(String.Compare(SceneManager.GetActiveScene().name, "Tutorial Level") == 0) {
-            PlayerStats._instance.transform.position = new Vector3(18.8f, 23.1f, -1f); 
+    public static void GetInitialPositions()
+    {
+        if (String.Compare(SceneManager.GetActiveScene().name, "Tutorial Level") == 0)
+        {
+            PlayerStats._instance.transform.position = new Vector3(18.8f, 23.1f, -1f);
         }
-        else if(String.Compare(SceneManager.GetActiveScene().name, "Sanctuary") == 0) {
-            PlayerStats._instance.transform.position = new Vector3(-75.3f, 46.7f, 0f); 
-        } else if(String.Compare(SceneManager.GetActiveScene().name, "Second Level") == 0) {
-            PlayerStats._instance.transform.position = new Vector3(32.6f, 27.3f, -1f); 
+        else if (String.Compare(SceneManager.GetActiveScene().name, "Sanctuary") == 0)
+        {
+            PlayerStats._instance.transform.position = new Vector3(-75.3f, 46.7f, 0f);
         }
-    }
-
-    public void SetFileIndex(int index) {
-        if(string.Equals(listSavedFiles[index], "")) {
-            currentFileName = "save" + index; 
-        } else {
-            currentFileName = listSavedFiles[index]; 
+        else if (String.Compare(SceneManager.GetActiveScene().name, "Second Level") == 0)
+        {
+            PlayerStats._instance.transform.position = new Vector3(32.6f, 27.3f, -1f);
         }
     }
 
-    public void DeleteSave(int index) {
-        if(!string.Equals(listSavedFiles[index], "")) {
+    public void SetFileIndex(int index)
+    {
+        if (string.Equals(listSavedFiles[index], ""))
+        {
+            currentFileName = "save" + index;
+        }
+        else
+        {
+            currentFileName = listSavedFiles[index];
+        }
+    }
+
+    public void DeleteSave(int index)
+    {
+        if (!string.Equals(listSavedFiles[index], ""))
+        {
             listSavedFiles[index] = "";
         }
     }
 
-    public static int GetNumberSavedFiles() {
-        return listSavedFiles.FindAll(file => !string.Equals(file, "")).Count; 
+    public static int GetNumberSavedFiles()
+    {
+        return listSavedFiles.FindAll(file => !string.Equals(file, "")).Count;
     }
 }

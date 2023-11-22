@@ -7969,8 +7969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91e2bb86b53e6e4c8e434faec49841d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walls:
-  - {fileID: 769719602}
+  doorNames:
+  - Tilemap Final Boss Walls
+  doorControllers: []
 --- !u!82 &1580157308
 AudioSource:
   m_ObjectHideFlags: 0

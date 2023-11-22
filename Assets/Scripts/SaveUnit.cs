@@ -27,12 +27,12 @@ public class SaveUnit
         potions = PlayerStats._instance.potions;
         currentSceneName = SceneManager.GetActiveScene().name;
         levelsReached = PlayerStats._instance.levelsReached;
-        wallOpenClose[]  doors = SaveSystem._instance.walls;
-        doorOpened = new bool[doors.Length];
-        for (int i = 0; i < doors.Length; i++)
+        wallOpenClose[] doorControllers = SaveSystem._instance.doorControllers;
+        doorOpened = new bool[doorControllers.Length];
+        for (int i = 0; i < doorControllers.Length; i++)
         {
-            doorOpened[i] = doors[i].isOpened();
-            Debug.Log(doors[i].isOpened());
+            doorOpened[i] = doorControllers[i].isOpened();
+            Debug.Log(doorControllers[i].isOpened());
         }
     }
 }
