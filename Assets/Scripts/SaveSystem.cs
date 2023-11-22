@@ -21,11 +21,15 @@ public class SaveSystem : MonoBehaviour
         _instance = this;
 
         doorNames = new string[] { "Tilemap Final Boss Walls" };
+        // if(String.Compare(SceneManager.GetActiveScene().name, "sanctuary") != 0)
+        // {
+            Debug.Log("level not sanctuary");
         doorControllers = new wallOpenClose[doorNames.Length];
         for (int i = 0; i < doorNames.Length; i++)
         {
             doorControllers[i] = GameObject.Find(doorNames[i]).GetComponent<wallOpenClose>();
         }
+        // }
     }
 
     public static void CreateSave()
@@ -85,7 +89,11 @@ public class SaveSystem : MonoBehaviour
             PlayerStats._instance.currentYarnCount = data.playerYarn;
             PlayerStats._instance.potions = data.potions;
             PlayerStats._instance.levelsReached = data.levelsReached;
+            Debug.Log(SceneManager.GetActiveScene().name);
+            // if(String.Compare(SceneManager.GetActiveScene().name, "sanctuary") != 0)
+            // {
 
+            
             Debug.Log(data.doorOpened.Length + " Door Data Retrieved");
             _instance.doorControllers = new wallOpenClose[doorNames.Length];
             for (int i = 0; i < doorNames.Length; i++)
@@ -96,6 +104,7 @@ public class SaveSystem : MonoBehaviour
             {
                 _instance.doorControllers[i].SetDoorsOnLoad(data.doorOpened[i]);
             }
+            // }
         }
         else
         {
@@ -138,7 +147,7 @@ public class SaveSystem : MonoBehaviour
         {
             PlayerStats._instance.transform.position = new Vector3(18.8f, 23.1f, -1f);
         }
-        else if (String.Compare(SceneManager.GetActiveScene().name, "Sanctuary") == 0)
+        else if (String.Compare(SceneManager.GetActiveScene().name, "sanctuary") == 0)
         {
             PlayerStats._instance.transform.position = new Vector3(-75.3f, 46.7f, 0f);
         }

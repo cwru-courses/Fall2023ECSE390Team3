@@ -3448,6 +3448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91e2bb86b53e6e4c8e434faec49841d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorControllers: []
 --- !u!114 &847122573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3564,6 +3565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91e2bb86b53e6e4c8e434faec49841d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorControllers: []
 --- !u!1001 &898707791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6850,6 +6852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91e2bb86b53e6e4c8e434faec49841d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorControllers: []
 --- !u!4 &1510154057
 Transform:
   m_ObjectHideFlags: 0
@@ -6884,7 +6887,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   boss: {fileID: 0}
   forwardAudioSource: {fileID: 1510154059}
-  reversedAudioSource: {fileID: 0}
+  reversedAudioSource: {fileID: 1510154059}
 --- !u!82 &1510154059
 AudioSource:
   m_ObjectHideFlags: 0

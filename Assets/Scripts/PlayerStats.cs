@@ -85,7 +85,7 @@ public class PlayerStats : MonoBehaviour
             initialPosition = new Vector3(18.8f, 23.1f, -1f); 
             currentLevel = 0; 
         }
-        else if(String.Compare(SceneManager.GetActiveScene().name, "Sanctuary") == 0) {
+        else if(String.Compare(SceneManager.GetActiveScene().name, "sanctuary") == 0) {
             initialPosition = new Vector3(-75.3f, 46.7f, -1f); 
             currentLevel = 1; 
         } else if(String.Compare(SceneManager.GetActiveScene().name, "Second Level") == 0) {
