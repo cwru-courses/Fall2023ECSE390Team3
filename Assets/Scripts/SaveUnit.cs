@@ -28,13 +28,13 @@ public class SaveUnit
         potions = PlayerStats._instance.potions;
         currentSceneName = SceneManager.GetActiveScene().name;
         levelsReached = PlayerStats._instance.levelsReached;
-        wallOpenClose[] doorControllers = SaveSystem._instance.doorControllers;
-        doorOpened = new bool[doorControllers.Length];
-        for (int i = 0; i < doorControllers.Length; i++)
-        {
-            doorOpened[i] = doorControllers[i].isOpened();
-            Debug.Log(doorControllers[i].isOpened());
-        }
+        //wallOpenClose[] doorControllers = SaveSystem._instance.doorControllers;
+        //doorOpened = new bool[doorControllers.Length];
+        //for (int i = 0; i < doorControllers.Length; i++)
+        //{
+        //    doorOpened[i] = doorControllers[i].isOpened();
+        //    Debug.Log(doorControllers[i].isOpened());
+        //}
 
         firstRiftDone = PlayerStats._instance.firstRiftDone; 
     }

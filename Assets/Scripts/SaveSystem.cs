@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem _instance;
-    static private string[] doorNames;
-    [HideInInspector] public wallOpenClose[] doorControllers;
+    //static private string[] doorNames;
+    //[HideInInspector] public wallOpenClose[] doorControllers;
     //if we want to create multiple save files, create a list of objects and set which one to save to/load from
     public static string currentFileName = "save0"; //initial file name
 
@@ -20,16 +20,16 @@ public class SaveSystem : MonoBehaviour
     {
         _instance = this;
 
-        doorNames = new string[] { "Tilemap Final Boss Walls" };
-        // if(String.Compare(SceneManager.GetActiveScene().name, "sanctuary") != 0)
-        // {
-            Debug.Log("level not sanctuary");
-        doorControllers = new wallOpenClose[doorNames.Length];
-        for (int i = 0; i < doorNames.Length; i++)
-        {
-            doorControllers[i] = GameObject.Find(doorNames[i]).GetComponent<wallOpenClose>();
-        }
-        // }
+        //doorNames = new string[] { "Tilemap Final Boss Walls" };
+        //if (String.Compare(SceneManager.GetActiveScene().name, "sanctuary") != 0)
+        //{
+        //    Debug.Log("level not sanctuary");
+        //    doorControllers = new wallOpenClose[doorNames.Length];
+        //    for (int i = 0; i < doorNames.Length; i++)
+        //    {
+        //        doorControllers[i] = GameObject.Find(doorNames[i]).GetComponent<wallOpenClose>();
+        //    }
+        //}
     }
 
     public static void CreateSave()
@@ -89,22 +89,22 @@ public class SaveSystem : MonoBehaviour
             PlayerStats._instance.currentYarnCount = data.playerYarn;
             PlayerStats._instance.potions = data.potions;
             PlayerStats._instance.levelsReached = data.levelsReached;
-            PlayerStats._instance.firstRiftDone = data.firstRiftDone; 
+            PlayerStats._instance.firstRiftDone = data.firstRiftDone;
             Debug.Log(SceneManager.GetActiveScene().name);
             // if(String.Compare(SceneManager.GetActiveScene().name, "sanctuary") != 0)
             // {
 
-            
+
             Debug.Log(data.doorOpened.Length + " Door Data Retrieved");
-            _instance.doorControllers = new wallOpenClose[doorNames.Length];
-            for (int i = 0; i < doorNames.Length; i++)
-            {
-                _instance.doorControllers[i] = GameObject.Find(doorNames[i]).GetComponent<wallOpenClose>();
-            }
-            for (int i = 0; i < data.doorOpened.Length; i++)
-            {
-                _instance.doorControllers[i].SetDoorsOnLoad(data.doorOpened[i]);
-            }
+            //_instance.doorControllers = new wallOpenClose[doorNames.Length];
+            //for (int i = 0; i < doorNames.Length; i++)
+            //{
+            //    _instance.doorControllers[i] = GameObject.Find(doorNames[i]).GetComponent<wallOpenClose>();
+            //}
+            //for (int i = 0; i < data.doorOpened.Length; i++)
+            //{
+            //    _instance.doorControllers[i].SetDoorsOnLoad(data.doorOpened[i]);
+            //}
             // }
         }
         else
