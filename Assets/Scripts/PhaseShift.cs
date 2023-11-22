@@ -45,7 +45,11 @@ public class PhaseShift : MonoBehaviour
 
         uiImg.fillAmount = 0;
 
-        if(FirstRift != null) {
+        //if loading from saved version
+        if (SaveSystem.listSavedFiles.Contains(SaveSystem.currentFileName)) {
+            firstRiftDone = PlayerStats._instance.firstRiftDone;
+        }
+        if(FirstRift != null && !firstRiftDone) {
             FirstRift.SetActive(true); 
         }
     }
@@ -84,6 +88,7 @@ public class PhaseShift : MonoBehaviour
             if (shiftCDTimer <= 0 && precastingTimer <= 0) {
                 StartCoroutine("PhaseShiftPrecast");
                 firstRiftDone = true;
+                PlayerStats._instance.firstRiftDone = true; 
             }
         }
         else if(firstRiftDone){

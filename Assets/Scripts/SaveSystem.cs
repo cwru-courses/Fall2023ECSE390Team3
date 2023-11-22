@@ -89,6 +89,7 @@ public class SaveSystem : MonoBehaviour
             PlayerStats._instance.currentYarnCount = data.playerYarn;
             PlayerStats._instance.potions = data.potions;
             PlayerStats._instance.levelsReached = data.levelsReached;
+            PlayerStats._instance.firstRiftDone = data.firstRiftDone; 
             Debug.Log(SceneManager.GetActiveScene().name);
             // if(String.Compare(SceneManager.GetActiveScene().name, "sanctuary") != 0)
             // {

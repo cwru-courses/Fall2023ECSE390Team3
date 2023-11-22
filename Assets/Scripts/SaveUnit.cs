@@ -11,6 +11,7 @@ public class SaveUnit
     public float playerYarn;
     public int potions;
     public string currentSceneName;
+    public bool firstRiftDone; 
     public bool[] levelsReached;
     public bool[] doorOpened;
 
@@ -34,5 +35,7 @@ public class SaveUnit
             doorOpened[i] = doorControllers[i].isOpened();
             Debug.Log(doorControllers[i].isOpened());
         }
+
+        firstRiftDone = PlayerStats._instance.firstRiftDone; 
     }
 }

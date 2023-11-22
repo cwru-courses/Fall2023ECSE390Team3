@@ -44,6 +44,7 @@ public class PlayerStats : MonoBehaviour
     private bool invincible = false;
 
     public bool[] levelsReached = {false, false, false};
+    public bool firstRiftDone = false; 
 
     void Awake()
     {
@@ -61,6 +62,7 @@ public class PlayerStats : MonoBehaviour
             yarnTracker.SetHealth(Mathf.RoundToInt(currentYarnCount));
             UnityEngine.Debug.Log("Saved version loaded");
             potionUI.SetText(potions.ToString()); 
+
         }
         else
         {
