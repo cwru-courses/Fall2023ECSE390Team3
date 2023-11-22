@@ -95,7 +95,7 @@ public class SaveSystem : MonoBehaviour
             // {
 
 
-            Debug.Log(data.doorOpened.Length + " Door Data Retrieved");
+            //Debug.Log(data.doorOpened.Length + " Door Data Retrieved");
             //_instance.doorControllers = new wallOpenClose[doorNames.Length];
             //for (int i = 0; i < doorNames.Length; i++)
             //{
