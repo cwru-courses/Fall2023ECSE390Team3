@@ -33,6 +33,7 @@ public class PlayerStats : MonoBehaviour
 
     [Min(0f)]
     [SerializeField] private float iFrameTime;
+    [SerializeField] private CameraControl came;
 
     //private DefaultInputAction playerInputAction;
 
@@ -44,7 +45,8 @@ public class PlayerStats : MonoBehaviour
     private bool invincible = false;
 
     public bool[] levelsReached = {false, false, false};
-    public bool firstRiftDone = false; 
+    public bool firstRiftDone = false;
+    private bool fadingOut = false;
 
     void Awake()
     {
@@ -54,7 +56,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         playerInput = GetComponent<PlayerInput>();
-        
+
         if (SaveSystem.listSavedFiles.Contains(SaveSystem.currentFileName))
         {
             SaveSystem.LoadSave();
@@ -105,7 +107,7 @@ public class PlayerStats : MonoBehaviour
              //else if already reached, then the position is set by the SaveSystem
             SaveSystem.SetPlayerPosition(); 
         }
-       
+        //StartCoroutine(FadeOutOverTime(3f));
     }
 
     //private void OnEnable()
@@ -183,7 +185,7 @@ public class PlayerStats : MonoBehaviour
                 hitSFX.Play();
                 
             }
-            if (spRender)
+            if (spRender && !fadingOut)
             {
                 StartCoroutine(FlashColor(new Color(1f,0.5f,0.5f)));
             }
@@ -269,6 +271,37 @@ public class PlayerStats : MonoBehaviour
         }
 
         spRender.color = Color.white;
+    }
+
+    // Fade out player after killing enemy before going to the next level
+    public IEnumerator FadeOutOverTime(float fadeTime, String nextScene)
+    {
+        if (came != null)
+        {
+            // watch player
+            came.SwitchToPlayerFocus();
+        }
+        fadingOut = true;
+        float elapsedTime = 0f;
+        Color initialColor = spRender.material.color;
+
+        while (elapsedTime < fadeTime)
+        {
+            print(elapsedTime);
+            print(fadeTime);
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeTime);
+            Color newColor = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
+            spRender.material.color = newColor;
+
+            elapsedTime += Time.deltaTime;
+            yield return null; 
+        }
+
+        // Make sure the object is completely hidden when the fade is complete
+        spRender.material.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
+
+        fadingOut = false;
+        SceneManager.LoadScene(nextScene);
     }
 
 }

@@ -59,6 +59,8 @@ public class BossController : BaseEnemy
     private bool pullingPlayer;
     private LineRenderer pullLine;
     private float healthbarInitScale;
+    private bool fadingOutPlayer = false;
+    private bool fadeOutCompleted = false;
 
 
     // Start is called before the first frame update
@@ -202,9 +204,6 @@ public class BossController : BaseEnemy
             
 
         }
-        else{
-            SceneManager.LoadScene(nextScene);
-        }
 
     }
 
@@ -224,6 +223,7 @@ public class BossController : BaseEnemy
                 alive = false;
                 StopAllCoroutines();
                 StartCoroutine(Die());
+                StartCoroutine(FadeOutPlayer());
             }
             else
             {
@@ -389,5 +389,13 @@ public class BossController : BaseEnemy
         spriteRender.color = color;
         yield return new WaitForSeconds(0.3f);
         spriteRender.color = Color.white;
+    }
+
+    private IEnumerator FadeOutPlayer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(PlayerStats._instance.FadeOutOverTime(2f, nextScene));
+        fadeOutCompleted = true;
+        yield return null;
     }
 }

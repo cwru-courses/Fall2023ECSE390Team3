@@ -11978,6 +11978,7 @@ MonoBehaviour:
   hitSFX: {fileID: 1549921475}
   potionSFX: {fileID: 917987773}
   iFrameTime: 0
+  came: {fileID: 520802791}
   canRegenYarn: 1
   usingAbilities: 0
   levelsReached: 000000

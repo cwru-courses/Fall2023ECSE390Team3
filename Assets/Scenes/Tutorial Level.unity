@@ -4883,6 +4883,7 @@ MonoBehaviour:
   hitSFX: {fileID: 1549921475}
   potionSFX: {fileID: 674748311}
   iFrameTime: 0
+  came: {fileID: 520802791}
   canRegenYarn: 1
   usingAbilities: 0
   levelsReached: 000000
@@ -8324,7 +8325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91e2bb86b53e6e4c8e434faec49841d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorControllers: []
 --- !u!82 &1580157308
 AudioSource:
   m_ObjectHideFlags: 0
