@@ -28,6 +28,8 @@ public class YarnLineController : MonoBehaviour
 
     public void ConnectPoints(Vector3 startPoint, Vector3 endPoint)
     {
+        //Vector3 first = new Vector3(startPoint.x, startPoint.y, -0.1f);
+        //Vector3 second = new Vector3(endPoint.x, endPoint.y, -0.1f);
         lineRenderer.positionCount += 1;
         lineRenderer.SetPosition(onPosition, startPoint);
         lineRenderer.SetPosition(onPosition + 1, endPoint);

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPotionPrefab: {fileID: 446432256240885129, guid: 0097c2dd6131041cf8901b41def33572, type: 3}
   yarnDropPrefab: {fileID: 7399430980208028889, guid: 6e27f38ace612d14bafd1d89e9703bac, type: 3}
-  horizontalPopForce: 3
-  verticalPopForce: 4
+  horizontalPopForce: 1
+  verticalPopForce: 5
   healthPotionDropAmount: 2
   yarnDropAmount: 2
