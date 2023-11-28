@@ -95,6 +95,7 @@ public class PlayerStats : MonoBehaviour
             currentLevel = 2; 
         }
 
+        /* RE-ENABLE WHEN DONE
         // try to prevent out of map spawn
         //if current level has not been reached yet, set initial position to correct position
         if (initialPosition != null && !levelsReached[currentLevel])
@@ -105,7 +106,8 @@ public class PlayerStats : MonoBehaviour
              //else if already reached, then the position is set by the SaveSystem
             SaveSystem.SetPlayerPosition(); 
         }
-       
+        */
+ 
     }
 
     //private void OnEnable()
@@ -224,7 +226,8 @@ public class PlayerStats : MonoBehaviour
     {
         if (ctx.phase == InputActionPhase.Started)
         {
-            if (potions > 0)
+            // If have at least one potion and current health is not max
+            if ((potions > 0) && (currentHealth != maxHealth))
             {
                 potions -= 1;
                 currentHealth += healthFromPotion;

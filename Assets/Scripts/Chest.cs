@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Chest : MonoBehaviour {
 
@@ -15,6 +16,11 @@ public class Chest : MonoBehaviour {
     // [SerializeField] private Animation anim;
     [SerializeField] private Camera mainCamera;
 
+    private GameObject player;
+    private DefaultInputAction playerInputAction;
+    [SerializeField] private bool playerCanOpen;   // false by default
+
+
     // Start is called before the first frame update
     void Wake() {
         audSource = GetComponent<AudioSource>();
@@ -23,17 +29,44 @@ public class Chest : MonoBehaviour {
         // anim = gameObject.GetComponent<Animation>();
 
         mainCamera = Camera.main;
+
+        player = GameObject.Find("Player");
+        playerInputAction = new DefaultInputAction();
     }
+
+
+    private void OnEnable() {
+        playerInputAction.Player.Pickup.Enable();
+    }
+
+    private void OnDisable() {
+        playerInputAction.Player.Pickup.Disable();
+    }
+   
+    // Do something here?
+    private void FixedUpdate() {
+        
+    }
+
+
+    public void playerOpenChest(InputAction.CallbackContext ctx) {
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        // If this chest's playerCanOpen boolean is true and player is within 3.0f of chest, open it when press correct button
+        if ((this.playerCanOpen == true) & (distance <= 3.0f)) {
+            // player opens chest
+            OpenChest();
+        }
+    }
+
+
 
 
     // Set the sprite to an open chest or a closed chest
     public void setChestOpen(bool boolean) {
-        // Start coroutine to open chest
-        if (boolean == true) {
-            StartCoroutine(OpenChest());
+        if (boolean == true) {   // Start coroutine to open chest
+            StartCoroutine(CameraOpenChest());
         }
-        // Else, close chest
-        else {
+        else {                   // Else, close chest
             chest.sprite = closedChest;
         }
 
@@ -41,24 +74,34 @@ public class Chest : MonoBehaviour {
     }
 
 
+    // Stuff to do when open a chest
+    private void OpenChest() {
+        chest.sprite = openChest;
+        // anim.Play("Chest_open");
+        audSource.Play();   // Play chest open sound effect
 
-    // Coroutine to do stuff when open a chest
-    private IEnumerator OpenChest() {
+        if (lootDropped == false)
+        {
+            Instantiate(lootSpawnerPrefab, transform.position, Quaternion.identity)
+                .GetComponent<LootSpawner>().SpawnLoot(healthPotionDroprate, yarnDroprate);
+            lootDropped = true;
+        }
+    }
+
+
+
+
+
+    // Coroutine for camera focus when open a chest
+    private IEnumerator CameraOpenChest() {
         // Camera focus on chest
         mainCamera.GetComponent<CameraControl>().SwitchToBossRoom(this.transform.position);
         Debug.Log("Should focus on chest");
 
         yield return new WaitForSeconds(0.75f);
 
-        chest.sprite = openChest;
-        // anim.Play("Chest_open");
-        audSource.Play();   // Play chest open sound effect
-
-        if (lootDropped == false) {
-            Instantiate(lootSpawnerPrefab, transform.position, Quaternion.identity)
-                .GetComponent<LootSpawner>().SpawnLoot(healthPotionDroprate, yarnDroprate);
-            lootDropped = true;
-        }
+        // Change chest sprite/animation and drop loot
+        OpenChest();
 
         yield return new WaitForSeconds(1.5f);
         mainCamera.GetComponent<CameraControl>().SwitchToPlayerFocus();
