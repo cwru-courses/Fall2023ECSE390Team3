@@ -35,6 +35,7 @@ public class Chest : MonoBehaviour {
     }
 
 
+    /*
     private void OnEnable() {
         playerInputAction.Player.Pickup.Enable();
     }
@@ -42,7 +43,7 @@ public class Chest : MonoBehaviour {
     private void OnDisable() {
         playerInputAction.Player.Pickup.Disable();
     }
-
+    */
 
     // random large start value
     private float distanceFromPlayer = 100;
