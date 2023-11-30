@@ -22,7 +22,7 @@ public class Chest : MonoBehaviour {
 
 
     // Start is called before the first frame update
-    void Wake() {
+    void Awake() {
         audSource = GetComponent<AudioSource>();
         audSource.Pause();
         audSource.mute = false;
@@ -32,10 +32,10 @@ public class Chest : MonoBehaviour {
 
         player = GameObject.Find("Player");
         playerInputAction = new DefaultInputAction();
+        playerInputAction.Player.Pickup.performed += playerOpenChest;
     }
 
-
-    /*
+   
     private void OnEnable() {
         playerInputAction.Player.Pickup.Enable();
     }
@@ -43,7 +43,7 @@ public class Chest : MonoBehaviour {
     private void OnDisable() {
         playerInputAction.Player.Pickup.Disable();
     }
-    */
+    
 
     // random large start value
     private float distanceFromPlayer = 100;
@@ -60,11 +60,14 @@ public class Chest : MonoBehaviour {
     }
     */
 
+    // Method below should get called when P is pressed
+    // When player presses p, check if within range of chest
+
     public void playerOpenChest(InputAction.CallbackContext ctx) {
         Debug.Log("Player tried to open chest");
 
         // If this chest's playerCanOpen boolean is true and player is within 3.0f of chest, open it when press correct button
-        if ((this.playerCanOpen == true) & (distanceFromPlayer <= 3.0f)) {
+        if ((this.playerCanOpen == true) & (Vector3.Distance(transform.position, player.transform.position) <= 3.0f)) {
             // player opens chest
             OpenChest();
         }
@@ -88,8 +91,8 @@ public class Chest : MonoBehaviour {
 
     // Stuff to do when open a chest
     private void OpenChest() {
-        // chest.sprite = openChest;
-        anim.Play("IceChest");
+        chest.sprite = openChest;
+        // anim.Play("IceChest");
 
         audSource.Play();   // Play chest open sound effect
 
