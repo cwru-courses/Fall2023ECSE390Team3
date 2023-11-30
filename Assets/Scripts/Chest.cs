@@ -42,17 +42,28 @@ public class Chest : MonoBehaviour {
     private void OnDisable() {
         playerInputAction.Player.Pickup.Disable();
     }
-   
-    // Do something here?
-    private void FixedUpdate() {
-        
-    }
 
+
+    // random large start value
+    private float distanceFromPlayer = 100;
+
+    /*
+    void Update() {
+        distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
+    }
+    */
+
+    /*
+    private void FixedUpdate() {
+        distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
+    }
+    */
 
     public void playerOpenChest(InputAction.CallbackContext ctx) {
-        float distance = Vector3.Distance(transform.position, player.transform.position);
+        Debug.Log("Player tried to open chest");
+
         // If this chest's playerCanOpen boolean is true and player is within 3.0f of chest, open it when press correct button
-        if ((this.playerCanOpen == true) & (distance <= 3.0f)) {
+        if ((this.playerCanOpen == true) & (distanceFromPlayer <= 3.0f)) {
             // player opens chest
             OpenChest();
         }
