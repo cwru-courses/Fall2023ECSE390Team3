@@ -45,21 +45,6 @@ public class Chest : MonoBehaviour {
     }
     
 
-    // random large start value
-    private float distanceFromPlayer = 100;
-
-    /*
-    void Update() {
-        distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
-    }
-    */
-
-    /*
-    private void FixedUpdate() {
-        distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
-    }
-    */
-
     // Method below should get called when P is pressed
     // When player presses p, check if within range of chest
 
