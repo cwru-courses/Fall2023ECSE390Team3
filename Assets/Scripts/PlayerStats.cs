@@ -226,10 +226,16 @@ public class PlayerStats : MonoBehaviour
     {
         if (ctx.phase == InputActionPhase.Started)
         {
-            if (potions > 0)
+            // If have at least one potion and current health is not max
+            if ((potions > 0) && (currentHealth < maxHealth))
             {
                 potions -= 1;
-                currentHealth += healthFromPotion;
+
+                if (currentHealth + healthFromPotion <= maxHealth)
+                    currentHealth += healthFromPotion;
+                else
+                    currentHealth = maxHealth;
+
                 potionUI.text = potions.ToString();
                 healthBar.SetHealth(currentHealth);
                 if (potionSFX)
