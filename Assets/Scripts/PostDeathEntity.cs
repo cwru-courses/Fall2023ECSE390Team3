@@ -6,11 +6,11 @@ using UnityEngine;
 public class PostDeathEntity : MonoBehaviour
 {
     [SerializeField] private float lifetime;
-    [SerializeField] private float speed;
+    // [SerializeField] private float speed;
 
     private SpriteRenderer SR;
     private float startTime;
-    private Vector3 moveDir;
+    // private Vector3 moveDir;
 
     // Start is called before the first frame update
     void Start()
@@ -18,17 +18,21 @@ public class PostDeathEntity : MonoBehaviour
         //initial values
         SR = GetComponent<SpriteRenderer>();
         startTime = Time.time;
+        /*
         moveDir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
         moveDir = moveDir.normalized;
+        */
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         //move entity to the left
         Vector3 currPos = transform.position;
         currPos += (moveDir * speed * Time.deltaTime);
         transform.position = currPos;
+        */
 
         //fade opacity
         float lifePercent = (Time.time - startTime) / lifetime;

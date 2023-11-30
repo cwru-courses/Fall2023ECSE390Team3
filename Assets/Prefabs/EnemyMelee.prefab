@@ -232,7 +232,7 @@ MonoBehaviour:
   whatIsTaget:
     serializedVersion: 2
     m_Bits: 32768
-  postDeathEntityPrefab: {fileID: 7421353321530949981, guid: 97cabb4461e102848b609066a6ff623e, type: 3}
+  postDeathEntityPrefab: {fileID: 5138593076880419311, guid: cbb85d74cb7219e43b8c297e541e3648, type: 3}
   smokeCloudPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
   deathAnimLength: 0
   attackRadius: 2

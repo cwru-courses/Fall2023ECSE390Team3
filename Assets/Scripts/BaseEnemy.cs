@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class BaseEnemy : MonoBehaviour
@@ -70,21 +71,25 @@ public abstract class BaseEnemy : MonoBehaviour
         //make enemy stay still and not collide with player
         rb2d.bodyType = RigidbodyType2D.Static;
 
-		// int numPostDeathEntities = 3;
-
 		//wait before initiating smoke etc
 		yield return new WaitForSeconds(deathAnimLength);
 
-		//Create smoke cloud and post death animal to appear at the position of the enemy
-		// GameObject[] postDeathEntityObjects = new GameObject[numPostDeathEntities];
+        // int numPostDeathEntities = 3;
+        // Between 1 and 3 post - death entities
+        int numPostDeathEntities = Random.Range(1, 4);
+
+
+        //Create smoke cloud and post death animal to appear at the position of the enemy
+        GameObject[] postDeathEntityObjects = new GameObject[numPostDeathEntities];
         GameObject smokeCloudObject;
 
         //check if there is a prefab for the smoke cloud
         smokeCloudObject = Instantiate<GameObject>(smokeCloudPrefab);
         smokeCloudObject.transform.position = transform.position;
+
         
 
-		//check if there is a prefab for the post death entity
+        //check if there is a prefab for the post death entity
         /*
 		if (postDeathEntityPrefab && numPostDeathEntities>0)
 		{
@@ -99,6 +104,47 @@ public abstract class BaseEnemy : MonoBehaviour
 		}
         */
 
+
+        if (postDeathEntityPrefab && numPostDeathEntities > 0) {
+
+            // Pick (numPostDeathEntitites) numbers from this array
+            List<int> numbers = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7 };
+
+            int number1 = numbers[Random.Range(0, numbers.Count - 1)];
+            numbers.Remove(number1);
+
+            int number2 = numbers[Random.Range(0, numbers.Count - 1)];
+            numbers.Remove(number2);
+
+            int number3 = numbers[Random.Range(0, numbers.Count - 1)];
+            numbers.Remove(number3);
+
+
+            // Resources.Load<Sprite>("folderInsideresourcesfolder/char1_0");
+            
+         
+            for (int i = 0; i < numPostDeathEntities; i++) {
+                postDeathEntityObjects[i] = Instantiate(postDeathEntityPrefab) as GameObject;
+
+                // If melee enemy (red cat)
+                if (this.GetComponent("Melee Enemy") != null) {
+                    postDeathEntityObjects[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Bobble/Bobbles Death Pieces Red_" + numbers[i]);
+                    Debug.Log("Bobble/Bobbles Death Pieces Red_" + numbers[i]);
+                }
+                // Else, if ranged enemy (blue cat)
+                else if (this.GetComponent("Ranged Enemy") != null) {
+                    postDeathEntityObjects[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Bobble/Bobbles Death Pieces Blue_" + numbers[i]);
+                }
+
+                var positionVary = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0f);
+                postDeathEntityObjects[i].transform.position = transform.position + positionVary;
+            }
+
+            //set time to destroy based on lifetime of post death object
+            PostDeathEntity postDeathEntityComponent = postDeathEntityObjects[0].GetComponent<PostDeathEntity>();
+            if (postDeathEntityComponent) { timeToDestroy = postDeathEntityComponent.getLifetime(); }
+        }
+
         //make enemy invisible:
         transform.localScale = Vector3.zero;
         GetComponent<CircleCollider2D>().enabled = false;
@@ -108,13 +154,12 @@ public abstract class BaseEnemy : MonoBehaviour
         //wait for smoke and post death entity to do their thing
         yield return new WaitForSeconds(timeToDestroy);
 
-		//destroy everything
-        /*
+		// destroy everything
 		for (int i = 0; i < numPostDeathEntities; i++)
         {
 			Destroy(postDeathEntityObjects[i]);
 		}
-        */
+
         Destroy(smokeCloudObject);
 
         Destroy(gameObject);
