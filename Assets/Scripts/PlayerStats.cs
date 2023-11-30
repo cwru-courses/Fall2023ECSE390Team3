@@ -95,7 +95,7 @@ public class PlayerStats : MonoBehaviour
             currentLevel = 2; 
         }
 
-        /* RE-ENABLE WHEN DONE
+        
         // try to prevent out of map spawn
         //if current level has not been reached yet, set initial position to correct position
         if (initialPosition != null && !levelsReached[currentLevel])
@@ -106,7 +106,7 @@ public class PlayerStats : MonoBehaviour
              //else if already reached, then the position is set by the SaveSystem
             SaveSystem.SetPlayerPosition(); 
         }
-        */
+        
  
     }
 

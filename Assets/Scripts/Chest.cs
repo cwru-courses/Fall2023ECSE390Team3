@@ -13,8 +13,8 @@ public class Chest : MonoBehaviour {
     [SerializeField] protected int yarnDroprate;
     [SerializeField] private AudioSource audSource;
     protected bool lootDropped = false;
-    // [SerializeField] private Animation anim;
     [SerializeField] private Camera mainCamera;
+    private Animation anim;
 
     private GameObject player;
     private DefaultInputAction playerInputAction;
@@ -26,7 +26,7 @@ public class Chest : MonoBehaviour {
         audSource = GetComponent<AudioSource>();
         audSource.Pause();
         audSource.mute = false;
-        // anim = gameObject.GetComponent<Animation>();
+        anim = gameObject.GetComponent<Animation>();
 
         mainCamera = Camera.main;
 
@@ -88,8 +88,9 @@ public class Chest : MonoBehaviour {
 
     // Stuff to do when open a chest
     private void OpenChest() {
-        chest.sprite = openChest;
-        // anim.Play("Chest_open");
+        // chest.sprite = openChest;
+        anim.Play("IceChest");
+
         audSource.Play();   // Play chest open sound effect
 
         if (lootDropped == false)
