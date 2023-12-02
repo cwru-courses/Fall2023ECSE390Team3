@@ -9,6 +9,8 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
     [SerializeField] private GameObject nextNextPoint;
     [SerializeField] private GameObject puzzleControllerObject;
     [SerializeField] private GameObject lineControllerObject;
+    [SerializeField] private AudioSource activateSFX;
+    [SerializeField] private AudioSource deactivateSFX;
     [SerializeField] private bool needToStartYarnTrailInNormalWorld = false;
 
     public CollisionDialogue collisionDialogue;
@@ -124,6 +126,10 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
                 collisionDialogue.StartRunning(dialogueBox);
                 isFirstPoint = false;
             }
+            if (deactivateSFX != null)
+            {
+                deactivateSFX.Play();
+            }
 
             if (needToStartYarnTrailInNormalWorld)
             {
@@ -147,6 +153,11 @@ public class YarnPuzzlePointFlipped : MonoBehaviour
             // hide nextNext point in normal world
             HidePoint(nextNextPoint);
             stage--;
+
+            if (activateSFX != null)
+            {
+                activateSFX.Play();
+            }
         }
     }
 

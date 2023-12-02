@@ -46,14 +46,12 @@ public class YarnPuzzleController : MonoBehaviour
         if (onPoint == totalPoints - 1)
         {
             puzzleActive = false;
-            Debug.Log("reached the end of the puzzle");
             StartCoroutine(PuzzleReward());
         }
     }
 
     public bool PuzzleActive()
     {
-        Debug.Log(puzzleActive);
         return puzzleActive;
     }
 
@@ -65,15 +63,12 @@ public class YarnPuzzleController : MonoBehaviour
     {
         if (onPoint >= 0 && puzzleActive)
         {
-            Debug.Log(111111111);
             if (pointsArray[onPoint].GetComponent<YarnPuzzlePointNormal>() != null)
             {
-                Debug.Log("Normal Decreased");
                 pointsArray[onPoint].GetComponent<YarnPuzzlePointNormal>().DecreaseStage();
             }
             else if (pointsArray[onPoint].GetComponent<YarnPuzzlePointFlipped>() != null)
             {
-                Debug.Log("Flipped Decreased");
                 pointsArray[onPoint].GetComponent<YarnPuzzlePointFlipped>().DecreaseStage();
             }
         }
