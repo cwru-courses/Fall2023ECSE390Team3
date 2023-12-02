@@ -9,6 +9,8 @@ public class Boss2Controller : BaseEnemy
 {
     [Header("Attack Settings")]
     [SerializeField] private float pullAttackRadius;
+    [SerializeField] private float pullAttackProjectileSpeed;
+    [SerializeField] private int pullAttackProjectileDamage;
     [SerializeField] private float slamAttackRadius;
     [SerializeField] private float minAttackCD;
     [SerializeField] private int numPhases;
@@ -77,7 +79,9 @@ public class Boss2Controller : BaseEnemy
     private float lastDirectionChangeTime;
     private Vector3[] movementDirections;
     private Vector3 currMovementDirection;
+    private GameObject weaponObject;
 
+    public static Boss2Controller _instance;
 
     // Start is called before the first frame update
     void Awake()
@@ -119,6 +123,10 @@ public class Boss2Controller : BaseEnemy
         movementDirections[7] = (new Vector3(-1, -1, 0)).normalized;
 
         currMovementDirection = movementDirections[0];
+
+        if(_instance == null){
+            _instance = this;
+        }
     }
 
     // Update is called once per frame
@@ -418,40 +426,57 @@ public class Boss2Controller : BaseEnemy
         Collider2D collider = Physics2D.OverlapCircle(transform.position, pullRange, whatIsTaget);
         if (collider)
         {
-            print("pull target in range");
-            // check if can see player
-            Vector3 direction = collider.transform.position - transform.position;
-            direction = direction.normalized;
-            Physics2D.queriesHitTriggers = false;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + (direction * 5f), direction);
-            Physics2D.queriesHitTriggers = true;
-            print(hit.collider.gameObject.layer);
-            // fix hit detection later
-            if (hit.collider.gameObject.layer == 15)
-            {
-                print("can see target");
-                pullingPlayer = true;
+            print("FIRING");
+            //Send projectile
+            weaponObject = Instantiate(pullPrefab) as GameObject;
+            weaponObject.transform.position = transform.position;
 
-                //indicate player is being pulled 
-                GameObject pullObject = Instantiate<GameObject>(pullPrefab);
-                pullObject.transform.parent = collider.gameObject.transform;
-                pullObject.transform.position = collider.gameObject.transform.position;
+            //rotate weapon to be towards the player
+            Vector3 rot = weaponObject.transform.rotation.eulerAngles;
 
-                Vector3[] pullLinePoints = new Vector3[2];
-                pullLinePoints[0] = transform.position;
-                pullLinePoints[1] = collider.gameObject.transform.position;
+            // division of basicAttackRange is to keep two numbers below 1 to avoid an error message saying Assertion failed on expression
+            float xDirection = (PlayerStats._instance.transform.position.x - transform.position.x) / pullRange;
+            float yDirection = (PlayerStats._instance.transform.position.y - transform.position.y) / pullRange;
+            //Debug.Log("xDirection: " + xDirection + "; yDirection: " + yDirection);
+            Vector2 moveDir = new Vector2(xDirection, yDirection);
+            rot.z = Mathf.Acos(Vector2.Dot(Vector2.up, moveDir)) * Mathf.Rad2Deg;
+            if (moveDir.x > 0) { rot.z *= -1f; }
+            weaponObject.transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
 
-                pullLine.positionCount = 2;
-                pullLine.SetPositions(pullLinePoints);
-
-                yield return new WaitForSeconds(pullTime);
-
-                //done pulling
-                Destroy(pullObject);
-                pullingPlayer = false;
-            }
+            Projectile projectile = weaponObject.GetComponent<Projectile>();
+            projectile.direction = collider.gameObject.transform.position - transform.position;
+            projectile.damage = pullAttackProjectileDamage;
+            projectile.attackLayer = 15;
+            projectile.triggerBossPull2 = true;
         }
     }
+
+    //method to be called by the projectile created in PullAttack
+    public IEnumerator TriggerPull()
+    {
+        print("PULLING TARGET");
+        pullingPlayer = true;
+
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, pullRange, whatIsTaget);
+        //indicate player is being pulled 
+        GameObject pullObject = Instantiate<GameObject>(pullPrefab);
+        pullObject.transform.parent = collider.gameObject.transform;
+        pullObject.transform.position = collider.gameObject.transform.position;
+
+        Vector3[] pullLinePoints = new Vector3[2];
+        pullLinePoints[0] = transform.position;
+        pullLinePoints[1] = collider.gameObject.transform.position;
+
+        pullLine.positionCount = 2;
+        pullLine.SetPositions(pullLinePoints);
+
+        yield return new WaitForSeconds(pullTime);
+
+        //done pulling
+        Destroy(pullObject);
+        pullingPlayer = false;
+    }
+
     protected IEnumerator ProjectileAttack()
 
     {
