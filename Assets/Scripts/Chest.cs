@@ -47,8 +47,6 @@ public class Chest : MonoBehaviour {
 
     // When player presses P, if player is within range of chest, open chest
     public void playerOpenChest(InputAction.CallbackContext ctx) {
-        Debug.Log("Player tried to open chest");
-
         // If this chest's playerCanOpen boolean is true and player is within 3.0f of chest, open it when press P
         if ((this.playerCanOpen == true) & (Vector3.Distance(transform.position, player.transform.position) <= 3.0f)) {
             OpenChest();
