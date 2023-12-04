@@ -1,0 +1,393 @@
+fileFormatVersion: 2
+guid: 27c29278553e3a744a7dfcb5af3e0b27
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 380
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Slam_Shockwave_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 787
+        width: 377
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc169de56a989c345b53aaa5b6262688
+      internalID: -2094934571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slam_Shockwave_1
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 800
+        width: 366
+        height: 362
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc94e3130014af8458925af4561ae96f
+      internalID: 1463088885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slam_Shockwave_2
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 803
+        width: 351
+        height: 373
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38582c85ba1daa4f8472adc25f3413c
+      internalID: -180532688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slam_Shockwave_3
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 397
+        width: 364
+        height: 364
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c317cf27074febd4da54dc3ac3cf6d4a
+      internalID: 1390227409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slam_Shockwave_4
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 412
+        width: 371
+        height: 352
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b438ab02aa36240a03b4b0dfd521a8
+      internalID: 766867183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slam_Shockwave_5
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 423
+        width: 365
+        height: 358
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d36fc1fca479d24e8946433c576ec4c
+      internalID: 276657035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slam_Shockwave_7
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 16
+        width: 383
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded7396a1bb6e9c438a86b8161651b74
+      internalID: -704549367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slam_Shockwave_8
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 11
+        width: 368
+        height: 389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0062e77379ff26c40995b07b0a473f37
+      internalID: -186199201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slam_Shockwave_6
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 10
+        width: 361
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c854ad598daf97429c507fc9aba026f
+      internalID: 1883187335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Slam_Shockwave_58: -109564423
+      Slam_Shockwave_63: -469646057
+      Slam_Shockwave_22: 1029818904
+      Slam_Shockwave_8: -186199201
+      Slam_Shockwave_17: -1124950879
+      Slam_Shockwave_60: -1404602765
+      Slam_Shockwave_29: -1324879447
+      Slam_Shockwave_12: 1144997583
+      Slam_Shockwave_24: 220607108
+      Slam_Shockwave_10: 530153360
+      Slam_Shockwave_13: 1381839176
+      Slam_Shockwave_54: 1238168721
+      Slam_Shockwave_41: 478857548
+      Slam_Shockwave_26: -969151451
+      Slam_Shockwave_48: 1305553989
+      Slam_Shockwave_43: 201173377
+      Slam_Shockwave_64: 1661355050
+      Slam_Shockwave_18: 2037998802
+      Slam_Shockwave_34: -1499712720
+      Slam_Shockwave_62: 1893782752
+      Slam_Shockwave_23: 88150927
+      Slam_Shockwave_45: -2095066516
+      Slam_Shockwave_56: -517418276
+      Slam_Shockwave_6: 1883187335
+      Slam_Shockwave_35: 954480897
+      Slam_Shockwave_66: -814654028
+      Slam_Shockwave_53: 886797551
+      Slam_Shockwave_5: 276657035
+      Slam_Shockwave_44: 1732442501
+      Slam_Shockwave_61: 345319986
+      Slam_Shockwave_40: -778213944
+      Slam_Shockwave_37: -208632227
+      Slam_Shockwave_0: -2094934571
+      Slam_Shockwave_1: 1463088885
+      Slam_Shockwave_25: -1946571544
+      Slam_Shockwave_28: 248749342
+      Slam_Shockwave_39: 236976613
+      Slam_Shockwave_68: -1970856759
+      Slam_Shockwave_16: -1526505166
+      Slam_Shockwave_3: 1390227409
+      Slam_Shockwave_31: 2044642733
+      Slam_Shockwave_65: 1797447067
+      Slam_Shockwave_15: -1036339150
+      Slam_Shockwave_33: 52979354
+      Slam_Shockwave_7: -704549367
+      Slam_Shockwave_50: 1159345526
+      Slam_Shockwave_55: 1352541271
+      Slam_Shockwave_21: 210400073
+      Slam_Shockwave_32: 2107332498
+      Slam_Shockwave_27: -2772080
+      Slam_Shockwave_30: 438195153
+      Slam_Shockwave_4: 766867183
+      Slam_Shockwave_42: -1579156974
+      Slam_Shockwave_67: 1468746999
+      Slam_Shockwave_51: -336735777
+      Slam_Shockwave_47: -1515953248
+      Slam_Shockwave_38: 953893814
+      Slam_Shockwave_19: 250545180
+      Slam_Shockwave_46: -1041460598
+      Slam_Shockwave_49: 1035990808
+      Slam_Shockwave_57: 76499968
+      Slam_Shockwave_2: -180532688
+      Slam_Shockwave_9: -629501722
+      Slam_Shockwave_59: 153860250
+      Slam_Shockwave_36: -576092413
+      Slam_Shockwave_14: -1503923820
+      Slam_Shockwave_52: -1315625286
+      Slam_Shockwave_20: 1371067445
+      Slam_Shockwave_69: 1036296286
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -186,6 +186,8 @@ MonoBehaviour:
   smokeCloudPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
   deathAnimLength: 0
   pullAttackRadius: 20
+  pullAttackProjectileSpeed: 1
+  pullAttackProjectileDamage: 0
   slamAttackRadius: 20
   minAttackCD: 1
   numPhases: 3
@@ -198,16 +200,17 @@ MonoBehaviour:
   shockwavePrefab: {fileID: 100481934291520229, guid: dc4f90a6bd831a246b3d4ad01563084d, type: 3}
   numWaves: 2
   timeBetweenWaves: 1
-  windUpTimeWaves: 0
+  slamAnimLength: 0
   shockwaveDamage: 20
   shockwaveSpeed: 30
   shockwaveRange: 25
   shockwaveSFX: {fileID: 437789050674560658}
-  pullPrefab: {fileID: 5595849266403112404, guid: e524f34e49daed242867f5c1954f2610, type: 3}
-  windUpTimePull: 0
+  pullPrefab: {fileID: 92628154307276376, guid: 0bf62d3f2e8a6cf4fb319af060faf28d, type: 3}
+  windUpTimePull: 0.667
   pullTime: 1
   pullRange: 20
   pullMinDist: 5
+  pullLineMaterial: {fileID: 2100000, guid: 7fca64ad53aa7cf4095697cb3f7bec29, type: 2}
   patrolPoints:
   - {x: -45, y: 28, z: 0}
   - {x: -45, y: 18, z: 0}
@@ -218,7 +221,8 @@ MonoBehaviour:
   colorOnDeath: {r: 0, g: 0, b: 0, a: 0}
   bossHealthbar: {fileID: 5755268139540252942}
   riftPrefab: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
-  riftDuration: 5
+  riftDuration: 1
+  stitchAnimLength: 0.5
   nextScene: 
 --- !u!95 &2538120770463943114 stripped
 Animator:

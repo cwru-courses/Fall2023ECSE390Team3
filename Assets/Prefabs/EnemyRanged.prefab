@@ -284,9 +284,18 @@ MonoBehaviour:
   whatIsTaget:
     serializedVersion: 2
     m_Bits: 32768
-  postDeathEntityPrefab: {fileID: 7421353321530949981, guid: 97cabb4461e102848b609066a6ff623e, type: 3}
+  postDeathEntityPrefabs:
+  - {fileID: 3295291958322384514, guid: 0b1f2417d60aa864bbb8cfa1aaa687bd, type: 3}
+  - {fileID: 3295291958322384514, guid: 3847f98c48929154e95d291a97ea5eae, type: 3}
+  - {fileID: 3295291958322384514, guid: d4de781532d4a284599ec557a32a7c91, type: 3}
+  - {fileID: 3295291958322384514, guid: 57727738ac53b734ab5897bdc3f16564, type: 3}
+  - {fileID: 3295291958322384514, guid: f6e17dc65e659134c870f09373ba8835, type: 3}
+  - {fileID: 3295291958322384514, guid: 5b3ac0613a9378846aed86e07c28b2c4, type: 3}
+  - {fileID: 3295291958322384514, guid: caf34ef7d41f3f440bbb87607b088b60, type: 3}
+  - {fileID: 3295291958322384514, guid: 0e5b689972e8365478f4cbd04939cd2c, type: 3}
   smokeCloudPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
   deathAnimLength: 0
+  numPostDeathEntities: 8
   attackRadius: 5
   attackCD: 2
   attackAnimDuration: 0.733

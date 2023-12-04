@@ -18,18 +18,20 @@ public abstract class BaseEnemy : MonoBehaviour
     protected int health;
     protected bool alive;
     protected Rigidbody2D rb2d;
-	protected float movementSpeedModifier = 1f;
-	protected bool isStunned = false;
+    protected float movementSpeedModifier = 1f;
+    protected bool isStunned = false;
 
-    [SerializeField] protected GameObject postDeathEntityPrefab;
+    [SerializeField] protected GameObject[] postDeathEntityPrefabs;
     [SerializeField] protected GameObject smokeCloudPrefab;
     [SerializeField] protected float deathAnimLength;
-
+    [SerializeField] int numPostDeathEntities;
+    protected GameObject[] postDeathEntityObjects;
     void Awake()
     {
         health = maxHealth;
         alive = true;
         rb2d = GetComponent<Rigidbody2D>();
+        postDeathEntityObjects = new GameObject[numPostDeathEntities];
     }
 
     public bool isAlive() { return alive; }
@@ -66,11 +68,10 @@ public abstract class BaseEnemy : MonoBehaviour
     protected IEnumerator Die()
     {
         float timeToDestroy = 2.5f; // default value for the time objects which appear after death will last for
-
+        postDeathEntityObjects = new GameObject[numPostDeathEntities];
         //make enemy stay still and not collide with player
         rb2d.bodyType = RigidbodyType2D.Static;
 
-		// int numPostDeathEntities = 3;
 
 		//wait before initiating smoke etc
 		yield return new WaitForSeconds(deathAnimLength);
@@ -85,19 +86,25 @@ public abstract class BaseEnemy : MonoBehaviour
         
 
 		//check if there is a prefab for the post death entity
-        /*
-		if (postDeathEntityPrefab && numPostDeathEntities>0)
+        
+		if (numPostDeathEntities>0)
 		{
+            float spawningRadius = 1.5f;
 			for(int i = 0; i < numPostDeathEntities; i++)
             {
-				postDeathEntityObjects[i] = Instantiate(postDeathEntityPrefab) as GameObject;
-				postDeathEntityObjects[i].transform.position = transform.position;
+                print(postDeathEntityObjects);
+                print(postDeathEntityPrefabs.Length);
+				postDeathEntityObjects[i] = Instantiate(postDeathEntityPrefabs[i]) as GameObject;
+                Vector3 postDeathPos = transform.position;
+                postDeathPos.x += (Random.value * spawningRadius) - (spawningRadius / 2);
+                postDeathPos.y += (Random.value * spawningRadius) - (spawningRadius / 2);
+                postDeathEntityObjects[i].transform.position = postDeathPos;
 			}
 			//set time to destroy based on lifetime of post death object
 			PostDeathEntity postDeathEntityComponent = postDeathEntityObjects[0].GetComponent<PostDeathEntity>();
 			if (postDeathEntityComponent) { timeToDestroy = postDeathEntityComponent.getLifetime(); }
 		}
-        */
+        
 
         //make enemy invisible:
         transform.localScale = Vector3.zero;
@@ -109,12 +116,12 @@ public abstract class BaseEnemy : MonoBehaviour
         yield return new WaitForSeconds(timeToDestroy);
 
 		//destroy everything
-        /*
+        
 		for (int i = 0; i < numPostDeathEntities; i++)
         {
 			Destroy(postDeathEntityObjects[i]);
 		}
-        */
+        
         Destroy(smokeCloudObject);
 
         Destroy(gameObject);

@@ -10,10 +10,12 @@ public class Projectile : MonoBehaviour
     public int damage = 1;
     public int attackLayer = 15;
     public int ignoreLayer = 20;
+    public bool triggerBossPull = false;
+    public bool triggerBossPull2 = false;
 
     const int playerLayer = 15;
     const int enemyLayer = 20;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +35,18 @@ public class Projectile : MonoBehaviour
         // check if hit intended layer
         if (hit.layer == attackLayer)
         {
-            
             // if player player takes damage
             if(attackLayer == playerLayer)
             {
                 PlayerStats player = hit.GetComponent<PlayerStats>();
                 if (player)
                 {
+                    if(triggerBossPull){
+                        StartCoroutine(BossController._instance.TriggerPull());
+                    }
+                    if(triggerBossPull2){
+                        StartCoroutine(Boss2Controller._instance.TriggerPull());
+                    }
                     player.TakeDamage(damage);
                 }
             }
