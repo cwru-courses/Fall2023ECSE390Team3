@@ -10,16 +10,22 @@ public class AmbientSystem : MonoBehaviour
     [Header("World Settings")]
     [Range(0f, 1f)]
     [SerializeField] private float verticalDistMultiplier;
+
     [Header("Music Settings")]
-    [SerializeField] private int startingPitch = 1;
     [SerializeField] private AudioClip mainClip;
+    [SerializeField] private AudioClip reversedClip;
     [SerializeField] private BoxCollider2D fight;
     [SerializeField] private CameraControl cam;
     [SerializeField] private MusicSwitchTrigger boss;
+    [SerializeField] private AudioSource forwardAudioSource;
+    [SerializeField] private AudioSource reversedAudioSource;
 
-
-    private int pitchshift = -1;
-    [SerializeField] private AudioSource audSource;
+    private float currentTime;
+    private float totalTime;
+    private bool isPlayingForward = true;
+    private float crossfadeDuration = 1.0f;
+    private AudioClip oldA;
+    private AudioClip oldB;
 
     void Awake()
     {
@@ -28,41 +34,146 @@ public class AmbientSystem : MonoBehaviour
             Instance = this;
         }
 
-        audSource = GetComponent<AudioSource>();
-        audSource.pitch = startingPitch;
+        forwardAudioSource.clip = mainClip;
+        reversedAudioSource.clip = reversedClip;
+
+        totalTime = mainClip.length;
     }
 
     public void OnPhaseShift()
     {
         Debug.Log("Restarting timer");
-        audSource.pitch *= pitchshift;
-        boss.roomCenterPosition = new Vector3((float)boss.roomCenterPosition.x,(float)boss.roomCenterPosition.y* -1.0f ,(float)boss.roomCenterPosition.z);
+        boss.roomCenterPosition = new Vector3(boss.roomCenterPosition.x, -boss.roomCenterPosition.y, boss.roomCenterPosition.z);
         CameraControl.SwitchSide();
+
+        if (isPlayingForward)
+        {
+            currentTime = forwardAudioSource.time;
+            //StartCoroutine(SwitchAudioWithCrossfade(currentTime));
+        }
+        else
+        {
+            currentTime = totalTime - reversedAudioSource.time;
+            // StartCoroutine(SwitchAudioWithCrossfade(currentTime));
+        }
+
+        SwitchAudioSource();
+
     }
+
+    private void SwitchAudioSource()
+    {
+        if (isPlayingForward)
+        {
+            forwardAudioSource.Stop();
+            reversedAudioSource.time = totalTime - currentTime;
+            reversedAudioSource.Play();
+        }
+        else
+        {
+            reversedAudioSource.Stop();
+            forwardAudioSource.time = currentTime;
+            forwardAudioSource.Play();
+        }
+
+        isPlayingForward = !isPlayingForward;
+    }
+
+    /* private IEnumerator SwitchAudioWithCrossfade(float targetTime)
+     {
+         Debug.Log("Target Time: " + targetTime);
+
+         float startForwardVolume = forwardAudioSource.volume;
+         float startReversedVolume = reversedAudioSource.volume;
+         float timer = 0f;
+
+         while (timer < crossfadeDuration)
+         {
+             timer += Time.deltaTime;
+
+             // Crossfade by adjusting the volume of the audio sources
+             forwardAudioSource.volume = Mathf.Lerp(startForwardVolume, 0, timer / crossfadeDuration);
+             reversedAudioSource.volume = Mathf.Lerp(startReversedVolume, 0, timer / crossfadeDuration);
+
+             yield return null;
+         }
+
+         // Stop the source that is not playing
+         if (isPlayingForward)
+         {
+             forwardAudioSource.Stop();
+             reversedAudioSource.time = totalTime - targetTime;
+             reversedAudioSource.Play();
+         }
+         else
+         {
+             reversedAudioSource.Stop();
+             forwardAudioSource.time = targetTime;
+             forwardAudioSource.Play();
+         }
+
+         isPlayingForward = !isPlayingForward;
+     }*/
 
     public float GetVerticalDistMultiplier()
     {
         return verticalDistMultiplier;
     }
 
-    public void changeMusic(AudioClip next_track){
-        if(next_track.name==audSource.clip.name)
+    // Function to switch between audio clips
+    public void SwitchAudioClip(AudioClip nextClipA,AudioClip nextClipB)
+    {
+        // if (nextClip == null || nextClip == forwardAudioSource.clip)
+        // {
+        //     return;
+        // }
+        // oldA = forwardAudioSource.clip;
+        // oldB = reversedAudioSource.clip;
+        if (isPlayingForward)
         {
-            return;
+            forwardAudioSource.Stop();
+            reversedAudioSource.clip = nextClipB;
+            forwardAudioSource.clip = nextClipA;
+            forwardAudioSource.Play();
         }
-        audSource.Stop();
-        audSource.clip = next_track;
-        audSource.Play();
-        
+        else
+        {
+            reversedAudioSource.Stop();
+            forwardAudioSource.clip = nextClipA;
+            reversedAudioSource.clip = nextClipB;
+            reversedAudioSource.Play();
+        }
+        // forwardAudioSource.Stop();
+        // forwardAudioSource.clip = nextClipA;
+        // forwardAudioSource.Play();
     }
-    public void playOG(){
-        if(mainClip.name==audSource.clip.name)
+
+    // public void changeMusic(AudioClip nextTrack)
+    // {
+    //     if (nextTrack == null || nextTrack == forwardAudioSource.clip)
+    //     {
+    //         return;
+    //     }
+    //     forwardAudioSource.Stop();
+    //     forwardAudioSource.clip = nextTrack;
+    //     forwardAudioSource.Play();
+    // }
+
+    public void playOG()
+    {
+        if (isPlayingForward)
         {
-            return;
+            forwardAudioSource.Stop();
+            reversedAudioSource.clip = reversedClip;
+            forwardAudioSource.clip = mainClip;
+            forwardAudioSource.Play();
         }
-        audSource.Stop();
-        audSource.clip = mainClip;
-        audSource.Play();
-        
+        else
+        {
+            reversedAudioSource.Stop();
+            forwardAudioSource.clip = mainClip;
+            reversedAudioSource.clip = reversedClip;
+            reversedAudioSource.Play();
+        }
     }
 }

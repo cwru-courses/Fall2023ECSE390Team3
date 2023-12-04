@@ -19,14 +19,17 @@ public class PlayerAttack : MonoBehaviour
     [Min(0)]
     [SerializeField] private int projectileNum;
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private AudioSource swingSFX;
+    [SerializeField] private Animator anim;
 
-    private DefaultInputAction playerInputAction;
+    //private DefaultInputAction playerInputAction;
 
     private Vector2 lookAtDir;  // Note that this direction is NOT normalized. Vector length = distance from the target point
     private float attackAngleCosVal;
     private float lastAttackTime;
+    private bool attackEnabled = true;
 
-    private Animation weaponHolderAnim;
+    [SerializeField] private GameObject weaponHolderAnim;
 
     private ProjectileController[] projectiles;
 
@@ -37,15 +40,15 @@ public class PlayerAttack : MonoBehaviour
             _instance = this;
         }
 
-        playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.Attack.started += Attack;
-        playerInputAction.Player.LaunchProjectile.started += LaunchProjectile;
+        //playerInputAction = new DefaultInputAction();
+        //playerInputAction.Player.Attack.started += Attack;
+        //playerInputAction.Player.LaunchProjectile.started += LaunchProjectile;
 
         lookAtDir = Vector2.left;  // Default starting direction
         attackAngleCosVal = Mathf.Cos(attackRangeAngle / 2f);
         lastAttackTime = -attackCD;
 
-        weaponHolderAnim = weaponHolder.GetComponent<Animation>();
+        //weaponHolderAnim = weaponHolder.GetComponent<Animation>();
 
         projectiles = new ProjectileController[projectileNum];
         for (int i = 0; i < projectileNum; i++)
@@ -56,17 +59,17 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        playerInputAction.Player.Attack.Enable();
-        playerInputAction.Player.LaunchProjectile.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    playerInputAction.Player.Attack.Enable();
+    //    playerInputAction.Player.LaunchProjectile.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        playerInputAction.Player.Attack.Disable();
-        playerInputAction.Player.LaunchProjectile.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    playerInputAction.Player.Attack.Disable();
+    //    playerInputAction.Player.LaunchProjectile.Disable();
+    //}
 
     // Update is called once per frame
     void Update()
@@ -81,12 +84,15 @@ public class PlayerAttack : MonoBehaviour
         weaponHolder.rotation = Quaternion.Euler(0f, 0f, -lookAtDirAngle);
     }
 
-    private void Attack(InputAction.CallbackContext ctx)
+    public void EnableAttack(bool enabled)
     {
-        if (Time.time - lastAttackTime > attackCD)
-        {
-            weaponHolderAnim.Play();
+        attackEnabled = enabled;
+    }
 
+    public void Attack(InputAction.CallbackContext ctx)
+    {
+        if (attackEnabled && Time.time - lastAttackTime > attackCD)
+        {
             RaycastHit2D[] inRangeColliderHits = Physics2D.CircleCastAll(
                 transform.position,
                 attackRadius,
@@ -95,9 +101,17 @@ public class PlayerAttack : MonoBehaviour
                 whatIsEnemy
             );
 
+            if(inRangeColliderHits.Length == 0)
+            {
+                if (swingSFX)
+                {
+                    swingSFX.Play();
+                }
+            }
+
             foreach (RaycastHit2D hit in inRangeColliderHits)
             {
-                if (Vector2.Dot((hit.point - hit.centroid).normalized, lookAtDir.normalized) > attackAngleCosVal)
+                if (Vector2.Angle((hit.point - hit.centroid).normalized, lookAtDir.normalized) < attackRangeAngle)
                 {
                     BaseEnemy enemyController = hit.collider.GetComponent<BaseEnemy>();
                     if (enemyController)
@@ -111,6 +125,7 @@ public class PlayerAttack : MonoBehaviour
                     }
                 }
             }
+            //weaponHolderAnim.Play();
             lastAttackTime = Time.time; // update last Attack time
             StartCoroutine(AttackFX()); // attack visual effects
             PlayerStats._instance.UseYarn(5);
@@ -120,10 +135,35 @@ public class PlayerAttack : MonoBehaviour
     //temporary implementation until animations are made
     private IEnumerator AttackFX()
     {
-        yield return null;
+        GameObject WeaponAnimation;
+        if (weaponHolderAnim)
+        {
+            WeaponAnimation = Instantiate<GameObject>(weaponHolderAnim);
+            WeaponAnimation.transform.parent = this.transform;
+            WeaponAnimation.transform.position = this.transform.position;
+            WeaponAnimation.transform.rotation = weaponHolder.rotation;
+        }
+        else
+        {
+            WeaponAnimation = new GameObject("temp_attack_effect");
+            WeaponAnimation.transform.parent = this.transform;
+            WeaponAnimation.transform.position = this.transform.position;
+        }
+        weaponHolder.gameObject.SetActive(false);
+        if (anim) {
+            //print("set attack trigger");
+            anim.SetBool("isAttacking",true);
+        }
+        yield return new WaitForSeconds(attackCD);
+        Destroy(WeaponAnimation);
+        if (anim) {
+            //print("attack trigger reset");
+            anim.SetBool("isAttacking",false);
+        }
+        weaponHolder.gameObject.SetActive(true);
     }
 
-    private void LaunchProjectile(InputAction.CallbackContext ctx)
+    public void LaunchProjectile(InputAction.CallbackContext ctx)
     {
         for (int i = 0; i < projectileNum; i++)
         {
@@ -153,17 +193,17 @@ public class PlayerAttack : MonoBehaviour
         return attackRadius;
     }
 
-    public void OnPause(bool paused)
-    {
-        if (paused)
-        {
-            playerInputAction.Player.Attack.Disable();
-            playerInputAction.Player.LaunchProjectile.Disable();
-        }
-        else
-        {
-            playerInputAction.Player.Attack.Enable();
-            playerInputAction.Player.LaunchProjectile.Enable();
-        }
-    }
+    //public void OnPause(bool paused)
+    //{
+    //    if (paused)
+    //    {
+    //        playerInputAction.Player.Attack.Disable();
+    //        playerInputAction.Player.LaunchProjectile.Disable();
+    //    }
+    //    else
+    //    {
+    //        playerInputAction.Player.Attack.Enable();
+    //        playerInputAction.Player.LaunchProjectile.Enable();
+    //    }
+    //}
 }

@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CreditScript : MonoBehaviour
 {
+    [SerializeField] private GameObject titlePage;
+    [SerializeField] private GameObject creditsPage;
 
-    public void BackToHome()
+    public void OnAnimationFinished()
     {
-        SceneManager.LoadSceneAsync("Home_screen_scene");
+        titlePage.SetActive(true);
+        creditsPage.SetActive(false);
     }
-
 }
+

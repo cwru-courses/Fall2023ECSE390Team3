@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Lava_TR
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -1755050378, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: 419459159, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: 36491772, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: -1818596720, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: -630957658, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: -1282119396, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  - {fileID: -2098372684, guid: 2219f1b9af42dbc418cad021a13e16f1, type: 3}
+  m_MinSpeed: 5
+  m_MaxSpeed: 5
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 1

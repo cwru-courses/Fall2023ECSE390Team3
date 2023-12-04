@@ -9,6 +9,11 @@ TagManager:
   - Stone
   - PressurePlate
   - AvoidOverlap
+  - YarnPuzzlePoints
+  - Needle
+  - YarnTrail
+  - WallsToSave
+  - FirstRift
   layers:
   - Default
   - TransparentFX
@@ -37,7 +42,7 @@ TagManager:
   - 
   - Environment
   - PickUpable
-  - 
+  - FirstRift
   - 
   - 
   - Mini Map GFX
@@ -52,11 +57,17 @@ TagManager:
   - name: OverGround
     uniqueID: 3181721169
     locked: 0
+  - name: Stitches
+    uniqueID: 1965235505
+    locked: 0
   - name: Walls
     uniqueID: 3496523957
     locked: 0
   - name: Removeable
     uniqueID: 381540451
+    locked: 0
+  - name: Props
+    uniqueID: 1293832925
     locked: 0
   - name: Default
     uniqueID: 0

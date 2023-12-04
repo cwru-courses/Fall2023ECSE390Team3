@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
@@ -11,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCD;
+    [SerializeField] private Animator anim;
+    [SerializeField] public AudioSource audSource;
+
 
     private DefaultInputAction playerInputAction;
 
@@ -23,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastMovementDir;  // Tracking last direction player moved
     private float speedMultiplier; // used to adjust player speed during abilities etc
     private bool movementLocked; // keep track of whether player movement is locked
+    private bool isMoving = false;
 
     void Awake()
     {
@@ -32,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.Dash.started += Dash;
+        //playerInputAction.Player.Dash.started += Dash;
 
         rb2d = GetComponent<Rigidbody2D>();
         onDash = false;
@@ -41,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
         lastMovementDir = Vector2.right;
         speedMultiplier = 1f;
         movementLocked = false;
+        audSource = GetComponent<AudioSource>();
+        audSource.mute = true;
+        audSource.loop = true;
     }
 
     private void Update()
@@ -48,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         // if player in flipped world and run out of yarn and movement not yet locked, lock(pause) the movement -- Jing
         if (PlayerStats._instance.inFlippedWorld && PlayerStats._instance.currentYarnCount <= 0 && !movementLocked)
         {
-            Debug.Log(1);
             OnPause(true);
             movementLocked = true;
         }
@@ -69,12 +76,14 @@ public class PlayerMovement : MonoBehaviour
     {
         playerInputAction.Player.Movement.Enable();
         playerInputAction.Player.Dash.Enable();
+
     }
 
     private void OnDisable()
     {
         playerInputAction.Player.Movement.Disable();
         playerInputAction.Player.Dash.Disable();
+
     }
 
     // Update is called once per frame
@@ -87,6 +96,39 @@ public class PlayerMovement : MonoBehaviour
         if (inputDir.magnitude != 0)
         {
             lastMovementDir = inputDir.normalized;
+            if (audSource.mute == true)
+            {
+                audSource.mute = false;
+                audSource.Play();
+            }
+            if (anim)
+            {
+                anim.SetFloat("xVel", inputDir[0]);
+                anim.SetFloat("yVel", inputDir[1]);
+                anim.SetFloat("lastXVel", inputDir[0]);
+                anim.SetFloat("lastYVel", inputDir[1]);
+                if (!isMoving)
+                {
+                    anim.SetBool("isMoving", true);
+                }
+            }
+            isMoving = true;
+        }
+        else
+        {
+            if (audSource.mute == false){
+                audSource.mute = true;
+            }
+            if (anim)
+            {
+                anim.SetFloat("xVel", inputDir[0]);
+                anim.SetFloat("yVel", inputDir[1]);
+                if (isMoving)
+                {
+                    anim.SetBool("isMoving", false);
+                }
+            }
+            isMoving = false;
         }
 
         if (onDash)
@@ -94,7 +136,8 @@ public class PlayerMovement : MonoBehaviour
             rb2d.velocity = inputDir * dashSpeed * speedMultiplier;
             dashTimer += Time.fixedDeltaTime;
 
-            if (dashTimer > dashDuration) { 
+            if (dashTimer > dashDuration)
+            {
                 onDash = false;
                 PlayerStats._instance.blocking = false; ;
             }
@@ -105,7 +148,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Dash(InputAction.CallbackContext ctx)
+    public void pauseAnimation(){
+        if(anim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Stitch_Out_Player"){
+                anim.SetBool("isMoving", false);
+        }
+    }
+
+    public void Dash(InputAction.CallbackContext ctx)
     {
         if (Time.time - lastDashTime > dashCD)
         {

@@ -6,9 +6,16 @@ public class PressurePlate : MonoBehaviour {
 
     [SerializeField] private GameObject chestToUnlock;
     [SerializeField] private GameObject tilemapToDisable;
+    [SerializeField] private Vector3 tilemapPosition;   // Set in inspector
+
+    private bool chestUnlocked = false;
+    private bool tilemapDisabled = false;
+
+    [SerializeField] private Camera mainCamera;
 
     // Start is called before the first frame update
     void Start() {
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -17,24 +24,52 @@ public class PressurePlate : MonoBehaviour {
     }
 
     private void OnTriggerStay2D(Collider2D other) {
-        // Check for stone and distance from center of pressure plate
+        // If colliding with stone
         if (other.tag == "Stone") {
             float distance = Vector3.Distance(transform.position, other.transform.position);
-            Debug.Log("Distance: " + distance);
 
-            // If distance < 0.5f, then pressure plate triggered
-            if (distance < 1.0f) {
-                Debug.Log("Pressure Plate Triggered!");
+            // If distance is less than some value, pressure plate triggered
+            if (distance < 1.5f) {
 
-                // Open door/chest
-                if (chestToUnlock != null)
-                  chestToUnlock.GetComponent<Chest>().setChestOpen(true);
-                if (tilemapToDisable != null)
-                    tilemapToDisable.SetActive(false);
-                
+                // If there is a chest to unlock, do so
+                if ((chestToUnlock != null) & (chestUnlocked == false)) {
+                    // This calls object focus within chest script
+                    chestToUnlock.GetComponent<Chest>().setChestOpen(true);
+                    chestUnlocked = true;
+                    // If there's also a tilemap to disable, disable it
+                    if (tilemapToDisable != null) {
+                        tilemapToDisable.SetActive(false);
+                        tilemapDisabled = true;
+                    }
+                }
+                    
+                // Else, if there is a tilemap to disable, do so
+                else if ((tilemapToDisable != null) & (tilemapDisabled == false)) {
+                    // Call coroutine to object focus on tilemapToDisable and then disable it
+                    StartCoroutine(tilemapFocus());
+                    tilemapDisabled = true;
+                }
+                        
             }
         } 
     }
+
+
+    private IEnumerator tilemapFocus() {
+        mainCamera.GetComponent<CameraControl>().SwitchToBossRoom(tilemapPosition);
+        yield return new WaitForSeconds(0.75f);
+
+        tilemapToDisable.SetActive(false);
+
+        yield return new WaitForSeconds(1.5f);
+        mainCamera.GetComponent<CameraControl>().SwitchToPlayerFocus();
+    }
+
+
+
+
+
+
 
     // TEST
     void OnCollisionStay2D(Collision2D collision) {

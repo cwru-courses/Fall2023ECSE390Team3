@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class PhaseShift : MonoBehaviour
 {
@@ -9,13 +12,26 @@ public class PhaseShift : MonoBehaviour
 
     [SerializeField] private float shiftCD;
     [SerializeField] private float shiftPrecastTime;
-    [SerializeField] private float precastingTimer;
+    [SerializeField] private float shiftInAnimDuration;
     [SerializeField] private Slider shiftProgressBar;
     [SerializeField] private GameObject rift;
-
+    [SerializeField] private GameObject foot; // to detect nearby puzzle points
     [SerializeField] private Image uiImg;
+    [SerializeField] private Animator anim;
+    [SerializeField] private GameObject FirstRift; 
+    [SerializeField] private FirstPhaseShift firstPhaseShift;
+    [SerializeField] private TextMeshProUGUI PickUpIcon;
+    private PlayerPickUp playerPickUp;
 
-    private DefaultInputAction playerInputAction;
+    // rockPortal script of rock
+    private RockPortal rockPortal;
+
+    private bool firstRiftDone = false; 
+    private bool inFirstRift = false; 
+
+    private float precastingTimer;
+
+    //private DefaultInputAction playerInputAction;
 
     private float shiftCDTimer;
 
@@ -27,22 +43,53 @@ public class PhaseShift : MonoBehaviour
             _instance = this;
         }
 
-        playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.PhaseShift.performed += StartPhaseShift;
+        //playerInputAction = new DefaultInputAction();
+        //playerInputAction.Player.PhaseShift.performed += StartPhaseShift;
 
         shiftProgressBar.gameObject.SetActive(false);
 
         uiImg.fillAmount = 0;
+
+        //if loading from saved version
+        if (SaveSystem.listSavedFiles.Contains(SaveSystem.currentFileName)) {
+            firstRiftDone = PlayerStats._instance.firstRiftDone;
+        }
+        if(FirstRift != null && !firstRiftDone) {
+            FirstRift.SetActive(true); 
+        }
     }
 
-    private void OnEnable()
-    {
-        playerInputAction.Player.PhaseShift.Enable();
+    void Start() {
+        if(string.Compare(SceneManager.GetActiveScene().name, "Tutorial Level") != 0) {
+            firstRiftDone = true; 
+        }
+
+        playerPickUp = GetComponent<PlayerPickUp>();
+
+        /*
+        // Get reference to rockPortal script if rock exists (i.e. in tutorial level)
+        rock = GameObject.Find("Stone");
+        if (rock != null) {
+            rockPortal = rock.GetComponent<RockPortal>();
+        }
+        */
+
+        // Get rockPortal script if in tutorial level scene
+        if (string.Compare(SceneManager.GetActiveScene().name, "Tutorial Level") == 0) {
+            rockPortal = GameObject.Find("Stone").GetComponent<RockPortal>();
+        }
     }
 
-    private void OnDisable()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        playerInputAction.Player.PhaseShift.Disable();
+        if (collider.gameObject.CompareTag("FirstRift") == true && !firstRiftDone)
+        {
+            inFirstRift = true; 
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        inFirstRift = false; 
     }
 
     void FixedUpdate()
@@ -55,22 +102,43 @@ public class PhaseShift : MonoBehaviour
         uiImg.fillAmount = shiftCDTimer / shiftCD;
     }
 
-    private void StartPhaseShift(InputAction.CallbackContext ctx)
+    public void StartPhaseShift(InputAction.CallbackContext ctx)
     {
-        if (shiftCDTimer <= 0) {
-            StartCoroutine("PhaseShiftPrecast");
-            OnDisable();    // Disable input to avoid more than one click
+        if(inFirstRift){
+            if (shiftCDTimer <= 0 && precastingTimer <= 0) {
+                StartCoroutine("PhaseShiftPrecast");
+                firstRiftDone = true;
+                PlayerStats._instance.firstRiftDone = true; 
+            }
+        }
+        else if(firstRiftDone){
+             if (shiftCDTimer <= 0 && precastingTimer <= 0) {
+                StartCoroutine("PhaseShiftPrecast");
+                //OnDisable();    // Disable input to avoid more than one click
+            }
         }
     }
 
-    private void ToPhaseShift()
+    // this is for enemy trigger
+    public void StartPhaseShiftByEnemy()
     {
+        // don't need to check cd, because enemy trigger it whatever cd is ready or not
+        if (precastingTimer <= 0)
+        {
+            StartCoroutine("PhaseShiftPrecast");
+        }
+    }
+
+    public void ToPhaseShift()
+    {
+        // trigger nearby puzzle point
+        bool cutted = TriggerNearbyYarnPuzzlePoints();
+
         // Move character into the alternate world
+        // Added subtraction to make sure the shift is based on the foot's position
         Vector3 currentLocation = transform.position;
-        
-        // target position
-        Vector3 targetPosition = new Vector3(currentLocation.x, -currentLocation.y, 0);
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(targetPosition, 0.5f);
+        currentLocation.y = -currentLocation.y + 2f;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(currentLocation, 0.5f);
         bool willCollide = false;
 
         foreach (Collider2D collider in colliders)
@@ -82,10 +150,10 @@ public class PhaseShift : MonoBehaviour
         }
         if (willCollide == true)
         {
-            Vector3 foundLocation = findNearestLocation(targetPosition);
+            Vector3 foundLocation = findNearestLocation(currentLocation);
             if (foundLocation != Vector3.zero)
             {
-                targetPosition = foundLocation;
+                currentLocation = foundLocation;
                 Debug.Log("shifted");
             }
             else
@@ -93,17 +161,51 @@ public class PhaseShift : MonoBehaviour
                 Debug.Log("fail to found neareast location");
             }
         }
-        transform.position = targetPosition;
+        transform.position = currentLocation;
 
-
-        shiftCDTimer = shiftCD;
-
-        OnEnable();     // Enable input again
-
+        //OnEnable();     // Enable input again
+        
         // Added this line to toggle emission of yarn trail -- Jing
         AmbientSystem.Instance.OnPhaseShift();
-        YarnTrail._instance.toggleEmission();
+        YarnTrail._instance.toggleEmission(cutted);
+        Debug.Log("Cutted is: " + cutted);
+    }
 
+    private bool TriggerNearbyYarnPuzzlePoints()
+    {
+        bool toReturn = true;
+
+        // search all puzzle points
+        GameObject[] puzzlePoints = GameObject.FindGameObjectsWithTag("YarnPuzzlePoints");
+
+        // increase stage by 1 for nearby point
+        foreach (GameObject point in puzzlePoints)
+        {
+            Vector3 targetPosition = point.transform.position;
+            Vector3 myPosition = foot.transform.position;
+            // only calculate distance on x and y
+            float distanceX = Mathf.Abs(targetPosition.x - myPosition.x);
+            float distanceY = Mathf.Abs(targetPosition.y - myPosition.y);
+            float distance = Mathf.Sqrt(distanceX * distanceX + distanceY * distanceY);
+            //Debug.Log(distance);
+
+            // if the point nearby(either in flipped or normal world) is in stage 0, increase it to stage 1
+            if (distance < 0.5f)
+            {
+                if (point.GetComponent<YarnPuzzlePointNormal>() != null && point.GetComponent<YarnPuzzlePointNormal>().GetStage() == 0)
+                {
+                    point.GetComponent<YarnPuzzlePointNormal>().NextStage();
+                    toReturn = false;
+                }
+                else if (point.GetComponent<YarnPuzzlePointFlipped>() != null && point.GetComponent<YarnPuzzlePointFlipped>().GetStage() == 0)
+                {
+                    point.GetComponent<YarnPuzzlePointFlipped>().NextStage();
+                    toReturn = false;
+                }
+            }
+        }
+
+        return toReturn;
     }
 
     Vector3 findNearestLocation(Vector3 originalLocation)
@@ -153,34 +255,66 @@ public class PhaseShift : MonoBehaviour
 
     IEnumerator PhaseShiftPrecast()
     {
+        // If holding rock when phase shift, call rock fade method
+        if ((playerPickUp.pickedUpObject != null) && (playerPickUp.pickedUpObject.tag == "Stone"))
+            rockPortal.CallRockFade();
+
+        anim.Play("Stitch_In_Player");
+        PlayerMovement._instance.OnPause(true);
+        PlayerAttack._instance.EnableAttack(false);
         shiftProgressBar.gameObject.SetActive(true);
 
         precastingTimer = shiftPrecastTime;
+        GameObject riftObject = null;
         //create precast rift
-        GameObject riftObject = Instantiate<GameObject>(rift);
-        riftObject.transform.parent = transform;
-        riftObject.transform.position = transform.position;
+        if(firstRiftDone) {
+            riftObject = Instantiate<GameObject>(rift);
+            riftObject.transform.parent = transform;
+            riftObject.transform.position = transform.position;
+            riftObject.transform.rotation = Quaternion.Euler(0, 0, 90f); 
+            riftObject.transform.position = new Vector3(riftObject.transform.position.x, riftObject.transform.position.y-1, riftObject.transform.position.z);
+        }
+        bool shifted = false;
         while (precastingTimer > 0)
         {
+            if (!shifted && shiftPrecastTime - precastingTimer >= shiftInAnimDuration)
+            {
+                shifted = true;
+                ToPhaseShift();
+                if(!firstRiftDone || inFirstRift) {
+                    riftObject = Instantiate<GameObject>(rift);
+                    riftObject.transform.parent = transform;
+                    riftObject.transform.position = transform.position;
+                    riftObject.transform.rotation = Quaternion.Euler(0, 0, 90f); 
+                    riftObject.transform.position = new Vector3(riftObject.transform.position.x, riftObject.transform.position.y-1, riftObject.transform.position.z);
+                }
+                anim.Play("Stitch_Out_Player");
+            }
             shiftProgressBar.value = precastingTimer / shiftPrecastTime;
             precastingTimer -= Time.deltaTime;
             yield return null;
         }
         Destroy(riftObject);
         shiftProgressBar.gameObject.SetActive(false);
+        PlayerMovement._instance.OnPause(false);
+        PlayerAttack._instance.EnableAttack(true);
 
-        ToPhaseShift();
-    }
-
-    public void OnPause(bool paused)
-    {
-        if (paused)
-        {
-            playerInputAction.Player.PhaseShift.Disable();
-        }
-        else
-        {
-            playerInputAction.Player.PhaseShift.Enable();
+        anim.Play("IdleTree");
+        shiftCDTimer = shiftCD;
+        if(FirstRift != null) {
+            FirstRift.SetActive(false); 
         }
     }
+
+    //public void OnPause(bool paused)
+    //{
+    //    if (paused)
+    //    {
+    //        playerInputAction.Player.PhaseShift.Disable();
+    //    }
+    //    else
+    //    {
+    //        playerInputAction.Player.PhaseShift.Enable();
+    //    }
+    //}
 }

@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//
+
 public class TitleScreen : MonoBehaviour
 {
+
+    private void Start()
+    {
+    }
+
     public void Play(){
         //if have saved 3 files, should go to load screen
         int numSaved = SaveSystem.GetNumberSavedFiles();
@@ -13,7 +18,7 @@ public class TitleScreen : MonoBehaviour
         } else {
             //load next scene
             SaveSystem.currentFileName = "save" + numSaved; 
-            SceneManager.LoadSceneAsync("Tutorial Level 1");
+            SceneManager.LoadSceneAsync("Tutorial Level");
         }
     }
 

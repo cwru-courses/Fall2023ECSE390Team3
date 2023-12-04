@@ -1,5 +1,6 @@
+using System.Diagnostics;
+using System; 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -9,6 +10,9 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats _instance;
 
+    public PlayerInput playerInput;
+
+    public Vector3 initialPosition;
     public int maxHealth = 100;
     public int yarncooldown = 0;
     public int currentHealth;
@@ -18,15 +22,31 @@ public class PlayerStats : MonoBehaviour
     public HealthBar healthBar;
     public int potions = 0;
     public int healthFromPotion = 20;
-    public int maxPotion = 8;
+    //public int maxPotion = 8;
     public TextMeshProUGUI potionUI;
     public bool inFlippedWorld;  //keep track of what world player is in
 
     public bool blocking = false;// is block ability activated currently
     [SerializeField] private SpriteRenderer spRender;
     [SerializeField] private AudioSource hitSFX;
+    [SerializeField] private AudioSource potionSFX;
 
-    private DefaultInputAction playerInputAction;
+    [Min(0f)]
+    [SerializeField] private float iFrameTime;
+    [SerializeField] private CameraControl came;
+
+    //private DefaultInputAction playerInputAction;
+
+    private float yarnGainPerSecond = 20f;
+    public bool canRegenYarn = true;
+    public bool usingAbilities = false;
+
+    private float iFrameTimer = 0f;
+    private bool invincible = false;
+
+    public bool[] levelsReached = {false, false, false};
+    public bool firstRiftDone = false;
+    private bool fadingOut = false;
 
     void Awake()
     {
@@ -35,16 +55,20 @@ public class PlayerStats : MonoBehaviour
             _instance = this;
         }
 
+        playerInput = GetComponent<PlayerInput>();
+
         if (SaveSystem.listSavedFiles.Contains(SaveSystem.currentFileName))
         {
             SaveSystem.LoadSave();
             healthBar.SetHealth(currentHealth);
             yarnTracker.SetHealth(Mathf.RoundToInt(currentYarnCount));
-            Debug.Log("Saved version loaded");
+            UnityEngine.Debug.Log("Saved version loaded");
+            potionUI.SetText(potions.ToString()); 
+
         }
         else
         {
-            Debug.Log("New game started");
+            UnityEngine.Debug.Log("New game started");
             currentHealth = maxHealth;
             currentYarnCount = maxYarn;
             //set player health to maxHealth to start
@@ -52,32 +76,63 @@ public class PlayerStats : MonoBehaviour
             yarnTracker.SetMaxHealth(maxYarn);
         }
 
-        playerInputAction = new DefaultInputAction();
-        playerInputAction.Player.UsePotion.started += UsePotion;
+        //playerInputAction = new DefaultInputAction();
+        //playerInputAction.Player.UsePotion.started += UsePotion;
         inFlippedWorld = false;
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        playerInputAction.Player.UsePotion.Enable();
+        int currentLevel = -1; 
+        
+        if(String.Compare(SceneManager.GetActiveScene().name, "Tutorial Level") == 0) {
+            initialPosition = new Vector3(18.8f, 23.1f, -1f); 
+            currentLevel = 0; 
+        }
+        else if(String.Compare(SceneManager.GetActiveScene().name, "sanctuary") == 0) {
+            initialPosition = new Vector3(-75.3f, 46.7f, -1f); 
+            currentLevel = 1; 
+        } else if(String.Compare(SceneManager.GetActiveScene().name, "Second Level") == 0) {
+            initialPosition = new Vector3(32.6f, 27.3f, -1f); 
+            currentLevel = 2; 
+        }
+
+        
+        // try to prevent out of map spawn
+        //if current level has not been reached yet, set initial position to correct position
+        if (initialPosition != null && !levelsReached[currentLevel])
+        {
+            transform.position = initialPosition; 
+            levelsReached[currentLevel] = true; 
+        } else {
+             //else if already reached, then the position is set by the SaveSystem
+            SaveSystem.SetPlayerPosition(); 
+        }
+        
+        //StartCoroutine(FadeOutOverTime(3f));
     }
 
-    private void OnDisable()
-    {
-        playerInputAction.Player.UsePotion.Disable();
-    }
+    //private void OnEnable()
+    //{
+    //    playerInputAction.Player.UsePotion.Enable();
+    //}
 
-    public void OnPause(bool paused)
-    {
-        if (paused)
-        {
-            playerInputAction.Player.UsePotion.Disable();
-        }
-        else
-        {
-            playerInputAction.Player.UsePotion.Enable();
-        }
-    }
+    //private void OnDisable()
+    //{
+    //    playerInputAction.Player.UsePotion.Disable();
+    //}
+
+    //public void OnPause(bool paused)
+    //{
+    //    if (paused)
+    //    {
+    //        playerInputAction.Player.UsePotion.Disable();
+    //    }
+    //    else
+    //    {
+    //        playerInputAction.Player.UsePotion.Enable();
+    //    }
+    //}
 
     void Update()
     {
@@ -87,32 +142,54 @@ public class PlayerStats : MonoBehaviour
             SceneManager.LoadSceneAsync("Game Over Screen");
         }
         // only count up yarncooldown by 1 in normal world -- Jing
-        if (GameObject.FindWithTag("Player").transform.position.y > 0)
+        if (transform.position.y > 0)
         {
             yarncooldown = yarncooldown + 1;
+            inFlippedWorld = false;
+            canRegenYarn = true;
+        } else {
+            inFlippedWorld = true; 
+            canRegenYarn = false; 
         }
-        if (yarncooldown > 36 * 1)
+        if (canRegenYarn&&!usingAbilities)
         {
             yarncooldown = 0;
-            this.GainYarn(20);
+            this.GainYarn(yarnGainPerSecond*Time.deltaTime);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (invincible)
+        {
+            iFrameTimer += Time.fixedDeltaTime;
+            if (iFrameTimer > iFrameTime)
+            {
+                iFrameTimer = 0f;
+                invincible = false;
+            }
         }
     }
 
     public void TakeDamage(int damage)
     {
         // check if player is blocking, only take damage if not blocking
-        if (!blocking)
+        if (!invincible && !blocking)
         {
             currentHealth -= damage;
+
+            invincible = true;
 
             healthBar.SetHealth(currentHealth);
             if (hitSFX)
             {
+                //UnityEngine.Debug.Log("hitsfx");
                 hitSFX.Play();
+                
             }
-            if (spRender)
+            if (spRender && !fadingOut)
             {
-                StartCoroutine(FlashColor(0.1f,new Color(1f,0.5f,0.5f)));
+                StartCoroutine(FlashColor(new Color(1f,0.5f,0.5f)));
             }
         }
     }
@@ -121,7 +198,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (currentYarnCount < 0)
         {
-            Debug.Log("player out of yarn");
+            UnityEngine.Debug.Log("player out of yarn");
         }
         else
         {
@@ -149,34 +226,90 @@ public class PlayerStats : MonoBehaviour
 
     public void UsePotion(InputAction.CallbackContext ctx)
     {
-        if (potions > 0)
+        if (ctx.phase == InputActionPhase.Started)
         {
-            potions -= 1;
-            currentHealth += healthFromPotion;
-            potionUI.text = potions.ToString();
-            healthBar.SetHealth(currentHealth);
+            // If have at least one potion and current health is not max
+            if ((potions > 0) && (currentHealth < maxHealth))
+            {
+                potions -= 1;
+
+                if (currentHealth + healthFromPotion <= maxHealth)
+                    currentHealth += healthFromPotion;
+                else
+                    currentHealth = maxHealth;
+
+                potionUI.text = potions.ToString();
+                healthBar.SetHealth(currentHealth);
+                if (potionSFX)
+                {
+                    potionSFX.Play();
+                }
+            }
+            else
+            {
+                UnityEngine.Debug.Log("No Potion");
+            }
         }
-        else
-        {
-            Debug.Log("No Potion");
-        }
+            
     }
 
     public void GainPotion()
     {
+        // no more upper limit now
+        potions += 1;
+        potionUI.text = potions.ToString();
+        /*
         if (potions < maxPotion)
         {
             potions += 1;
             potionUI.text = potions.ToString();
         }
+        */
     }
 
-    private IEnumerator FlashColor(float duration, Color color)
+    private IEnumerator FlashColor(Color color)
     {
-        Color prevColor = Color.white;
-        spRender.color = color;
-        yield return new WaitForSeconds(duration);
-        spRender.color = prevColor;
+        bool originalColor = false;
+
+        while (invincible)
+        {
+            spRender.color = originalColor ? Color.white : color;
+            originalColor = !originalColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        spRender.color = Color.white;
+    }
+
+    // Fade out player after killing enemy before going to the next level
+    public IEnumerator FadeOutOverTime(float fadeTime, String nextScene)
+    {
+        if (came != null)
+        {
+            // watch player
+            came.SwitchToPlayerFocus();
+        }
+        fadingOut = true;
+        float elapsedTime = 0f;
+        Color initialColor = spRender.material.color;
+
+        while (elapsedTime < fadeTime)
+        {
+            print(elapsedTime);
+            print(fadeTime);
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeTime);
+            Color newColor = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
+            spRender.material.color = newColor;
+
+            elapsedTime += Time.deltaTime;
+            yield return null; 
+        }
+
+        // Make sure the object is completely hidden when the fade is complete
+        spRender.material.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
+
+        fadingOut = false;
+        SceneManager.LoadScene(nextScene);
     }
 
 }

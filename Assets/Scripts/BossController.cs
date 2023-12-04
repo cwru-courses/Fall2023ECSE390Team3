@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class BossController : BaseEnemy
 {
     [Header("Attack Settings")]
     [SerializeField] private float pullAttackRadius;
+    [SerializeField] private float pullAttackProjectileSpeed;
+    [SerializeField] private int pullAttackProjectileDamage;
     [SerializeField] private float slamAttackRadius;
-    [SerializeField] private float rageRadius; // if player stays too close too long become enraged
-    [SerializeField] private float rageDuration; // if player stays too close too long become enraged
     [SerializeField] private float minAttackCD;
     [SerializeField] private int numPhases;
+    [SerializeField] protected AudioSource takeDamageSFX;
 
 
     [Header("Spawning Settings")]
@@ -24,10 +27,11 @@ public class BossController : BaseEnemy
     [SerializeField] private GameObject shockwavePrefab;
     [SerializeField] private int numWaves;
     [SerializeField] private float timeBetweenWaves;
-    [SerializeField] private float windUpTimeWaves;
+    [SerializeField] private float slamAnimLength;
     [SerializeField] private int shockwaveDamage;
     [SerializeField] private float shockwaveSpeed;
     [SerializeField] private float shockwaveRange;
+    [SerializeField] private AudioSource shockwaveSFX;
 
     [Header("Pull Settings")]
     [SerializeField] private GameObject pullPrefab;
@@ -35,6 +39,7 @@ public class BossController : BaseEnemy
     [SerializeField] private float pullTime;
     [SerializeField] private float pullRange;
     [SerializeField] private float pullMinDist;
+    [SerializeField] private Material pullLineMaterial;
 
     [Header("Patrol Path Settings")]
     [SerializeField] private List<Vector3> patrolPoints;
@@ -46,16 +51,23 @@ public class BossController : BaseEnemy
     [SerializeField] private GameObject bossHealthbar;
     [SerializeField] private GameObject riftPrefab;
     [SerializeField] private float riftDuration;
+    [SerializeField] private float stitchAnimLength;
+    [Header("Scene Load Settings")]
+    [SerializeField] private string nextScene;
 
     private float lastAttackTime;
     private int patrolTargetIndex;
     private float patrolCDTimer;
     protected Transform targetTransform;
     private int currPhase;
-    private bool pullingPlayer;
+    private bool pullingPlayer; 
     private LineRenderer pullLine;
     private float healthbarInitScale;
+    private bool fadingOutPlayer = false;
+    private bool fadeOutCompleted = false;
+    private GameObject weaponObject;
 
+    public static BossController _instance;
 
     // Start is called before the first frame update
     void Awake()
@@ -81,9 +93,13 @@ public class BossController : BaseEnemy
         pullLine = pathRenderObj.GetComponent<LineRenderer>();
         pullLine.startWidth = 0.1f;
         pullLine.endWidth = 0.1f;
-        pullLine.material = new Material(Shader.Find("Sprites/Default"));
+        pullLine.material = pullLineMaterial;
         pullLine.startColor = Color.white;
         pullLine.endColor = Color.white;
+
+        if(_instance == null){
+            _instance = this;
+        }
 
 }
 
@@ -100,7 +116,7 @@ public class BossController : BaseEnemy
                 
 
                 //if cooldown done then attack, note: attackCD reduces with HP
-                if (Time.time - lastAttackTime > minAttackCD + (health/maxHealth)*minAttackCD && !isStunned)
+                if (Time.time - lastAttackTime > minAttackCD + ((float)health/(float)maxHealth)*minAttackCD && !isStunned)
                 {
                     
                     //closer player is the more likely to slam instead of pull
@@ -206,13 +222,18 @@ public class BossController : BaseEnemy
         if (alive)
         {
             health = Mathf.Max(health - damage, 0);
-            bossHealthbar.transform.localScale = new Vector3(healthbarInitScale * ((float)health / (float)maxHealth),1,1);
-
+            bossHealthbar.transform.localScale = new Vector3(healthbarInitScale * ((float)health / (float)maxHealth), (float)8.15,1);
+            takeDamageSFX.Play();
+            if (spriteRender)
+            {
+                StartCoroutine(FlashColor(new Color(1f, 0.5f, 0.5f)));
+            }
             if (health <= 0)
             {
                 alive = false;
                 StopAllCoroutines();
                 StartCoroutine(Die());
+                StartCoroutine(FadeOutPlayer());
             }
             else
             {
@@ -281,12 +302,26 @@ public class BossController : BaseEnemy
 
     private IEnumerator ShockwaveAttack()
     {
-        //add attack wind up animation here 
+        
 
-        yield return new WaitForSeconds(windUpTimeWaves);
+        
 
         //loop for number of shockwaves
         for(int i = 0; i < numWaves; i++) {
+            // play sfx
+            if (shockwaveSFX)
+            {
+                shockwaveSFX.Play();
+            }
+            if (anim)
+            {
+                anim.SetBool("isAttacking", true);
+            }
+            yield return new WaitForSeconds(slamAnimLength);
+            if (anim)
+            {
+                anim.SetBool("isAttacking", false);
+            }
             //spawn a shockwave
             GameObject shockwaveObject = Instantiate<GameObject>(shockwavePrefab);
             shockwaveObject.transform.parent = transform;
@@ -297,7 +332,7 @@ public class BossController : BaseEnemy
             sw.targetLayer = whatIsTaget;
             sw.speed = shockwaveSpeed;
             sw.hitRadius = 0.5f;
-            yield return new WaitForSeconds(timeBetweenWaves);
+            yield return new WaitForSeconds(timeBetweenWaves-slamAnimLength);
         }
 
     }
@@ -306,44 +341,61 @@ public class BossController : BaseEnemy
     {
         print("entered pull attack");
         // insert wind up animation here
+        anim.SetBool("isPulling", true);
         yield return new WaitForSeconds(windUpTimePull);
-
+        anim.SetBool("isPulling", false);
         //check if player is in range
         Collider2D collider = Physics2D.OverlapCircle(transform.position, pullRange, whatIsTaget);
         if (collider)
         {
-            print("pull target in range");
-            // check if can see player
-            Vector3 direction = collider.transform.position - transform.position;
-            direction = direction.normalized;
-            
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + (direction*5f), direction);
-            print(hit.collider.gameObject.layer);
-            // fix hit detection later
-            if(true)
-            {
-                print("can see target");
-                pullingPlayer = true;
+            //Send projectile
+            weaponObject = Instantiate(pullPrefab) as GameObject;
+            weaponObject.transform.position = transform.position;
 
-                //indicate player is being pulled 
-                GameObject pullObject = Instantiate<GameObject>(pullPrefab);
-                pullObject.transform.parent = collider.gameObject.transform;
-                pullObject.transform.position = collider.gameObject.transform.position;
+            //rotate weapon to be towards the player
+            Vector3 rot = weaponObject.transform.rotation.eulerAngles;
 
-                Vector3[] pullLinePoints = new Vector3[2];
-                pullLinePoints[0] = transform.position;
-                pullLinePoints[1] = collider.gameObject.transform.position;
+            // division of basicAttackRange is to keep two numbers below 1 to avoid an error message saying Assertion failed on expression
+            float xDirection = (PlayerStats._instance.transform.position.x - transform.position.x) / pullRange;
+            float yDirection = (PlayerStats._instance.transform.position.y - transform.position.y) / pullRange;
+            //Debug.Log("xDirection: " + xDirection + "; yDirection: " + yDirection);
+            Vector2 moveDir = new Vector2(xDirection, yDirection);
+            rot.z = Mathf.Acos(Vector2.Dot(Vector2.up, moveDir)) * Mathf.Rad2Deg;
+            if (moveDir.x > 0) { rot.z *= -1f; }
+            weaponObject.transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
 
-                pullLine.positionCount = 2;
-                pullLine.SetPositions(pullLinePoints);
-
-                yield return new WaitForSeconds(pullTime);
-
-                //done pulling
-                Destroy(pullObject);
-                pullingPlayer = false;
-            }
+            Projectile projectile = weaponObject.GetComponent<Projectile>();
+            projectile.direction = collider.gameObject.transform.position - transform.position;
+            projectile.damage = pullAttackProjectileDamage;
+            projectile.attackLayer = 15;
+            projectile.triggerBossPull = true;
         }
+    }
+
+    //method to be called by the projectile created in PullAttack
+    public IEnumerator TriggerPull()
+    {
+        print("PULLING TARGET");
+        pullingPlayer = true;
+
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, pullRange, whatIsTaget);
+        //indicate player is being pulled 
+        GameObject pullObject = Instantiate<GameObject>(pullPrefab);
+        pullObject.transform.parent = collider.gameObject.transform;
+        pullObject.transform.position = collider.gameObject.transform.position;
+
+        Vector3[] pullLinePoints = new Vector3[2];
+        pullLinePoints[0] = transform.position;
+        pullLinePoints[1] = collider.gameObject.transform.position;
+
+        pullLine.positionCount = 2;
+        pullLine.SetPositions(pullLinePoints);
+
+        yield return new WaitForSeconds(pullTime);
+
+        //done pulling
+        Destroy(pullObject);
+        pullingPlayer = false;
     }
 
     IEnumerator switchRealities()
@@ -352,9 +404,27 @@ public class BossController : BaseEnemy
         Vector3 currPosition = transform.position;
         currPosition.y *= -1;
         riftObject.transform.position = transform.position;
+        anim.SetBool("isStitching", true);
+        yield return new WaitForSeconds(stitchAnimLength);
+        anim.SetBool("isStitching", false);
         transform.position = currPosition;
         yield return new WaitForSeconds(riftDuration);
         Destroy(riftObject);
         
+    }
+
+    private IEnumerator FlashColor(Color color)
+    {
+        spriteRender.color = color;
+        yield return new WaitForSeconds(0.3f);
+        spriteRender.color = Color.white;
+    }
+
+    private IEnumerator FadeOutPlayer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(PlayerStats._instance.FadeOutOverTime(2f, nextScene));
+        fadeOutCompleted = true;
+        yield return null;
     }
 }

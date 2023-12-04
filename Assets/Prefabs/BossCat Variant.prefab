@@ -1,89 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1490532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1490533}
-  - component: {fileID: 1490534}
-  m_Layer: 20
-  m_Name: healthbar
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1490533
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490532}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
-  m_LocalScale: {x: 8, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2460894157062390127}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1490534
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490532}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1001 &3425494114399381685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,6 +63,38 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1124806181, guid: 9295a5bd2a9e62f4198e20e2163d67d0, type: 3}
+    - target: {fileID: 4407923147668350140, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407923147668350140, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.957788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407923147668350140, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.957788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407923147668350140, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.957788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407923147668350140, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407923147668350140, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895224016436589757, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5737233481833493919, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -155,6 +103,42 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6529454153519671120, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529454153519671120, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.9986567
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529454153519671120, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.145697
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529454153519671120, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.85308945
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529454153519671120, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.04420173
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529454153519671120, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.668501
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437664387105080147, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124524610779770036, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259655157771308363, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
     - target: {fileID: 8778715366339192711, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
       propertyPath: m_Radius
       value: 1.5
@@ -165,6 +149,11 @@ PrefabInstance:
 --- !u!212 &342586016349857166 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3118972083770215739, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+  m_PrefabInstance: {fileID: 3425494114399381685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &437789050674560658 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2997878295060829735, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
   m_PrefabInstance: {fileID: 3425494114399381685}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2460894157062390123 stripped
@@ -184,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3026748aca431264d832a705d3d5c788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 60
   movementSpeed: 1
   healthPotionDroprate: 10
   yarnDroprate: 3
@@ -197,11 +186,12 @@ MonoBehaviour:
   smokeCloudPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
   deathAnimLength: 0
   pullAttackRadius: 20
-  slamAttackRadius: 15
-  rageRadius: 5
-  rageDuration: 5
-  minAttackCD: 5
+  pullAttackProjectileSpeed: 1
+  pullAttackProjectileDamage: 0
+  slamAttackRadius: 20
+  minAttackCD: 1
   numPhases: 3
+  takeDamageSFX: {fileID: 6713173958685484542}
   enemyPrefabs:
   - {fileID: 986031642315237854, guid: 5a00960f283e44040984961cae812dc4, type: 3}
   - {fileID: 986031642315237854, guid: 1c497e187d39f1c47a5cc8fbc07dd739, type: 3}
@@ -209,16 +199,18 @@ MonoBehaviour:
   spawnRadius: 10
   shockwavePrefab: {fileID: 100481934291520229, guid: dc4f90a6bd831a246b3d4ad01563084d, type: 3}
   numWaves: 2
-  timeBetweenWaves: 2
-  windUpTimeWaves: 0
+  timeBetweenWaves: 1
+  slamAnimLength: 0
   shockwaveDamage: 20
-  shockwaveSpeed: 20
-  shockwaveRange: 20
-  pullPrefab: {fileID: 5595849266403112404, guid: e524f34e49daed242867f5c1954f2610, type: 3}
-  windUpTimePull: 0
+  shockwaveSpeed: 30
+  shockwaveRange: 25
+  shockwaveSFX: {fileID: 437789050674560658}
+  pullPrefab: {fileID: 92628154307276376, guid: 0bf62d3f2e8a6cf4fb319af060faf28d, type: 3}
+  windUpTimePull: 0.667
   pullTime: 1
   pullRange: 20
   pullMinDist: 5
+  pullLineMaterial: {fileID: 2100000, guid: 7fca64ad53aa7cf4095697cb3f7bec29, type: 2}
   patrolPoints:
   - {x: -45, y: 28, z: 0}
   - {x: -45, y: 18, z: 0}
@@ -227,16 +219,23 @@ MonoBehaviour:
   spriteRender: {fileID: 342586016349857166}
   anim: {fileID: 2538120770463943114}
   colorOnDeath: {r: 0, g: 0, b: 0, a: 0}
-  bossHealthbar: {fileID: 1490532}
+  bossHealthbar: {fileID: 5755268139540252942}
   riftPrefab: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
-  riftDuration: 5
---- !u!4 &2460894157062390127 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 986031642315237850, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
-  m_PrefabInstance: {fileID: 3425494114399381685}
-  m_PrefabAsset: {fileID: 0}
+  riftDuration: 1
+  stitchAnimLength: 0.5
+  nextScene: 
 --- !u!95 &2538120770463943114 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 914507645937525119, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+  m_PrefabInstance: {fileID: 3425494114399381685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5755268139540252942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6942049640860410299, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+  m_PrefabInstance: {fileID: 3425494114399381685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6713173958685484542 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8259655157771308363, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
   m_PrefabInstance: {fileID: 3425494114399381685}
   m_PrefabAsset: {fileID: 0}

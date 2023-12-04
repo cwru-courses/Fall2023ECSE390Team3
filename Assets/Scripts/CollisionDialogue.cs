@@ -1,11 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
 
 public class CollisionDialogue : MonoBehaviour
 {
+    [SerializeField] public AudioClip dialogueTypingSoundClip;
+
+    [SerializeField] public AudioSource audioSource;
     public TextMeshProUGUI textComponent;
     public String[] lines;
     protected float textSpeed;
@@ -20,7 +22,7 @@ public class CollisionDialogue : MonoBehaviour
     // Start is called before the first frame update
     public void StartRunning(GameObject inputDialogueBox)
     {
-        this.dialogueBox = inputDialogueBox;
+        dialogueBox = inputDialogueBox;
         isRunning = true;
         textComponent.text = string.Empty;
         StartDialogue();
@@ -29,12 +31,16 @@ public class CollisionDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isRunning){
-            if(Input.GetKeyDown(KeyCode.Space)){
-                if(textComponent.text == lines[index]){
+        if (isRunning)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (textComponent.text == lines[index])
+                {
                     NextLine();
                 }
-                else{
+                else
+                {
                     StopAllCoroutines();
                     textComponent.text = lines[index];
                 }
@@ -43,40 +49,45 @@ public class CollisionDialogue : MonoBehaviour
 
     }
 
-    void StartDialogue(){
-        
+    void StartDialogue()
+    {
+        PlayerMovement._instance.pauseAnimation();
+        TimeManager._instance.OnDialog(true);
         index = 0;
-        PlayerMovement._instance.OnPause(true);
-        PlayerAttack._instance.OnPause(true);
-        PhaseShift._instance.OnPause(true);
-        PlayerStats._instance.OnPause(true);
         StartCoroutine(TypeLine());
-    
+
     }
 
-    public virtual IEnumerator TypeLine(){
-        foreach(char c in lines[index].ToCharArray()){
+    public virtual IEnumerator TypeLine()
+    {
+        foreach (char c in lines[index].ToCharArray())
+        {
             textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            if(c != ' '){
+                audioSource.PlayOneShot(dialogueTypingSoundClip);
+            }
+            
+            yield return new WaitForSecondsRealtime(0.05f);
         }
     }
 
-    void endDialogue(){
-        isRunning=false;
+    void endDialogue()
+    {
+        isRunning = false;
         dialogueBox.SetActive(false);
-        PlayerMovement._instance.OnPause(false);
-        PlayerAttack._instance.OnPause(false);
-        PhaseShift._instance.OnPause(false);
-        PlayerStats._instance.OnPause(false);
+        TimeManager._instance.OnDialog(false);
     }
 
-    void NextLine(){
-        if(index < lines.Length - 1){
-            index ++;
+    void NextLine()
+    {
+        if (index < lines.Length - 1)
+        {
+            index++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
         }
-        else{
+        else
+        {
             endDialogue();
         }
     }

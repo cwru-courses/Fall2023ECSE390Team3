@@ -1,5 +1,7 @@
 using System.ComponentModel.Design.Serialization;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public enum CamBehavior
 {
@@ -47,6 +49,15 @@ public class CameraControl : MonoBehaviour
                 targetPos = targetTransform.position;
 
                 cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, objectFocusFOV, 0.3f);
+
+                /* random fix attempt
+                targetPos = playerTransform.position;
+                if (targetTransform != null) {
+                    targetPos = targetTransform.position;
+                }
+                cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, objectFocusFOV, 0.3f);
+                */
+
                 break;
 
             case CamBehavior.BossRoom:
@@ -71,10 +82,11 @@ public class CameraControl : MonoBehaviour
         camMode = CamBehavior.PlayerFocus;
     }
 
-    public void SwitchToObjectFocus(Transform targetObjTransform)
-    {
+    // DOESN'T WORK, Use SwitchToBossRoom on Object Position
+    public void SwitchToObjectFocus(Vector3 targetObjPosition) {
+        targetTransform.position = targetObjPosition;
         camMode = CamBehavior.ObjectFocus;
-        targetTransform = targetObjTransform;
+        // StartCoroutine(ObjectFocusDelay(targetObjPosition));
     }
 
     public void SwitchToBossRoom(Vector3 roomCenterPos)
@@ -82,8 +94,21 @@ public class CameraControl : MonoBehaviour
         camMode = CamBehavior.BossRoom;
         roomCenterPosition = roomCenterPos;
     }
+
     public static void SwitchSide()
     {
         roomCenterPosition = new Vector3(roomCenterPosition.x,-1.0f*roomCenterPosition.y,roomCenterPosition.z);
     }
+
+    /*
+    // Another work-around attempt
+    private IEnumerator ObjectFocusDelay(Vector3 targetObjPosition) {
+        targetTransform.position = targetObjPosition;
+
+        yield return new WaitForSeconds(0.5f);
+
+        camMode = CamBehavior.ObjectFocus;
+    }
+    */
+
 }

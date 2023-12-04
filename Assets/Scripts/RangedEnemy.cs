@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class RangedEnemy : TrainingBotController
 {
-    [Header("Melee Settings")]
+    [Header("Projectile Settings")]
     [SerializeField] private GameObject weaponPrefab;
     [SerializeField] private int attackDamage;
+    [SerializeField] private AudioSource attackSFX;
 
     private GameObject weaponObject;
 
@@ -31,6 +32,10 @@ public class RangedEnemy : TrainingBotController
         //check if there is a weapon prefab to instantiate
         if (weaponPrefab)
         {
+            if (attackSFX)
+            {
+                attackSFX.Play();
+            }
             //print("needle instantiated");
             //creates object to be rotated
             weaponObject = Instantiate(weaponPrefab) as GameObject;

@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/sanctuary.unity.meta
 guid: 29ce9e343f4e6af4f94b19fad8b74a46
 DefaultImporter:
+========
+guid: db783560306244642b5bddf96752a921
+PrefabImporter:
+>>>>>>>> tutorial-level:Assets/Prefabs/Level Layouts/Sancuary.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

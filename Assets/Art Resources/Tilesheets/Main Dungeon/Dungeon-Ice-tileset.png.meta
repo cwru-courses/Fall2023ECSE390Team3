@@ -1,0 +1,652 @@
+fileFormatVersion: 2
+guid: 2d039659b067adf43a7f6aa786c00205
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba16d9868fa4383438ae350af4f93139
+      internalID: 108487047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f2f9bc859d61b34588a095ab1b587d9
+      internalID: 1012883111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57594b672b01ca840ad502d63831253b
+      internalID: 798278168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 861b57c466fd7de45894e3661da64fe2
+      internalID: 191916774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0f1f6ad3c4f6b41aea2832e8f15585
+      internalID: -1984577566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_14
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b776ee065394444ba9251e3c848b98
+      internalID: -1948246852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_23
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df43c949e35741440a1ea8eca1665947
+      internalID: -1999876923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_24
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 675717b5c30011c43a30b8f7fb64fcd1
+      internalID: -1530640102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_25
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c29aa0f16207ce44811392e9af0e830
+      internalID: -1405300419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_26
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4fc4405ba98c0940a1c048bf42df91e
+      internalID: 305289671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_27
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97cd3fa52fe7549408bc9ece69d5cf82
+      internalID: -1034684295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_28
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3616275f269d0e4396dbeaf729f2457
+      internalID: -1836456733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_35
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616937df8c3dad742a68199d041005d0
+      internalID: -267373300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_36
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c628b48cb6d13d48938dd211e6affcc
+      internalID: -1879440922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_37
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b829181fe91389b418a4f8b07b63e0c8
+      internalID: -1510480997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_38
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced732dcab0e95341af65ab80e4a8c33
+      internalID: 1725521155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_46
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1f351d3c7604c418d9573926e531b7
+      internalID: -1214664466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_47
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 951b13462de9f17489a7e26c930a28d4
+      internalID: -1124146962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_48
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f61e9fd764281143b62fe67670b471a
+      internalID: 1017860981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon-Ice-tileset_49
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9775b0c10b3fd4092645b13e5fafcc
+      internalID: -407734691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Dungeon-Ice-tileset_36: -1879440922
+      Dungeon-Ice-tileset_81: -1624268351
+      Dungeon-Ice-tileset_46: -1214664466
+      Dungeon-Ice-tileset_53: 988733735
+      Dungeon-Ice-tileset_52: 1815583424
+      Dungeon-Ice-tileset_6: -14320676
+      Dungeon-Ice-tileset_44: 771605534
+      Dungeon-Ice-tileset_42: -20167704
+      Dungeon-Ice-tileset_55: 1311780155
+      Dungeon-Ice-tileset_7: -1466839253
+      Dungeon-Ice-tileset_66: 569132492
+      Dungeon-Ice-tileset_35: -267373300
+      Dungeon-Ice-tileset_78: 574094535
+      Dungeon-Ice-tileset_48: 1017860981
+      Dungeon-Ice-tileset_37: -1510480997
+      Dungeon-Ice-tileset_33: 1540505201
+      Dungeon-Ice-tileset_79: 213457731
+      Dungeon-Ice-tileset_56: 1161020200
+      Dungeon-Ice-tileset_68: 894360545
+      Dungeon-Ice-tileset_82: -934566591
+      Dungeon-Ice-tileset_18: 1181662119
+      Dungeon-Ice-tileset_15: 2104428005
+      Dungeon-Ice-tileset_41: -2132211292
+      Dungeon-Ice-tileset_43: -1047513023
+      Dungeon-Ice-tileset_1: 951089683
+      Dungeon-Ice-tileset_72: -1979592000
+      Dungeon-Ice-tileset_23: -1999876923
+      Dungeon-Ice-tileset_29: 260528014
+      Dungeon-Ice-tileset_50: -722727044
+      Dungeon-Ice-tileset_32: 1377389552
+      Dungeon-Ice-tileset_91: 65913907
+      Dungeon-Ice-tileset_93: -202918252
+      Dungeon-Ice-tileset_69: -1924664281
+      Dungeon-Ice-tileset_19: -6561216
+      Dungeon-Ice-tileset_77: -989815892
+      Dungeon-Ice-tileset_84: -1530707356
+      Dungeon-Ice-tileset_51: -1894756762
+      Dungeon-Ice-tileset_13: -1984577566
+      Dungeon-Ice-tileset_12: 191916774
+      Dungeon-Ice-tileset_60: -1902671805
+      Dungeon-Ice-tileset_25: -1405300419
+      Dungeon-Ice-tileset_96: 1571444257
+      Dungeon-Ice-tileset_64: 443066854
+      Dungeon-Ice-tileset_88: 717547136
+      Dungeon-Ice-tileset_38: 1725521155
+      Dungeon-Ice-tileset_40: 481817541
+      Dungeon-Ice-tileset_89: -1807978855
+      Dungeon-Ice-tileset_20: 1264600486
+      Dungeon-Ice-tileset_31: -1844018284
+      Dungeon-Ice-tileset_90: 659324853
+      Dungeon-Ice-tileset_24: -1530640102
+      Dungeon-Ice-tileset_28: -1836456733
+      Dungeon-Ice-tileset_70: 984993472
+      Dungeon-Ice-tileset_14: -1948246852
+      Dungeon-Ice-tileset_26: 305289671
+      Dungeon-Ice-tileset_74: -336281622
+      Dungeon-Ice-tileset_39: 286640818
+      Dungeon-Ice-tileset_0: 184450535
+      Dungeon-Ice-tileset_10: 1012883111
+      Dungeon-Ice-tileset_59: -356317100
+      Dungeon-Ice-tileset_45: 133278470
+      Dungeon-Ice-tileset_16: 42829836
+      Dungeon-Ice-tileset_9: 108487047
+      Dungeon-Ice-tileset_30: 1057958727
+      Dungeon-Ice-tileset_94: -732771799
+      Dungeon-Ice-tileset_71: -1481858967
+      Dungeon-Ice-tileset_22: 791098003
+      Dungeon-Ice-tileset_8: 1771467467
+      Dungeon-Ice-tileset_92: -911386429
+      Dungeon-Ice-tileset_62: 407082389
+      Dungeon-Ice-tileset_80: -1403283673
+      Dungeon-Ice-tileset_61: -1548758207
+      Dungeon-Ice-tileset_67: 1822848198
+      Dungeon-Ice-tileset_34: 145404831
+      Dungeon-Ice-tileset_76: 1372795949
+      Dungeon-Ice-tileset_57: 1414207265
+      Dungeon-Ice-tileset_5: -1351341195
+      Dungeon-Ice-tileset_49: -407734691
+      Dungeon-Ice-tileset_47: -1124146962
+      Dungeon-Ice-tileset_11: 798278168
+      Dungeon-Ice-tileset_17: -225244798
+      Dungeon-Ice-tileset_87: -464198072
+      Dungeon-Ice-tileset_2: -1216968832
+      Dungeon-Ice-tileset_3: -70752096
+      Dungeon-Ice-tileset_65: -2104817494
+      Dungeon-Ice-tileset_63: 490147776
+      Dungeon-Ice-tileset_4: 488720747
+      Dungeon-Ice-tileset_27: -1034684295
+      Dungeon-Ice-tileset_54: -1029728033
+      Dungeon-Ice-tileset_73: -679633866
+      Dungeon-Ice-tileset_58: -1569234349
+      Dungeon-Ice-tileset_75: 998755317
+      Dungeon-Ice-tileset_83: 1609408643
+      Dungeon-Ice-tileset_95: 942087424
+      Dungeon-Ice-tileset_21: -1688234828
+      Dungeon-Ice-tileset_85: 1900869509
+      Dungeon-Ice-tileset_86: 1785522175
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

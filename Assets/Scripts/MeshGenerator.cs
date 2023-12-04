@@ -152,7 +152,43 @@ public class MeshGenerator : MonoBehaviour
         }
         polyCollider.SetPath(0,colliderPath);
 
+        //creates UVs
+        float minX = float.PositiveInfinity;
+        float minY = float.PositiveInfinity;
+        float maxX = float.NegativeInfinity;
+        float maxY = float.NegativeInfinity;
+        for(int i = 0; i < colliderPath.Length; i++)
+        {
+            Vector2 currPoint = colliderPath[i];
+            if (currPoint.x < minX)
+            {
+                minX = currPoint.x;
+            }
+            if (currPoint.y < minY)
+            {
+                minY = currPoint.y;
+            }
+            if (currPoint.x > maxX)
+            {
+                maxX = currPoint.x;
+            }
+            if (currPoint.y > maxY)
+            {
+                maxY = currPoint.y;
+            }
+        }
+        float maxDist = Mathf.Max(maxX - minX, maxY - minY);
+        Vector2[] uvPath = new Vector2[vertices.Length];
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            uvPath[i] = vertices[i];
+            uvPath[i].x = (uvPath[i].x - minX) / maxDist;
+            uvPath[i].y = (uvPath[i].y - minY) / maxDist;
+        }
+
+        mesh.uv = uvPath;
         mesh.RecalculateNormals();
+        GetComponent<MeshFilter>().mesh = mesh;
     }
 
     private void createDefaultShape()

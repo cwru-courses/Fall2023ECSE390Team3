@@ -55,15 +55,6 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Launch Projectile"",
-                    ""type"": ""Button"",
-                    ""id"": ""e21d4237-bb8f-4da8-94c9-eae29e4959da"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Phase Shift"",
                     ""type"": ""Button"",
                     ""id"": ""c82b92be-c27d-4ade-8895-421a549c7b8a"",
@@ -82,6 +73,15 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Ability2"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d4ead17-e626-4665-bb37-631049bd960e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""UsePotion"",
                     ""type"": ""Button"",
                     ""id"": ""61586cb4-26ab-49b4-8dea-d66bfa8b1de0"",
@@ -91,9 +91,9 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Ability2"",
+                    ""name"": ""Pickup"",
                     ""type"": ""Button"",
-                    ""id"": ""9d4ead17-e626-4665-bb37-631049bd960e"",
+                    ""id"": ""ebb0b587-ecb8-4819-a1e5-e84301d22419"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -193,21 +193,10 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""8e7c83b6-5c12-438c-86d7-2050ac12c846"",
                     ""path"": ""<Keyboard>/e"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Ability1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""130dbcaf-7cda-4b5b-bb36-2d4086b6b808"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Launch Projectile"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -225,11 +214,22 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d6fee794-57fe-4800-a307-ef86540dbcd6"",
-                    ""path"": ""<Keyboard>/#(R)"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Ability2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4ed4bf3-9511-4fd1-b94f-74e1ec024a4b"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pickup"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -245,7 +245,7 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                     ""id"": ""890e8e5f-d491-4014-857c-f555d96cf603"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -291,11 +291,11 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
-        m_Player_LaunchProjectile = m_Player.FindAction("Launch Projectile", throwIfNotFound: true);
         m_Player_PhaseShift = m_Player.FindAction("Phase Shift", throwIfNotFound: true);
         m_Player_Ability1 = m_Player.FindAction("Ability1", throwIfNotFound: true);
-        m_Player_UsePotion = m_Player.FindAction("UsePotion", throwIfNotFound: true);
         m_Player_Ability2 = m_Player.FindAction("Ability2", throwIfNotFound: true);
+        m_Player_UsePotion = m_Player.FindAction("UsePotion", throwIfNotFound: true);
+        m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -362,11 +362,11 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Attack;
-    private readonly InputAction m_Player_LaunchProjectile;
     private readonly InputAction m_Player_PhaseShift;
     private readonly InputAction m_Player_Ability1;
-    private readonly InputAction m_Player_UsePotion;
     private readonly InputAction m_Player_Ability2;
+    private readonly InputAction m_Player_UsePotion;
+    private readonly InputAction m_Player_Pickup;
     public struct PlayerActions
     {
         private @DefaultInputAction m_Wrapper;
@@ -374,11 +374,11 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
-        public InputAction @LaunchProjectile => m_Wrapper.m_Player_LaunchProjectile;
         public InputAction @PhaseShift => m_Wrapper.m_Player_PhaseShift;
         public InputAction @Ability1 => m_Wrapper.m_Player_Ability1;
-        public InputAction @UsePotion => m_Wrapper.m_Player_UsePotion;
         public InputAction @Ability2 => m_Wrapper.m_Player_Ability2;
+        public InputAction @UsePotion => m_Wrapper.m_Player_UsePotion;
+        public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -397,21 +397,21 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @LaunchProjectile.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchProjectile;
-                @LaunchProjectile.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchProjectile;
-                @LaunchProjectile.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchProjectile;
                 @PhaseShift.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhaseShift;
                 @PhaseShift.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhaseShift;
                 @PhaseShift.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhaseShift;
                 @Ability1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
                 @Ability1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
                 @Ability1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
-                @UsePotion.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePotion;
-                @UsePotion.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePotion;
-                @UsePotion.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePotion;
                 @Ability2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
                 @Ability2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
                 @Ability2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
+                @UsePotion.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePotion;
+                @UsePotion.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePotion;
+                @UsePotion.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePotion;
+                @Pickup.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickup;
+                @Pickup.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickup;
+                @Pickup.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickup;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -425,21 +425,21 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
-                @LaunchProjectile.started += instance.OnLaunchProjectile;
-                @LaunchProjectile.performed += instance.OnLaunchProjectile;
-                @LaunchProjectile.canceled += instance.OnLaunchProjectile;
                 @PhaseShift.started += instance.OnPhaseShift;
                 @PhaseShift.performed += instance.OnPhaseShift;
                 @PhaseShift.canceled += instance.OnPhaseShift;
                 @Ability1.started += instance.OnAbility1;
                 @Ability1.performed += instance.OnAbility1;
                 @Ability1.canceled += instance.OnAbility1;
-                @UsePotion.started += instance.OnUsePotion;
-                @UsePotion.performed += instance.OnUsePotion;
-                @UsePotion.canceled += instance.OnUsePotion;
                 @Ability2.started += instance.OnAbility2;
                 @Ability2.performed += instance.OnAbility2;
                 @Ability2.canceled += instance.OnAbility2;
+                @UsePotion.started += instance.OnUsePotion;
+                @UsePotion.performed += instance.OnUsePotion;
+                @UsePotion.canceled += instance.OnUsePotion;
+                @Pickup.started += instance.OnPickup;
+                @Pickup.performed += instance.OnPickup;
+                @Pickup.canceled += instance.OnPickup;
             }
         }
     }
@@ -490,11 +490,11 @@ public partial class @DefaultInputAction : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
-        void OnLaunchProjectile(InputAction.CallbackContext context);
         void OnPhaseShift(InputAction.CallbackContext context);
         void OnAbility1(InputAction.CallbackContext context);
-        void OnUsePotion(InputAction.CallbackContext context);
         void OnAbility2(InputAction.CallbackContext context);
+        void OnUsePotion(InputAction.CallbackContext context);
+        void OnPickup(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

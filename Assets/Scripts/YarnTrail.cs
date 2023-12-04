@@ -9,6 +9,14 @@ public class YarnTrail : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 thisPosition;
     [SerializeField] private float yarnConsumptionRate;
+    [SerializeField] private GameObject YarnPuzzleControllerObjectOne;
+    [SerializeField] private GameObject YarnPuzzleControllerObjectTwo;
+    [SerializeField] private GameObject YarnPuzzleControllerObjectThree;
+    [SerializeField] private YarnTrailCollider trailCollider;
+    private YarnPuzzleController puzzleControllerOne;
+    private YarnPuzzleController puzzleControllerTwo;
+    private YarnPuzzleController puzzleControllerThree;
+    public bool exceptionForPointTwo = false;
 
     private void Awake()
     {
@@ -17,7 +25,20 @@ public class YarnTrail : MonoBehaviour
             _instance = this;
         }
 
-        
+        // YarnPuzzleControllerObjectOne is null in tutorial dungeon because there is no yarn puzzle
+        if (YarnPuzzleControllerObjectOne != null)
+        {
+            puzzleControllerOne = YarnPuzzleControllerObjectOne.GetComponent<YarnPuzzleController>();
+        }
+        if (YarnPuzzleControllerObjectTwo != null)
+        {
+            puzzleControllerTwo = YarnPuzzleControllerObjectTwo.GetComponent<YarnPuzzleController>();
+        }
+        if (YarnPuzzleControllerObjectThree != null)
+        {
+            puzzleControllerThree = YarnPuzzleControllerObjectThree.GetComponent<YarnPuzzleController>();
+        }
+
     }
 
     // Start is called before the first frame update
@@ -27,7 +48,7 @@ public class YarnTrail : MonoBehaviour
         thisPosition = transform.position;
         lastPosition = thisPosition;
         //add toggleEmission here to enable yarn trail when player loads into flipped side
-        toggleEmission(); 
+        toggleEmission(false); 
     }
 
     // Update is called once per frame
@@ -45,14 +66,56 @@ public class YarnTrail : MonoBehaviour
         }
     }
 
-    public void toggleEmission()
+    public void toggleEmission(bool cutted)
     {
-        if(isInFlippedWorld()) {
+        ClearYarnTrail();
+        if (isInFlippedWorld()) {
             trailRranderer.enabled = true;
+
+            if (exceptionForPointTwo)
+            {
+                ClearYarnTrail();
+                Debug.Log("Cutted: " + cutted);
+                // puzzle needs to update
+                if (puzzleControllerOne != null && puzzleControllerOne.PuzzleActive() && cutted == true)
+                {
+                    puzzleControllerOne.TrailCutted();
+                }
+                else if (puzzleControllerTwo != null && puzzleControllerTwo.PuzzleActive() && cutted == true)
+                {
+                    puzzleControllerTwo.TrailCutted();
+                }
+                else if (puzzleControllerThree != null && puzzleControllerThree.PuzzleActive() && cutted == true)
+                {
+                    puzzleControllerThree.TrailCutted();
+                }
+            }
         } 
         else {
-            trailRranderer.enabled = false;
-            trailRranderer.Clear();
+            if (exceptionForPointTwo)
+            {
+                trailRranderer.enabled = true;
+            }
+            else
+            {
+                trailRranderer.enabled = false;
+            }
+            
+            ClearYarnTrail();
+            Debug.Log("Cutted: " + cutted);
+            // puzzle needs to update
+            if (puzzleControllerOne != null && puzzleControllerOne.PuzzleActive() && cutted == true)
+            {
+                puzzleControllerOne.TrailCutted();
+            }
+            else if (puzzleControllerTwo != null && puzzleControllerTwo.PuzzleActive() && cutted == true)
+            {
+                puzzleControllerTwo.TrailCutted();
+            }
+            else if (puzzleControllerThree != null && puzzleControllerThree.PuzzleActive() && cutted == true)
+            {
+                puzzleControllerThree.TrailCutted();
+            }
         }
 
         // if (trailRranderer.enabled == false)
@@ -66,6 +129,17 @@ public class YarnTrail : MonoBehaviour
         //     trailRranderer.Clear();
         //     inFlipWorld = false;
         // }
+    }
+
+    public void ClearYarnTrail()
+    {
+        // to clear yarn trail
+        trailRranderer.Clear();
+        // to destroy collider of yarn trail
+        if (trailCollider != null)
+        {
+            trailCollider.ClearColliderPoints();
+        }
     }
 
     private void decreaseYarn()
@@ -82,6 +156,12 @@ public class YarnTrail : MonoBehaviour
             PlayerStats._instance.inFlippedWorld = false; 
         }
         return PlayerStats._instance.inFlippedWorld; 
+    }
+
+    private IEnumerator delayTrailRendering()
+    {
+        yield return new WaitForSeconds(0.1f);
+        trailRranderer.enabled = true;
     }
 
 }

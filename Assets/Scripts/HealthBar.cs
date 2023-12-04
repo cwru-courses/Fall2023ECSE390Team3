@@ -17,6 +17,15 @@ public class HealthBar : MonoBehaviour
         fill.color = gradient.Evaluate(1f); 
     }
 
+    public void Update(){
+        if(slider.value < 50){
+            fill.color = Color.Lerp(gradient.Evaluate(1f), Color.black, Mathf.PingPong(Time.time * 1.5f, 1));
+        }
+        else{
+            fill.color = gradient.Evaluate(1f);
+        }
+    }
+
     public void SetHealth(int health) {
         // if(slider.value <= 0) {
         //     Debug.Log("Player health < 0"); 

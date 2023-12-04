@@ -1,38 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerPickUp : MonoBehaviour
 {
  
-    [SerializeField] private GameObject pickedUpObject;      // made pickedUpObject a serialized field for testing
+    [SerializeField] public GameObject pickedUpObject;  // made pickedUpObject a serialized field for testing
     private float pickUpRadius  = 3.0f;
-    [SerializeField] private LayerMask layerMask; //layer of objects that can be picked up
+    [SerializeField] private LayerMask layerMask;  //layer of objects that can be picked up
+    private Collider2D objInRadius;
 
-    // Start is called before the first frame update
+    [SerializeField] private TextMeshProUGUI PickUpIcon;
+
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        //button is pressed
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (pickedUpObject == null)
-            {
-                PickUp();
+        //array of objects that are in the PickUpable layer within the pickupable radius
+        objInRadius = Physics2D.OverlapCircle(transform.position, pickUpRadius, layerMask);
 
-            }
-            else
-            {
-                PutDown();
-            }  
+        if (pickedUpObject)
+        {
+            PickUpIcon.text = "Press P to put down"; //change P to user input
+        }
+
+        else if (objInRadius)
+        {
+                PickUpIcon.text = "Press P to pick up"; //change P to user input
+        }
+
+        else
+        {
+            PickUpIcon.text = string.Empty;
         }
     }
 
+    public void PickupInputCallback(InputAction.CallbackContext ctx)
+    {
+        if (pickedUpObject == null)
+        {
+            PickUp();
+
+        }
+        else
+        {
+            PutDown();
+        }
+    }
 
     //pick up an object
     void PickUp() {
