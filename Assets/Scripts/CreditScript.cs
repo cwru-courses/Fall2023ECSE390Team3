@@ -13,3 +13,4 @@ public class CreditScript : MonoBehaviour
         creditsPage.SetActive(false);
     }
 }
+
