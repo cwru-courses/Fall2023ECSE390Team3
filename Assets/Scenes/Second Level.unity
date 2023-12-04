@@ -18602,7 +18602,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 446725043018440192, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_Name
-      value: Autosave Box (1)
+      value: BossRoomSave
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_RootOrder
@@ -18610,19 +18610,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.497767
+      value: 13.400583
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8501039
+      value: 1.8867205
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.01
+      value: 1.0583
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 100.01
+      value: 101.2317
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18660,6 +18660,14 @@ PrefabInstance:
       propertyPath: autoSaveText
       value: 
       objectReference: {fileID: 1466142850}
+    - target: {fileID: 446725043018440195, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
+      propertyPath: m_Size.y
+      value: 1.051506
+      objectReference: {fileID: 0}
+    - target: {fileID: 446725043018440195, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.025753021
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
 --- !u!4 &1572449441 stripped
