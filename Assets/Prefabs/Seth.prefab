@@ -52,7 +52,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 60
-  movementSpeed: 1
+  movementSpeed: 20
   healthPotionDroprate: 10
   yarnDroprate: 3
   lootSpawnerPrefab: {fileID: 1184221582864936209, guid: 1f9a2d309853a3c49bab19753539a772, type: 3}
@@ -121,10 +121,11 @@ MonoBehaviour:
   shockwaveRange: 25
   shockwaveSFX: {fileID: 3903300014917163537}
   pullPrefab: {fileID: 2396736385077902489, guid: 9236c0f195074ce469c3125fed5bdea8, type: 3}
-  windUpTimePull: 0
+  windUpTimePull: 0.5
   pullTime: 1
   pullRange: 200
   pullMinDist: 5
+  pullLineMaterial: {fileID: 2100000, guid: 7fca64ad53aa7cf4095697cb3f7bec29, type: 2}
   numProjectiles: 4
   totalProjectileAngle: 120
   numProjectileWaves: 2
@@ -138,13 +139,14 @@ MonoBehaviour:
   - {x: 15, y: 105, z: 0}
   - {x: -10, y: 105, z: 0}
   patrolCD: 0
-  directionDuration: 2
+  directionDuration: 4
   spriteRender: {fileID: 3817086927080096013}
   anim: {fileID: 1369427541896621385}
   colorOnDeath: {r: 0, g: 0, b: 0, a: 0}
   bossHealthbar: {fileID: 9216275367776660877}
   riftPrefab: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
   riftDuration: 5
+  stitchAnimLength: 1
   nextScene: Winscreen
 --- !u!1 &2037033754247527194
 GameObject:

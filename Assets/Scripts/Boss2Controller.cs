@@ -39,6 +39,7 @@ public class Boss2Controller : BaseEnemy
     [SerializeField] private float pullTime;
     [SerializeField] private float pullRange;
     [SerializeField] private float pullMinDist;
+    [SerializeField] private Material pullLineMaterial;
 
     [Header("Projectile Settings")]
     [SerializeField] private int numProjectiles;
@@ -65,6 +66,7 @@ public class Boss2Controller : BaseEnemy
     [SerializeField] private GameObject bossHealthbar;
     [SerializeField] private GameObject riftPrefab;
     [SerializeField] private float riftDuration;
+    [SerializeField] private float stitchAnimLength;
     [Header("Scene Load Settings")]
     [SerializeField] private string nextScene;
 
@@ -108,7 +110,7 @@ public class Boss2Controller : BaseEnemy
         pullLine = pathRenderObj.GetComponent<LineRenderer>();
         pullLine.startWidth = 0.1f;
         pullLine.endWidth = 0.1f;
-        pullLine.material = new Material(Shader.Find("Sprites/Default"));
+        pullLine.material = pullLineMaterial;
         pullLine.startColor = Color.white;
         pullLine.endColor = Color.white;
 
@@ -207,7 +209,7 @@ public class Boss2Controller : BaseEnemy
                     targetDist = targetTransform.position - transform.position;
                     float[] inverseAngles = new float[movementDirections.Length];
                     float sumInverseAngles = 0;
-                    float normalizingConst = 90;
+                    float normalizingConst = 10;
                     for (int i = 0; i < movementDirections.Length; i++)
                     {
                         inverseAngles[i] = 1 / (normalizingConst + Mathf.Abs(Vector3.Angle(targetDist, movementDirections[i])));
@@ -221,12 +223,14 @@ public class Boss2Controller : BaseEnemy
                         {
                             currMovementDirection = movementDirections[i];
                             print("new Movement Direction = "+ currMovementDirection.ToString());
+                            rb2d.velocity = currMovementDirection.normalized * movementSpeed * movementSpeedModifier;
                             break;
                         }
                         currMin += inverseAngles[i];
                     }
                 }
-                rb2d.velocity = currMovementDirection.normalized * movementSpeed * movementSpeedModifier;
+                
+                
             }
             else
             {
@@ -403,7 +407,7 @@ public class Boss2Controller : BaseEnemy
             
             //spawn a shockwave
             GameObject shockwaveObject = Instantiate<GameObject>(shockwavePrefab);
-            shockwaveObject.transform.parent = transform;
+            //shockwaveObject.transform.parent = transform;
             shockwaveObject.transform.position = transform.position;
 
             Shockwave sw = shockwaveObject.GetComponent<Shockwave>();
@@ -420,8 +424,10 @@ public class Boss2Controller : BaseEnemy
     {
         print("entered pull attack");
         // insert wind up animation here
-        yield return new WaitForSeconds(windUpTimePull);
+        anim.SetBool("isPulling", true);
 
+        yield return new WaitForSeconds(windUpTimePull);
+        anim.SetBool("isPulling", false);
         //check if player is in range
         Collider2D collider = Physics2D.OverlapCircle(transform.position, pullRange, whatIsTaget);
         if (collider)
@@ -542,13 +548,16 @@ public class Boss2Controller : BaseEnemy
 
     IEnumerator switchRealities()
     {
-        GameObject riftObject = Instantiate<GameObject>(riftPrefab);
+        //GameObject riftObject = Instantiate<GameObject>(riftPrefab);
         Vector3 currPosition = transform.position;
         currPosition.y *= -1;
-        riftObject.transform.position = transform.position;
+        anim.SetBool("isStitching", true);
+        yield return new WaitForSeconds(stitchAnimLength);
+        anim.SetBool("isStitching", false);
+        //riftObject.transform.position = transform.position;
         transform.position = currPosition;
         yield return new WaitForSeconds(riftDuration);
-        Destroy(riftObject);
+        //Destroy(riftObject);
 
     }
 

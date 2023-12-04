@@ -12,6 +12,7 @@ public class Shockwave : MonoBehaviour
     public LayerMask targetLayer;
     private bool hasHitPlayer =false;
     private float radius= 1f;
+    private float initTime;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +20,12 @@ public class Shockwave : MonoBehaviour
     minRadius = 1f;
     maxRadius = 30f;
     hitRadius = 2f;
-    speed = 15f;
+    speed = 20f;
     damage = 20;
     hasHitPlayer = false;
     radius = minRadius;
     targetLayer = 15;
+    initTime = Time.time;
 }
 
     void FixedUpdate()
@@ -34,6 +36,7 @@ public class Shockwave : MonoBehaviour
 
         if (radius > maxRadius)
         {
+            print("Shockwave Duration = " + (Time.time - initTime));
             Destroy(this.gameObject);
         }
     }

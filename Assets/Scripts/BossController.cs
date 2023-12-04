@@ -39,6 +39,7 @@ public class BossController : BaseEnemy
     [SerializeField] private float pullTime;
     [SerializeField] private float pullRange;
     [SerializeField] private float pullMinDist;
+    [SerializeField] private Material pullLineMaterial;
 
     [Header("Patrol Path Settings")]
     [SerializeField] private List<Vector3> patrolPoints;
@@ -50,6 +51,7 @@ public class BossController : BaseEnemy
     [SerializeField] private GameObject bossHealthbar;
     [SerializeField] private GameObject riftPrefab;
     [SerializeField] private float riftDuration;
+    [SerializeField] private float stitchAnimLength;
     [Header("Scene Load Settings")]
     [SerializeField] private string nextScene;
 
@@ -91,7 +93,7 @@ public class BossController : BaseEnemy
         pullLine = pathRenderObj.GetComponent<LineRenderer>();
         pullLine.startWidth = 0.1f;
         pullLine.endWidth = 0.1f;
-        pullLine.material = new Material(Shader.Find("Sprites/Default"));
+        pullLine.material = pullLineMaterial;
         pullLine.startColor = Color.white;
         pullLine.endColor = Color.white;
 
@@ -339,8 +341,9 @@ public class BossController : BaseEnemy
     {
         print("entered pull attack");
         // insert wind up animation here
+        anim.SetBool("isPulling", true);
         yield return new WaitForSeconds(windUpTimePull);
-
+        anim.SetBool("isPulling", false);
         //check if player is in range
         Collider2D collider = Physics2D.OverlapCircle(transform.position, pullRange, whatIsTaget);
         if (collider)
@@ -401,6 +404,9 @@ public class BossController : BaseEnemy
         Vector3 currPosition = transform.position;
         currPosition.y *= -1;
         riftObject.transform.position = transform.position;
+        anim.SetBool("isStitching", true);
+        yield return new WaitForSeconds(stitchAnimLength);
+        anim.SetBool("isStitching", false);
         transform.position = currPosition;
         yield return new WaitForSeconds(riftDuration);
         Destroy(riftObject);
