@@ -67,6 +67,10 @@ public class BossController : BaseEnemy
     private bool fadeOutCompleted = false;
     private GameObject weaponObject;
 
+    //for dialogue onDie
+    public CollisionDialogue collisionDialogue;
+    [SerializeField] GameObject dialogueBox;
+
     public static BossController _instance;
 
     // Start is called before the first frame update
@@ -233,6 +237,10 @@ public class BossController : BaseEnemy
                 alive = false;
                 StopAllCoroutines();
                 StartCoroutine(Die());
+                if(collisionDialogue != null) {
+                    dialogueBox.SetActive(true); 
+                    collisionDialogue.StartRunning(dialogueBox); 
+                }
                 StartCoroutine(FadeOutPlayer());
             }
             else

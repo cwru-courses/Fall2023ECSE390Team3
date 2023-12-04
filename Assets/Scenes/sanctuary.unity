@@ -3490,13 +3490,14 @@ MonoBehaviour:
   audioSource: {fileID: 1323550293}
   textComponent: {fileID: 1597180645}
   lines:
-  - Welcome to the Sanctuary. It's time to show off your skills!
-  - 'You cannot stitch here, so "Q" has been disabled. '
-  - 'Remember: use the mouse''s left click to attack, and ''Shift'' to dash.'
+  - Now that we're in the sanctuary, you'll want to try out some new tricks to stop
+    this amalgamation for good...
   - '''E'' activates a temporary shield.'
   - Shield slows you down, so be careful using it.
   - And holding right click activates a lasso that stuns your enemies.
   - To use lasso, draw around the enemy and press.
+  - 'Remember: use the mouse''s left click to attack, and ''Shift'' to dash.'
+  - 'You cannot stitch here, so "Q" has been disabled. '
   - If you're confused on any of the commands, use the Escape button to open the
     menu and check the controls.
   isRunning: 0
