@@ -17430,6 +17430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Autosave Box (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 446725043018440192, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -17448,7 +17452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -33.44
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20340,6 +20344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Autosave Box (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 446725043018440192, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -20358,7 +20366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.59
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.z
