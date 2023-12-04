@@ -3703,6 +3703,9 @@ MonoBehaviour:
   trackB: {fileID: 0}
   trig: {fileID: 777061483}
   theAS: {fileID: 1580157305}
+  dialogueBox: {fileID: 0}
+  collisionDialogue: {fileID: 0}
+  runDialogue: 0
   boss: 0
   cam: {fileID: 0}
   roomCenterPosition: {x: 0, y: 0, z: 0}
@@ -6938,6 +6941,9 @@ MonoBehaviour:
   trackB: {fileID: 0}
   trig: {fileID: 777061483}
   theAS: {fileID: 1580157305}
+  dialogueBox: {fileID: 0}
+  collisionDialogue: {fileID: 0}
+  runDialogue: 0
   boss: 1
   cam: {fileID: 0}
   roomCenterPosition: {x: -57, y: 23, z: 0}

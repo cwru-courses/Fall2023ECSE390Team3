@@ -1087,7 +1087,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1971678642}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &210692978
 MonoBehaviour:
@@ -2469,7 +2469,6 @@ GameObject:
   - component: {fileID: 649834706}
   - component: {fileID: 649834705}
   - component: {fileID: 649834704}
-  - component: {fileID: 649834703}
   - component: {fileID: 649834707}
   m_Layer: 25
   m_Name: FirstRoom_AltReality
@@ -2493,26 +2492,6 @@ Transform:
   m_Father: {fileID: 1971678642}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &649834703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649834701}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
-  audioSource: {fileID: 1439242920}
-  textComponent: {fileID: 778277135}
-  lines:
-  - You successfully stitched!
-  - Be careful, if you run out of yarn in this world, you won't be able to move.
-  - But don't worry! You can always stitch back to our world and recover!
-  isRunning: 0
 --- !u!114 &649834704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2621,7 +2600,7 @@ MonoBehaviour:
   audioSource: {fileID: 1439242920}
   textComponent: {fileID: 778277135}
   lines:
-  - You successfully stitched!
+  - We seem to have stiched into a parallel world...
   - This icon shows you how much time you have to wait until your next stitch.
   - Be careful, if you run out of yarn in this world, you won't be able to move.
   - But don't worry! You can always stitch back to our world and recover!
@@ -7548,153 +7527,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 887, y: 525.5343}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1351886409
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1351886410}
-  - component: {fileID: 1351886414}
-  - component: {fileID: 1351886413}
-  - component: {fileID: 1351886412}
-  - component: {fileID: 1351886411}
-  m_Layer: 25
-  m_Name: Hallway_BossFight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1351886410
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351886409}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.21751, y: 1.67557, z: 0}
-  m_LocalScale: {x: 0.10197363, y: 2.9284265, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1971678642}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1351886411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351886409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbaffb67b13dd4ad19ae7189e63886fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueTypingSoundClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
-  audioSource: {fileID: 1439242920}
-  textComponent: {fileID: 778277135}
-  lines:
-  - Good job! But don't be so relieved yet.
-  - I can sense an even stronger presence in the next room...
-  - Stay on guard, be careful!
-  isRunning: 0
---- !u!114 &1351886412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351886409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c02b06651b82b403cb58047eedd0d5df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionDialogue: {fileID: 1351886411}
-  dialogueBox: {fileID: 356551478}
---- !u!61 &1351886413
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351886409}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &1351886414
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351886409}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1414980228
 GameObject:
   m_ObjectHideFlags: 0
@@ -8192,12 +8024,9 @@ MonoBehaviour:
   audioSource: {fileID: 1439242920}
   textComponent: {fileID: 778277135}
   lines:
-  - I haven't seen the menders anywhere... Maybe we should look around and see what
-    we find.
+  - I haven't seen the weavers anywhere... what happened here?
   - Use WASD to move around and SHIFT to dash.
-  - Dashing makes you temporarily invincible.
-  - There appears to be a rift in the center of the room, connecting us to a parallel
-    world.
+  - There appears to be a portal or... rift? in the center of the room
   - If you get confused or want to save the game, use "Escape" to open up the Pause
     Menu.
   - Good luck!
@@ -9308,7 +9137,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1971678642}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1693841233
 MonoBehaviour:
@@ -9572,7 +9401,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1971678642}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1864018299
 MonoBehaviour:
@@ -9982,7 +9811,6 @@ Transform:
   - {fileID: 649834702}
   - {fileID: 800406266}
   - {fileID: 1343117490}
-  - {fileID: 1351886410}
   - {fileID: 210692977}
   - {fileID: 1693841232}
   - {fileID: 1864018298}
