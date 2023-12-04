@@ -12,6 +12,10 @@ public class MusicSwitchTrigger : MonoBehaviour
     [SerializeField] private Collider2D trig;
     [SerializeField] private AmbientSystem theAS;
 
+    [SerializeField] private GameObject dialogueBox;
+    public CollisionDialogue collisionDialogue;
+    public bool runDialogue;
+
     [SerializeField] private bool boss = false;
     [SerializeField] private CameraControl cam;
     [SerializeField] public Vector3 roomCenterPosition;    
@@ -37,6 +41,11 @@ public class MusicSwitchTrigger : MonoBehaviour
                 if(boss)
                 {
                     cam.SwitchToBossRoom(roomCenterPosition);
+                    if(runDialogue){
+                        dialogueBox.SetActive(true);
+                        collisionDialogue.StartRunning(dialogueBox);
+                        runDialogue = false;
+                    }
                 }
             }
             
