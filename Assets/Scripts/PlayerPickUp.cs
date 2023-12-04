@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerPickUp : MonoBehaviour
 {
  
-    [SerializeField] private GameObject pickedUpObject;  // made pickedUpObject a serialized field for testing
+    [SerializeField] public GameObject pickedUpObject;  // made pickedUpObject a serialized field for testing
     private float pickUpRadius  = 3.0f;
     [SerializeField] private LayerMask layerMask;  //layer of objects that can be picked up
     private Collider2D objInRadius;
