@@ -20280,7 +20280,7 @@ MonoBehaviour:
   needToStartYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 418447033}
-  isFirstPoint: 1
+  isFirstPoint: 0
 --- !u!1 &1814979186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -21855,7 +21855,7 @@ MonoBehaviour:
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 418447033}
-  isFirstPoint: 1
+  isFirstPoint: 0
 --- !u!1001 &2109499630
 PrefabInstance:
   m_ObjectHideFlags: 0
