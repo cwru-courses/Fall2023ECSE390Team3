@@ -8,8 +8,9 @@ public class RockPortal : MonoBehaviour {
     private SpriteRenderer rockSR;
 
     private float startTime;
-    private bool fadingIn = false;
-    private bool fadingOut = false;
+    [SerializeField] private float timeToFade;  // was lifetime in other script
+    [SerializeField] private bool fadingIn = false;
+    [SerializeField] private bool fadingOut = false;
 
 
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class RockPortal : MonoBehaviour {
     
     // Start CallRockFade coroutine
     public void CallRockFade() {
+        Debug.Log("Called Rock Fade");
         StartCoroutine(RockFade());
     }
 
@@ -42,8 +44,6 @@ public class RockPortal : MonoBehaviour {
     }
 
 
-    [SerializeField] private float timeToFade;  // was lifetime in other script
-
     private IEnumerator RockFade() {
         startTime = Time.time;
         fadingOut = true;
@@ -51,11 +51,12 @@ public class RockPortal : MonoBehaviour {
         fadingOut = false;
 
         // other delay if need be
+        yield return new WaitForSeconds(1.0f);
 
         startTime = Time.time;
         fadingIn = true;
         yield return new WaitForSeconds(timeToFade);
-        fadingOut = false;
+        fadingIn = false;
     }
 
 
