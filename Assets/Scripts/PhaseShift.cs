@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class PhaseShift : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class PhaseShift : MonoBehaviour
     [SerializeField] private GameObject FirstRift; 
     [SerializeField] private FirstPhaseShift firstPhaseShift;
     [SerializeField] private TextMeshProUGUI PickUpIcon;
+    private PlayerPickUp playerPickUp;
+
+    private GameObject rock;
+    private RockPortal rockPortal;
 
     private bool firstRiftDone = false; 
     private bool inFirstRift = false; 
@@ -58,6 +63,14 @@ public class PhaseShift : MonoBehaviour
         if(string.Compare(SceneManager.GetActiveScene().name, "Tutorial Level") != 0) {
             firstRiftDone = true; 
         }
+
+        playerPickUp = GetComponent<PlayerPickUp>();
+
+        // Get reference to rockPortal script if rock exists (i.e. in tutorial level)
+        rock = GameObject.Find("Stone");
+        if (rock != null) {
+            rockPortal = rock.GetComponent<RockPortal>();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -84,6 +97,12 @@ public class PhaseShift : MonoBehaviour
 
     public void StartPhaseShift(InputAction.CallbackContext ctx)
     {
+
+        // If holding rock when phase shift, call rock fade method
+        if ((playerPickUp.pickedUpObject != null) && (playerPickUp.pickedUpObject.tag == "Stone"))
+            rockPortal.CallRockFade();
+
+
         if(inFirstRift){
             if (shiftCDTimer <= 0 && precastingTimer <= 0) {
                 StartCoroutine("PhaseShiftPrecast");
