@@ -16,6 +16,8 @@ public class InputRebind : MonoBehaviour
 
     private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
 
+    private string boundKey;
+
     private void Awake()
     {
         bindBtnText = GetComponent<TMP_Text>();
@@ -57,17 +59,27 @@ public class InputRebind : MonoBehaviour
             rebindingOperation = rebindingOperation
                 .OnCancel(operation => OnRebindCompletion())
                 .OnComplete(operation => OnRebindCompletion())
+                .OnApplyBinding((operation, path) => boundKey = InputControlPath.ToHumanReadableString(path)) // Store the bound key
                 .Start();
         }
     }
 
     private void OnRebindCompletion()
     {
-        bindBtnText.text = InputControlPath.ToHumanReadableString(actionRef.action.bindings[0].effectivePath);
+        // bindBtnText.text = InputControlPath.ToHumanReadableString(actionRef.action.bindings[0].effectivePath);
+        bindBtnText.text = GetBoundKey();
 
         rebindingOperation?.Dispose();
 
         PlayerStats._instance.playerInput.SwitchCurrentActionMap("Player");
         PlayerMovement._instance.OnPause(false);
+    }
+
+    public string GetBoundKey()
+    {
+        if (boundKey != null)
+            return boundKey;
+        else
+            return "P";
     }
 }

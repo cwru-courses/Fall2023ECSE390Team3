@@ -5262,6 +5262,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 67108864
   PickUpIcon: {fileID: 889620932}
+  inputRebind: {fileID: 1169807768}
 --- !u!82 &777061488
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5954,7 +5955,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -5983,7 +5984,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -179.76794, w: 0}
+  m_margin: {x: -298.39404, y: 0, z: -179.76794, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6608,6 +6609,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1169807768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7202103683633299987, guid: 931e70fd79cba4a9f889316b5a1146d1, type: 3}
+  m_PrefabInstance: {fileID: 107048328637089428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d851ef58129ec498e1d90796cc66a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1169968110
 PrefabInstance:
   m_ObjectHideFlags: 0
