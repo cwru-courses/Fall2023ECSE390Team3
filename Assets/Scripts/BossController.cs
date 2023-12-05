@@ -67,6 +67,10 @@ public class BossController : BaseEnemy
     private bool fadeOutCompleted = false;
     private GameObject weaponObject;
 
+    //for dialogue onDie
+    public CollisionDialogue collisionDialogue;
+    [SerializeField] GameObject dialogueBox;
+
     public static BossController _instance;
 
     // Start is called before the first frame update
@@ -233,7 +237,13 @@ public class BossController : BaseEnemy
                 alive = false;
                 StopAllCoroutines();
                 StartCoroutine(Die());
-                StartCoroutine(FadeOutPlayer());
+                if(collisionDialogue != null && SceneManager.GetActiveScene().name != "sanctuary") {
+                    dialogueBox.SetActive(true); 
+                    collisionDialogue.StartRunning(dialogueBox); 
+                }
+                if(SceneManager.GetActiveScene().name == "sanctuary"){
+                    StartCoroutine(FadeOutPlayer());
+                }
             }
             else
             {
@@ -420,10 +430,11 @@ public class BossController : BaseEnemy
         spriteRender.color = Color.white;
     }
 
-    private IEnumerator FadeOutPlayer()
+    public IEnumerator FadeOutPlayer()
     {
-        yield return new WaitForSeconds(0.5f);
-        yield return StartCoroutine(PlayerStats._instance.FadeOutOverTime(2f, nextScene));
+        TimeManager._instance.OnDialog(true);
+        yield return new WaitForSecondsRealtime(0.5f);
+        yield return StartCoroutine(PlayerStats._instance.FadeOutOverTime(1f, nextScene));
         fadeOutCompleted = true;
         yield return null;
     }

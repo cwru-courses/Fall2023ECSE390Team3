@@ -3450,8 +3450,11 @@ GameObject:
   - component: {fileID: 649834702}
   - component: {fileID: 649834706}
   - component: {fileID: 649834705}
+  - component: {fileID: 649834709}
   - component: {fileID: 649834704}
   - component: {fileID: 649834703}
+  - component: {fileID: 649834708}
+  - component: {fileID: 649834707}
   m_Layer: 25
   m_Name: FirstRoom
   m_TagString: Untagged
@@ -3490,13 +3493,14 @@ MonoBehaviour:
   audioSource: {fileID: 1323550293}
   textComponent: {fileID: 1597180645}
   lines:
-  - Welcome to the Sanctuary. It's time to show off your skills!
-  - 'You cannot stitch here, so "Q" has been disabled. '
-  - 'Remember: use the mouse''s left click to attack, and ''Shift'' to dash.'
+  - Now that we're in the sanctuary, you'll want to try out some new tricks to stop
+    this amalgamation for good...
   - '''E'' activates a temporary shield.'
   - Shield slows you down, so be careful using it.
   - And holding right click activates a lasso that stuns your enemies.
   - To use lasso, draw around the enemy and press.
+  - 'Remember: use the mouse''s left click to attack, and ''Shift'' to dash.'
+  - 'You cannot stitch here, so "Q" has been disabled. '
   - If you're confused on any of the commands, use the Escape button to open the
     menu and check the controls.
   isRunning: 0
@@ -3527,7 +3531,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2948806, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3538,7 +3542,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.4102388, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &649834706
 SpriteRenderer:
@@ -3592,6 +3596,84 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &649834707
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649834701}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04796253, y: -0.38198695}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.27168077, y: 0.23602611}
+  m_EdgeRadius: 0
+--- !u!61 &649834708
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649834701}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04796235, y: 0.323757}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.27168116, y: 0.352486}
+  m_EdgeRadius: 0
+--- !u!61 &649834709
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649834701}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.34284294, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.31431413, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &655870977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,6 +3784,9 @@ MonoBehaviour:
   trackB: {fileID: 0}
   trig: {fileID: 777061483}
   theAS: {fileID: 1580157305}
+  dialogueBox: {fileID: 0}
+  collisionDialogue: {fileID: 0}
+  runDialogue: 0
   boss: 0
   cam: {fileID: 0}
   roomCenterPosition: {x: 0, y: 0, z: 0}
@@ -6937,6 +7022,9 @@ MonoBehaviour:
   trackB: {fileID: 0}
   trig: {fileID: 777061483}
   theAS: {fileID: 1580157305}
+  dialogueBox: {fileID: 0}
+  collisionDialogue: {fileID: 0}
+  runDialogue: 0
   boss: 1
   cam: {fileID: 0}
   roomCenterPosition: {x: -57, y: 23, z: 0}
