@@ -16,4 +16,8 @@ public class GameOverScreen : MonoBehaviour
         Debug.Log("Player Has Quit The Game");
     }
 
+    public void GoToLoadScreen() {
+        SceneManager.LoadSceneAsync("Home_screen_scene");
+    }
+
 }
