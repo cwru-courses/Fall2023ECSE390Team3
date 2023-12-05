@@ -429,6 +429,7 @@ public class BossController : BaseEnemy
 
     public IEnumerator FadeOutPlayer()
     {
+        Time.timeScale = 1f;
         yield return new WaitForSeconds(0.5f);
         yield return StartCoroutine(PlayerStats._instance.FadeOutOverTime(2f, nextScene));
         fadeOutCompleted = true;
