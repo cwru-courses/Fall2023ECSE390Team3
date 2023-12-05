@@ -237,11 +237,11 @@ public class BossController : BaseEnemy
                 alive = false;
                 StopAllCoroutines();
                 StartCoroutine(Die());
-                if(collisionDialogue != null) {
+                if(collisionDialogue != null && SceneManager.GetActiveScene().name != "sanctuary") {
                     dialogueBox.SetActive(true); 
                     collisionDialogue.StartRunning(dialogueBox); 
                 }
-                else{
+                if(SceneManager.GetActiveScene().name == "sanctuary"){
                     StartCoroutine(FadeOutPlayer());
                 }
             }
