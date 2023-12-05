@@ -241,6 +241,9 @@ public class BossController : BaseEnemy
                     dialogueBox.SetActive(true); 
                     collisionDialogue.StartRunning(dialogueBox); 
                 }
+                else{
+                    StartCoroutine(FadeOutPlayer());
+                }
             }
             else
             {
