@@ -302,7 +302,7 @@ public class PlayerStats : MonoBehaviour
             spRender.material.color = newColor;
 
             elapsedTime += Time.deltaTime;
-            yield return null; 
+            yield return null;
         }
 
         // Make sure the object is completely hidden when the fade is complete
@@ -310,6 +310,7 @@ public class PlayerStats : MonoBehaviour
 
         fadingOut = false;
         SceneManager.LoadScene(nextScene);
+        yield return null;
     }
 
 }

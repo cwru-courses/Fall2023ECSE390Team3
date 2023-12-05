@@ -1109,6 +1109,7 @@ MonoBehaviour:
   - Try stitching on it and following the pattern to see what happens.
   - But be careful! Remember that enemies can cut your yarn and transport you back.
   - If they cut your yarn, you'll probably have to start over, so be wary.
+  isEndOfTutorial: 0
   isRunning: 0
 --- !u!114 &210692979
 MonoBehaviour:
@@ -2604,6 +2605,7 @@ MonoBehaviour:
   - This icon shows you how much time you have to wait until your next stitch.
   - Be careful, if you run out of yarn in this world, you won't be able to move.
   - But don't worry! You can always stitch back to our world and recover!
+  isEndOfTutorial: 0
   isRunning: 0
   health_arrow: {fileID: 0}
   yarn_arrow: {fileID: 0}
@@ -5438,6 +5440,7 @@ MonoBehaviour:
   - Try picking up the rock using 'P' and seeing if that's useful.
   - And remember, if you run out of yarn, you won't be able to move. You can stitch
     back to earn more.
+  isEndOfTutorial: 0
   isRunning: 0
 --- !u!114 &800406268
 MonoBehaviour:
@@ -7396,6 +7399,7 @@ MonoBehaviour:
   - When you attack, you are also using up yarn, so keep track of how much you spend.
   - Enemies can slice through your yarn trail and send you back.
   - If you're running low on health, press 'F' to drink a potion and recover.
+  isEndOfTutorial: 0
   isRunning: 0
 --- !u!114 &1343117492
 MonoBehaviour:
@@ -7912,6 +7916,7 @@ MonoBehaviour:
   - If you get confused or want to save the game, use "Escape" to open up the Pause
     Menu.
   - Good luck!
+  isEndOfTutorial: 0
   isRunning: 0
   health_arrow: {fileID: 1531982105}
   yarn_arrow: {fileID: 83439540}
@@ -8030,6 +8035,7 @@ MonoBehaviour:
   - If you get confused or want to save the game, use "Escape" to open up the Pause
     Menu.
   - Good luck!
+  isEndOfTutorial: 0
   isRunning: 0
 --- !u!114 &1469000091 stripped
 MonoBehaviour:
@@ -8435,6 +8441,7 @@ MonoBehaviour:
   - 'Look! It seems as if the different yarn animals combined to form one big...
     yarn monster? '
   - Be careful, who knows what abilities this amalgamation has...
+  isEndOfTutorial: 0
   isRunning: 0
 --- !u!61 &1567637561
 BoxCollider2D:
@@ -9157,6 +9164,7 @@ MonoBehaviour:
   lines:
   - Nice! Now let's find other points and stitch them as well, maybe it'll unlock
     something...
+  isEndOfTutorial: 0
   isRunning: 0
 --- !u!61 &1693841234
 BoxCollider2D:
@@ -9422,6 +9430,7 @@ MonoBehaviour:
   - The amalgamation managed to escape to a sanctuary in the distance, but it is
     weak...
   - Let's go follow it, so we can end it's terror once and for all.
+  isEndOfTutorial: 1
   isRunning: 0
 --- !u!114 &1864018300
 MonoBehaviour:

@@ -241,7 +241,6 @@ public class BossController : BaseEnemy
                     dialogueBox.SetActive(true); 
                     collisionDialogue.StartRunning(dialogueBox); 
                 }
-                StartCoroutine(FadeOutPlayer());
             }
             else
             {
@@ -428,7 +427,7 @@ public class BossController : BaseEnemy
         spriteRender.color = Color.white;
     }
 
-    private IEnumerator FadeOutPlayer()
+    public IEnumerator FadeOutPlayer()
     {
         yield return new WaitForSeconds(0.5f);
         yield return StartCoroutine(PlayerStats._instance.FadeOutOverTime(2f, nextScene));

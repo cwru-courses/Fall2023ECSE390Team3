@@ -13,6 +13,7 @@ public class CollisionDialogue : MonoBehaviour
     protected float textSpeed;
     protected int index;
     private DefaultInputAction playerInputAction;
+    public bool isEndOfTutorial;
 
 
     public bool isRunning = false;
@@ -76,6 +77,9 @@ public class CollisionDialogue : MonoBehaviour
         isRunning = false;
         dialogueBox.SetActive(false);
         TimeManager._instance.OnDialog(false);
+        if(isEndOfTutorial){
+            StartCoroutine(BossController._instance.FadeOutPlayer());
+        }
     }
 
     void NextLine()
