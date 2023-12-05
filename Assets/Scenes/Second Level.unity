@@ -996,7 +996,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 99831232}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &99831232
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8560,7 +8560,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 283494856}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &283494856
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19378,7 +19378,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 1576607574}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &1576607574
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20514,7 +20514,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 1691568816}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &1691568816
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22173,7 +22173,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 2046264407}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &2046264407
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23177,7 +23177,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 2140392005}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &2140392005
 AudioSource:
   m_ObjectHideFlags: 0
