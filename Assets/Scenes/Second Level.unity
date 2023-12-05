@@ -750,8 +750,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 595611152}
   puzzleControllerObject: {fileID: 597979101}
   lineControllerObject: {fileID: 0}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
@@ -1852,8 +1852,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1831676548}
   puzzleControllerObject: {fileID: 228035190}
   lineControllerObject: {fileID: 0}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
@@ -9379,8 +9379,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 2127777180}
   lineControllerObject: {fileID: 556962621}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
@@ -11200,8 +11200,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1655147662}
   puzzleControllerObject: {fileID: 597979101}
   lineControllerObject: {fileID: 501322256}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
@@ -12272,8 +12272,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 228035190}
   lineControllerObject: {fileID: 925689742}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
@@ -13124,6 +13124,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 67108864
   PickUpIcon: {fileID: 242101617}
+  inputRebind: {fileID: 0}
 --- !u!82 &777061488
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15756,8 +15757,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 370308663}
   puzzleControllerObject: {fileID: 2127777180}
   lineControllerObject: {fileID: 2127843023}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
@@ -16708,8 +16709,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 597979101}
   lineControllerObject: {fileID: 471117829}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
@@ -20193,8 +20194,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1210136802}
   puzzleControllerObject: {fileID: 597979101}
   lineControllerObject: {fileID: 1926567745}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
@@ -21072,8 +21073,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1111714419}
   puzzleControllerObject: {fileID: 2127777180}
   lineControllerObject: {fileID: 1234649044}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 418447033}
@@ -21210,8 +21211,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1966204987}
   puzzleControllerObject: {fileID: 228035190}
   lineControllerObject: {fileID: 1226161261}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
@@ -21854,8 +21855,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 705056833}
   puzzleControllerObject: {fileID: 228035190}
   lineControllerObject: {fileID: 376041936}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
@@ -22727,8 +22728,8 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1798023226}
   puzzleControllerObject: {fileID: 2127777180}
   lineControllerObject: {fileID: 0}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 418447033}
