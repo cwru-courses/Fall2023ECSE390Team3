@@ -13,7 +13,7 @@ public class PlayerPickUp : MonoBehaviour
     private Collider2D objInRadius;
 
     [SerializeField] private TextMeshProUGUI PickUpIcon;
-    [SerializeField] private InputRebind inputRebind;
+    [SerializeField] private InputRebind inputRebindPickUp;
 
     void Start()
     {
@@ -27,12 +27,28 @@ public class PlayerPickUp : MonoBehaviour
 
         if (pickedUpObject)
         {
-            PickUpIcon.text = "Press " + inputRebind.GetBoundKey() + " to put down";
+            if (inputRebindPickUp.GetBoundKey() != null)
+            {
+                PickUpIcon.text = "Press " + inputRebindPickUp.GetBoundKey() + " to put down";
+            }
+            else
+            {
+                PickUpIcon.text = "Press P to put down";
+            }
+                
         }
 
         else if (objInRadius)
         {
-            PickUpIcon.text = "Press " + inputRebind.GetBoundKey() + " to pick up";
+            if (inputRebindPickUp.GetBoundKey() != null)
+            {
+                PickUpIcon.text = "Press " + inputRebindPickUp.GetBoundKey() + " to pick up";
+            }
+            else
+            {
+                PickUpIcon.text = "Press P to pick up";
+            }
+               
         }
 
         else

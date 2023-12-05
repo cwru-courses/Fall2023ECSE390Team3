@@ -48,8 +48,7 @@ public class InputRebind : MonoBehaviour
                 .WithControlsExcluding("<keyboard>/upArrow")
                 .WithControlsExcluding("<keyboard>/downArrow")
                 .WithControlsExcluding("<keyboard>/leftArrow")
-                .WithControlsExcluding("<keyboard>/rightArrow")
-                .WithControlsExcluding("<keyboard>/anyKey");
+                .WithControlsExcluding("<keyboard>/rightArrow");
 
             foreach (InputAction action in allInputs.actionMaps[0].actions)
             {
@@ -59,15 +58,16 @@ public class InputRebind : MonoBehaviour
             rebindingOperation = rebindingOperation
                 .OnCancel(operation => OnRebindCompletion())
                 .OnComplete(operation => OnRebindCompletion())
-                .OnApplyBinding((operation, path) => boundKey = InputControlPath.ToHumanReadableString(path)) // Store the bound key
+                //.OnApplyBinding((operation, path) => { boundKey = InputControlPath.ToHumanReadableString(path); }) // Store the bound key
                 .Start();
         }
     }
 
     private void OnRebindCompletion()
     {
-        // bindBtnText.text = InputControlPath.ToHumanReadableString(actionRef.action.bindings[0].effectivePath);
-        bindBtnText.text = GetBoundKey();
+        bindBtnText.text = InputControlPath.ToHumanReadableString(actionRef.action.bindings[0].effectivePath);
+        boundKey = InputControlPath.ToHumanReadableString(actionRef.action.bindings[0].effectivePath);
+        //bindBtnText.text = GetBoundKey();
 
         rebindingOperation?.Dispose();
 
@@ -77,9 +77,6 @@ public class InputRebind : MonoBehaviour
 
     public string GetBoundKey()
     {
-        if (boundKey != null)
-            return boundKey;
-        else
-            return "P";
+        return boundKey;
     }
 }
