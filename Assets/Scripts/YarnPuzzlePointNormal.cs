@@ -9,6 +9,7 @@ public class YarnPuzzlePointNormal : MonoBehaviour
     [SerializeField] private GameObject nextNextPoint;
     [SerializeField] private GameObject puzzleControllerObject;
     [SerializeField] private GameObject lineControllerObject;
+    [SerializeField] private AudioSource canBeTriggeredSFX;
     [SerializeField] private AudioSource activateSFX;
     [SerializeField] private AudioSource deactivateSFX;
     [SerializeField] private bool needToEndYarnTrailInNormalWorld = false;
@@ -20,6 +21,9 @@ public class YarnPuzzlePointNormal : MonoBehaviour
     private YarnLineController lineController;
     public bool isFirstPoint;
     private bool firstTimeTrigger = true;
+    private GameObject playerFoot;
+    private bool triggerable = false;
+    public Gradient gradient;
 
     /*
      * stage = 0: this point untriggered
@@ -47,8 +51,14 @@ public class YarnPuzzlePointNormal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // get child
+        Transform childTransform = transform.Find("Blue Beacon");
         // get SpriteRenderer component
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = childTransform.GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            print("can't find sprite renderer");
+        }
         if (puzzleControllerObject != null)
         {
             puzzleController = puzzleControllerObject.GetComponent<YarnPuzzleController>();
@@ -57,8 +67,8 @@ public class YarnPuzzlePointNormal : MonoBehaviour
         {
             lineController = lineControllerObject.GetComponent<YarnLineController>();
         }
-        
 
+        playerFoot = GameObject.FindGameObjectWithTag("PlayerFoot");
     }
 
     // Update is called once per frame
@@ -71,6 +81,41 @@ public class YarnPuzzlePointNormal : MonoBehaviour
         else if (stage == 1 && childAnimator.GetBool("Shining") != false)
         {
             childAnimator.SetBool("Shining", false);
+        }
+
+        if (stage == 0)
+        {
+            Vector3 targetPosition = playerFoot.transform.position;
+            Vector3 myPosition = transform.position;
+            // only calculate distance on x and y
+            float distanceX = Mathf.Abs(targetPosition.x - myPosition.x);
+            float distanceY = Mathf.Abs(targetPosition.y - myPosition.y);
+            float distance = Mathf.Sqrt(distanceX * distanceX + distanceY * distanceY);
+            print("distance: " + distance);
+            if (!triggerable && distance <= 0.45f)
+            {
+                if (canBeTriggeredSFX != null)
+                {
+                    canBeTriggeredSFX.Play();
+                }
+                triggerable = true;
+            }
+            else if (distance <= 0.45f)
+            {
+                spriteRenderer.color = Color.Lerp(gradient.Evaluate(1f), Color.black, Mathf.PingPong(Time.time * 1.5f, 1));
+            }
+            else if (triggerable && distance > 0.45f)
+            {
+                triggerable = false;
+            }
+            else if (distance > 0.45f)
+            {
+                spriteRenderer.color = gradient.Evaluate(1f);
+            }
+        }
+        else if (stage == 1 && spriteRenderer.color != gradient.Evaluate(1f))
+        {
+            spriteRenderer.color = gradient.Evaluate(1f);
         }
     }
 
