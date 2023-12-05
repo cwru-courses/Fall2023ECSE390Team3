@@ -301,7 +301,7 @@ public class PlayerStats : MonoBehaviour
             Color newColor = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
             spRender.material.color = newColor;
 
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
             yield return null;
         }
 
