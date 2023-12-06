@@ -91,7 +91,6 @@ public class YarnPuzzlePointNormal : MonoBehaviour
             float distanceX = Mathf.Abs(targetPosition.x - myPosition.x);
             float distanceY = Mathf.Abs(targetPosition.y - myPosition.y);
             float distance = Mathf.Sqrt(distanceX * distanceX + distanceY * distanceY);
-            print("distance: " + distance);
             if (!triggerable && distance <= 0.45f)
             {
                 if (canBeTriggeredSFX != null)

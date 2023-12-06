@@ -17,6 +17,7 @@ public class TrainingBotController : BaseEnemy
     [SerializeField] private SpriteRenderer spriteRender;
     [SerializeField] protected Animator anim;
     [SerializeField] private Color colorOnDeath;
+    [SerializeField] private AudioSource yarnCuttingSFX;
 
     private float lastAttackTime;
     private int patrolTargetIndex;
@@ -116,6 +117,10 @@ public class TrainingBotController : BaseEnemy
             if (health == 0)
             {
                 alive = false;
+                if (yarnCuttingSFX.isPlaying)
+                {
+                    yarnCuttingSFX.Pause();
+                }
                 StopAllCoroutines();
                 StartCoroutine(Die());
             }
@@ -176,14 +181,35 @@ public class TrainingBotController : BaseEnemy
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("YarnTrail") && cuttingYarn)
+        {
+            print("pushed away");
+            cuttingYarn = false;
+            StopCoroutine(CutTrail());
+            if (yarnCuttingSFX.isPlaying)
+            {
+                yarnCuttingSFX.Stop();
+            }
+        }
+    }
+
     private IEnumerator CutTrail()
     {
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(Attack());
-        yield return new WaitForSeconds(0.2f);
-        Debug.Log("enemy cutted yarn trail");
-        YarnTrail._instance.ClearYarnTrail();
-        PhaseShift._instance.StartPhaseShiftByEnemy();
-        cuttingYarn = false;
+        if (yarnCuttingSFX)
+        {
+            yarnCuttingSFX.Play();
+        }
+        yield return new WaitForSeconds(2f);
+        if (cuttingYarn)
+        {
+            StartCoroutine(Attack());
+            yield return new WaitForSeconds(0.2f);
+            Debug.Log("enemy cutted yarn trail");
+            YarnTrail._instance.ClearYarnTrail();
+            PhaseShift._instance.StartPhaseShiftByEnemy();
+            cuttingYarn = false;
+        }
     }
 }
