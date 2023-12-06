@@ -3503,6 +3503,7 @@ MonoBehaviour:
   - 'You cannot stitch here, so "Q" has been disabled. '
   - If you're confused on any of the commands, use the Escape button to open the
     menu and check the controls.
+  isEndOfTutorial: 0
   isRunning: 0
 --- !u!114 &649834704
 MonoBehaviour:
@@ -4021,6 +4022,8 @@ MonoBehaviour:
   FirstRift: {fileID: 0}
   firstPhaseShift: {fileID: 0}
   PickUpIcon: {fileID: 0}
+  stitchInSFX: {fileID: 0}
+  stitchOutSFX: {fileID: 0}
 --- !u!114 &777061479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4313,7 +4316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 5595849266403112404, guid: e524f34e49daed242867f5c1954f2610, type: 3}
   stunMeshPrefab: {fileID: 3963732116267324356, guid: efd0d9714c076fd45bece886f8b43f53, type: 3}
-  stitchingSFX: {fileID: 314075408}
+  stunningSFX: {fileID: 0}
   lineMaterial: {fileID: 0}
   pathRender: {fileID: 0}
   abilitiesUnlocked: 1
@@ -4334,6 +4337,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 67108864
   PickUpIcon: {fileID: 151444612}
+  inputRebindPickUp: {fileID: 0}
 --- !u!82 &777061488
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7444,7 +7448,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
