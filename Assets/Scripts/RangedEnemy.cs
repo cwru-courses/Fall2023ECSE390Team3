@@ -39,7 +39,9 @@ public class RangedEnemy : TrainingBotController
             //print("needle instantiated");
             //creates object to be rotated
             weaponObject = Instantiate(weaponPrefab) as GameObject;
-            weaponObject.transform.position = transform.position;
+            Vector3 weaponPosition = transform.position;
+            weaponPosition.z = -1;
+            weaponObject.transform.position = weaponPosition;
 
             //rotate weapon to be towards the player
             Vector3 rot = weaponObject.transform.rotation.eulerAngles;
