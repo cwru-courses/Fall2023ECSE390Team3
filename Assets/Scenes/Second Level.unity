@@ -17960,11 +17960,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.18
+      value: 22.07
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -32.24
+      value: -30.86
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19892,19 +19892,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.400583
+      value: 43.077286
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8867205
+      value: 1.2936957
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.65
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 101.05
+      value: 105.5825
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19944,7 +19944,7 @@ PrefabInstance:
       objectReference: {fileID: 1466142850}
     - target: {fileID: 446725043018440195, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_Size.x
-      value: 1.0365224
+      value: 1.1508316
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440195, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_Size.y
@@ -19952,7 +19952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440195, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_Offset.x
-      value: 0.018261254
+      value: 0.023232043
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440195, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_Offset.y
@@ -20799,8 +20799,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628276597}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.02, y: 9.49, z: 0}
-  m_LocalScale: {x: 1.3124965, y: 1.5018839, z: 1}
+  m_LocalPosition: {x: -0.93119, y: 8.792, z: 0}
+  m_LocalScale: {x: 1.7795545, y: 0.15785515, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1971678642}
@@ -20855,7 +20855,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05878043, y: 0.17050673}
+  m_Offset: {x: -0.0018508434, y: -0.2944908}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -20866,7 +20866,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3613906, y: 1.1650457}
+  m_Size: {x: 1.0013828, y: 1.1649857}
   m_EdgeRadius: 0
 --- !u!212 &1628276603
 SpriteRenderer:
@@ -21027,19 +21027,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.497767
+      value: 20.78996
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8501039
+      value: 0.8496657
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.97
+      value: 1.3031
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -97.96
+      value: -98.9298
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21690,11 +21690,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.19
+      value: 22.17
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.22
+      value: 35.57
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21733,12 +21733,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1466142850}
     - target: {fileID: 446725043018440195, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1169837
+      objectReference: {fileID: 0}
+    - target: {fileID: 446725043018440195, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_Size.y
-      value: 1.4655263
+      value: 1.1306763
+      objectReference: {fileID: 0}
+    - target: {fileID: 446725043018440195, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.058491826
       objectReference: {fileID: 0}
     - target: {fileID: 446725043018440195, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
       propertyPath: m_Offset.y
-      value: 1.7562922
+      value: 0.2122612
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
