@@ -7,9 +7,11 @@ public class PressurePlate : MonoBehaviour {
     [SerializeField] private GameObject chestToUnlock;
     [SerializeField] private GameObject tilemapToDisable;
     [SerializeField] private Vector3 tilemapPosition;   // Set in inspector
+    [SerializeField] private AudioSource pressurePlateSFX; 
 
     private bool chestUnlocked = false;
     private bool tilemapDisabled = false;
+    private bool sfxPlayed = false; 
 
     [SerializeField] private Camera mainCamera;
 
@@ -30,6 +32,11 @@ public class PressurePlate : MonoBehaviour {
 
             // If distance is less than some value, pressure plate triggered
             if (distance < 1.5f) {
+                //start sound effect and make sure only played 
+                if(pressurePlateSFX && !sfxPlayed) {
+                    pressurePlateSFX.Play(); 
+                    sfxPlayed = true; 
+                }
 
                 // If there is a chest to unlock, do so
                 if ((chestToUnlock != null) & (chestUnlocked == false)) {
@@ -72,11 +79,11 @@ public class PressurePlate : MonoBehaviour {
 
 
     // TEST
-    void OnCollisionStay2D(Collision2D collision) {
-        if (collision.gameObject.tag == "Stone") {
-            Debug.Log("Colliding with stone");
-        }
-    }
+    // void OnCollisionStay2D(Collision2D collision) {
+    //     if (collision.gameObject.tag == "Stone") {
+    //         Debug.Log("Colliding with stone");
+    //     }
+    // }
 
 
 }

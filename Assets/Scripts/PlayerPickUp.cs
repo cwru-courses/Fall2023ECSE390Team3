@@ -15,6 +15,9 @@ public class PlayerPickUp : MonoBehaviour
     [SerializeField] private TextMeshProUGUI PickUpIcon;
     [SerializeField] private InputRebind inputRebindPickUp;
 
+    [SerializeField] private AudioSource pickUpSFX; 
+    [SerializeField] private AudioSource putDownSFX; 
+
     void Start()
     {
     }
@@ -77,6 +80,10 @@ public class PlayerPickUp : MonoBehaviour
 
         //if the object exists
         if (objInRadius != null) {
+            if(pickUpSFX) {
+                pickUpSFX.Play(); 
+            }
+
             // Don't pick up a pressure plate
             if (objInRadius.gameObject.tag == "PressurePlate")
                 return;
@@ -102,11 +109,13 @@ public class PlayerPickUp : MonoBehaviour
         }
     }
 
-
     //drop an object
     void PutDown() {
         // If an object has been picked up
         if (pickedUpObject != null) {
+            if(putDownSFX) {
+                putDownSFX.Play(); 
+            }
 
             // Store another reference to object
             GameObject objectToPutDown = pickedUpObject;
