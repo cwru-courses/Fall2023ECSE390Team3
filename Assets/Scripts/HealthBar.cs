@@ -9,6 +9,7 @@ public class HealthBar : MonoBehaviour
     public Slider slider; 
     public Gradient gradient; 
     public Image fill;  
+    public Image border; 
 
     public void SetMaxHealth(int health) {
         slider.maxValue = health; 
@@ -23,6 +24,10 @@ public class HealthBar : MonoBehaviour
         }
         else{
             fill.color = gradient.Evaluate(1f);
+        }
+
+        if(slider.value == 0 && border) {
+            border.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time * 2f, 1));
         }
     }
 
