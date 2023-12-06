@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 15948763}
   m_Layer: 15
   m_Name: foor-for-trail
-  m_TagString: Untagged
+  m_TagString: PlayerFoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -750,12 +750,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 595611152}
   puzzleControllerObject: {fileID: 597979101}
   lineControllerObject: {fileID: 0}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &49627488 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -996,7 +1026,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 99831232}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &99831232
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1852,12 +1882,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1831676548}
   puzzleControllerObject: {fileID: 228035190}
   lineControllerObject: {fileID: 0}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &166389960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -2196,12 +2256,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 2127777180}
   lineControllerObject: {fileID: 1234649044}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &202314505
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3102,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7722399699606748170, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722399699606748170, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[2].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
@@ -3121,7 +3215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7722399699606748170, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[30].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 7722399699606748170, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[31].second.m_AnimationSpeed
@@ -3185,7 +3279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[3].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[4].second.m_AnimationSpeed
@@ -3357,7 +3451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[46].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[47].second.m_AnimationSpeed
@@ -3469,7 +3563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[74].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[75].second.m_AnimationSpeed
@@ -3565,6 +3659,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[99].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[101].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
@@ -3700,6 +3798,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[136].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[137].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
@@ -3753,7 +3855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[150].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[151].second.m_AnimationSpeed
@@ -3869,7 +3971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[179].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[180].second.m_AnimationSpeed
@@ -3961,7 +4063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[203].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[204].second.m_AnimationSpeed
@@ -4013,7 +4115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[216].second.m_AnimationSpeed
-      value: 5.0000005
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[217].second.m_AnimationSpeed
@@ -4172,6 +4274,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[256].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[257].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
@@ -4185,6 +4291,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[262].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[263].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
@@ -4293,7 +4403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[290].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[291].second.m_AnimationSpeed
@@ -4318,6 +4428,10 @@ PrefabInstance:
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[296].second.m_AnimationSpeed
       value: 5.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[297].second.m_AnimationSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[298].second.m_AnimationSpeed
@@ -4488,6 +4602,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[340].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[341].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
@@ -4593,7 +4711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[367].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[368].second.m_AnimationSpeed
@@ -4857,7 +4975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[434].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[435].second.m_AnimationSpeed
@@ -4889,6 +5007,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[442].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[443].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
@@ -4945,6 +5067,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[457].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[458].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
@@ -5045,7 +5171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[484].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[485].second.m_AnimationSpeed
@@ -5061,7 +5187,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[488].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[489].second.m_AnimationSpeed
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[489].second.m_AnimationSpeed
@@ -5105,7 +5235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[500].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[501].second.m_AnimationSpeed
@@ -5297,7 +5427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[550].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[551].second.m_AnimationSpeed
@@ -5460,6 +5590,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[591].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[592].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
@@ -5493,7 +5627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[600].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[601].second.m_AnimationSpeed
@@ -5661,7 +5795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[645].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[646].second.m_AnimationSpeed
@@ -5789,7 +5923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[678].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[679].second.m_AnimationSpeed
@@ -5877,7 +6011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[700].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[701].second.m_AnimationSpeed
@@ -5917,7 +6051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[711].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[712].second.m_AnimationSpeed
@@ -5998,6 +6132,10 @@ PrefabInstance:
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[733].second.m_AnimationSpeed
       value: 5.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[734].second.m_AnimationSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[734].second.m_AnimationSpeed
@@ -6085,7 +6223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[757].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[758].second.m_AnimationSpeed
@@ -6117,7 +6255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[765].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[766].second.m_AnimationSpeed
@@ -6213,7 +6351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[790].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[791].second.m_AnimationSpeed
@@ -6653,7 +6791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[902].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8406341054997158498, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[903].second.m_AnimationSpeed
@@ -8592,7 +8730,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 283494856}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &283494856
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8711,12 +8849,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 0}
   lineControllerObject: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &283966989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -8744,12 +8912,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 228035190}
   lineControllerObject: {fileID: 1226161261}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &295950521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -9411,12 +9609,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 2127777180}
   lineControllerObject: {fileID: 556962621}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &376041936
 GameObject:
   m_ObjectHideFlags: 0
@@ -11232,12 +11460,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1655147662}
   puzzleControllerObject: {fileID: 597979101}
   lineControllerObject: {fileID: 501322256}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &595611155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -11991,12 +12249,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 0}
   lineControllerObject: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &683897748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -12304,12 +12592,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 228035190}
   lineControllerObject: {fileID: 925689742}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &715416421 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 986031642315237854, guid: 5a00960f283e44040984961cae812dc4, type: 3}
@@ -12831,6 +13149,8 @@ MonoBehaviour:
   FirstRift: {fileID: 0}
   firstPhaseShift: {fileID: 0}
   PickUpIcon: {fileID: 0}
+  stitchInSFX: {fileID: 1050982549}
+  stitchOutSFX: {fileID: 1754647465}
 --- !u!114 &777061479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13135,7 +13455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 5595849266403112404, guid: e524f34e49daed242867f5c1954f2610, type: 3}
   stunMeshPrefab: {fileID: 3963732116267324356, guid: efd0d9714c076fd45bece886f8b43f53, type: 3}
-  stitchingSFX: {fileID: 202314507}
+  stunningSFX: {fileID: 0}
   lineMaterial: {fileID: 0}
   pathRender: {fileID: 0}
   abilitiesUnlocked: 1
@@ -15159,12 +15479,170 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 2127777180}
   lineControllerObject: {fileID: 1234649044}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+--- !u!1 &1050982547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1050982548}
+  - component: {fileID: 1050982549}
+  m_Layer: 15
+  m_Name: stitchInSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1050982548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050982547}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -68.8, y: -13.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864705273}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1050982549
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050982547}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 679f2030c513b4bd49c47ff82b2bf376, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 3
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &1056072026 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7383010088575490683, guid: 7d29cc80042d90e41b3b1c9bc73051ff, type: 3}
@@ -15689,7 +16167,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3cc1f3855cf0e41a5979f87ebef0d0d5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -15801,12 +16279,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 370308663}
   puzzleControllerObject: {fileID: 2127777180}
   lineControllerObject: {fileID: 2127843023}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1001 &1118354717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16753,12 +17261,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 597979101}
   lineControllerObject: {fileID: 471117829}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &1223262369
 GameObject:
   m_ObjectHideFlags: 0
@@ -18816,6 +19354,134 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 15, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1539102420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1539102422}
+  - component: {fileID: 1539102421}
+  m_Layer: 15
+  m_Name: point_nearbySFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1539102421
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539102420}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+  m_audioClip: {fileID: 8300000, guid: d4d4e1a8a71de4ea89b90b41f27f3c2e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1539102422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539102420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864705273}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1549921473
 GameObject:
   m_ObjectHideFlags: 0
@@ -18966,12 +19632,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 597979101}
   lineControllerObject: {fileID: 501322256}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &1550345637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -19092,7 +19788,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 4.903435, y: 2.1629572}
@@ -19423,7 +20119,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 1576607574}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &1576607574
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20045,12 +20741,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 0}
   lineControllerObject: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &1628276597
 GameObject:
   m_ObjectHideFlags: 0
@@ -20238,12 +20964,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1210136802}
   puzzleControllerObject: {fileID: 597979101}
   lineControllerObject: {fileID: 1926567745}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &1655147665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -20559,7 +21315,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 1691568816}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &1691568816
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20765,12 +21521,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 0}
   lineControllerObject: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &1717497196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -20967,6 +21753,134 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 446725043018440193, guid: 70e9b67f6275645d589259e0a7c5fbf1, type: 3}
   m_PrefabInstance: {fileID: 1732770047}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1754647463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1754647464}
+  - component: {fileID: 1754647465}
+  m_Layer: 15
+  m_Name: stitchOutSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1754647464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754647463}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -68.8, y: -13.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864705273}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1754647465
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754647463}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 93745d0e4b5c4416e8e9c7410895c57a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1792106135
 GameObject:
   m_ObjectHideFlags: 0
@@ -21117,12 +22031,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1111714419}
   puzzleControllerObject: {fileID: 2127777180}
   lineControllerObject: {fileID: 1234649044}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 418447033}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &1814979186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2292118118136746774, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -21150,12 +22094,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 0}
   lineControllerObject: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1001 &1819461997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21255,12 +22229,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1966204987}
   puzzleControllerObject: {fileID: 228035190}
   lineControllerObject: {fileID: 1226161261}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToStartYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &1831676551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -21305,6 +22309,9 @@ Transform:
   - {fileID: 142633875}
   - {fileID: 735684438}
   - {fileID: 1482234556}
+  - {fileID: 1050982548}
+  - {fileID: 1754647464}
+  - {fileID: 1539102422}
   m_Father: {fileID: 777061484}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21728,12 +22735,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 597979101}
   lineControllerObject: {fileID: 501322256}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &1942479351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -21761,12 +22798,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 228035190}
   lineControllerObject: {fileID: 1226161261}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToStartYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &1944106677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -21899,12 +22966,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 705056833}
   puzzleControllerObject: {fileID: 228035190}
   lineControllerObject: {fileID: 376041936}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 1
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &1966204990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -22218,7 +23315,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 2046264407}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &2046264407
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22596,12 +23693,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 0}
   puzzleControllerObject: {fileID: 0}
   lineControllerObject: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 0}
   activateSFX: {fileID: 0}
   deactivateSFX: {fileID: 0}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 0}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &2081011696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2292118118136746792, guid: 15c8c355da4762e42b66db20624c46a0, type: 3}
@@ -22772,12 +23899,42 @@ MonoBehaviour:
   nextNextPoint: {fileID: 1798023226}
   puzzleControllerObject: {fileID: 2127777180}
   lineControllerObject: {fileID: 0}
-  activateSFX: {fileID: 0}
-  deactivateSFX: {fileID: 0}
+  canBeTriggeredSFX: {fileID: 1539102421}
+  activateSFX: {fileID: 142633876}
+  deactivateSFX: {fileID: 735684437}
   needToEndYarnTrailInNormalWorld: 0
   collisionDialogue: {fileID: 0}
   dialogueBox: {fileID: 418447033}
   isFirstPoint: 0
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1001 &2109499630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23222,7 +24379,7 @@ MonoBehaviour:
   yarnDroprate: 3
   audSource: {fileID: 2140392005}
   mainCamera: {fileID: 0}
-  playerCanOpen: 0
+  playerCanOpen: 1
 --- !u!82 &2140392005
 AudioSource:
   m_ObjectHideFlags: 0

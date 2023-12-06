@@ -18,7 +18,7 @@ public class PlayerAbilities : MonoBehaviour
     private const float blockYarnPerSecond = 30f;
 
     [SerializeField] GameObject stunMeshPrefab;
-    [SerializeField] AudioSource stitchingSFX;
+    [SerializeField] AudioSource stunningSFX;
     [SerializeField] Material lineMaterial;
     private const float stunCD = 0f;
     private const float stunDuration = 3f;
@@ -209,9 +209,9 @@ public class PlayerAbilities : MonoBehaviour
         {
             PlayerMovement._instance.MultiplySpeed(1f/1.5f);
             PlayerStats._instance.usingAbilities = false;
-            if (stitchingSFX)
+            if (stunningSFX)
             {
-                stitchingSFX.Stop();
+                stunningSFX.Stop();
             }
             //print("stun cast finished");
             stunCasting = false;
@@ -232,9 +232,9 @@ public class PlayerAbilities : MonoBehaviour
             pathRender.enabled = true;
             pathRender.Clear();
             PlayerStats._instance.usingAbilities = true;
-            if (stitchingSFX)
+            if (stunningSFX)
             {
-                stitchingSFX.Play();
+                stunningSFX.Play();
             }
             //print("stun cast started");
             stunCulledPath.Add(transform.position);
