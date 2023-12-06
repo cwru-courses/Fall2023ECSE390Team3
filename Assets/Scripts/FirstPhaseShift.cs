@@ -15,6 +15,8 @@ public class FirstPhaseShift : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI shiftText;
 
+    [SerializeField] private InputRebind inputRebindShift;
+
     bool collided = false; 
 
     void Start()
@@ -28,8 +30,15 @@ public class FirstPhaseShift : MonoBehaviour
 
   public void OnTriggerEnter2D(Collider2D other){
     if ((layerMask.value & (1 << other.transform.gameObject.layer)) > 0) {
-        Debug.Log("Hit with Layermask");
-        shiftText.text = "Press Q to Interact"; //change P to user input
+        if (inputRebindShift.GetBoundKey() != null)
+        { 
+            shiftText.text = "Press " + inputRebindShift.GetBoundKey() + " to Interact";
+        }
+        else
+            {
+                shiftText.text = "Press Q to Interact";
+            }
+            
     }
   }
 

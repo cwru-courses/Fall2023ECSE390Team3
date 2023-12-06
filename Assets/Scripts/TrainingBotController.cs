@@ -104,6 +104,10 @@ public class TrainingBotController : BaseEnemy
             rb2d.velocity = new Vector2(0f, 0f);
         }
 
+        if(health < maxHealth){
+            spriteRender.color = Color.Lerp(Color.white, Color.grey, Mathf.PingPong(Time.time * 2f, 1f));
+        }
+
     }
 
     public override void ReactToHit(int damage)
@@ -113,7 +117,9 @@ public class TrainingBotController : BaseEnemy
             health = Mathf.Max(health - damage, 0);
             takeDamageSFX.Play();
 
-            spriteRender.color = Color.Lerp(Color.white, colorOnDeath, health / (float)maxHealth);
+            //changing color moves to FixedUpdate() script
+            // spriteRender.color = Color.Lerp(Color.white, colorOnDeath, health / (float)maxHealth);
+            // spriteRender.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time * 1.5f, 1f));
             if (health == 0)
             {
                 alive = false;

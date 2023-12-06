@@ -21,6 +21,10 @@ public class PhaseShift : MonoBehaviour
     [SerializeField] private GameObject FirstRift; 
     [SerializeField] private FirstPhaseShift firstPhaseShift;
     [SerializeField] private TextMeshProUGUI PickUpIcon;
+    [SerializeField] private AudioSource stitchInSFX;
+    [SerializeField] private AudioSource stitchOutSFX;
+
+
     private PlayerPickUp playerPickUp;
 
     // rockPortal script of rock
@@ -259,6 +263,9 @@ public class PhaseShift : MonoBehaviour
         if ((playerPickUp.pickedUpObject != null) && (playerPickUp.pickedUpObject.tag == "Stone"))
             rockPortal.CallRockFade();
 
+        if(stitchInSFX) {
+            stitchInSFX.Play();
+        }
         anim.Play("Stitch_In_Player");
         PlayerMovement._instance.OnPause(true);
         PlayerAttack._instance.EnableAttack(false);
@@ -287,6 +294,9 @@ public class PhaseShift : MonoBehaviour
                     riftObject.transform.position = transform.position;
                     riftObject.transform.rotation = Quaternion.Euler(0, 0, 90f); 
                     riftObject.transform.position = new Vector3(riftObject.transform.position.x, riftObject.transform.position.y-1, riftObject.transform.position.z);
+                }
+                if(stitchOutSFX) {
+                    stitchOutSFX.Play();
                 }
                 anim.Play("Stitch_Out_Player");
             }
