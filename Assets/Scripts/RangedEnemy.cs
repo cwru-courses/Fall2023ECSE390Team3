@@ -45,16 +45,17 @@ public class RangedEnemy : TrainingBotController
             Vector3 rot = weaponObject.transform.rotation.eulerAngles;
 
             // division of basicAttackRange is to keep two numbers below 1 to avoid an error message saying Assertion failed on expression
-            float xDirection = (PlayerStats._instance.transform.position.x - transform.position.x) / attackRadius;
-            float yDirection = (PlayerStats._instance.transform.position.y - transform.position.y) / attackRadius;
+            float xDirection = (PlayerStats._instance.transform.position.x - transform.position.x) ;
+            float yDirection = (PlayerStats._instance.transform.position.y - transform.position.y) ;
             //Debug.Log("xDirection: " + xDirection + "; yDirection: " + yDirection);
             Vector2 moveDir = new Vector2(xDirection, yDirection);
+            moveDir = moveDir.normalized;
             rot.z = Mathf.Acos(Vector2.Dot(Vector2.up, moveDir)) * Mathf.Rad2Deg;
             if (moveDir.x > 0) { rot.z *= -1f; }
             weaponObject.transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
 
             Projectile projectile = weaponObject.GetComponent<Projectile>();
-            projectile.direction = targetTransform.position - transform.position;
+            projectile.direction = moveDir;
             projectile.damage = attackDamage;
             projectile.attackLayer = 15;
         }
