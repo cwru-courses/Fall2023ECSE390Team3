@@ -30,6 +30,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private SpriteRenderer spRender;
     [SerializeField] private AudioSource hitSFX;
     [SerializeField] private AudioSource potionSFX;
+    [SerializeField] private AudioSource noYarnSFX; 
 
     [Min(0f)]
     [SerializeField] private float iFrameTime;
@@ -156,6 +157,8 @@ public class PlayerStats : MonoBehaviour
             yarncooldown = 0;
             this.GainYarn(yarnGainPerSecond*Time.deltaTime);
         }
+
+        
     }
 
     private void FixedUpdate()
@@ -196,9 +199,10 @@ public class PlayerStats : MonoBehaviour
     //decrease yarn count
     public void UseYarn(float amount)
     {
-        if (currentYarnCount < 0)
+        if (currentYarnCount <= 0 && noYarnSFX)
         {
             UnityEngine.Debug.Log("player out of yarn");
+            noYarnSFX.Play(); 
         }
         else
         {
