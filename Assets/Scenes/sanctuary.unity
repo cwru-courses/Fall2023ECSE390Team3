@@ -1782,7 +1782,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f6fdd33f3b8364a6abb4cc85833a1aa3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 50626d1364ddd4e81a302f3b6cb57c10, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4323,7 +4323,7 @@ MonoBehaviour:
   anim: {fileID: 1613083874}
   audSource: {fileID: 777061488}
   dashSFX: {fileID: 221664098}
-  dashClip: {fileID: 8300000, guid: f6fdd33f3b8364a6abb4cc85833a1aa3, type: 3}
+  dashClip: {fileID: 8300000, guid: 50626d1364ddd4e81a302f3b6cb57c10, type: 3}
 --- !u!114 &777061481
 MonoBehaviour:
   m_ObjectHideFlags: 0
