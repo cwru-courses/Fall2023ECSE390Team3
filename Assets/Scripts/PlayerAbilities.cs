@@ -36,6 +36,7 @@ public class PlayerAbilities : MonoBehaviour
 
     public bool abilitiesUnlocked = true;
 
+    [SerializeField] AudioSource shieldSFX; 
 
 
     void Awake()
@@ -165,6 +166,9 @@ public class PlayerAbilities : MonoBehaviour
         print(ctx.phase);
         if ((Time.time - lastBlockAbilityTime > blockCD)&& abilitiesUnlocked)
         { 
+            if(shieldSFX) {
+                shieldSFX.Play();
+            }
             block();
         }
 
