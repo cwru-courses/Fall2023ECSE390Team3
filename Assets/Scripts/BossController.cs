@@ -40,6 +40,7 @@ public class BossController : BaseEnemy
     [SerializeField] private float pullRange;
     [SerializeField] private float pullMinDist;
     [SerializeField] private Material pullLineMaterial;
+    [SerializeField] private AudioSource pullSFX;
 
     [Header("Patrol Path Settings")]
     [SerializeField] private List<Vector3> patrolPoints;
@@ -388,6 +389,7 @@ public class BossController : BaseEnemy
     {
         print("PULLING TARGET");
         pullingPlayer = true;
+        pullSFX.Play();
 
         Collider2D collider = Physics2D.OverlapCircle(transform.position, pullRange, whatIsTaget);
         //indicate player is being pulled 

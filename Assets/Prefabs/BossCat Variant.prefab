@@ -212,6 +212,7 @@ MonoBehaviour:
   pullRange: 20
   pullMinDist: 5
   pullLineMaterial: {fileID: 2100000, guid: 7fca64ad53aa7cf4095697cb3f7bec29, type: 2}
+  pullSFX: {fileID: 5574361755884011723}
   patrolPoints:
   - {x: -45, y: 28, z: 0}
   - {x: -45, y: 18, z: 0}
@@ -231,6 +232,11 @@ MonoBehaviour:
 --- !u!95 &2538120770463943114 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 914507645937525119, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+  m_PrefabInstance: {fileID: 3425494114399381685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5574361755884011723 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7121827929881454718, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
   m_PrefabInstance: {fileID: 3425494114399381685}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5755268139540252942 stripped

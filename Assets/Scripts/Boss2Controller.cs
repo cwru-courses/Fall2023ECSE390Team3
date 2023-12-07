@@ -40,6 +40,7 @@ public class Boss2Controller : BaseEnemy
     [SerializeField] private float pullRange;
     [SerializeField] private float pullMinDist;
     [SerializeField] private Material pullLineMaterial;
+    [SerializeField] private AudioSource pullSFX;
 
     [Header("Projectile Settings")]
     [SerializeField] private int numProjectiles;
@@ -426,6 +427,7 @@ public class Boss2Controller : BaseEnemy
         print("entered pull attack");
         // insert wind up animation here
         anim.SetBool("isPulling", true);
+        pullSFX.Play();
 
         yield return new WaitForSeconds(windUpTimePull);
         anim.SetBool("isPulling", false);

@@ -5690,6 +5690,8 @@ MonoBehaviour:
   lineMaterial: {fileID: 0}
   pathRender: {fileID: 0}
   abilitiesUnlocked: 0
+  shieldSFX: {fileID: 0}
+  lassoSFX: {fileID: 0}
 --- !u!114 &777061487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10434,6 +10436,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 8669275297473937144, guid: aebaa3198eff44857b1c7a743ef3f6ae, type: 2}
+    - target: {fileID: 5574361755884011723, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6549625757946496461, guid: df1882ad92ad02247ba9ab9f43aefd68, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
