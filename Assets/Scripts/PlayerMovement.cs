@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashCD;
     [SerializeField] private Animator anim;
     [SerializeField] public AudioSource audSource;
+    [SerializeField] private AudioSource dashSFX;
+    [SerializeField] private AudioClip dashClip;
+
 
 
     private DefaultInputAction playerInputAction;
@@ -137,7 +140,8 @@ public class PlayerMovement : MonoBehaviour
             dashTimer += Time.fixedDeltaTime;
 
             if (dashTimer > dashDuration)
-            {
+            {       
+                dashSFX.PlayOneShot(dashClip, 1f);
                 onDash = false;
                 PlayerStats._instance.blocking = false; ;
             }

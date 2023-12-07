@@ -40,6 +40,7 @@ public class BossController : BaseEnemy
     [SerializeField] private float pullRange;
     [SerializeField] private float pullMinDist;
     [SerializeField] private Material pullLineMaterial;
+    [SerializeField] private AudioSource pullSFX;
 
     [Header("Patrol Path Settings")]
     [SerializeField] private List<Vector3> patrolPoints;
@@ -52,6 +53,7 @@ public class BossController : BaseEnemy
     [SerializeField] private GameObject riftPrefab;
     [SerializeField] private float riftDuration;
     [SerializeField] private float stitchAnimLength;
+    [SerializeField] private AudioSource stitchInSFX;
     [Header("Scene Load Settings")]
     [SerializeField] private string nextScene;
 
@@ -387,6 +389,7 @@ public class BossController : BaseEnemy
     {
         print("PULLING TARGET");
         pullingPlayer = true;
+        pullSFX.Play();
 
         Collider2D collider = Physics2D.OverlapCircle(transform.position, pullRange, whatIsTaget);
         //indicate player is being pulled 
@@ -414,6 +417,7 @@ public class BossController : BaseEnemy
         Vector3 currPosition = transform.position;
         currPosition.y *= -1;
         riftObject.transform.position = transform.position;
+        stitchInSFX.Play();
         anim.SetBool("isStitching", true);
         yield return new WaitForSeconds(stitchAnimLength);
         anim.SetBool("isStitching", false);

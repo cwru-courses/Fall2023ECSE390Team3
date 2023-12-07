@@ -36,6 +36,8 @@ public class PlayerAbilities : MonoBehaviour
 
     public bool abilitiesUnlocked = true;
 
+    [SerializeField] AudioSource shieldSFX; 
+    [SerializeField] AudioSource lassoSFX; 
 
 
     void Awake()
@@ -165,6 +167,9 @@ public class PlayerAbilities : MonoBehaviour
         print(ctx.phase);
         if ((Time.time - lastBlockAbilityTime > blockCD)&& abilitiesUnlocked)
         { 
+            if(shieldSFX) {
+                shieldSFX.Play();
+            }
             block();
         }
 
@@ -175,6 +180,9 @@ public class PlayerAbilities : MonoBehaviour
         if ( (Time.time - lastStunAbilityTime > stunCD || stunCasting) && ctx.started && abilitiesUnlocked)
         {
             lastStunAbilityTime = Time.time;
+            if(lassoSFX) {
+                lassoSFX.Play(); 
+            }
             StartCoroutine(stun());
         }
     }

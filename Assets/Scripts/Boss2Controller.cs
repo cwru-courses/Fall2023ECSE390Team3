@@ -40,6 +40,7 @@ public class Boss2Controller : BaseEnemy
     [SerializeField] private float pullRange;
     [SerializeField] private float pullMinDist;
     [SerializeField] private Material pullLineMaterial;
+    [SerializeField] private AudioSource pullSFX;
 
     [Header("Projectile Settings")]
     [SerializeField] private int numProjectiles;
@@ -67,6 +68,7 @@ public class Boss2Controller : BaseEnemy
     [SerializeField] private GameObject riftPrefab;
     [SerializeField] private float riftDuration;
     [SerializeField] private float stitchAnimLength;
+    [SerializeField] private AudioSource stitchInSFX;
     [Header("Scene Load Settings")]
     [SerializeField] private string nextScene;
 
@@ -425,6 +427,7 @@ public class Boss2Controller : BaseEnemy
         print("entered pull attack");
         // insert wind up animation here
         anim.SetBool("isPulling", true);
+        pullSFX.Play();
 
         yield return new WaitForSeconds(windUpTimePull);
         anim.SetBool("isPulling", false);
@@ -552,6 +555,7 @@ public class Boss2Controller : BaseEnemy
         //GameObject riftObject = Instantiate<GameObject>(riftPrefab);
         Vector3 currPosition = transform.position;
         currPosition.y *= -1;
+        stitchInSFX.Play();
         anim.SetBool("isStitching", true);
         yield return new WaitForSeconds(stitchAnimLength);
         anim.SetBool("isStitching", false);
