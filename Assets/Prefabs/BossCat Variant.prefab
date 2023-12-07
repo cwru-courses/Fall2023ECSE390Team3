@@ -182,9 +182,10 @@ MonoBehaviour:
   whatIsTaget:
     serializedVersion: 2
     m_Bits: 32768
-  postDeathEntityPrefab: {fileID: 7421353321530949981, guid: 97cabb4461e102848b609066a6ff623e, type: 3}
+  postDeathEntityPrefabs: []
   smokeCloudPrefab: {fileID: 8833367170629691028, guid: fd834c91294804d48b3d9dff73ac1a50, type: 3}
   deathAnimLength: 0
+  numPostDeathEntities: 0
   pullAttackRadius: 20
   pullAttackProjectileSpeed: 1
   pullAttackProjectileDamage: 0
@@ -223,7 +224,10 @@ MonoBehaviour:
   riftPrefab: {fileID: 3769559209809433106, guid: cce8d44877a74134ea940b7ae0ba6edf, type: 3}
   riftDuration: 1
   stitchAnimLength: 0.5
+  stitchInSFX: {fileID: 8570150473636586976}
   nextScene: 
+  collisionDialogue: {fileID: 0}
+  dialogueBox: {fileID: 0}
 --- !u!95 &2538120770463943114 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 914507645937525119, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
@@ -237,5 +241,10 @@ GameObject:
 --- !u!82 &6713173958685484542 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8259655157771308363, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
+  m_PrefabInstance: {fileID: 3425494114399381685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &8570150473636586976 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6441984534177533269, guid: 4db4fdf5b0da90944bd41358bdfb5b20, type: 3}
   m_PrefabInstance: {fileID: 3425494114399381685}
   m_PrefabAsset: {fileID: 0}

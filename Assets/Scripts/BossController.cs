@@ -52,6 +52,7 @@ public class BossController : BaseEnemy
     [SerializeField] private GameObject riftPrefab;
     [SerializeField] private float riftDuration;
     [SerializeField] private float stitchAnimLength;
+    [SerializeField] private AudioSource stitchInSFX;
     [Header("Scene Load Settings")]
     [SerializeField] private string nextScene;
 
@@ -414,6 +415,7 @@ public class BossController : BaseEnemy
         Vector3 currPosition = transform.position;
         currPosition.y *= -1;
         riftObject.transform.position = transform.position;
+        stitchInSFX.Play();
         anim.SetBool("isStitching", true);
         yield return new WaitForSeconds(stitchAnimLength);
         anim.SetBool("isStitching", false);
